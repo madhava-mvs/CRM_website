@@ -1,0 +1,18 @@
+.AddLead_content {
+  display: flex;
+  flex-direction: row;
+}
+.AddLead_content_right {
+  width: 97%;
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.AddLead_content_right_inside{
+    border: 1px solid lightgray;
+
+}
+.AddLead_content_right_inside_form {
+  padding: 20px;
+}

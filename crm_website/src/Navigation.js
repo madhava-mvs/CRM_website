@@ -1,13 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import LoginPage from './pages/Login'
 
 export default function Navigation() {
   return (
     <div>
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login/>}></Route>
+        <Route path='/' element={<LoginPage/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
