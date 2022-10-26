@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddLead.css";
-import Form from "./components/form";
+import Form from "./components/Form";
 // import HeadBar from "./components/headbar";
 import Topbar from "./components/headbar1";
 import LeftBar from "./components/leftbar";
