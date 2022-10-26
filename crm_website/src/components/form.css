@@ -1,0 +1,44 @@
+
+
+  .form_outer {
+    background-color: #f3f3f4;
+    padding: 10px;
+    padding-left: 20px;
+
+  }
+  .form_outer label {
+    font-size: 11px;
+    color: rgba(125, 143, 177, 1);
+  }
+  .form_inner1 {
+    padding: 5px 0px;
+    padding-left: 10px;
+
+  }
+  .form_rectangle {
+    background-color: white;
+    height: 30px;
+    width: 190px;
+    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+    /* box-shadow: 0 5px 5px -5px #333; */
+    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    border: none;
+    outline: none;
+  }
+  .form_inner3 {
+    width: 750px;
+    padding: 13px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10px;
+  }
+  .form_rectangle1{
+    background-color: #f3f3f4;
+    height: 30px;
+    width: 180px;
+  }
+  .warning_error{
+    color: red;
+    font-size: x-small;
+  }
