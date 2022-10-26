@@ -1,0 +1,22 @@
+ 
+  .Leadlist_TitleBar,
+  .Leadlist_Filterbar,
+  .Mainlist {
+    margin-left: 20vh;
+    min-width: 60%;
+  }
+  .Leadlist_Topbar{
+    width: 100%;
+  }
+  .Leadlist_Content_right{
+    min-width: 60%;
+  }
+
+.div2{
+  display: flex;
+  flex-direction: row;
+}
+.div2_right{
+  width: 93%;
+  padding-right: 250px;
+}
