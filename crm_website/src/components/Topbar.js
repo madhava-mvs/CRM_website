@@ -1,3 +1,4 @@
+
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import {
     BsThreeDots,
@@ -9,22 +10,6 @@ import { MdArrowForwardIos, MdCancel } from "react-icons/md";
 import { BsFillBookFill } from "react-icons/bs";
 import { FaCarAlt } from "react-icons/fa";
 import React, { useState } from "react";
-
-
-//import React from "react";
-import "./Leftbar.css";
-import { FaRegCompass } from 'react-icons/fa';
-import {
-
-    BsMessenger,
-    BsFillChatDotsFill,
-
-} from "react-icons/bs";
-import {
-    AiTwotoneStar,
-} from "react-icons/ai";
-
-
 import './Topbar.css';
 export default function Topbar() {
     const [show, setShow] = useState(false)
@@ -39,16 +24,18 @@ export default function Topbar() {
                     <div className="Topbar_icon_circle">
                         <AiOutlineMenu />
 
-                    </div><h3>Company</h3>
-
+                    </div>
+                    <div className="Topbar_Company">
+                        <h3>Company</h3>
+                    </div>
                 </div>
                 <div className="Topbar_col2" >
                     <ul>
                         <li>Dashboard</li>
-                        <li>Account</li>
-                        <div className="Tobar_col2_on" onClick={(e) => { handleclick(e) }}><li>leads</li></div>
-                        <div className="Tobar_col2_on1" onClick={(e) => { handleclick(e) }}><li>campaigns</li></div>
-                        <div className="Tobar_col2_on2" onClick={(e) => { handleclick(e) }}><li>prospect</li></div>
+                        <li>Accounts</li>
+                        <div className="Tobar_col2_on" onClick={(e) => { handleclick(e) }}><li>Campaigns</li></div>
+                        <div className="Tobar_col2_on1" onClick={(e) => { handleclick(e) }}><li>Leads</li></div>
+                        <div className="Tobar_col2_on2" onClick={(e) => { handleclick(e) }}><li>Prospects</li></div>
                         <li>
                             <BsThreeDots />
                         </li>
@@ -56,8 +43,9 @@ export default function Topbar() {
                 </div>
                 <div className="Topbar_col3">
                     <AiOutlineSearch className="Topbar_searchIcon" />
-                    <input type={"text"} placeholder="Search Products,Orders and Clients" />
-                    <MdArrowForwardIos className="Topbar_arrowIcon" />
+                    <div className="Topbar_Search_content">
+                        <input type={"text"} placeholder="Search Products,Orders and Clients" />
+                    </div><MdArrowForwardIos className="Topbar_arrowIcon" />
                 </div>
                 <div className="Topbar_col4">
                     <CgProfile className="Topbar_profileIcon" />
@@ -161,7 +149,10 @@ export default function Topbar() {
                 ) : (
                     <></>
                 )}
- </>
+
+
+
+        </>
     );
 
 }
