@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
+import Login from './pages/Login';
+import SignUpPage from './pages/SignUppage';
+import Otp from './components/Otp';
 
 export default function Navigation() {
   return (
@@ -8,6 +10,8 @@ export default function Navigation() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
+        <Route path='/SignUpPage' element={<SignUpPage />}></Route>
+                <Route path='/otp' element={<Otp />}></Route>
       </Routes>
       </BrowserRouter>
     </div>
