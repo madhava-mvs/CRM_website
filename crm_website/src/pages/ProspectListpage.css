@@ -1,0 +1,26 @@
+.ProspectListpage{
+    display: absolute;
+}
+.ProspectListpage_Admindashboard{
+ 
+}
+.ProspectListpage_LeftBar{
+
+}
+.ProspectListpage_container{
+
+    margin-left: 260px;
+    margin-top: -1000px;
+    margin-right: 208px;
+  
+
+}
+.ProspectListpage_Titlebar,.ProspectListpage_Filterbar{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+.ProspectListpage_Mainlist{
+
+}
