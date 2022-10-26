@@ -13,14 +13,14 @@ export default function LeftBar() {
   return (
     <>
      
-      <div className="leftbar">
-        <div className="leftbar_whitecircle1">
+      <div className="Leadlist_leftbar">
+        <div className="Leadlist_leftbar_whitecircle1">
         <FaRegCompass />
       </div>
-      <div className="leftbar_whitecircle2">
+      <div className="Leadlist_leftbar_whitecircle2">
         <AiTwotoneStar />
       </div>
-      <div className="leftbar_whitecircle3">
+      <div className="Leadlist_leftbar_whitecircle3">
         <BsMessenger />
       </div>
       </div>

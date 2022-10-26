@@ -1,4 +1,4 @@
-.leftbar {
+.Leadlist_leftbar {
   height: 140vh;
   background-color: #f3f3f4;
   padding-top: 10px;
@@ -9,10 +9,10 @@
   
 
 }
-.leftbar_whitecircle,
-.leftbar_whitecircle1,
-.leftbar_whitecircle2,
-.leftbar_whitecircle3 {
+.Leadlist_leftbar_whitecircle,
+.Leadlist_leftbar_whitecircle1,
+.Leadlist_leftbar_whitecircle2,
+.Leadlist_leftbar_whitecircle3 {
   width: 35px;
   display: flex;
   align-items: center;
