@@ -10,8 +10,7 @@ export default function Navigation() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
-        <Route path='/SignUpPage' element={<SignUpPage />}></Route>
-                <Route path='/otp' element={<Otp />}></Route>
+        
       </Routes>
       </BrowserRouter>
     </div>
