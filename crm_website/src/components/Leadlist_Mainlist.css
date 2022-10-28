@@ -1,7 +1,8 @@
 .Leadlist_Mainlist_header {
   margin-top: 30px;
   background-color: white;
-  width: 100%;
+  width: 95%;
+  height: 100%;
   padding-left: 15px;
   
 }
@@ -54,8 +55,9 @@
 }
 .Leadlist_Mainlist_Innerbox {
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 18px;
   margin-right: 10px;
+  padding: 10px;
   height: 20%;
   box-shadow: 0px 0px 0px 1px #f3f3f4;
 }
@@ -180,24 +182,24 @@ color: white;
 }
 
 .Leadlist_Header_Main3{
-  width:61px;
-  margin-left:46px;
+  width: 61px;
+  margin-left: 40px;
 }
 .Leadlist_Header_Main4{
-  width:103px;
-  margin-left:77px;
+  width: 103px;
+  margin-left: 52px;
 }
 .Leadlist_Header_Main5{
   width:43px;
   margin-left:34px;
 }
 .Leadlist_Header_Main6{
-  width:54px;
-  margin-left:135px;
+  width: 30px;
+  margin-left: 110px;
 }
 .Leadlist_Header_Main7{
   width: 43px;
-  margin-left: 56px;
+  margin-left: 78px;
 
 }
 ::placeholder{

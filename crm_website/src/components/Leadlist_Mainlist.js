@@ -1,9 +1,7 @@
-import "./Mainlist.css";
-
-
+import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
-// import { useState } from "react";
-export default function Mainlist({array, setArray}) {
+import "./Leadlist_Mainlist.css"
+export default function Leadlist_Mainlist({array, setArray}) {
   // const [array, setArray] = useState([]);
   // const data = localStorage.getItem();
   return (
