@@ -1,11 +1,11 @@
 .Filterbar_Column {
-    height: 10vh;
+    height: 100%;
     border-radius: 2px;
     /* border-style: ridge; */
     border-color: #EEEFEF;
     display: flex;
     flex-direction: row;
-    box-shadow: 0px 0px 0px 1px #d3d3d347;
+    box-shadow: 0px 0px 0px 1px #f3f3f4;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -46,8 +46,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 2px;
-    border: 0.2px solid #C3CAD9;
-    box-shadow: 1px 1px #fafafa4a;
+    border: 0.2px solid #f3f3f4;
+    box-shadow: 1px 1px #f3f3f4;
 
 }
 
@@ -88,6 +88,6 @@
     padding: 6px;
     font-size: large;
     color: #C3CAD9;
-    border: 0.2px solid #C3CAD9;
-    box-shadow: 1px 1px lightgray;
+    border: 0.2px solid #f3f3f4;
+    box-shadow: 1px 1px #f3f3f4;
 }
