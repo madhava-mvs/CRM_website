@@ -6,7 +6,7 @@ import Otp from './components/Otp';
 
 export default function Navigation() {
   return (
-    <div>
+    <div> 
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
