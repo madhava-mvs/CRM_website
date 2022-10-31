@@ -31,7 +31,7 @@ export default function Navigation() {
           ></Route>
           <Route path="/Tasklist1" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
-
+          <Route path="/salesDashboard" element={<salesDashboard/>}></Route>
           <Route path="/admindash" element={<AdminDash />}></Route>
           <Route path="/managerdash" element={<ManagerDash />}></Route>
           <Route path="/Userprofile" element={<Userprofile />}>
