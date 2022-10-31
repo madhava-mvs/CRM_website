@@ -5,21 +5,28 @@ import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import Titlebar from "../components/Titlebar";
 import Filterbar from "../components/Filterbar";
-import Mainlist from "../components/Mainlist";
+import Prospectpagelistmainlist from "../components/Prospectpagelistmainlist";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 // import Form from "./components/Form";
 
 export default function ProspectListpage() {
+
+  const titlebar_name = "Prospects"
+  const titlebar_value1 = "Active"
+  const titlebar_value2 = "Draft"
+  const titlebar_value3 = "Assembly"
+
   const [array, setArray] = useState([]);
-  const [title, setTitle]=useState("Prospects")
-  const [show, setShow]=useState(true)
+  // const [title, setTitle]=useState("Prospects")
+  // const [show, setShow]=useState(true)
   useEffect(()=>{
-    const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Getlead";
+    // const url = "http://localhost:3000/dev/Getlead";
+    const url="https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Getlead";
     const data = {};
-    const Header = {};
-    axios.post(url, data, { Headers: Header })
+    const Headers = {};
+    axios.post(url, data, { headers: Headers })
       .then((res) => {
         // setArray1(Json.stringify(res.data));
        console.log("Response==>" + JSON.stringify(res.data));
@@ -51,13 +58,15 @@ export default function ProspectListpage() {
     <button>Add product</button>
   </div> */}
           <div className="ProspectListpage_Filterbar">
-            <Titlebar title={title} show={show}/>
+            {/* <Titlebar title={title} show={show}/> */}
+            {/* <Titlebar/> */}
+            <Titlebar titlebar_name={titlebar_name}  titlebar_value1={ titlebar_value1} titlebar_value2={titlebar_value2} titlebar_value3={titlebar_value3} />
           </div>
           <div className="ProspectListpage_Filterbar">
             <Filterbar />
           </div>
           <div className="ProspectListpage_Mainlist">
-            <Mainlist array={array} setArray={setArray} />
+            <Prospectpagelistmainlist  array={array} setArray={setArray} />
           </div>
         </div>
       </div>
