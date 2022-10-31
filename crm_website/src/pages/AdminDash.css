@@ -9,16 +9,23 @@
 }
 
 .Admin_page_topbar {
-    width: 220vh;
+    width: 224vh;
+}
+
+.Admin_page_contentpart_leftbar {
+    background-color: #f3f3f4;
+    height: 113vh;
 }
 
 .Admin_page_contentpart_main {
+    /* background-color: blue; */
     width: 65%;
     display: flex;
     flex-direction: column;
     margin-left: 80px;
     align-items: center;
     justify-content: center;
+    height: 120vh;
 }
 
 .Admin_page_contentpart_main_row1 {
@@ -32,7 +39,7 @@
 
 .Admin_page_contentpart_main_horizontal {
     /* background-color: yellow; */
-    width: 43%;
+    width: 40%;
     margin-left: 20px;
 }
 
@@ -53,6 +60,7 @@
     padding-right: 50px;
     margin-right: 20px;
     margin-left: -70px;
+    margin-top: -10px;
 }
 
 .Admin_page_contentpart_main_row2_innerrow2 {
@@ -62,12 +70,12 @@
     padding-left: 40px;
     padding-right: 40px;
     margin-top: -20px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 
 .Admin_page_contentpart_list {
     /* background-color: black; */
-    margin-top: 35px;
+    margin-top: 25px;
     margin-left: -30px;
 }
