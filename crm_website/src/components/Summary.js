@@ -1,5 +1,5 @@
 import React from "react";
-import "./Summary.css";
+import "./summary.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
 export default function Summary({ title, user1, user2, user3, user4, name1, name2, name3, name4 }) {
