@@ -1,11 +1,11 @@
 import "./ManagerDash.css";
-import Topbar from './components/Topbar';
-import LeftBar from './components/LeftBar';
-import Horizontalbar from './components/Horizontalbar';
-import Progressbar from './components/Progressbar';
-import Bargraph from './components/Bargraph';
-import Summary from './components/Summary';
-import SummaryCount from "./components/SummaryCount";
+import Topbar from '../components/Topbar';
+import LeftBar from '../components/LeftBar';
+import Horizontalbar from '../components/Horizontalbar';
+import Progressbar from '../components/Progressbar';
+import Bargraph from '../components/Bargraph';
+import Summary from '../components/Summary';
+import SummaryCount from "../components/SummaryC";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import './style/summaryC.css';
+import './summaryC.css';
 export default function SummaryCount() {
     return (
         <>

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState} from "react";
 import "./campaignlistpage.css";
-import Topbar from "./components/Topbar";
-import LeftBar from "./components/LeftBar";
-import TitleBar from "./components/Titlebar";
-import Filterbar from "./components/Filterbar";
-import Mainlist from "./components/Campaignlist_Mainlist";
+import Topbar from "../components/Topbar";
+import LeftBar from "../components/LeftBar";
+import TitleBar from "../components/Titlebar";
+import Filterbar from "../components/Filterbar";
+import Mainlist from "../components/Campaignlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function CampaignListPage() {

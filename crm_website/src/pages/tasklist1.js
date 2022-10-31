@@ -1,8 +1,8 @@
-import Topbar from './Components/Topbar';
-import LeftBar from './Components/LeftBar';
-import Filterbar from './Components/Filterbar';
-import Mainlist from './Components/Mainlist';
-import TitleBar from './Components/Titlebar';
+import Topbar from '../components/Topbar';
+import LeftBar from '../components/LeftBar';
+import Filterbar from '../components/Filterbar';
+import Mainlist from '../components/Mainlist';
+import TitleBar from '../components/Titlebar';
 
 import axios from "axios";
 import React from "react";

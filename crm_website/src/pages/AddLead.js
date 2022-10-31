@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddLead.css";
-import Form from "./components/Form";
+import Form from "../components/Form";
 // import HeadBar from "./components/headbar";
-import Topbar from "./components/headbar1";
-import LeftBar from "./components/leftbar";
-import TitleBar from "./components/titlebar";
+import Topbar from "../components/Topbar";
+import LeftBar from "../components/LeftBar";
+import TitleBar from "../components/Titlebar";
 
 
 export default function AddLead() {

@@ -1,10 +1,10 @@
-import Form from "./Components/Form";
-import Horizontalbar from "./Components/Horizontalbar";
-import LeftBar from "./Components/LeftBar";
-import Normallist from "./Components/Normallist";
-import TitleBar from "./Components/Titlebar";
-import Topbar from "./Components/Topbar";
-import CheckList from "./Components/checkList";
+import Form from "../components/Form";
+import Horizontalbar from "../components/Horizontalbar";
+import LeftBar from "../components/LeftBar";
+import Normallist from "../components/Normallist";
+import TitleBar from "../components/Titlebar";
+import Topbar from "../components/Topbar";
+import CheckList from "../components/checkList";
 import "./Campaigneditpage.css";
 // import "./titlebar.css";
 import { useState, useEffect } from "react";
