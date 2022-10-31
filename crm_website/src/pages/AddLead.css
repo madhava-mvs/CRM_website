@@ -9,14 +9,14 @@
   justify-content: center;
   align-items: center;
 }
-
-.AddLead_LeftBar{
-  height: 100vh;
+.addlead_titlebar_component{
+  width: 826px;
 }
+
 .AddLead_content_right_inside{
     border: 1px solid lightgray;
 
 }
 .AddLead_content_right_inside_form {
-  padding: 20px;
+  padding: 50px;
 }

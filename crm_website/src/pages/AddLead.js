@@ -87,29 +87,29 @@ export default function AddLead() {
     /> */
 
   let SaveLead = () => {
-    const suffix = localStorage.getItem("salutationvar");
-    const firstname = localStorage.getItem("firstnamevar");
-    const lastname = localStorage.getItem("lastnamevar");
-    const company = localStorage.getItem("companyvar");
-    const phone = localStorage.getItem("phonevar");
-    const email = localStorage.getItem("emailvar");
-    const address = localStorage.getItem("statevar");
-    const createdOn = localStorage.getItem("dateAddedOnvar");
-    const createdBy = localStorage.getItem("leadOwnervar");
+    // const suffix = localStorage.getItem("salutationvar");
+    // const firstname = localStorage.getItem("firstnamevar");
+    // const lastname = localStorage.getItem("lastnamevar");
+    // const company = localStorage.getItem("companyvar");
+    // const phone = localStorage.getItem("phonevar");
+    // const email = localStorage.getItem("emailvar");
+    // const address = localStorage.getItem("statevar");
+    // const createdOn = localStorage.getItem("dateAddedOnvar");
+    // const createdBy = localStorage.getItem("leadOwnervar");
 
-    console.log(
-      suffix,
-      firstname,
-      lastname,
-      company,
-      phone,
-      email,
-      address,
-      createdBy,
-      createdOn
-    );
+    // console.log(
+    //   suffix,
+    //   firstname,
+    //   lastname,
+    //   company,
+    //   phone,
+    //   email,
+    //   address,
+    //   createdBy,
+    //   createdOn
+    // );
 
-    if (suffix === "") {
+    if (salutation === "") {
       setEsuffix("*suffix is mandatory");
       setEfirstname("*firstname is mandatory");
       setElastname("*lastname is mandatory");
@@ -187,7 +187,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('eaddressvar', erroraddress)
-    } else if (createdOn === "") {
+    } else if (dateAddedOn === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -198,7 +198,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedonvar', errorcreatedon)
-    } else if (createdBy === 0) {
+    } else if (leadOwner === 0) {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -213,15 +213,15 @@ export default function AddLead() {
       const url = "http://localhost:3000/dev/InsertLead";
       // const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
       const data = {
-        suffix: suffix,
+        suffix: salutation,
         firstname: firstname,
         lastname: lastname,
         company: company,
         phone: Number(phone),
         email: email,
         address: address,
-        createdOn: createdOn,
-        createdBy: Number(createdBy),
+        createdOn: dateAddedOn,
+        createdBy: Number(leadOwner),
       };
       const header = {};
       axios
