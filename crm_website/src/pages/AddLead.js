@@ -176,7 +176,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ephonevar', errorphone)
-    } else if (address === "") {
+    } else if (state === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -210,8 +210,8 @@ export default function AddLead() {
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedbyvar', errorcreatedby)
     } else {
-      const url = "http://localhost:3000/dev/InsertLead";
-      // const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
+      // const url = "http://localhost:3000/dev/InsertLead";
+      const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
       const data = {
         suffix: salutation,
         firstname: firstname,
@@ -219,7 +219,7 @@ export default function AddLead() {
         company: company,
         phone: Number(phone),
         email: email,
-        address: address,
+        address: state,
         createdOn: dateAddedOn,
         createdBy: Number(leadOwner),
       };
@@ -295,7 +295,7 @@ export default function AddLead() {
                 setDiv_value3={setMiddlename}
                 div_head4={div_head4}
                 div_value4={lastname}
-                setDiv_value={setLastname}
+                setDiv_value4={setLastname}
                 div_head5={div_head5}
                 div_value5={title}
                 setDiv_value5={setTitle}
