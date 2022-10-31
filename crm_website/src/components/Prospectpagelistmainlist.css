@@ -1,0 +1,186 @@
+.prospectlistpage_Mainlist_header {
+  margin-top: 30px;
+  background-color: white;
+  width: 100%;
+  padding-left: 15px;
+
+  
+  
+}
+.prospectlistpage_Mainlist_row1 ul {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  font-size: smaller bold;
+  background-color: white;
+  align-items: center;
+  margin: 20px;
+  padding-left: 20px;
+  color:rgba(125, 143, 177, 1);
+
+
+}
+
+.prospectlistpage_Mainlist_row1 ul li {
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 25px;
+  list-style-type: none;
+  background-color: white;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  font-size: smaller bold;
+  align-items: center;
+  margin: 15px;
+  padding-right: 20px;
+  color:rgba(125, 143, 177, 1);
+
+}
+
+.prospectlistpage_Cb,
+.prospectlistpage_Mainlist_list_whitecircle:hover {
+  min-width: 15px;
+  max-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  min-height: 20px;
+  max-height: 20px;
+  border-radius: 50px;
+  color: #c3cad9;
+  font-size: 1.2rem;
+  border: 1px solid lightgray;
+  margin-left: -40px;
+  
+}
+.prospectlistpage_Mainlist_Innerbox {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 20%;
+  box-shadow: 1px 1px 2px 2px lightgray;
+}
+.prospectlistpage_Mainlist_list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 3px white;
+}
+.prospectlistpage_Mainlist_list_row_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.prospectlistpage_Mainlist_list_row_topSelected{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color:#9155Fd;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.prospectlistpage_Mainlist_list_row_topSelected label,.prospectlistpage_Mainlist_list_row_topSelected div{
+  color:white
+}
+
+
+
+
+
+
+
+
+
+.prospectlistpage_Mainlist_list_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding-left: 20px;
+  color:rgba(142, 154, 177, 1);
+  ;
+}
+.prospectlistpage_Mainlist_list_row7_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #9155FD;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+}
+.prospectlistpage_Mainlist_list_row7 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding-left: 20px;
+}
+
+.prospectlistpage_Mainlist_Button {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid lightgray;
+}
+
+/* .Mainlist_list_row_top:hover{
+  background-color: #9155FD;
+
+} */
+.prospectlistpage_Mainlist_list_row_top:hover{
+  background-color:#9155FD;
+}
+.prospectlistpage_Cb{
+  border-top: 100px;
+}
+
+
+
+.prospectlistpage_itmfirstname{
+width: 100px;
+
+}
+.prospectlistpage_itmcampaignname{
+  
+  width:200px;
+  padding-left:0px;
+  margin-left: 10px;
+}
+.prospectlistpage_itmcreatedon
+{
+  width:80px;
+  padding-left: 20px;
+  
+}
+.prospectlistpage_itmupdatedon{
+
+}
+.prospectlistpage_itmusername{
+
+}

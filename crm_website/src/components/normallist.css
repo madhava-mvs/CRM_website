@@ -1,0 +1,105 @@
+.Normallist {
+    width: 100vh;
+    max-width: 85vh;
+    min-width: 85vh;
+    height: 60vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.Normallist_row1 {
+    height: 15vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.Normallist_row1_button {
+    border-radius: 45px;
+    width: 8%;
+    min-width: 8%;
+    max-width: 8%;
+    height: 15px;
+    padding: 15px;
+    /* border: 1px solid rgb(28, 29, 28); */
+    display: flex;
+    background-color: blueviolet;
+    justify-content: center;
+    align-items: center;
+    margin-left: 75%;
+    margin-top: 50px;
+
+}
+
+.Normallist_row1_button button {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.Normallist_row1_label {
+
+    margin-left: 30px;
+    padding-top: 65px;
+    font-size: large;
+    color: rgb(93, 92, 92);
+}
+
+.Normallist_row2 {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(214, 214, 214, 0.668);
+    border-radius: 20px;
+    margin-top: 1pc;
+}
+
+.Normallist_row3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Normallist_row3 label {
+    padding: 25px;
+}
+
+.Normallist_row4 {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(214, 214, 214, 0.668);
+    border-radius: 20px;
+}
+
+.Normallist_row5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: gray;
+}
+
+.Normallist_row5 label {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+}
+
+/* .Normallist_row1_button button :hover {
+    background-color: black;
+    color: rgb(157, 29, 29);
+} */

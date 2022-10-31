@@ -1,8 +1,8 @@
-import Topbar from "./components/Topbar";
-import Leftbar from "./components/Leftbar";
-import Titlebar from "./components/Titlebar";
+import Topbar from "../components/Topbar";
+import Leftbar from "../components/LeftBar";
+import Titlebar from "../components/Titlebar";
 //import Profile from "./components/Profile";
-import pic from "./components/Images/profilepic.jpg";
+import pic from "../components/images/profilepic.jpg";
 import './Userprofile.css';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";

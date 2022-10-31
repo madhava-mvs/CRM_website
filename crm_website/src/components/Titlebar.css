@@ -1,0 +1,103 @@
+
+.titlebar_top{
+    border-left: 3px solid #f3f3f4;
+    border-top: 3px solid #f3f3f4;
+    border-bottom: 3px solid #f3f3f4;
+    background-color: #f9f9f9;
+    padding: 13px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.titlebar_bagSquare{
+    background-color: white;
+    width: 20%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titlebar_top_col1{
+    width: 12%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titlebar_top_col1 label{
+    font-size: 15px;
+    padding-top: 3px;
+}
+
+.titlebar_top_col1 label,
+.titlebar_top_col21 label{
+    color: #7C8AA5;
+}
+
+
+.addlead_titlebar_prospectlist{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-between;
+    color: #7C8AA5;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: -50px;
+}
+
+.titlebar_top_col2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titlebar_top_col21{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 7px 15px;
+    border-radius: 20px;
+    border: 1px solid lightgrey;
+    margin-right: 12px;
+}
+
+.titlebar_top_col22{
+    background-color: #8833FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 7px 15px;
+    border-radius: 20px;
+}
+
+.titlebar_top_col22_inside,
+.titlebar_top_col21_inside{
+    display: flex;
+    align-items: center;
+}
+
+.titlebar_top_col22 label{
+    margin-left: 3px;
+    color: #e5e5e5;
+}
+
+
+.titlebar_top_col21 label,
+.titlebar_top_col22 label
+{
+    font-size: 11px;
+}
+
+.titlebar_bagIcon,
+.titlebar_plusIcon{
+    color: #C3CAD9;
+}
+.titlebar_downloadIcon{
+    color: rgb(113, 183, 183);
+    font-weight: 100;
+}
