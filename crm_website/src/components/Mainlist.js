@@ -11,7 +11,7 @@ export default function Mainlist() {
   useEffect(() => {
   
     //const url = "http://localhost:3000/dev/taskfetch";
-     const url ="https://c707ogt9m1.execute-api.us-east-1.amazonaws.com/dev/taskfetch";
+     const url ="https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/taskfetch";
     const data = {};
     const header = {};
     axios
