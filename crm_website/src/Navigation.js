@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Otp from "./components/Otp";
 import AddLead from "./pages/AddLead";
 import AdminDash from "./pages/AdminDash";
 import Campaigneditpage from "./pages/Campaigneditpage";
@@ -8,6 +9,7 @@ import LeadListPage from "./pages/LeadlistPage";
 import LoginPage from "./pages/Login";
 import ManagerDash from "./pages/ManagerDash";
 import ProspectListpage from "./pages/ProspectListpage";
+import SignUpPage from "./pages/SignUpPage";
 import Tasklist from "./pages/tasklist1";
 import Userprofile from "./pages/Userprofile";
 
@@ -31,7 +33,7 @@ export default function Navigation() {
           ></Route>
           <Route path="/Tasklist1" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
-
+          <Route path="/salesDashboard" element={<salesDashboard/>}></Route>
           <Route path="/admindash" element={<AdminDash />}></Route>
           <Route path="/managerdash" element={<ManagerDash />}></Route>
           <Route path="/Userprofile" element={<Userprofile />}>

@@ -3,7 +3,7 @@ import LOGIN from '../components/Login.js';
 import Failed from '../components/Alertfailed.js';
 import axios from "axios";
 import { useState } from 'react';
-import "./Login.css";
+import "./LoginPage.css";
 export default function LoginPage() {
     const [showfail, setshowfail] = useState(false)
     const [error1, seterror1] = useState(false)

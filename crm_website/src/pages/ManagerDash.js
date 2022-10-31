@@ -5,7 +5,7 @@ import Horizontalbar from '../components/Horizontalbar';
 import Progressbar from '../components/Progressbar';
 import Bargraph from '../components/Bargraph';
 import Summary from '../components/Summary';
-import SummaryCount from "../components/SummaryC";
+import SummaryCount from "../components/SummaryCount";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
