@@ -33,6 +33,9 @@ export default function Campaigneditpage() {
     const [ediv_value2, setediv_value2] = useState("");
     const [ediv_value3, setediv_value3] = useState("");
     const [ediv_value4, setediv_value4] = useState("");
+    const [ediv_value0, setediv_value0] = useState("");
+    const [ediv_value01,setediv_value01] = useState("");
+    const [ediv_value02,setediv_value02] = useState("");
 
 
     const [orangebar, setOrangebar] = useState([]);
@@ -84,6 +87,9 @@ export default function Campaigneditpage() {
         setediv_value2("")
         setediv_value3("")
         setediv_value4("")
+        setediv_value01("")
+        setediv_value02("")
+        setediv_value0("")
 
         // setError3("")
         // setError4("")
@@ -109,18 +115,18 @@ export default function Campaigneditpage() {
                 if (result.includes("Startdate is mandatory")) {
                     setediv_value3("Startdate is mandatory!!!")
                 }
-                if (result.includes("Enddate  is mandatory")) {
-                    setError3("Enddate  is mandatory!!!")
+                if (result.includes("Enddate is mandatory")) {
+                    setediv_value02("Enddate  is mandatory!!!")
                 }
-                if (result.includes("Status  is mandatory")) {
-                    setError4("Status  is mandatory!!!")
+                if (result.includes("Status is mandatory")) {
+                    setediv_value01("Status  is mandatory!!!")
                 }
                 if (result.includes("Owner is mandatory")) {
                     setediv_value4("Owner  is mandatory!!!")
                 }
 
                 if (result.includes("updated")) {
-                    setError7("Updated!!!")
+                    setediv_value0("Updated!!!")
                 }
 
 
@@ -233,7 +239,7 @@ export default function Campaigneditpage() {
                                 <TitleBar titlebar_name={titlebar_name} SaveLead={Saveclick} savebuttonshow={savebuttonshow} button_value={button_value} />
                             </div>
                             <div className="Campaigneditpage_topbar2_right_1_2">
-                                <Form addleadshow={addleadshow} div_head1={div_head1} div_head2={div_head2} div_head3={div_head3} div_head4={div_head4} div_head5={div_head5} div_head6={div_head6} setDiv_value1={setDiv_value1} setDiv_value2={setDiv_value2} setDiv_value3={setDiv_value3} setDiv_value4={setDiv_value4} setDiv_value5={setDiv_value5} setDiv_value6={setDiv_value6} div_value1={div_value1} div_value2={div_value2} div_value3={div_value3} div_value4={div_value4} div_value5={div_value5} div_value6={div_value6} setediv_value1={setediv_value1} ediv_value1={ediv_value1} setediv_value2={setediv_value2} ediv_value2={ediv_value2} setediv_value3={setediv_value3} ediv_value3={ediv_value3} setediv_value4={setediv_value4} ediv_value4={ediv_value4} />
+                                <Form addleadshow={addleadshow} div_head1={div_head1} div_head2={div_head2} div_head3={div_head3} div_head4={div_head4} div_head5={div_head5} div_head6={div_head6} setDiv_value1={setDiv_value1} setDiv_value2={setDiv_value2} setDiv_value3={setDiv_value3} setDiv_value4={setDiv_value4} setDiv_value5={setDiv_value5} setDiv_value6={setDiv_value6} div_value1={div_value1} div_value2={div_value2} div_value3={div_value3} div_value4={div_value4} div_value5={div_value5} div_value6={div_value6} setediv_value1={setediv_value1} ediv_value1={ediv_value1} setediv_value2={setediv_value2} ediv_value2={ediv_value2} setediv_value3={setediv_value3} ediv_value3={ediv_value3} setediv_value4={setediv_value4} ediv_value4={ediv_value4} ediv_value01={ediv_value01} setediv_value01={setediv_value01} ediv_value02={ediv_value02} setediv_value02={setediv_value02} ediv_value0={ediv_value0} setediv_value0={setediv_value0} />
                             </div>
                         </div>
                         <div className="Campaigneditpage_topbar2_right_2">
@@ -261,5 +267,6 @@ export default function Campaigneditpage() {
     )
 
 }
+
 
 
