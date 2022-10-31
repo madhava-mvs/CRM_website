@@ -7,20 +7,30 @@ import TitleBar from "./components/Titlebar";
 import Filterbar from "./components/Filterbar";
 import Mainlist from "./components/Mainlist";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export default function LeadListPage() {
+
+  const navigate = useNavigate();
+  function AddLead() {
+    navigate("/AddLead");
+  }
+  const titlebar_name = "Lead List"
+  const button_value = "Add Lead"
+  const bulkimportshow = true
+  const savebuttonshow = true
+  
   
   const [array, setArray] = useState([]);
 
 
     // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
     useEffect(()=>{
-    const url = "http://localhost:3000/dev/GetSingleLead"
-    // const url = "https://h5mqgjmos4.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
+    const url = "http://localhost:3000/dev/Leadlist"
 
+    // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
     const data = {};
-    const Headers = {token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYUB4eXouY29tIiwicGFzc3dvcmQiOiJhMTIzNDUiLCJpYXQiOjE2NjY2ODI4ODB9.K4Y5_douK9aWWCBriunBp-rX3nTNByY23yyOtEPD2kc"};
-    
-    axios.post(url, data, { Headers: Headers })
+    const Headers = {};
+    axios.post(url, data, Headers)
       .then((res) => {
         console.log("Response==>" + JSON.stringify(res.data));
         for(const temp of res.data){
@@ -49,13 +59,13 @@ export default function LeadListPage() {
           </div>
           <div className="div2_right">
             <div className="Leadlist_TitleBar">
-              <TitleBar />
+              <TitleBar SaveLead={AddLead} titlebar_name={titlebar_name} button_value={button_value} bulkimportshow={bulkimportshow} savebuttonshow={savebuttonshow}/>
             </div>
             <div className="Leadlist_Filterbar">
               <Filterbar />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray} />
+              <Mainlist array={array} setArray={setArray}  />
             </div>
           </div>
         </div>
@@ -63,4 +73,3 @@ export default function LeadListPage() {
     </>
   );
 }
-//hi
