@@ -5,7 +5,7 @@ import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import Filterbar from "../components/Filterbar";
-import Mainlist from "../components/Mainlist";
+import Mainlist from "../components/Leadlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function LeadListPage() {
@@ -25,9 +25,9 @@ export default function LeadListPage() {
 
     // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
     useEffect(()=>{
-    const url = "http://localhost:3000/dev/Leadlist"
+    // const url = "http://localhost:3000/dev/Leadlist"
 
-    // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
+    const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
     const data = {};
     const Headers = {};
     axios.post(url, data, Headers)
