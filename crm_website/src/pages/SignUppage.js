@@ -72,7 +72,7 @@ export default function SignUpPage() {
             <>
             </>
         }
-        {
+        { 
             show2 ?
                 <>
                     <Failed setshow2={setshow2} message={"Failed"} /></> : <></>
