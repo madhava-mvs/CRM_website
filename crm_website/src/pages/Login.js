@@ -20,9 +20,9 @@ export default function LoginPage() {
 
             const url = "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/Login";
             const data = { username: username, password: password };
-            const header = {};
+            const headers = {};
 
-            axios.post(url, data, header)
+            axios.post(url, data, headers)
                 .then((res) => {
                     console.log("rersponse" + JSON.stringify(res.data))
                     let result = res.data + ""
