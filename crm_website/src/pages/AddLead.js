@@ -236,6 +236,7 @@ export default function AddLead() {
             setEaddress("");
             setEcreatedon("");
             setEcreatedby("");
+            setAddlead("");
             setEemail("*email id already exist");
           } else {
             setAddlead("*lead has been added");
