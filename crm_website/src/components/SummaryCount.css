@@ -1,0 +1,45 @@
+.summarycount_outer {
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summarycount_inner_main {
+    /* background-color: black; */
+    background-color: #f3f3f4;
+    min-width: 100px;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    border-radius: 5px;
+    height: 13vh;
+}
+
+.summarycount_label {
+    font-size: small;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.summarycount_inner label{
+    color: #4D5E80;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: bold; */
+}
+
+.summarycount_inner_row1 {
+    margin-bottom: 50px;
+    color: #4D5E80;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.summarycount_inner_row2 {
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
