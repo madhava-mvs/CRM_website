@@ -1,5 +1,5 @@
-import LOGIN from './components/Login.js';
-import Failed from './components/Alertfailed.js';
+import LOGIN from '../components/Login.js';
+import Failed from '../components/Alertfailed.js';
 import axios from "axios";
 import { useSelector,useDispatch } from 'react-redux';
 import { useState } from 'react';
