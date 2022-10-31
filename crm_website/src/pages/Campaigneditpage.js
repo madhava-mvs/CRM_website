@@ -173,9 +173,9 @@ export default function Campaigneditpage() {
                     setDiv_value4(res.data[0].dtStartdate)
                     // console.log("date==>"+ setDiv_value4({year1}-{month1}-{day1}))
                     setDiv_value5(res.data[0].dtEnddate)
-                    setDiv_value3(res.data[0].txtStatus)
+                    setDiv_value3(res.data[0].Status1)
                     setDiv_value6(res.data[0].txtOwner)
-                    setDiv_value2(res.data[0].txtParentCampaign)
+                    setDiv_value2(res.data[0].ParentCampaignName)
 
 
                 }
@@ -261,6 +261,5 @@ export default function Campaigneditpage() {
     )
 
 }
-
 
 
