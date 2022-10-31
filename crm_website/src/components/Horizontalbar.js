@@ -2,7 +2,7 @@ import React from "react";
 import { FaDollarSign } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import "./horizontalbar.css"
-export default function Horizontalbar({ orangebar, greenbar, bluebar, show2 }) {
+export default function Horizontalbar({ orangebar, greenbar, bluebar, show2, Horizontal_value, Horizontal_percentage }) {
     return (
         <>
             <div className="Horizontalbar_main">
@@ -15,10 +15,10 @@ export default function Horizontalbar({ orangebar, greenbar, bluebar, show2 }) {
                 {show2 ? <div className="Horizontalbar_main_row2">
                     <div className="Horizontalbar_main_row2_left">
                         <FaDollarSign />
-                        <label><b>18500</b></label>
+                        <label><b>{Horizontal_value}</b></label>
                     </div>
                     <div className="Horizontalbar_main_row2_right">
-                        <label><span><b>+5%</b></span></label>
+                        <label><span><b>{Horizontal_percentage}</b></span></label>
                     </div>
                 </div> : <></>}
                 <div className="Horizontalbar_graph" >
