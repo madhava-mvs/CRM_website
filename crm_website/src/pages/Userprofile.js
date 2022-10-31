@@ -63,7 +63,7 @@ export default function Userprofile() {
            // const url = "http://localhost:3000/dev/updateprofile";
             const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
-                "id": "22", Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
+                "id": "6", Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
             };
             const header = {};
             axios.post(url, data, header,)
@@ -103,7 +103,7 @@ export default function Userprofile() {
         //const url = "http://localhost:3000/dev/getprofile";
         const url ="https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/getprofile";
         const data = {
-            "id": "22",
+            "id": "6",
         };
         const headers = {};
         axios.post(url, data, headers,)
