@@ -10,7 +10,7 @@
 .ProspectListpage_container{
 
     margin-left: 260px;
-    margin-top: -1000px;
+    margin-top: -600px;
     margin-right: 208px;
   
 
@@ -18,6 +18,10 @@
 .ProspectListpage_Titlebar,.ProspectListpage_Filterbar{
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.ProspectListpage_Filterbar{
+width: 900px;
 }
 
 
