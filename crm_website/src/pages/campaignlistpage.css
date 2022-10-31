@@ -1,0 +1,40 @@
+ 
+  body{
+    margin: 0;
+  }
+ 
+
+.Campaignlist_Topbar{
+  width: 100%;
+}
+.Campaignlist_Content_right{
+  min-width: 60%;
+}
+
+.div2{
+  display: flex;
+  flex-direction: row;
+  
+}
+.div2_right{
+  padding-top: 80px;
+  padding-left: 200px;
+  
+}
+
+.Campaignlist_Filterbar{
+  margin-top: 20px;
+  height: 60px;
+  width: 124vh;
+  margin-left: 15px;
+}
+.Campaignlist_TitleBar{
+  
+  height: 30px;
+  padding: 15px;
+  width: 116vh;
+  
+}
+.div2_left{
+  height: 130vh;
+}
