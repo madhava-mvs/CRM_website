@@ -12,7 +12,6 @@ const reducer = (prevState = initialState, action) => {
         case "setToken":
             return { ...prevState, token: action.payload }
             break;
-
     }
     return prevState;
 };
