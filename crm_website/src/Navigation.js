@@ -8,6 +8,7 @@ import LeadListPage from "./pages/LeadlistPage";
 import LoginPage from "./pages/Login";
 import ManagerDash from "./pages/ManagerDash";
 import ProspectListpage from "./pages/ProspectListpage";
+import SignUpPage from "./pages/SignUpPage";
 import Tasklist from "./pages/tasklist1";
 import Userprofile from "./pages/Userprofile";
 
