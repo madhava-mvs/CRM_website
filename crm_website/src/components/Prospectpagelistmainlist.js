@@ -82,23 +82,23 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 // import { dblClick } from "@testing-library/user-event/dist/click";
 // import axios from "axios";
 import React from "react";
-// import { useState } from "react";
-export default function Mainlist({array,setArray}) {
+import { useState } from "react";
+export default function Mainlist() {
   const [array, setArray] = useState([]);
-  useEffect(()=>{
-    const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Getlead";
-    const data = {};
-    const Header = {};
-    axios.post(url, data, { Headers: Header })
-      .then((res) => {
-        // setArray1(Json.stringify(res.data));
-       console.log("Response==>" + JSON.stringify(res.data));
-       setArray((res.data))
-      })
-      .catch((err) => {
-        console.log("Error==>" + err);
-      });
-    },[]);
+  // useEffect(()=>{
+  //   const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Getlead";
+  //   const data = {};
+  //   const Header = {};
+  //   axios.post(url, data, { Headers: Header })
+  //     .then((res) => {
+  //       // setArray1(Json.stringify(res.data));
+  //      console.log("Response==>" + JSON.stringify(res.data));
+  //      setArray((res.data))
+  //     })
+  //     .catch((err) => {
+  //       console.log("Error==>" + err);
+  //     });
+  //   },[]);
   return (
     <>
       <div className="prospectlistpage_Mainlist_Outer">
