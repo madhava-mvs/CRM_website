@@ -1,6 +1,6 @@
 import Otp from "../components/Otp"
 import Success from "../components/Alertsuccess"
-import Signup from "./components/Signup"
+import Signup from "../components/Signup"
 import Failed from "../components/Alertfailed"
 import axios from "axios"
 import { useState } from "react"

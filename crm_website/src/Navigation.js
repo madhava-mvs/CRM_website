@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Otp from "./components/Otp";
 import AddLead from "./pages/AddLead";
 import AdminDash from "./pages/AdminDash";
 import Campaigneditpage from "./pages/Campaigneditpage";

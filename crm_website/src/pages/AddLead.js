@@ -52,7 +52,7 @@ export default function AddLead() {
   const div_head3 = "MiddleName";
   const div_head4 = "LastName";
   const div_head5 = "Title";
-  const div_head6 = "Comapany";
+  const div_head6 = "Company";
   const div_head7 = "Email";
   const div_head8 = "Phone";
   const div_head9 = "Mobile";
