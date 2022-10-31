@@ -1,12 +1,12 @@
 .ProspectListpage{
     display: absolute;
 }
-.ProspectListpage_Admindashboard{
+/* .ProspectListpage_Admindashboard{
  
 }
 .ProspectListpage_LeftBar{
 
-}
+} */
 .ProspectListpage_container{
 
     margin-left: 260px;
@@ -25,6 +25,6 @@ width: 930px;
 }
 
 
-.ProspectListpage_Mainlist{
+/* .ProspectListpage_Mainlist{
 
-}
+} */
