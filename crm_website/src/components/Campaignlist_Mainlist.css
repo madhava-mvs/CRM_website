@@ -1,0 +1,204 @@
+.Campaignlist_Mainlist_header {
+  margin-top: 30px;
+  background-color: white;
+  width: 100%;
+  padding-left: 15px;
+  
+}
+.Campaignlist_Mainlist_row1 ul {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  font-size: smaller bold;
+  background-color: white;
+  align-items: center;
+  margin: 20px;
+  padding-left: 40px;
+  color:rgba(125, 143, 177, 1);
+margin-left: -14px;
+
+}
+
+.Campaignlist_Mainlist_row1 ul li {
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 25px;
+  list-style-type: none;
+  background-color: white;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  font-size: smaller bold;
+  font-family:Arial, Helvetica, sans-serif;
+  align-items: center;
+  margin: 15px;
+  padding-right: 20px;
+  color:rgba(125, 143, 177, 1);
+  margin-left: -2px;
+
+}
+
+.Campaignlist_Cb{
+  min-width: 15px;
+  max-width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  min-height: 15px;
+  max-height: 15px;
+  border-radius: 100px;
+  color: #c3cad9;
+  font-size: 1.2rem;
+  border: 1px solid lightgray;
+  margin-left: -35px;
+  
+}
+.Campaignlist_Mainlist_Innerbox {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 20%;
+  box-shadow: 0px 0px 0px 1px #f3f3f4;
+}
+.Campaignlist_Mainlist_list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+}
+.Campaignlist_Mainlist_list_row_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #fafbfc;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+}
+.Campaignlist_Mainlist_list_row_topSelected{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #9155FD;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+}
+.Campaignlist_Mainlist_list_row_topSelected label,.Mainlist_list_row_topSelected div{
+color: white;
+}
+.Campaignlist_Mainlist_list_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding-left: 20px;
+  color:rgba(142, 154, 177, 1);
+  font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.Campaignlist_Mainlist_list_row7_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #9155FD;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+}
+.Campaignlist_Mainlist_list_row7 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding-left: 20px;
+}
+
+.Campaignlist_Mainlist_Button {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid lightgray;
+}
+.Campaignlist_Cb checkbox label:checked {
+  background-color: rgb(215, 105, 21);
+
+}
+.Campaignlist_Mainlist_list_row_top:hover{
+  background-color:#9155FD;
+}
+.Campaignlist_itmFirstName{
+ width:80px;
+ 
+}
+.Campaignlist_itmLastName{
+  width:80px;
+  margin-left:15px;
+}
+.Campaignlist_itmStatus{
+  width:80px;
+  margin-left:14px;
+}
+.Campaignlist_itmdate{
+  width:80px;
+  margin-left:15px;
+}
+.Campaignlist_itmEmail{
+  width: 77px;
+  margin-left:15px;
+}
+
+.Campaignlist_itmResponses{
+  width:30px;
+  margin-left:15px;
+}
+.Campaignlist_itmOwner{
+  margin: 2px;
+  width:30px;
+  
+}
+.Campaignlist_Header_Main1{
+  width:60px;
+  margin-left:15px;
+}
+.Campaignlist_Header_Main2{
+  width: 200px;
+  margin-left: 64px;
+}
+
+.Campaignlist_Header_Main3{
+  width:10px;
+  margin-left:-30px;
+}
+.Campaignlist_Header_Main4{
+  width:103px;
+  margin-left:112px;
+}
+.Campaignlist_Header_Main5{
+  width:90px;
+  margin-left:28px;
+}
+.Campaignlist_Header_Main6{
+  width:106px;
+  margin-left:2px;
+}
+.Campaignlist_Header_Main7{
+  width: 43px;
+  margin-left: -4px;
+
+}
