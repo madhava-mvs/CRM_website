@@ -10,7 +10,7 @@ export default function LoginPage() {
     const [error, setError] = useState("")
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
-    const Login = (e) => {
+    const Login = (e) => { 
         seterror1("")
         if (username == "" || password == "") {
             seterror1(true)
@@ -18,7 +18,7 @@ export default function LoginPage() {
         else if (username != "" && password != "") {
             setError("")
 
-            const url = "http://localhost:3000/dev/Login";
+            const url = "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/Login";
             const data = { username: username, password: password };
             const header = {};
 
