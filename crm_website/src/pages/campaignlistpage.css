@@ -1,10 +1,13 @@
-body{
-  margin: 0px;
-} 
-.Leadlist_Topbar{
+ 
+  body{
+    margin: 0;
+  }
+ 
+
+.Campaignlist_Topbar{
   width: 100%;
 }
-.Leadlist_Content_right{
+.Campaignlist_Content_right{
   min-width: 60%;
 }
 
@@ -19,13 +22,13 @@ body{
   
 }
 
-.Leadlist_Filterbar{
+.Campaignlist_Filterbar{
   margin-top: 20px;
   height: 60px;
   width: 124vh;
   margin-left: 15px;
 }
-.Leadlist_TitleBar{
+.Campaignlist_TitleBar{
   
   height: 30px;
   padding: 15px;
@@ -33,5 +36,5 @@ body{
   
 }
 .div2_left{
-  height: 100vh;
+  height: 130vh;
 }

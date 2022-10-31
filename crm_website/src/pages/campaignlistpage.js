@@ -1,36 +1,34 @@
 import axios from "axios";
 import { useState} from "react";
-import "./LeadlistPage.css";
+import "./campaignlistpage.css";
 import Topbar from "./components/Topbar";
 import LeftBar from "./components/LeftBar";
 import TitleBar from "./components/Titlebar";
 import Filterbar from "./components/Filterbar";
-import Mainlist from "./components/Mainlist";
+import Mainlist from "./components/Campaignlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-export default function LeadListPage() {
-
-  const navigate = useNavigate();
-  function AddLead() {
-    navigate("/AddLead");
-  }
-  const titlebar_name = "Lead List"
-  const button_value = "Add Lead"
-  const bulkimportshow = true
-  const savebuttonshow = true
-  
+export default function CampaignListPage() {
+  const navigate=useNavigate();
+    function Addcampaign() {
+      navigate ("/Campaigneditpage");
+    }
   
   const [array, setArray] = useState([]);
+  const savebuttonshow= true
+  const titlebar_name=<h3>Campaignlist</h3>
+  const button_value="Add Campaign" 
+  
 
 
     // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
     useEffect(()=>{
-    const url = "http://localhost:3000/dev/Leadlist"
-
-    // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
+    const url = "https://m6vozv93ri.execute-api.us-east-1.amazonaws.com/dev/GetSingleCampaign"
+    // const url = "http://localhost:3000/dev/GetSingleCampaign";
     const data = {};
     const Headers = {};
-    axios.post(url, data, Headers)
+    
+    axios.post(url, data, { Headers: Headers })
       .then((res) => {
         console.log("Response==>" + JSON.stringify(res.data));
         for(const temp of res.data){
@@ -49,7 +47,7 @@ export default function LeadListPage() {
 
   return (
     <>
-      <div className="Leadlist_page">
+      <div className="Campaignlist_page">
         <div className="div1">
           <Topbar />
         </div>
@@ -58,14 +56,14 @@ export default function LeadListPage() {
             <LeftBar />
           </div>
           <div className="div2_right">
-            <div className="Leadlist_TitleBar">
-              <TitleBar SaveLead={AddLead} titlebar_name={titlebar_name} button_value={button_value} bulkimportshow={bulkimportshow} savebuttonshow={savebuttonshow}/>
+            <div className="Campaignlist_TitleBar">
+              <TitleBar SaveLead={Addcampaign} savebuttonshow={savebuttonshow} titlebar_name={titlebar_name} button_value={button_value} />
             </div>
-            <div className="Leadlist_Filterbar">
+            <div className="Campaignlist_Filterbar">
               <Filterbar />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray}  />
+              <Mainlist array={array} setArray={setArray} />
             </div>
           </div>
         </div>
