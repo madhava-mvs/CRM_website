@@ -12,7 +12,7 @@ export default function LoginPage() {
     const [password, setpassword] = useState("");
     const Login = (e) => {    
         seterror1("")
-        if (username == "" || password == "") {
+        if (username == "" || password == "") {   
             seterror1(true)
         }
         else if (username != "" && password != "") {

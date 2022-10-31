@@ -13,7 +13,7 @@ export default function SignUpPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repassword, setRepassword] = useState("");
-   
+     
     const [error1, setError1] = useState("")
     const [error2, setError2] = useState("")
     const [error3, setError3] = useState("")
