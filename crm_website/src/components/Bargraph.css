@@ -1,5 +1,4 @@
 .bargraph {
-    /* background-color: yellowgreen; */
     margin-top: 50px;
     margin-left: 50px;
     background-color: #f3f3f4;
@@ -7,25 +6,22 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    width: 30%;
-    min-width: 150px;
     border-radius: 10px;
 }
 
 .bargraph_title label,
-.bargraph_title .icon{
+.bargraph_title .icon {
     color: #6b7a99;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bargraph_title label{
+.bargraph_title label {
     margin-left: -5px;
     margin-right: 5px;
 }
 
-.bargraph_graph{
-    /* background-color: aqua; */
+.bargraph_graph {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -34,14 +30,12 @@
 
 .bargraph .icon {
     margin-top: 5px;
-    padding-left: 45px;
-    /* color: #4D5E80; */
+    padding-left: 75px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .bargraph_graph ul {
-    /* background-color: yellow; */
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -57,11 +51,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-
-/* .bargraph_graph label{
-    justify-content: space-between;
-    color: gray;
-} */
 
 
 .bargraph_blue_value {
@@ -82,7 +71,7 @@
 .bargraph_blue_name,
 .bargraph_green_name,
 .bargraph_orange_name,
-.bargraph_title label{
+.bargraph_title label {
     color: #4D5E80;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
