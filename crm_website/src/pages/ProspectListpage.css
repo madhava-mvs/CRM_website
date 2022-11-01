@@ -3,10 +3,11 @@
 }
 /* .ProspectListpage_Admindashboard{
  
-}
+} */
 .ProspectListpage_LeftBar{
 
-} */
+    height: 93vh;
+}
 .ProspectListpage_container{
 
     margin-left: 260px;

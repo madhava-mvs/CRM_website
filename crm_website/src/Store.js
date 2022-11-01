@@ -1,19 +1,22 @@
-import { legacy_createStore } from "redux"
+import { legacy_createStore } from "redux";
 const initialState = {
-    username: "",
-    token: "",
-
-}
-const reducer = (prevState = initialState, action) => {
-    switch (action.type) {
-        case "setUsername":
-            return { ...prevState, username: action.payload }
-            break;
-        case "setToken":
-            return { ...prevState, token: action.payload }
-            break;
-    }
-    return prevState;
+  username: "",
+  token: "",
+  update_campaign_id: "",
 };
-const store = legacy_createStore(reducer)
+const reducer = (prevState = initialState, action) => {
+  switch (action.type) {
+    case "setUsername":
+      return { ...prevState, username: action.payload };
+      break;
+    case "setToken":
+      return { ...prevState, token: action.payload };
+      break;
+    case "setUpdate_campaign_id":
+      return { ...prevState, update_campaign_id: action.payload };
+      break;
+  }
+  return prevState;
+};
+const store = legacy_createStore(reducer);
 export default store;

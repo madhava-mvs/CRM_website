@@ -12,8 +12,11 @@
 }
 
 .TasklistP_contentR {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 25px;
+  padding-right: 250px;
 }
 
 
@@ -26,10 +29,8 @@
 }
 
 .TasklistP_content_titlebar {
-
-  width: 135%;
+height: 4vh;
   margin-left: 13%;
-  height: 4%;
   padding-top: 3%;
 
 }
@@ -39,15 +40,14 @@ font-size: large;
 
 
 .TasklistP_content_filterbar {
-
-  width: 79.5%;
+height: 8vh;
+width: 92.3%;
   margin-left: 13%;
-  margin-top: 7%;
+  margin-top: 34px
 }
 
 .TasklistP_content_mainlist {
 
-  width: 146%;
   margin-left: 12%;
 }
 
