@@ -13,7 +13,7 @@ export default function LeftBar() {
   return (
     <>
      
-      <div className="leftbar">
+      <div className="leftbar_outer">
         <div className="leftbar_whitecircle1">
         <FaRegCompass />
       </div>

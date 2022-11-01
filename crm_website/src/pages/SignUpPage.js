@@ -3,7 +3,7 @@ import Success from "../components/Alertsuccess"
 import Signup from "../components/Signup"
 import Failed from "../components/Alertfailed"
 import axios from "axios"
-import { useState } from "react"
+import { useState } from "react" 
 export default function SignUpPage() {
     const [show2, setshow2] = useState(false)
     const [show1, setshow1] = useState(false)
@@ -22,9 +22,12 @@ export default function SignUpPage() {
     const [error6, setError6] = useState("")
     const [error, setError] = useState(false)
     const [Checkbox, setCheckbox] = useState(false)
+    const [jobrole, setJobrole] = useState("")
     const SignUp = e => {
         setError("")
-
+        const selectElement = document.querySelector('#jobrole');
+        setJobrole(Number(selectElement.options[selectElement.selectedIndex].value))
+        console.log("job role====>"+ typeof(jobrole))
         if (firstname == "" || email == "" || password == "" || repassword == "" || Checkbox == false) {
             setError(true)
         } else if (firstname != "" && email != "" && password != "" && repassword != "" && Checkbox != false) {
@@ -35,8 +38,8 @@ export default function SignUpPage() {
             setError5("") 
             setError6("")
             setCheckbox("")
-            const url = "http://localhost:3000/dev/signup";
-            const data = { firstname: firstname, lastname: lastname, email: email, password: password, repassword: repassword };
+            const url = "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/signup";
+            const data = { firstname: firstname, lastname: lastname, email: email, password: password, repassword: repassword, jobrole: jobrole};
             const headers = {};
             axios.post(url, data, headers)
                 .then((res) => {

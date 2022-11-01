@@ -87,29 +87,29 @@ export default function AddLead() {
     /> */
 
   let SaveLead = () => {
-    const suffix = localStorage.getItem("salutationvar");
-    const firstname = localStorage.getItem("firstnamevar");
-    const lastname = localStorage.getItem("lastnamevar");
-    const company = localStorage.getItem("companyvar");
-    const phone = localStorage.getItem("phonevar");
-    const email = localStorage.getItem("emailvar");
-    const address = localStorage.getItem("statevar");
-    const createdOn = localStorage.getItem("dateAddedOnvar");
-    const createdBy = localStorage.getItem("leadOwnervar");
+    // const suffix = localStorage.getItem("salutationvar");
+    // const firstname = localStorage.getItem("firstnamevar");
+    // const lastname = localStorage.getItem("lastnamevar");
+    // const company = localStorage.getItem("companyvar");
+    // const phone = localStorage.getItem("phonevar");
+    // const email = localStorage.getItem("emailvar");
+    // const address = localStorage.getItem("statevar");
+    // const createdOn = localStorage.getItem("dateAddedOnvar");
+    // const createdBy = localStorage.getItem("leadOwnervar");
 
-    console.log(
-      suffix,
-      firstname,
-      lastname,
-      company,
-      phone,
-      email,
-      address,
-      createdBy,
-      createdOn
-    );
+    // console.log(
+    //   suffix,
+    //   firstname,
+    //   lastname,
+    //   company,
+    //   phone,
+    //   email,
+    //   address,
+    //   createdBy,
+    //   createdOn
+    // );
 
-    if (suffix === "") {
+    if (salutation === "") {
       setEsuffix("*suffix is mandatory");
       setEfirstname("*firstname is mandatory");
       setElastname("*lastname is mandatory");
@@ -176,7 +176,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ephonevar', errorphone)
-    } else if (address === "") {
+    } else if (state === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -187,7 +187,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('eaddressvar', erroraddress)
-    } else if (createdOn === "") {
+    } else if (dateAddedOn === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -198,7 +198,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedonvar', errorcreatedon)
-    } else if (createdBy === 0) {
+    } else if (leadOwner === 0) {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -210,18 +210,18 @@ export default function AddLead() {
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedbyvar', errorcreatedby)
     } else {
-      const url = "http://localhost:3000/dev/InsertLead";
-      // const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
+      // const url = "http://localhost:3000/dev/InsertLead";
+      const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
       const data = {
-        suffix: suffix,
+        suffix: salutation,
         firstname: firstname,
         lastname: lastname,
         company: company,
         phone: Number(phone),
         email: email,
-        address: address,
-        createdOn: createdOn,
-        createdBy: Number(createdBy),
+        address: state,
+        createdOn: dateAddedOn,
+        createdBy: Number(leadOwner),
       };
       const header = {};
       axios
@@ -236,6 +236,7 @@ export default function AddLead() {
             setEaddress("");
             setEcreatedon("");
             setEcreatedby("");
+            setAddlead("");
             setEemail("*email id already exist");
           } else {
             setAddlead("*lead has been added");
@@ -295,7 +296,7 @@ export default function AddLead() {
                 setDiv_value3={setMiddlename}
                 div_head4={div_head4}
                 div_value4={lastname}
-                setDiv_value={setLastname}
+                setDiv_value4={setLastname}
                 div_head5={div_head5}
                 div_value5={title}
                 setDiv_value5={setTitle}

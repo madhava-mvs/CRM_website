@@ -106,7 +106,7 @@ export default function Form({
                     </div>
                 </div>
                 <div className="form_inner3">
-                    <div className="form_inner31">
+                <div className="form_inner31">
                         <label>{div_head4}</label>
                         <br />
                         <input

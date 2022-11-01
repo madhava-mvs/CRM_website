@@ -1,50 +1,82 @@
-import Test from '../components/Login.js';
-import LOGIN from '../components/Login.js';
-import Failed from '../components/Alertfailed.js';
+import LOGIN from "../components/Login.js";
+import Failed from "../components/Alertfailed.js";
 import axios from "axios";
-import { useState } from 'react';
-import "./LoginPage.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function LoginPage() {
-    const [showfail, setshowfail] = useState(false)
-    const [error1, seterror1] = useState(false)
-    const [error, setError] = useState("")
-    const [username, setusername] = useState("");
-    const [password, setpassword] = useState("");
-    const Login = (e) => {
-        seterror1("")
-        if (username == "" || password == "") {
-            seterror1(true)
-        }
-        else if (username != "" && password != "") {
-            setError("")
+  const nav = useNavigate();
+  const [showfail, setshowfail] = useState(false);
+  const [error1, seterror1] = useState(false);
+  const [error, setError] = useState("");
+  const username = useSelector((state) => state.username);
+  const token = useSelector((state) => state.token);
+  const [password, setpassword] = useState("");
+  const dispatch = useDispatch();
+  const Login = (e) => {
+    seterror1("");
+    if (username == "" || password == "") {
+      seterror1(true);
+    } else if (username != "" && password != "") {
+      setError("");
+      const url =
+        "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/login";
+      // const url = "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/Login";
+      // const url = "http://localhost:3000/dev/Login";
+      const data = { username: username, password: password };
+      const headers = {};
 
-            const url = "http://localhost:3000/dev/Login";
-            const data = { username: username, password: password };
-            const header = {};
-
-            axios.post(url, data, header)
-                .then((res) => {
-                    console.log("rersponse" + JSON.stringify(res.data))
-                    let result = res.data + ""
-                    if (result.includes("Email or Password is invalid"))
-                        setError("Email or Password is incorrect")
-
-
-                })
-                .catch((err) => {
-                    console.log("error " + JSON.stringify(err))
-                })
-        }
+      axios
+        .post(url, data, { headers: headers })
+        .then((res) => {
+          // if (username=="" && password==""){
+          let result = res.data + "";
+          // }
+          // else
+          if (result.includes("incorrect email or password")) {
+            setError("Email or Password is incorrect");
+            console.log("Email or Password is incorrect");
+          } else if (result.includes("Not approved")) {
+            setError("Not approved");
+            console.log("Not approved");
+          } else {
+            console.log(JSON.stringify(res.data));
+            dispatch({ type: "setToken", payload: res.data.token });
+            console.log("token" + JSON.stringify(token));
+            if (res.data.jobrole === "Admin") {
+              nav("/admindash");
+            } else if (res.data.jobrole === "Owner") {
+              nav("/managerdash");
+            }
+            else{
+                nav("/salesDashboard")
+            }
+          }
+        })
+        .catch((err) => {
+          console.log("error " + JSON.stringify(err));
+        });
     }
-    return <>
-        {showfail ?
-            <>
-                <Failed setshowfail={setshowfail} message={"Failed"} />
-            </>
-            :
-            <>
-            </>
-        }
-        <LOGIN setshowfail={setshowfail} Login={Login} error1={error1} error={error} username={username} password={password} setpassword={setpassword} setusername={setusername}/>
+  };
+  return (
+    <>
+      {showfail ? (
+        <>
+          <Failed setshowfail={setshowfail} message={"Failed"} />
+        </>
+      ) : (
+        <></>
+      )}
+      <LOGIN
+        setshowfail={setshowfail}
+        Login={Login}
+        error1={error1}
+        error={error}
+        username={username}
+        password={password}
+        setpassword={setpassword}
+        dispatch={dispatch}
+      />
     </>
+  );
 }

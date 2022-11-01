@@ -4,7 +4,11 @@
 }
 
 .ManagerDash_page_topbar {
-    width: 235vh;
+    width: 224vh;
+}
+
+.ManagerDash_page_content_leftbar{
+    background-color: #f3f3f3;
 }
 
 .ManagerDash_page_content_area {
@@ -28,8 +32,8 @@
 
 .ManagerDash_page_content_area_horizontal {
     /* background-color: yellow; */
-    width: 40%;
-    margin-right: 120px;
+    width: 37%;
+    margin-right: 130px;
 }
 
 .ManagerDash_page_content_area_row2 {
@@ -50,5 +54,5 @@
     padding-left: 50px;
     padding-right: 50px;
     margin-right: 40px;
-    margin-left: 95px;
+    margin-left: 120px;
 }

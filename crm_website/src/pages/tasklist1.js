@@ -63,17 +63,17 @@ function Addtask({ show, setShow }) {
     const [Subject, setSubject] = useState("");
     const [txtcomments, settxtcomments] = useState("");
     const [dtCreatedOn, setdtCreatedOn] = useState("");
-    const [txtAssignedto, settxtAssignedto] = useState("");
+    const [Assignedto, setAssignedto] = useState("");
     const [Status, setStatus] = useState("");
     const [LeadEmail, setLeadEmail] = useState("");
     const [errort, seterrort] = useState("");
 
     const loginClick = (e) => {
         // alert("added")
-        if (Subject == "" || txtcomments == "" || dtCreatedOn == "" || txtAssignedto == "" || Status == "" || LeadEmail == "") {
+        if (Subject == "" || txtcomments == "" || dtCreatedOn == "" || Assignedto == "" || Status == "" || LeadEmail == "") {
             seterrorall(true)
         }
-        else if (Subject != "" && txtcomments != "" && dtCreatedOn != "" && txtAssignedto != "" && Status != "" && LeadEmail != "") {
+        else if (Subject != "" && txtcomments != "" && dtCreatedOn != "" && Assignedto != "" && Status != "" && LeadEmail != "") {
             seterrors("")
             seterrorc("")
             seterrord("")
@@ -85,12 +85,12 @@ function Addtask({ show, setShow }) {
            
 
             // const url = "http://localhost:3000/dev/addtask";
-            const url = "https://c707ogt9m1.execute-api.us-east-1.amazonaws.com/dev/addtask"
+            const url = "https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/addtask"
             const data = {
                 Subject: Subject,
                 txtcomments: txtcomments,
                 dtCreatedOn: dtCreatedOn,
-                txtAssignedto: txtAssignedto,
+                Assignedto: Assignedto,
                 Status: Status,
                 LeadEmail: LeadEmail
             };
@@ -108,8 +108,8 @@ function Addtask({ show, setShow }) {
                     if (result.includes("dtCreatedOn is empty"))
                         seterrord("dtCreatedOn is empty")
 
-                    if (result.includes("txtAssignedto is empty"))
-                        seterrora("txtAssignedto is empty")
+                    if (result.includes("Assignedto is empty"))
+                        seterrora("Assignedto is empty")
 
                     if (result.includes("LeadEmail is empty"))
                         seterrorl("LeadEmail is empty")
@@ -195,9 +195,9 @@ function Addtask({ show, setShow }) {
                                         <div className="r4_in">
 
                                             <label>Assigned to</label><br></br>
-                                            <input type="text" className="S" value={txtAssignedto} onChange={(e) => { settxtAssignedto(e.target.value) }} />
+                                            <input type="text" className="S" value={Assignedto} onChange={(e) => { setAssignedto(e.target.value) }} />
                                             <label className="errora">{errora}</label>
-                                            {errorall && txtAssignedto == "" ? <label className="errora">txtAssignedto is empty</label> : ""}
+                                            {errorall && Assignedto == "" ? <label className="errora">Assignedto is empty</label> : ""}
                                         </div>
                                         <div className="r4_in">
 
