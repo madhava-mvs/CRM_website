@@ -19,6 +19,7 @@ export default function Signup({
   Checkbox,
   setCheckbox,
   setEmail,
+  setJobrole,
   setFirstname,
   setLastname,
   setPassword,
@@ -26,6 +27,7 @@ export default function Signup({
   firstname,
   lastname,
   email,
+  jobrole,
   password,
   repassword,
 }) {
@@ -96,7 +98,11 @@ export default function Signup({
               <option value="3">User</option>
             </select>
           </div>
-
+          {error && jobrole == 0 ? (
+            <label className="signup_error">jobrole is mandatory</label>
+          ) : (
+            ""
+          )}
           <label className="signup_err">{error6}</label>
           <div className="signup_inner_row6">
             <input
