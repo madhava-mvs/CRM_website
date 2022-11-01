@@ -9,12 +9,12 @@
 }
 
 .Admin_page_topbar {
-    width: 224vh;
+    width: 203vh;
 }
 
 .Admin_page_contentpart_leftbar {
     background-color: #f3f3f4;
-    height: 113vh;
+    height: 119vh;
 }
 
 .Admin_page_contentpart_main {
@@ -76,8 +76,7 @@
 
 .Admin_page_contentpart_list {
     /* background-color: black; */
-    /* margin-top: 25px;
-    margin-left: -30px; */
-    margin-top: 85px;
-    margin-top: -85px;
+    /* margin-top: 25px; */
+    margin-left: -70px;
+    margin-top: 75px;
 }

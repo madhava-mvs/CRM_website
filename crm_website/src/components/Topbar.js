@@ -11,7 +11,9 @@ import { BsFillBookFill } from "react-icons/bs";
 import { FaCarAlt } from "react-icons/fa";
 import React, { useState } from "react";
 import './Topbar.css';
+import { useNavigate } from "react-router-dom";
 export default function Topbar() {
+    const nav = useNavigate()
     const [show, setShow] = useState(false)
     const handleclick = (e) => {
         setShow(!show)
@@ -33,9 +35,9 @@ export default function Topbar() {
                     <ul>
                         <li>Dashboard</li>
                         <li>Accounts</li>
-                        <div className="Tobar_col2_on" onClick={(e) => { handleclick(e) }}><li>Campaigns</li></div>
-                        <div className="Tobar_col2_on1" onClick={(e) => { handleclick(e) }}><li>Leads</li></div>
-                        <div className="Tobar_col2_on2" onClick={(e) => { handleclick(e) }}><li>Prospects</li></div>
+                        <div className="Tobar_col2_on" onClick={(e) => { handleclick(e) }}><li><label>Campaigns</label></li></div>
+                        <div className="Tobar_col2_on1" onClick={(e) => { handleclick(e) }}><li><label>Leads</label></li></div>
+                        <div className="Tobar_col2_on2" onClick={(e) => { handleclick(e) }}><li><label>Prospects</label></li></div>
                         <li>
                             <BsThreeDots />
                         </li>
@@ -99,7 +101,7 @@ export default function Topbar() {
                                 <div className="Topbar_content_colb_list">
                                     <div className="Topbar_content_colb_list1">
                                         <FaCarAlt className="Topbar_caricon" />
-                                        <div className="Tobar_col2_listlead" onClick={(e) => { handleclick(e) }}><label>List Leads</label></div>
+                                        <div className="Tobar_col2_listlead" onClick={(e) => { nav("/Leadlist") }}><label>List Leads</label></div>
                                     </div>
                                     <div className="Topbar_content_colb_list1">
                                         <BsFillBookFill className="Topbar_bookicon" />

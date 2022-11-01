@@ -56,6 +56,7 @@ export default function LeadListPage() {
         <div className="div2">
           <div className="div2_left">
             <LeftBar />
+            
           </div>
           <div className="div2_right">
             <div className="Leadlist_TitleBar">

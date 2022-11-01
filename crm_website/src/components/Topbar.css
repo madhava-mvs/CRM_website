@@ -231,3 +231,9 @@
 .Topbar_Company{
 margin-left: 10px;
 }
+
+
+.Topbar_col2 ul li label{
+    color: rgba(142, 154, 177, 1);
+}
+

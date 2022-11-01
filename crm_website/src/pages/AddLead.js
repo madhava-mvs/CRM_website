@@ -262,7 +262,9 @@ export default function AddLead() {
     <div>
       <Topbar />
       <div className="AddLead_content">
-        <LeftBar className="AddLead_LeftBar" />
+        <div  className="AddLead_LeftBar">
+        <LeftBar />
+        </div>
         <div className="AddLead_content_right">
           <div className="AddLead_content_right_inside">
             {/* <TitleBar setEsuffix = {setEsuffix} setEfirstname = {setEfirstname}  setElastname={setElastname} setEcompany={setEcompany} setEphone={setEphone} setEemail={setEemail} setEaddress={setEaddress} setEcreatedon={setEcreatedon} setEcreatedby={setEcreatedby} /> */}
