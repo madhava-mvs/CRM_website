@@ -8,17 +8,18 @@ import Filterbar from "../components/Filterbar";
 import Mainlist from "../components/Campaignlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 export default function CampaignListPage() {
+  const updateid = useSelector((state) => state.update_campaign_id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function Addcampaign() {
     for (let k of array) {
       if (k.isclicked === true) {
         console.log("arraydata===>" + JSON.stringify(k.isclicked));
-        dispatch({ type: "setUpdate_campaign_id", payload: k.isclicked });
+        dispatch({ type: "setUpdate_campaign_id", payload: k.id });
+        console.log("updated id==>"+updateid);
       }
-      
     }
     navigate("/Campaigneditpage");
   }
