@@ -69,11 +69,11 @@
 //   )
 // }
 import React, { useEffect, useState } from 'react'
-import LeftBar from './components/Leftbar'
-import TitleBar from './components/Titlebar'
-import Topbar from './components/Topbar'
+import LeftBar from '../components/LeftBar'
+import TitleBar from '../components/Titlebar'
+import Topbar from '../components/Topbar'
 import './salesDashboard.css'
-import SalesDash from './components/Msale'
+import SalesDash from '../components/Msale'
 
 import axios from 'axios'
 export default function SalesDashboard() {
@@ -94,7 +94,7 @@ export default function SalesDashboard() {
   const [completed, setCompleted]=useState([])
   ///
   useEffect(()=>{
-    const url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/getTODO";
+    const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/TODO";
     const data = {}
     const header = {}
     axios.post(url, data, {headers:header})

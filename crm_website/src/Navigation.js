@@ -9,6 +9,7 @@ import LeadListPage from "./pages/LeadlistPage";
 import LoginPage from "./pages/Login";
 import ManagerDash from "./pages/ManagerDash";
 import ProspectListpage from "./pages/ProspectListpage";
+import SalesDashboard from "./pages/salesDashboard";
 import SignUpPage from "./pages/SignUpPage";
 import Tasklist from "./pages/tasklist1";
 import Userprofile from "./pages/Userprofile";
@@ -33,7 +34,7 @@ export default function Navigation() {
           ></Route>
           <Route path="/Tasklist1" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
-          <Route path="/salesDashboard" element={<salesDashboard/>}></Route>
+          <Route path="/salesDashboard" element={<SalesDashboard />}></Route>
           <Route path="/admindash" element={<AdminDash />}></Route>
           <Route path="/managerdash" element={<ManagerDash />}></Route>
           <Route path="/Userprofile" element={<Userprofile />}>
