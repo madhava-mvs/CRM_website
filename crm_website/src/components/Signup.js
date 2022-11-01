@@ -31,6 +31,12 @@ export default function Signup({
   password,
   repassword,
 }) {
+
+// const jobroleFunc = (e)=>{
+//     setJobrole(e.target.value)
+// }
+
+
   return (
     <>
       <div className="signup_outer">
@@ -91,9 +97,8 @@ export default function Signup({
 
           <div className="signup_inner_row5_dropdown_role">
             <label>Job role :</label>
-            <select id="jobrole">
-              <option value="" className="signup_inner_row5_dropdown_role_option">--------------------</option>
-              <option value="1">Admin</option>
+            <select value={jobrole} onChange={(e)=>setJobrole(e.target.value)}>
+              <option value="">--------------------</option>
               <option value="2">Owner</option>
               <option value="3">User</option>
             </select>

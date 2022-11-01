@@ -31,10 +31,10 @@ export default function SignUpPage() {
 
 
 
-    const selectElement = document.querySelector("#jobrole");
-    setJobrole(
-      Number(selectElement.options[selectElement.selectedIndex].value)
-    );
+    // const selectElement = document.querySelector("#jobrole");
+    // setJobrole(
+    //   Number(selectElement.options[selectElement.selectedIndex].value)
+    // );
     //console.log("job role====>" + jobrole);
 
 
@@ -133,7 +133,7 @@ export default function SignUpPage() {
         setLastname={setLastname}
         setPassword={setPassword}
         setEmail={setEmail}
-        setjobrole={setJobrole}
+        setJobrole={setJobrole}
         setRepassword={setRepassword}
         setCheckbox={setCheckbox}
         error={error}
