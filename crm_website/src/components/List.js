@@ -1,7 +1,14 @@
 import { BsThreeDotsVertical, BsBellFill } from "react-icons/bs";
 import "./List.css";
-export default function List({ user }) {
 
+
+export default function List({ user, pending_show, setPending_show, setApproval_mail }) {
+
+    const Pend = item => () => {
+        console.log(item.txtEmail)
+        setApproval_mail(item.txtEmail)
+        setPending_show(!pending_show);
+    }
 
     return <>
         <div className="list_main">
@@ -19,7 +26,7 @@ export default function List({ user }) {
                             {
                                 <label>{(item.txtFirstName)}</label>
                             }
-                            <button>Pending</button>
+                            <button onClick={Pend(item)}>Pending</button>
                         </div>
                     </div>
                 );
