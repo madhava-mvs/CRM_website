@@ -32,7 +32,7 @@ export default function Navigation() {
             path="/Campaigneditpage"
             element={<Campaigneditpage />}
           ></Route>
-          <Route path="/Tasklist1" element={<Tasklist />}></Route>
+          <Route path="/Tasklist" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
           <Route path="/salesDashboard" element={<SalesDashboard />}></Route>
           <Route path="/admindash" element={<AdminDash />}></Route>

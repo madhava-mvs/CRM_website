@@ -80,7 +80,7 @@ export default function Topbar() {
                             </div>
                             <div className="Topbar_content_cola_list">
                                 <BsFillBookFill className="Topbar_bookicon" />
-                                <div className="Tobar_col2_Tasks" onClick={(e) => { handleclick(e) }}><label>Tasks</label></div>
+                                <div className="Tobar_col2_Tasks" onClick={(e) => { nav("/Tasklist") }}><label>Tasks</label></div>
                             </div>
                             <div className="Topbar_content_cola_list">
                                 <BsFillBookFill className="Topbar_bookicon" />
@@ -123,7 +123,7 @@ export default function Topbar() {
                                 <div className="Topbar_content_colb_list">
                                     <div className="Topbar_content_colb_list1">
                                         <BsFillBookFill className="Topbar_bookicon" />
-                                        <div className="Tobar_col2_listcampaign" onClick={(e) => { handleclick(e) }}> <label>List Campaign</label></div>
+                                        <div className="Tobar_col2_listcampaign" onClick={(e) => { nav("/Campaignlistpage") }}> <label>List Campaign</label></div>
                                     </div>
                                     <div className="Topbar_content_colb_list1">
                                         <BsFillBookFill className="Topbar_bookicon" />
