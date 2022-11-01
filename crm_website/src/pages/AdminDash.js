@@ -7,6 +7,7 @@ import Progressbar from '../components/Progressbar';
 import Bargraph from '../components/Bargraph';
 import Summary from '../components/Summary';
 import SummaryCount from "../components/SummaryCount";
+import Pending from "../components/Pending";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -40,6 +41,9 @@ export default function AdminDash() {
 
 
     const [user, setUser] = useState([]);
+
+    const [pending_show, setPending_show] = useState(false);
+    const [approval_mail, setApproval_mail] = useState("")
 
     //ProspectGrowth Axios
 
@@ -140,8 +144,26 @@ export default function AdminDash() {
 
     })
 
+    const approval_Func = () => {
+        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
+        const data = { approval_mail: approval_mail };
+        const header = {}
+        axios.post(url, data, { headers: header })
+            .then((res) => {
+                console.log("updated")
+                setPending_show(!pending_show)
+            })
+            .catch((err) => {
+                console.log("error ==>" + err)
+            })
+    }
+
+
 
     return <>
+        {pending_show ?
+            (<div className="Admin_page_pending"> <Pending pending_show={pending_show} setPending_show={setPending_show} approval_Func={approval_Func} /></div>) : <></>
+        }
         <div className='Admin_page'>
             <div className="Admin_page_topbar">
                 <div className='Admin_page_column1'>
@@ -170,7 +192,7 @@ export default function AdminDash() {
                     </div>
                 </div>
                 <div className='Admin_page_contentpart_list'>
-                    <List user={user} />
+                    <List user={user} pending_show={pending_show} setPending_show={setPending_show} setApproval_mail={setApproval_mail} />
                 </div>
             </div>
         </div >
