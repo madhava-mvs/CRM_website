@@ -1,7 +1,7 @@
 .Normallist {
-    width: 100vh;
-    max-width: 85vh;
-    min-width: 85vh;
+    width: 103%;
+    /* max-width: 85vh;
+    min-width: 85vh; */
     height: 60vh;
     background-color: #ffffff;
     display: flex;
