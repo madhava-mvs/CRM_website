@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 export default function Mainlist() {
   const [array, setArray] = useState([]);
   useEffect(() => {
-  
+
     //const url = "http://localhost:3000/dev/taskfetch";
-     const url ="https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/taskfetch";
+    const url = "https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/taskfetch";
     const data = {};
     const header = {};
     axios
@@ -32,15 +32,15 @@ export default function Mainlist() {
         <div className="TaskList_Mainlist_header">
           <div className="Tasklist_Mainlist_row1">
             <ul>
-            <div className="Tasklist_Header_Main1"><li>tasklist</li></div>
-              {/* <li>campaign</li> */}
+              <div className="Tasklist_Header_Main1"><li>Subject</li></div>
+
               <div className="Tasklist_Header_Main2"><li>Status</li></div>
-             {/* <li> dtCreatedOn </li> */}
-             <div className="Tasklist_Header_Main3"><li>dtCreatedOn</li></div>
-               {/* <li>LeadEmail</li> */}
-               <div className="Tasklist_Header_Main4"><li>LeadEmail</li></div>
-          {/* <li>owner</li> */}
-          <div className="Tasklist_Header_Main5"><li>owner</li></div>
+
+              <div className="Tasklist_Header_Main3"><li>dtCreatedOn</li></div>
+
+              <div className="Tasklist_Header_Main4"><li>LeadEmail</li></div>
+
+              <div className="Tasklist_Header_Main5"><li>owner</li></div>
             </ul>
           </div>
         </div>
@@ -62,7 +62,7 @@ function ListRow({ itm, array, setArray }) {
   const handleClick = (e, itm) => {
     let temp = [...array];
     for (const iterator of temp) {
-      if (itm.tasktitle === iterator.tasktitle) {
+      if (itm.Subject === iterator.Subject) {
         iterator.isclicked = !iterator.isclicked;
       }
     }
@@ -78,18 +78,17 @@ function ListRow({ itm, array, setArray }) {
         <input className="Tasklist_Cb" type="checkbox" onClick={e => handleClick(e, itm)} />
         <label for="checkbox"></label>
         <div className="Tasklist_Mainlist_list_row">
-          {/* <label>{itm.tasktitle}</label> */}
-          <div className="itmtasktitle">{itm.tasktitle}</div>
-          {/* <label>{itm.campaign}</label> */}
-          {/* <label>{itm.Status}</label> */}
+
+          <div className="itmSubject">{itm.Subject}</div>
+
           <div className="itmStatus">{itm.Status}</div>
-          {/* <div>{day}-{month}-{year}</div> */}
+
           <div className="itmdate">{year}-{month}-{day}</div>
 
-          {/* <label>{itm.LeadEmail}</label> */}
+
           <div className="itmLeadEmail">{itm.LeadEmail}</div>
 
-          {/* <label>{itm.owner}</label> */}
+
           <div className="itmowner">{itm.owner}</div>
           <div className="Tasklist_Mainlist_icon">
             <AiOutlineArrowRight />
