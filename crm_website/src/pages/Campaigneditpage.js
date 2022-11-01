@@ -223,21 +223,21 @@ useEffect(() => {
         });
 }, [])
 
-// useEffect(() => {
-//     const url = "http://localhost:3000/dev/leadfunnel";
-//     const data = {};
-//     const header = {};
-//     axios.post(url, data, { Headers: header })
-//         .then((res) => {
-//             console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
-//             setOrangebar(res.data[0].leadscount)
-//             setGreenbar(res.data[1].leadscount)
-//             setBluebar(res.data[2].leadscount)
-//         })
-//         .catch((err) => {
-//             console.log("Error => " + err)
-//         })
-// }, [])
+useEffect(() => {
+    const url = "http://localhost:3000/dev/leadfunnel";
+    const data = {};
+    const header = {};
+    axios.post(url, data, { Headers: header })
+        .then((res) => {
+            console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
+            setOrangebar(res.data[0].leadscount)
+            setGreenbar(res.data[1].leadscount)
+            setBluebar(res.data[2].leadscount)
+        })
+        .catch((err) => {
+            console.log("Error => " + err)
+        })
+}, [])
 
 return (
     <>
