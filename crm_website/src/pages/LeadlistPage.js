@@ -8,10 +8,13 @@ import Filterbar from "../components/Filterbar";
 import Mainlist from "../components/Leadlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-export default function LeadListPage() {
+import { useSelector } from "react-redux";
 
-  const navigate = useNavigate();
+export default function LeadListPage() {
+  
+  const navigate = useNavigate()
   function AddLead() {
+
     navigate("/AddLead");
   }
   const titlebar_name = "Lead List"
@@ -19,15 +22,15 @@ export default function LeadListPage() {
   const bulkimportshow = true
   const savebuttonshow = true
   
-  
+
   const [array, setArray] = useState([]);
+  const [array1, setArray1] = useState([]);
 
 
-    // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
     useEffect(()=>{
-    // const url = "http://localhost:3000/dev/Leadlist"
-
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
+    // const url = "http://localhost:3000/dev/Leadlist";
+
     const data = {};
     const Headers = {};
     axios.post(url, data, Headers)
@@ -38,14 +41,54 @@ export default function LeadListPage() {
         }
         console.log(res.data)
         setArray(res.data)
-        
       })
 
       .catch((err) => {
         console.log("Error==>" + err);
       });
     },[])
+    const update_lead_id = useSelector((state) => state.update_lead_id);
 
+    
+    // const data = localStorage.getItem();
+    useEffect(() => {
+
+      const url =
+        "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
+      const data = { id: update_lead_id };
+      const headers = {};
+      axios
+        .post(url, data, { headers: headers })
+        .then((res) => {
+          console.log(JSON.stringify(res.data));
+          setArray1(res.data)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      },[]);
+    const DeleteLead = () =>{
+      console.log("delete array==>"+ JSON.stringify(array))
+
+let leadid
+for(const k of array){
+if(k.isclicked === true){
+  leadid = k.id
+}
+}
+
+      // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
+      const url = "http://localhost:3000/dev/DeleteSingleLead"
+      const data = { id: leadid};
+      const header = {};
+      axios.post(url, data, { headers: header })
+          .then((res) => {
+              console.log("Response ==> " + JSON.stringify(res.data))
+          })
+          .catch((err) => {
+              console.log("Error ==> " + err)
+          })
+  }
 
   return (
     <>
@@ -63,10 +106,10 @@ export default function LeadListPage() {
               <TitleBar SaveLead={AddLead} titlebar_name={titlebar_name} button_value={button_value} bulkimportshow={bulkimportshow} savebuttonshow={savebuttonshow}/>
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar />
+              <Filterbar DeleteLead={DeleteLead} />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray}  />
+              <Mainlist array={array} setArray={setArray}  DeleteLead={DeleteLead}/>
             </div>
           </div>
         </div>
