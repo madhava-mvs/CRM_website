@@ -1,11 +1,10 @@
 .summarycount_outer {
-    /* background-color: black; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.summarycount_inner_main {
+.summarycount_inner {
     /* background-color: black; */
     background-color: #f3f3f4;
     min-width: 100px;
@@ -26,7 +25,7 @@
 
 }
 
-.summarycount_inner label{
+.summarycount_inner label {
     color: #4D5E80;
     font-family: Arial, Helvetica, sans-serif;
     /* font-weight: bold; */
@@ -40,6 +39,27 @@
 }
 
 .summarycount_inner_row2 {
+    /* background-color: violet; */
     font-size: x-large;
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: -20px;
+    margin-bottom: 15px;
+}
+
+.summarycount_inner_row3 {
+    /* background-color: tomato; */
+    display: flex;
+    flex-direction: row;
+}
+
+.summarycount_inner_row3_icon {
+    color: green;
+    font-size: large;
+}
+
+.summarycount_inner_row3 label {
+    /* background-color: yellow; */
+    margin-left: 10px;
+    font-size: large;
+    color: green;
 }

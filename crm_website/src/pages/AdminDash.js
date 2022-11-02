@@ -24,10 +24,8 @@ export default function AdminDash() {
     const [leads, setLeads] = useState([]);
     const [pros, setPros] = useState([]);
 
-    const [bluecamp, setBlueCamp] = useState([]);
-    const [blueheight, setBlueHeight] = useState(0);
-    const [greenheight, setGreenHeight] = useState("");
-    const [orangeheight, setOrangeHeight] = useState("");
+    const [bar, setBar] = useState([]);
+
 
     const title = ("Manager wise Prospect Count");
     const [genman, setGenMan] = useState(0);
@@ -59,7 +57,7 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error ==> " + err)
             })
-    })
+    }, [])
 
     //LeadsFunnel Axios
 
@@ -77,7 +75,7 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    }, [])
 
     //ProspectProgress Axios
 
@@ -93,7 +91,7 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    }, [])
 
     //ManagerWiseProspectCount Axios
 
@@ -108,7 +106,7 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    }, [])
 
     //CampaignWiseProspectCount Axios
 
@@ -119,13 +117,12 @@ export default function AdminDash() {
         axios.post(url, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].count))
-                setBlueHeight(res.data[0].count)
-                setBlueCamp(res.data[0].txtCampaignName)
+                setBar(res.data)
             })
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    }, [])
 
     //UserList Axios
 
@@ -142,7 +139,7 @@ export default function AdminDash() {
                 console.log("Error => " + err)
             })
 
-    })
+    }, [])
 
     const approval_Func = () => {
         const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
@@ -176,7 +173,7 @@ export default function AdminDash() {
                 </div>
                 <div className='Admin_page_contentpart_main'>
                     <div className='Admin_page_contentpart_main_row1'>
-                        <Bargraph orangeh={orangeheight} greenh={greenheight} blueh={blueheight} bluec={bluecamp} />
+                        <Bargraph bar={bar} />
                         <div className="Admin_page_contentpart_main_horizontal">
                             <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} />
                         </div>
