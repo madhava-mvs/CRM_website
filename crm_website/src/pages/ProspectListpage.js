@@ -58,7 +58,7 @@ export default function ProspectListpage() {
     
     <button>Add product</button>
   </div> */}
-          <div className="ProspectListpage_Filterbar">
+          <div className="ProspectListpage_Titlebar">
             {/* <Titlebar title={title} show={show}/> */}
             {/* <Titlebar/> */}
             <Titlebar
