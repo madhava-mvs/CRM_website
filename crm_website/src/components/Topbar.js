@@ -141,7 +141,7 @@ export default function Topbar() {
                                 <div className="Topbar_content_colb_list">
                                     <div className="Topbar_content_colb_list1">
                                         <BsFillBookFill className="Topbar_bookicon" />
-                                        <div className="Tobar_col2_listprospect" onClick={(e) => { handleclick(e) }}><label>List Prospect</label></div>
+                                        <div className="Tobar_col2_listprospect" onClick={(e) => { nav("/ProspectListpage") }}><label>List Prospect</label></div>
                                     </div>
                                 </div>
 

@@ -1,13 +1,11 @@
 .leftbar_outer {
-  height: 100%;
+  min-height: 100vh;
   background-color: #f3f3f4;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80px;
-  
-
 }
 .leftbar_whitecircle,
 .leftbar_whitecircle1,

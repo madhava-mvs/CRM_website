@@ -138,7 +138,9 @@ export default function SalesDashboard() {
     <div className='salesdash_outer'>
       <Topbar />
       <div className='salesdash_content'>
+        <div className='salesdash_content_leftbar_component'>
         <LeftBar />
+        </div>
         <div className='salesdash_content_right'>
             <div className='salesdash_content_right_inside'>
               <div className='salesdash_titlebar'>
