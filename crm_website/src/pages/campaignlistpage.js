@@ -13,14 +13,17 @@ export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  function Addcampaign() {
-    for (let k of array) {
-      if (k.isclicked === true) {
-        console.log("arraydata===>" + JSON.stringify(k.isclicked));
-        dispatch({ type: "setUpdate_campaign_id", payload: k.id });
+  function Addcampaign(){
+    return "add campaign page"
+  }
+  const Updatecampaign = itm =>() => {
+    // for (let k of array) {
+      // if (k.isclicked === true) {
+        // console.log("arraydata===>" + JSON.stringify(k.isclicked));
+        dispatch({ type: "setUpdate_campaign_id", payload: itm.id  });
         console.log("updated id==>"+updateid);
-      }
-    }
+      
+    
     navigate("/Campaigneditpage");
   }
 
@@ -76,7 +79,7 @@ export default function CampaignListPage() {
               <Filterbar />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray} />
+              <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />
             </div>
           </div>
         </div>
