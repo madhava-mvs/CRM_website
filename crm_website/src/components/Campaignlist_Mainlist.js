@@ -3,7 +3,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 // import { useState } from "react";
 import "./Campaignlist_Mainlist.css";
 
-export default function Campaignlist_Mainlist({array, setArray}) {
+export default function Campaignlist_Mainlist({array, setArray, Updatecampaign}) {
   // const [array, setArray] = useState([]);
   // const data = localStorage.getItem();
   
@@ -29,7 +29,7 @@ export default function Campaignlist_Mainlist({array, setArray}) {
         <div className="Campaignlist_Mainlist_Innerbox">
           <div className="Campaignlist_Mainlist_list">
           {array.map((itm, indx) => {
-              return <ListRow itm={itm} array={array} setArray={setArray}/>;
+              return <ListRow itm={itm} array={array} setArray={setArray} Updatecampaign={Updatecampaign}/>;
             })}
             <div>
               <button className="Campaignlist_Mainlist_Button">load more leads</button>
@@ -45,7 +45,7 @@ export default function Campaignlist_Mainlist({array, setArray}) {
 
 
 
-function ListRow({itm, array, setArray}) {
+function ListRow({itm, array, setArray, Updatecampaign}) {
   const handleClick=(e, itm)=>{
     let temp=[...array];
     for (const iterator of temp) {
@@ -66,7 +66,7 @@ function ListRow({itm, array, setArray}) {
   let year1 = d.getFullYear();
   return (
     <>
-      <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"} >
+      <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"} onClick={Updatecampaign(itm)} >
         <input className="Campaignlist_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}/>
               <label for="checkbox"></label>
         <div className="Campaignlist_Mainlist_list_row">
