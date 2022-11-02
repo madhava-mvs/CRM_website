@@ -20,6 +20,61 @@
     width: 116vh;
     padding: 15px;
     height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+
+
+.ProspectListpage_Filterbar{
+    margin-top: 1px;
+    height: 60px;
+    width: 925px;
+    margin-left: 17px;
+
+
+}
+
+.ProspectListpage_Mainlist{
+    width: 1090px;
+}
+/* .ProspectListpage_Mainlist{
+
+} */
+.ProspectListpage_underline{
+    background-color: blue;
+    margin-left: 400px;
+    color: white;
+    width: 58px;
+    height: 2px;
+    margin-top: 17px;
+
+}
+
+
+
+/* .ProspectListpage{
+    display: absolute;
+}
+/* .ProspectListpage_Admindashboard{
+ 
+} */
+/* .ProspectListpage_LeftBar{
+
+    height: 93vh;
+}
+.ProspectListpage_container{
+
+    margin-left: 260px;
+    margin-top: -600px;
+    margin-right: 208px;
+  
+
+}
+.ProspectListpage_Titlebar{
+    width: 116vh;
+    padding: 15px;
+    height: 30px;
 }
 
 
@@ -32,7 +87,7 @@
 
 
 
-}
+} */ 
 
 
 /* .ProspectListpage_Mainlist{

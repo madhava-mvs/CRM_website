@@ -17,7 +17,7 @@ export default function Tasklist() {
     const [show, setShow] = useState(false);
     const titlebar_name = "TaskList"
     const [savebuttonshow , setsavebuttonshow]= useState(true);
-    const button_value ="ADDTASK"
+    const button_value ="Add Task"
 
 
     const handleClick = () => {

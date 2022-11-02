@@ -21,10 +21,7 @@ export default function ManagerDash() {
     const [leads, setLeads] = useState([]);
     const [pros, setPros] = useState([]);
 
-    const [bluecamp, setBlueCamp] = useState([]);
-    const [blueheight, setBlueHeight] = useState(0);
-    const [greenheight, setGreenHeight] = useState("");
-    const [orangeheight, setOrangeHeight] = useState("");
+    const [bar, setBar] = useState([]);
 
     const title = ("SalesPerson Wise Prospect Count");
     const [salesman1, setSalesMan1] = useState(0);
@@ -50,7 +47,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error ==> " + err)
             })
-    })
+    },[])
 
     //LeadsFunnel Axios
 
@@ -68,7 +65,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    },[])
 
     //ProspectProgress Axios
 
@@ -84,7 +81,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    },[])
 
     //SalesPersonWiseProspectCount Axios
 
@@ -101,7 +98,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    },[])
 
     //CampaignWiseProspectCount Axios
 
@@ -111,14 +108,13 @@ export default function ManagerDash() {
         const header = {};
         axios.post(url, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data[0].count))
-                setBlueHeight(res.data[0].count)
-                setBlueCamp(res.data[0].txtCampaignName)
+                console.log("Response => " + JSON.stringify(res.data))
+                setBar(res.data)
             })
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    })
+    },[])
 
     return <>
         <div className="ManagerDash_page">
@@ -131,9 +127,9 @@ export default function ManagerDash() {
                 </div>
                 <div className="ManagerDash_page_content_area">
                     <div className="ManagerDash_page_content_area_row1">
-                        <Bargraph orangeh={orangeheight} greenh={greenheight} blueh={blueheight} bluec={bluecamp} />
+                        <Bargraph bar={bar} />
                         <div className="ManagerDash_page_content_area_horizontal">
-                            <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show={show} />
+                            <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show} />
                         </div>
                     </div>
                     <div className="ManagerDash_page_content_area_row2">

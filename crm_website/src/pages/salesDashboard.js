@@ -76,7 +76,9 @@ import './salesDashboard.css'
 import SalesDash from '../components/Msale'
 
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 export default function SalesDashboard() {
+  const userid = useSelector((state) => state.userid);
 
   const titlebar_name = "Tasks"
   const [savebuttonshow , setsavebuttonshow]= useState(true);
@@ -95,7 +97,7 @@ export default function SalesDashboard() {
   ///
   useEffect(()=>{
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/TODO";
-    const data = {}
+    const data = { userid: userid }
     const header = {}
     axios.post(url, data, {headers:header})
     .then((res)=>{
@@ -138,7 +140,9 @@ export default function SalesDashboard() {
     <div className='salesdash_outer'>
       <Topbar />
       <div className='salesdash_content'>
+        <div className='salesdash_content_leftbar_component'>
         <LeftBar />
+        </div>
         <div className='salesdash_content_right'>
             <div className='salesdash_content_right_inside'>
               <div className='salesdash_titlebar'>
