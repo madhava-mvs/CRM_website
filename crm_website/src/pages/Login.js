@@ -9,8 +9,9 @@ export default function LoginPage() {
   const [showfail, setshowfail] = useState(false);
   const [error1, seterror1] = useState(false);
   const [error, setError] = useState("");
-  const username = useSelector((state) => state.username);
+  const username = useSelector((state) => state.email);
   const token = useSelector((state) => state.token);
+  const userid = useSelector((state) => state.userid);
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
   const Login = (e) => {
@@ -42,7 +43,9 @@ export default function LoginPage() {
           } else {
             console.log(JSON.stringify(res.data));
             dispatch({ type: "setToken", payload: res.data.token });
-            console.log("token" + JSON.stringify(token));
+            dispatch({ type: "setUserid", payload: res.data.userid });
+            dispatch({ type: "setUsername1", payload: res.data.username });
+            console.log("token" + JSON.stringify(token+"testinggggggg============"+userid));
             if (res.data.jobrole === "Admin") {
               nav("/admindash");
             } else if (res.data.jobrole === "Owner") {

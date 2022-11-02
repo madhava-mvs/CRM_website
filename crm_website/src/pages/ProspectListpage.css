@@ -29,19 +29,21 @@
 .ProspectListpage_Filterbar{
     margin-top: 1px;
     height: 60px;
-    width: 888px;
+    width: 925px;
     margin-left: 17px;
 
 
 }
 
-
+.ProspectListpage_Mainlist{
+    width: 1090px;
+}
 /* .ProspectListpage_Mainlist{
 
 } */
 .ProspectListpage_underline{
     background-color: blue;
-    margin-left: 379px;
+    margin-left: 400px;
     color: white;
     width: 58px;
     height: 2px;
