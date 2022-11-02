@@ -16,13 +16,22 @@
   
 
 }
-.ProspectListpage_Titlebar,.ProspectListpage_Filterbar{
-    margin-right: 20px;
-    margin-left: 20px;
+.ProspectListpage_Titlebar{
+    width: 116vh;
+    padding: 15px;
+    height: 30px;
 }
 
+
+
 .ProspectListpage_Filterbar{
-width: 930px;
+    margin-top: 20px;
+    height: 60px;
+    width: 888px;
+    margin-left: 17px;
+
+
+
 }
 
 
