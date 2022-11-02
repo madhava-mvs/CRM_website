@@ -1,9 +1,7 @@
-body{
-    background-color: lightgray;
-}
+
 .checkList_outer{
     background-color: white;
-    width: 35%;
+    width: 100%;
     border-radius: 20px;
 }
 .checkList_inner1{
