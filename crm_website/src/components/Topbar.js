@@ -436,7 +436,7 @@ export default function Topbar() {
               <div
                 className="Tobar_col2_Tasks"
                 onClick={(e) => {
-                  handleclick(e);
+                  nav("/Tasklist")
                 }}
               >
                 <label>Tasks</label>

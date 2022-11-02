@@ -11,7 +11,7 @@ import ManagerDash from "./pages/ManagerDash";
 import ProspectListpage from "./pages/ProspectListpage";
 import SalesDashboard from "./pages/salesDashboard";
 import SignUpPage from "./pages/SignUpPage";
-import Tasklist from "./pages/tasklist1";
+import Tasklist from "./pages/Tasklist";
 import Userprofile from "./pages/Userprofile";
 
 export default function Navigation() {
