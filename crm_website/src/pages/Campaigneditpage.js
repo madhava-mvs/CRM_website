@@ -105,7 +105,7 @@ export default function Campaigneditpage() {
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
         const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, "id": "3" }
         const header = {};
-        axios.post(url, data, header)
+        axios.post(url, data, {headers: header})
             .then((res) => {
                 console.log("Response12==> " + JSON.stringify(res.data))
                 let result = res.data + ""
@@ -163,10 +163,10 @@ export default function Campaigneditpage() {
         // const url = "http://localhost:3000/dev/getsingleCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
-            "id": {updateid},
+            "id": updateid,
         };
         const header = {};
-        axios.post(url, data,header,)
+        axios.post(url, data,{headers: header})
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
                 // let date3 = new Date(res.data[0].dtStartdate).toLocaleDateString()
