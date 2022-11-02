@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Otp from "./components/Otp";
+import Addcampaign from "./pages/AddCampaign";
 import AddLead from "./pages/AddLead";
 import AdminDash from "./pages/AdminDash";
 import Campaigneditpage from "./pages/Campaigneditpage";
@@ -31,6 +32,10 @@ export default function Navigation() {
           <Route
             path="/Campaigneditpage"
             element={<Campaigneditpage />}
+          ></Route>
+          <Route
+            path="/AddCampaign"
+            element={<Addcampaign />}
           ></Route>
           <Route path="/Tasklist" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
