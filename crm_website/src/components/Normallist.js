@@ -1,5 +1,5 @@
 import "./normallist.css"
-export default function Normallist({ arrayData1, setArrayData1 , handleclick}) {
+export default function Normallist({ arrayData1, setArrayData1 , handleclick1}) {
 
     return (
         <>
@@ -7,7 +7,7 @@ export default function Normallist({ arrayData1, setArrayData1 , handleclick}) {
                 <div className="Normallist_row1">
                     <label className="Normallist_row1_label">Leads</label>
                     <div className="Normallist_row1_button">
-                        <button onClick={(e) => { handleclick(e) }} ><b>ADD</b></button>
+                        <button onClick={(e) => { handleclick1(e) }} ><b>ADD</b></button>
                     </div>
                 </div>
                 <div className="Normallist_row2"></div>
@@ -34,12 +34,12 @@ function Table(item1) {
     let day = d.getDate();
     let month = d.getMonth();
     let year = d.getFullYear();
-    // console.log("item" + JSON.stringify(item1))
+    console.log("item" + JSON.stringify(item1))
     return <>
         <div className="Normallist_row5">
             <label>{item1.item1.txtFirstName}</label>
             <label>{item1.item1.txtLastName}</label>
-            <label>{item1.item1.txtLeadsource}</label>
+            <label>{item1.item1.status1}</label>
             <label>{year}-{month}-{day}</label>
         </div>
     </>
