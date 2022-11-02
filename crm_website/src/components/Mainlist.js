@@ -1,5 +1,7 @@
 
 
+
+
 import "./Mainlist.css";
 import axios from "axios";
 import React from "react";
@@ -62,7 +64,7 @@ function ListRow({ itm, array, setArray }) {
   const handleClick = (e, itm) => {
     let temp = [...array];
     for (const iterator of temp) {
-      if (itm.Subject === iterator.Subject) {
+      if (itm.Subjects === iterator.Subjects) {
         iterator.isclicked = !iterator.isclicked;
       }
     }
@@ -79,7 +81,7 @@ function ListRow({ itm, array, setArray }) {
         <label for="checkbox"></label>
         <div className="Tasklist_Mainlist_list_row">
 
-          <div className="itmSubject">{itm.Subject}</div>
+          {/* <div className="itmSubject">{itm.Subject}</div>
 
           <div className="itmStatus">{itm.Status}</div>
 
@@ -89,7 +91,19 @@ function ListRow({ itm, array, setArray }) {
           <div className="itmLeadEmail">{itm.LeadEmail}</div>
 
 
-          <div className="itmowner">{itm.owner}</div>
+          <div className="itmowner">{itm.owner}</div> */}
+
+          <div className="itmSubject">{itm.Subjects}</div>
+
+          <div className="itmStatus">{itm.Statuses}</div>
+
+          <div className="itmdate">{year}-{month}-{day}</div>
+
+
+          <div className="itmLeadEmail">{itm.Lead_Email}</div>
+
+
+          <div className="itmowner">{itm.Owners}</div>
           <div className="Tasklist_Mainlist_icon">
             <AiOutlineArrowRight />
           </div>
@@ -98,4 +112,3 @@ function ListRow({ itm, array, setArray }) {
     </>
   );
 }
-
