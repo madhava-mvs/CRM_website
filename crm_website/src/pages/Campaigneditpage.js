@@ -1,10 +1,10 @@
-import Form from "../components/Campaignedit_Form";
-import Horizontalbar from "../components/Horizontalbar";
-import LeftBar from "../components/LeftBar";
-import Normallist from "../components/Normallist";
-import TitleBar from "../components/Titlebar";
-import Topbar from "../components/Topbar";
-import CheckList from "../components/checkList";
+import Form from "./components/Campaignedit_Form";
+import Horizontalbar from "./components/Horizontalbar";
+import LeftBar from "./components/LeftBar";
+import Normallist from "./components/Normallist";
+import TitleBar from "./components/Titlebar";
+import Topbar from "./components/Topbar";
+import CheckList from "./components/checkList";
 import ReactDatePicker from "react-datepicker";
 import { useSelector } from "react-redux";
 import "./Campaigneditpage.css";
@@ -72,7 +72,7 @@ export default function Campaigneditpage() {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
-        const data = {};
+        const data = { id : updateid};
         const Headers = {};
         axios.post(url, data, { headers: Headers })
             .then((res) => {
@@ -105,7 +105,7 @@ export default function Campaigneditpage() {
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
         const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, "id": "3" }
         const header = {};
-        axios.post(url, data, {headers: header})
+        axios.post(url, data, header)
             .then((res) => {
                 console.log("Response12==> " + JSON.stringify(res.data))
                 let result = res.data + ""
@@ -163,10 +163,10 @@ export default function Campaigneditpage() {
         // const url = "http://localhost:3000/dev/getsingleCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
-            "id": updateid,
+            id: updateid,
         };
         const header = {};
-        axios.post(url, data,{headers: header})
+        axios.post(url, data,{headers:header})
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
                 // let date3 = new Date(res.data[0].dtStartdate).toLocaleDateString()
@@ -211,9 +211,9 @@ export default function Campaigneditpage() {
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
-        const data = {};
+        const data = {updateid :updateid};
         const header = {};
-        axios.post(url, data, header,)
+        axios.post(url, data, {headers:header})
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
                 setArrayData1(res.data)
