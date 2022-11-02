@@ -72,7 +72,7 @@ export default function Campaigneditpage() {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
-        const data = {};
+        const data = {id : updateid};
         const Headers = {};
         axios.post(url, data, { headers: Headers })
             .then((res) => {
