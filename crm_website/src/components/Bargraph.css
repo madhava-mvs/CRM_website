@@ -50,6 +50,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    align-items: center;
 }
 
 
@@ -58,19 +59,8 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bargraph_green_value {
-    color: green;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.bargraph_orange_value {
-    color: orangered;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 .bargraph_blue_name,
-.bargraph_green_name,
-.bargraph_orange_name,
 .bargraph_title label {
     color: #4D5E80;
     font-weight: bold;
@@ -81,19 +71,5 @@
     background-color: blue;
     width: 25px;
     margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.bargraph_greengraph {
-    background-color: green;
-    width: 25px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.bargraph_orangegraph {
-    background-color: orangered;
-    width: 25px;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
