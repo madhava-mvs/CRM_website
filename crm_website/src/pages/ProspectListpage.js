@@ -40,9 +40,11 @@ export default function ProspectListpage() {
   return (
     <>
       <div className="ProspectListpage">
-        <div className="ProspectListpage_Admindashboard">
+        <div className="ProspectListpage_topbar">
           <Topbar />
+         
         </div>
+       
 
         <div className="ProspectListpage_LeftBar">
           <LeftBar />
@@ -69,6 +71,9 @@ export default function ProspectListpage() {
               titlebar_value3={titlebar_value3}
             />
           </div>
+          <div className="ProspectListpage_underline">
+          .
+        </div>
           <div className="ProspectListpage_Filterbar">
             <Filterbar />
           </div>
