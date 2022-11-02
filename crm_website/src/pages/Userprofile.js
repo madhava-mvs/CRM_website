@@ -85,7 +85,7 @@ export default function Userprofile() {
 
                     if (result.includes("ConfirmPassword not match"))
                         seterrorpn("Password not match")
-                    if (result.includes("updated"))
+                    if (result.includes("Profile Updated!"))
                         seterroru("Profile Updated!")
                     if (result.includes("already exist"))
                         seterrore("Email already exist")
