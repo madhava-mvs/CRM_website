@@ -1,14 +1,17 @@
-import Form from "../components/Form";
+import Form from "../components/Campaignedit_Form";
 import Horizontalbar from "../components/Horizontalbar";
 import LeftBar from "../components/LeftBar";
 import Normallist from "../components/Normallist";
 import TitleBar from "../components/Titlebar";
 import Topbar from "../components/Topbar";
 import CheckList from "../components/checkList";
+import ReactDatePicker from "react-datepicker";
+import { useSelector } from "react-redux";
 import "./Campaigneditpage.css";
 // import "./titlebar.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { date } from "check-types";
 
 
 
@@ -60,6 +63,7 @@ export default function Campaigneditpage() {
     const [arrayData1, setArrayData1] = useState([]);
     const [arraylist, setarraylist] = useState([]);
     const [show1, setShow1] = useState(false)
+    const updateid = useSelector((state) => state.update_campaign_id);
     const handleclick = (e) => {
         setShow1(!show1)
     };
@@ -145,6 +149,7 @@ export default function Campaigneditpage() {
             .then((res) => {
                 console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
                 setOrangebar(res.data[0].leadscount)
+                console.log("leadscount==>" +JSON.stringify(res.data[0].leadscount))
                 setGreenbar(res.data[1].leadscount)
                 setBluebar(res.data[2].leadscount)
             })
@@ -158,10 +163,10 @@ export default function Campaigneditpage() {
         // const url = "http://localhost:3000/dev/getsingleCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
-            "id": "3",
+            "id": {updateid},
         };
         const header = {};
-        axios.post(url, data, header,)
+        axios.post(url, data,header,)
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
                 // let date3 = new Date(res.data[0].dtStartdate).toLocaleDateString()
@@ -182,11 +187,6 @@ export default function Campaigneditpage() {
                 //         onChange={(date) => setStartDate(date)}
                 //     />
                 // );
-                  
-                
-                  
-
-
 
                 console.log(res.data[0])
                 if (res.data.length > 0) {
@@ -200,90 +200,98 @@ export default function Campaigneditpage() {
 
 
                 }
-                    
-    })
-        .catch((err) => {
-            console.log("Response==> " + JSON.stringify(err))
-        })
-}, [])
 
-useEffect(() => {
-    // const url = "http://localhost:3000/dev/leadfetch";
-    const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
-    const data = {};
-    const header = {};
-    axios.post(url, data, header,)
-        .then((res) => {
-            console.log("Response==>" + JSON.stringify(res.data))
-            setArrayData1(res.data)
-            console.log("Array== " + JSON.stringify(arrayData1))
-        })
-        .catch((err) => {
-            console.log("Error==>" + err);
-        });
-}, [])
+            })
+            .catch((err) => {
+                console.log("Response==> " + JSON.stringify(err))
+            })
+    }, [])
 
-useEffect(() => {
-    const url = "http://localhost:3000/dev/leadfunnel";
-    const data = {};
-    const header = {};
-    axios.post(url, data, { Headers: header })
-        .then((res) => {
-            console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
-            setOrangebar(res.data[0].leadscount)
-            setGreenbar(res.data[1].leadscount)
-            setBluebar(res.data[2].leadscount)
-        })
-        .catch((err) => {
-            console.log("Error => " + err)
-        })
-}, [])
 
-return (
-    <>
-        <div className="Campaigneditpage_topbar">
-            <div className="Campaigneditpage_topbar_1">
-                <Topbar />
-            </div>
-            <div className="Campaigneditpage_topbar2">
-                <div className="Campaigneditpage_topbar2_left">
-                    <LeftBar />
+    useEffect(() => {
+        // const url = "http://localhost:3000/dev/leadfetch";
+        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const data = {};
+        const header = {};
+        axios.post(url, data, header,)
+            .then((res) => {
+                console.log("Response==>" + JSON.stringify(res.data))
+                setArrayData1(res.data)
+                console.log("Array== " + JSON.stringify(arrayData1))
+            })
+            .catch((err) => {
+                console.log("Error==>" + err);
+            });
+    }, [])
+
+    useEffect(() => {
+        const url = "http://localhost:3000/dev/leadfunnel";
+        const data = {};
+        const header = {};
+        axios.post(url, data, { headers: header })
+            .then((res) => {
+                console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
+                setOrangebar(res.data[0].leadscount)
+                console.log("orange==>"+JSON.stringify(res.data[0].leadscount))
+                setGreenbar(res.data[1].leadscount)
+                setBluebar(res.data[2].leadscount)
+            })
+            .catch((err) => {
+                console.log("Error => " + err)
+            })
+    }, [])
+
+    return (
+        <>
+            <div className="Campaigneditpage_topbar">
+                <div className="Campaigneditpage_topbar_1">
+                    <Topbar />
                 </div>
-                <div className="Campaigneditpage_topbar2_right">
-                    <div className="Campaigneditpage_topbar2_right_1">
-                        <div className="Campaigneditpage_topbar2_right_1_11">
-                            <TitleBar titlebar_name={titlebar_name} SaveLead={Saveclick} savebuttonshow={savebuttonshow} button_value={button_value} />
-                        </div>
-                        <div className="Campaigneditpage_topbar2_right_1_2">
-                            <label className="form_successfullyupdate_text">{update_text}</label>
-                            <Form addleadshow={addleadshow} div_head1={div_head1} div_head2={div_head2} div_head3={div_head3} div_head4={div_head4} div_head5={div_head5} div_head6={div_head6} setDiv_value1={setDiv_value1} setDiv_value2={setDiv_value2} setDiv_value3={setDiv_value3} setDiv_value4={setDiv_value4} setDiv_value5={setDiv_value5} setDiv_value6={setDiv_value6} div_value1={div_value1} div_value2={div_value2} div_value3={div_value3} div_value4={div_value4} div_value5={div_value5} div_value6={div_value6} setediv_value1={setediv_value1} ediv_value1={ediv_value1} setediv_value2={setediv_value2} ediv_value2={ediv_value2} setediv_value3={setediv_value3} ediv_value3={ediv_value3} setediv_value4={setediv_value4} ediv_value4={ediv_value4} ediv_value10={ediv_value10} setediv_value10={setediv_value10} ediv_value11={ediv_value11} setediv_value11={setediv_value11} />
-                        </div>
+                <div className="Campaigneditpage_topbar2">
+                    <div className="Campaigneditpage_topbar2_left">
+                        <LeftBar />
                     </div>
-                    <div className="Campaigneditpage_topbar2_right_2">
-                        <div className="Campaigneditpage_topbar2_right_2_left">
-                            <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} />
+                    <div className="Campaigneditpage_topbar2_right">
+                        <div className="Campaigneditpage_topbar2_right_1">
+                            <div className="Campaigneditpage_topbar2_right_1_11">
+                                <TitleBar titlebar_name={titlebar_name} SaveLead={Saveclick} savebuttonshow={savebuttonshow} button_value={button_value} />
+                            </div>
+                            <div className="Campaigneditpage_topbar2_right_1_2">
+                                <label className="form_successfullyupdate_text">{update_text}</label>
+                                <Form addleadshow={addleadshow} div_head1={div_head1} div_head2={div_head2} div_head3={div_head3} div_head4={div_head4} div_head5={div_head5} div_head6={div_head6} setDiv_value1={setDiv_value1} setDiv_value2={setDiv_value2} setDiv_value3={setDiv_value3} setDiv_value4={setDiv_value4} setDiv_value5={setDiv_value5} setDiv_value6={setDiv_value6} div_value1={div_value1} div_value2={div_value2} div_value3={div_value3} div_value4={div_value4} div_value5={div_value5} div_value6={div_value6} setediv_value1={setediv_value1} ediv_value1={ediv_value1} setediv_value2={setediv_value2} ediv_value2={ediv_value2} setediv_value3={setediv_value3} ediv_value3={ediv_value3} setediv_value4={setediv_value4} ediv_value4={ediv_value4} ediv_value10={ediv_value10} setediv_value10={setediv_value10} ediv_value11={ediv_value11} setediv_value11={setediv_value11} />
+                            </div>
+                        </div>
+                        <div className="Campaigneditpage_topbar2_right_2">
+                            <div className="Campaigneditpage_topbar2_right_2_left">
+                                <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} />
 
-                            {
-                                show ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div><div className="Campaigneditpage_Checklist_popup">
-                                    <CheckList arraylist={arrayData} />
-                                </div></>
-                                ) : (
-                                    <></>
-                                )}
+                                {
+                                    show ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div><div className="Campaigneditpage_Checklist_popup">
+                                        <CheckList arraylist={arrayData} />
+                                    </div></>
+                                    ) : (
+                                        <></>
+                                    )}
+                            </div>
+                            <div className="Campaigneditpage_topbar2_right_2_right">
+                                <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show2} />
+                            </div>
                         </div>
-                        <div className="Campaigneditpage_topbar2_right_2_right">
-                            <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show2} />
-                        </div>
+
                     </div>
-
                 </div>
             </div>
-        </div>
 
-    </>
-)
+        </>
+    )
 
 }
 
-
+const Date =() =>{
+    // const A =res.data[0].dtStartdate
+    const[startDate,setStartDate] = useState(new Date());
+    return(
+        <ReactDatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    )
+}
 
