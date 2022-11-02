@@ -132,6 +132,8 @@
     margin-left: 9px;
 }
 .Topbar_content{
+    width: 90%;
+margin-left: -10px;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -237,6 +239,7 @@ margin-left: 10px;
     color: rgba(142, 154, 177, 1);
 }
 .Topbar_cancelIcon_button{
+    position: absolute;
     background-color: blueviolet;
     border: 100px;
     outline: none;
