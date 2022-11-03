@@ -27,15 +27,18 @@ export default function AdminDash() {
     const [bar, setBar] = useState([]);
 
 
-    const title = ("Manager wise Prospect Count");
-    const [genman, setGenMan] = useState(0);
-    const [areaman, setAreaMan] = useState(0);
-    const [assisman, setAssisMan] = useState(0);
-    const [salesman, setSalesMan] = useState(0);
-    const Man1 = ("General Manager");
-    const Man2 = ("Area Manager");
-    const Man3 = ("Assistant Manager");
-    const Man4 = ("Sales Manager");
+    const title = ("Managerwise Prospect Count");
+    const [array1, setArray1] = useState([]);
+    const summary_show = (true);
+    
+    // const [genman, setGenMan] = useState(0);
+    // const [areaman, setAreaMan] = useState(0);
+    // const [assisman, setAssisMan] = useState(0);
+    // const [salesman, setSalesMan] = useState(0);
+    // const Man1 = ("General Manager");
+    // const Man2 = ("Area Manager");
+    // const Man3 = ("Assistant Manager");
+    // const Man4 = ("Sales Manager");
 
 
     const [user, setUser] = useState([]);
@@ -102,6 +105,7 @@ export default function AdminDash() {
         axios.post(url, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
+                setArray1(res.data)
             })
             .catch((err) => {
                 console.log("Error => " + err)
@@ -180,7 +184,8 @@ export default function AdminDash() {
                     </div>
                     <div className='Admin_page_contentpart_main_row2'>
                         <div className="Admin_page_contentpart_main_row2_innerrow1">
-                            <Summary title={title} user1={genman} user2={areaman} user3={assisman} user4={salesman} name1={Man1} name2={Man2} name3={Man3} name4={Man4} />
+                            <Summary array1={array1} title={title} summary_show={summary_show} />
+                            {/* <Summary title={title} user1={genman} user2={areaman} user3={assisman} user4={salesman} name1={Man1} name2={Man2} name3={Man3} name4={Man4} /> */}
                         </div>
                         <div className="Admin_page_contentpart_main_row2_innerrow2">
                             <SummaryCount pcount={pcount} />
