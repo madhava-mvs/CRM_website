@@ -1,22 +1,118 @@
+.Userprofile_topbar{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  /* align-items:center; */
+  width: 100%;
+  /* padding-left: 70px; */
+  /* max-width: 90%;
+  min-width: 50%; */
+  background-color: rgb(255, 255, 255);
+  /* margin-bottom: 20px; */
+}
+.Userprofile_topbar_1{
+  background-color: blue;
+  width: 99%;
+}
+.Userprofile_topbar2{
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  width: 100%;
+}
+/* .Campaigneditpage_topbar2_right_1_1{
+  /* width: 100vh; */
 
+.Userprofile_topbar2_right_2{
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  margin-left: 10px;
+  /* margin-right: 20px; */
+  /* padding-left: 50px; */
+  width: 100%;
+}
+.Userprofile_topbar2_right{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  background-color:#ffffff;
+  padding: 20px;
+  margin-left: 50px;
+  width: 100%;
+}
+.Userprofile_topbar2_right_1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  /* background-color: #ffffff; */
+  /* margin-top: 10px; */
+  /* margin-left: 20px; */
+}
+.Userprofile_topbar2_right_2_left{
+ padding-right: 10px;
+ margin-left: 20px;
+}
+.Userprofile_topbar2_right_2_right{
+  width: 30%;
+  margin-left: 135px;
+  /* min-width: 20%; */
+  justify-content: center;
+  padding-bottom: 50px;
+  margin-top: 60px;
+  /* height: 40vh; */
+}
+
+.Userprofile_topbar2_right_1_11{
+  margin: 0px;
+  width: 75%;
+  /* margin-left: 50px; */
+  height: 40px;
+  margin-left: 100px;
+
+  /* margin-left: 5%; */
+  background-color: rgb(255, 255, 255);
+  /* margin-top: 20%; */
+}
+.Userprofile_topbar2_right_1_11 label{
+font-size: 13px;
+font-family: Arial, Helvetica, sans-serif;
+}
+/* .Userprofile_topbar2_right_1_2{
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-top: 59px;
+  width: 77%;
+  margin-left: 100px;
+  height: 35vh;
+} */
 .Userprofile_TitleBar{
-   
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-top: 59px;
+  width: 77%;
+  margin-left: 50px;
+  height: 30%;
   width: 81%;
 }
 .Profile_outer {
   background-color:white;
   padding-left: 60px;
   margin-top: 60px;
-  margin-right: 60px;
+  /* margin-right: 60px; */
+  margin-right: 29px;
 }
 .Profile_outer_column1{
 /* background-color:#f3f5fafa ;  */
 background-color: #FAFAFA; 
-  width: 190px;
+  width: 200px;
   padding-top: 20px;
   float: left;
   padding-left: 60px;
-  margin-left: 100px;
+  margin-left: -10px;
 }
 .Profile_outer_column1 img{
   width: 140px;
@@ -40,7 +136,7 @@ background-color: #FAFAFA;
 .Profile_outer_row1 input{
      font-size: 17px;
   margin: 25px 10px;
-  width: 910px;
+  width: 840px;
   height: 30px;
   padding: 8px 20px;
    border: 3px;
@@ -59,8 +155,9 @@ background-color: #FAFAFA;
     /* background-color: #f3f5fafa;   */
     background-color: #f5f7fefa;
    /* background-color: #FAFAFA;  */
-  margin-left: 400px;
-  padding-bottom: 30px;
+   margin-left: 258px;
+   padding-bottom: 30px;
+   margin-right: 8%;
 }
 .Profile_more1{
   margin: -2px -33px;
@@ -90,7 +187,7 @@ background-color: #FAFAFA;
 }
 .Profile_ln{
   margin-top: 0px;
-  margin-left: 168px;
+  margin-left: 145px;
   padding-top: 2px;
   /* padding-left: 2px; */
   
@@ -103,7 +200,7 @@ background-color: #FAFAFA;
 
 .Profile_email{
   margin-top: 0px;
-  margin-left: 166px;
+  margin-left: 145px;
   padding-top: 2px;
   padding-left: 2px;
   font-size: 15px;
@@ -114,7 +211,7 @@ background-color: #FAFAFA;
 }
 .Profile_dob{
   margin-top: -1px;
-  margin-left: 194px;
+  margin-left: 173px;
   padding-top: 2px;
   padding-left: 2px;
   font-size: 15px;
@@ -129,10 +226,10 @@ background-color: #FAFAFA;
   
 }
 .Profile_a3 input{
-  margin-left: 10px;
+  margin-left: 5px;
   /* padding-top: 25px; */
   padding: 10px;
-  width: 189px;
+  width: 175px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -150,10 +247,10 @@ background-color: #FAFAFA;
   border: 1px solid lightgray;
   border-radius: 5px;
   outline: none; */
-  margin-left: 25px;
+  margin-left: 20px;
   /* padding-top: 25px; */
   padding: 10px;
-  width: 189px;
+  width: 175px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -168,10 +265,10 @@ background-color: #FAFAFA;
   border: 1px solid lightgray;
   border-radius: 5px;
   outline: none; */
-  margin-left: 25px;
+  margin-left: 20px;
   /* padding-top: 25px; */
   padding: 10px;
-  width: 189px;
+  width: 175px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -189,10 +286,10 @@ background-color: #FAFAFA;
   border-radius: 5px;
   outline: none;
    */
-   margin-left: 25px;
+   margin-left: 20px;
   /* padding-top: 25px; */
   padding: 10px;
-  width: 193px;
+  width: 180px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -213,7 +310,7 @@ display: flex;
 }
 .Profile_a4{
   margin-top: 7px;
-  margin-left: 37px;
+  margin-left: 35px;
   padding-top: 2px;
   padding-left: 2px;
   font-size: 15px;
@@ -223,7 +320,7 @@ display: flex;
 }
 .Profile_b4{
   margin-top: 7px;
-  margin-left: 185px;
+  margin-left: 140px;
   padding-top: 2px;
   padding-left: 230px;
   font-size: 15px;
@@ -235,7 +332,7 @@ display: flex;
 }
 .Profile_c4{
   margin-top: 7px;
-  margin-left: 167px;
+  margin-left: 147px;
    padding-top: 2px; 
   padding-left: 2px;
   font-size: 15px;
@@ -247,10 +344,10 @@ display: flex;
   display: flex;
 }
 .Profile_a5 input{
-  margin-left:30px;
+  margin-left:25px;
   /* padding-top: 26spx; */
   padding: 10px;
-  width: 430px;
+  width: 390px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -263,7 +360,7 @@ display: flex;
 .Profile_b5 input{
   margin-left:20px;
   padding: 10px;
-  width: 190px;
+  width: 177px;
   /* border: 1px solid lightgray; */
   border: 1px  lightcyan;
   box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -274,9 +371,9 @@ display: flex;
 
 }
 .Profile_c5 input{
-  margin-left:11px;
+  margin-left:3px;
   padding: 10px;
-  width: 190px;
+  width: 180px;
   border: 1px  lightcyan;
   border-radius: 5px;
   outline: none;
