@@ -11,6 +11,7 @@ import { GiBeachBag } from "react-icons/gi";
 
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { json } from "react-router-dom";
 
 export default function Tasklist() {
   console.log("your in task list");
@@ -170,16 +171,16 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
     const url =
       "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
     const data = {
-      userid: userid,
-      campaignid: campaign_name,
-      leadid: lead_name,
+      userid: Number(userid),
+      campaignid: Number(campaign_name),
+      leadid: Number(lead_name),
     };
     const header = {};
     await axios
       .post(url, data, { headers: header })
       .then((res) => {
-        setMapid(res.data)
-        console.log("internal task mapid====>"+mapid);
+        setMapid(Number(res.data))
+        console.log("internal task mapid====>"+ JSON.stringify(mapid));
       })
       .catch((err) => {
         console.log(err);
@@ -187,16 +188,18 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
 
 
-      const url1 =
+      function fun(){
+        return new Promise((resolve)=>{
+        const url1 =
       "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask";
     const data1 = {
       title: title,
       txtcomments: txtcomments,
-      activity: activity,
-      mapid: mapid,
+      activity: Number(activity),
+      mapid: Number(mapid),
     };
     const header1 = {};
-    await axios
+    axios
       .post(url1, data1, { headers: header1 })
       .then((res) => {
         console.log(res.data);
@@ -204,6 +207,10 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
       .catch((err) => {
         console.log(err);
       });
+    },5000)
+    
+    }
+    fun();
 
 
 

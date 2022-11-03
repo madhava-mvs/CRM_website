@@ -1,5 +1,5 @@
 import Topbar from "../components/Topbar";
-import Leftbar from "../components/LeftBar";
+import LeftBar from "../components/LeftBar";
 import Titlebar from "../components/Titlebar";
 //import Profile from "./components/Profile";
 import pic from "../components/images/profilepic.jpg";
@@ -12,6 +12,7 @@ import { GiBeachBag } from "react-icons/gi";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 export default function Userprofile() {
 
     const [state, setstate] = useState(false);
@@ -45,7 +46,7 @@ export default function Userprofile() {
     const handleclick = (e) => {
         setShow(!show)
     };
-
+    const userid = useSelector((state) => state.userid);
     const SAVEclick = (e) => {
 
         if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" || ConfirmPassword == "") {
@@ -60,10 +61,10 @@ export default function Userprofile() {
             seterrorp("")
             seterrorc("")
             seterrorpn("")
-           // const url = "http://localhost:3000/dev/updateprofile";
+            // const url = "http://localhost:3000/dev/updateprofile";
             const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
-                "id": "6", Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
+                "id": "20", Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
             };
             const header = {};
             axios.post(url, data, header,)
@@ -101,9 +102,9 @@ export default function Userprofile() {
 
     useEffect(() => {
         //const url = "http://localhost:3000/dev/getprofile";
-        const url ="https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/getprofile";
+        const url = " https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/getprofile";
         const data = {
-            "id": "6",
+            id: userid,
         };
         const headers = {};
         axios.post(url, data, headers,)
@@ -135,95 +136,101 @@ export default function Userprofile() {
     return (
 
         <>
-            <div className="Userprofile">
-                <div className="Userprofile_Topbar">
+            <div className="Userprofile_topbar">
+                <div className="Userprofile_topbar_1">
                     <Topbar />
                 </div>
-
-                <div className="Userprofile_LeftBar">
-                    <Leftbar />
-                </div>
-
-                <div className="Userprofile_TitleBar">
-                    {/* <Titlebar /> */}
-                    <Titlebar titlebar_name={titlebar_name} savebuttonshow={savebuttonshow} button_value={button_value} SaveLead={SAVEclick} />
-
-                </div>
-            </div>
-
-
-
-            <div className='Profile_outer'>
-                <div className='Profile_outer_column1'>
-                    <img src={pic} ></img>
-                    <div className='Profile_name' >Nancy Powell  </div>
-                    <div className='Profile_id' >c10001</div>
-                </div>
-                <div className="Profile_Info">
-                    <div className='Profile_outer_row1'> <label className="erroru">{erroru}</label>
-                        <input type="text" placeholder="Personal Information"></input>
-                        <FiMoreHorizontal className='Profile_more1' />
+                <div className="Userprofile_topbar2">
+                    <div className="Userprofile_topbar2_left">
+                        <LeftBar />
                     </div>
-                    <div className='Profileouter_row2'>
-                        <div className='Profile_fn' >FirstName</div>
-                        <div className='Profile_ln'>LastName</div>
-                        <div className='Profile_email'>Email</div>
-                        <div className='Profile_dob'>Date of Birth</div>
-                    </div>
-                    <div className='Profileouter_row3'>
-                        <div className='Profile_a3' >
-                            <input type="text" placeholder="" value={FirstName} onChange={(e) => { setFirstName(e.target.value) }} />
-                            <label className="errorf">{errorf}</label>
-                            {errorall && FirstName == "" ? <label className="errorf">Firstname is mandatory</label> : ""}</div>
+                    <div className="Userprofile_topbar2_right">
+                        <div className="Userprofile_topbar2_right_1">
+                            <div className="Userprofile_TitleBar">
+                                {/* <Titlebar /> */}
+                                <Titlebar titlebar_name={titlebar_name} savebuttonshow={savebuttonshow} button_value={button_value} SaveLead={SAVEclick} />
 
-                        <div className='Profile_b3' >
-                            <input type="text" placeholder="" value={LastName} onChange={(e) => { setLastName(e.target.value) }} /></div>
-                        <div className='Profile_c3' >
-                            <input type="text" placeholder="" value={Email} onChange={(e) => { setEmail(e.target.value) }} />
-                            {errorall && Email == "" ? <label className="errore">Email is mandatory</label> : ""}<br />
-                            <label className="errore">{errore}</label>
+                            </div>
+
                         </div>
-                        <div className='Profile_d3'>
-                            <input type="text" placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value) }} />
-                            {errorall && Dob == "" ? <label className="errord">Dob is mandatory</label> : ""}</div>
-                        <MdKeyboardArrowDown className='Profileouter_row3_downarrow' />
-                    </div>
-                    <div className='Profileouter_row4'>
-                        <div className='Profile_a4' >Address</div>
-                        <div className='Profile_b4' >Password</div>
-                        <div className='Profile_c4' >Confirm Password</div>
-                    </div>
+                        <div className='Profile_outer'>
+                            <div className='Profile_outer_column1'>
+                                <img src={pic} ></img>
+                                <div className='Profile_name' >Nancy Powell  </div>
+                                <div className='Profile_id' >c10001</div>
+                            </div>
+                            <div className="Profile_Info">
+                                <div className='Profile_outer_row1'> <label className="erroru">{erroru}</label>
+                                    <input type="text" placeholder="Personal Information"></input>
+                                    <FiMoreHorizontal className='Profile_more1' />
+                                </div>
+                                <div className='Profileouter_row2'>
+                                    <div className='Profile_fn' >FirstName</div>
+                                    <div className='Profile_ln'>LastName</div>
+                                    <div className='Profile_email'>Email</div>
+                                    <div className='Profile_dob'>Date of Birth</div>
+                                </div>
+                                <div className='Profileouter_row3'>
+                                    <div className='Profile_a3' >
+                                        <input type="text" placeholder="" value={FirstName} onChange={(e) => { setFirstName(e.target.value) }} />
+                                        <label className="errorf">{errorf}</label>
+                                        {errorall && FirstName == "" ? <label className="errorf">Firstname is mandatory</label> : ""}</div>
 
-                    <div className='Profileouter_row5'>
-                        <div className='Profile_a5'>
-                            <input type="text" placeholder="" value={Address} onChange={(e) => { setAddress(e.target.value) }} />
-                            {errorall && Address == "" ? <label className="errora">Address is mandatory</label> : ""}</div>
-                        <div className='Profile_b5'>
-                            {/* <input type="Password" placeholder="" value={Password} onChange={(e) => { setPassword(e.target.value) }} /> */}
-                            {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
+                                    <div className='Profile_b3' >
+                                        <input type="text" placeholder="" value={LastName} onChange={(e) => { setLastName(e.target.value) }} /></div>
+                                    <div className='Profile_c3' >
+                                        <input type="text" placeholder="" value={Email} onChange={(e) => { setEmail(e.target.value) }} />
+                                        {errorall && Email == "" ? <label className="errore">Email is mandatory</label> : ""}<br />
+                                        <label className="errore">{errore}</label>
+                                    </div>
+                                    <div className='Profile_d3'>
+                                        <input type="text" placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value) }} />
+                                        {errorall && Dob == "" ? <label className="errord">Dob is mandatory</label> : ""}</div>
+                                    <MdKeyboardArrowDown className='Profileouter_row3_downarrow' />
+                                </div>
+                                <div className='Profileouter_row4'>
+                                    <div className='Profile_a4' >Address</div>
+                                    <div className='Profile_b4' >Password</div>
+                                    <div className='Profile_c4' >Confirm Password</div>
+                                </div>
 
-                            <input type={state ? "text" : "Password"} value={Password} placeholder="" onClick={togglebtn} />
-                            <label className="Profile_b5_btn" onClick={togglebtn}>
-                                {
-                                    state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
-                                }
+                                <div className='Profileouter_row5'>
+                                    <div className='Profile_a5'>
+                                        <input type="text" placeholder="" value={Address} onChange={(e) => { setAddress(e.target.value) }} />
+                                        {errorall && Address == "" ? <label className="errora">Address is mandatory</label> : ""}</div>
+                                    <div className='Profile_b5'>
+                                        {/* <input type="Password" placeholder="" value={Password} onChange={(e) => { setPassword(e.target.value) }} /> */}
+                                        {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
+
+                                        <input type={state ? "text" : "Password"} value={Password} placeholder="" onClick={togglebtn} />
+                                        <label className="Profile_b5_btn" onClick={togglebtn}>
+                                            {
+                                                state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
+                                            }
 
 
-                            </label>
+                                        </label>
 
 
-                            {errorall && Password == "" ? <label className="errorp">Password is mandatory</label> : ""}</div>
-                        <div className='Profile_c5'>
-                            <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
-                            {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
-                            <label className="errorpn">{errorpn}</label></div>
+                                        {errorall && Password == "" ? <label className="errorp">Password is mandatory</label> : ""}</div>
+                                    <div className='Profile_c5'>
+                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
+                                        {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
+                                        <label className="errorpn">{errorpn}</label></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
 
 
 
-        
+
+
         </>
     );
 }

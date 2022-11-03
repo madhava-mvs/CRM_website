@@ -13,9 +13,39 @@ export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  function Addcampaign(){
-    return "add campaign page"
+  const handleclick_Addcampaign = () => {
+    navigate("/AddCampaign")
   }
+
+
+
+  const Deletecampaign = () => {
+    console.log("delete array==>" + JSON.stringify(array))
+
+    let campid
+    for (const k of array) {
+      if (k.isclicked === true) {
+        campid = Number(k.id)
+      }
+    }
+
+    // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
+    const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleCampaign"
+    const data = { id: campid };
+    const header = {};
+    axios.post(url, data, { headers: header })
+      .then((res) => {
+        console.log("Response ==> " + JSON.stringify(res.data))
+      })
+      .catch((err) => {
+        console.log("Error ==> " + err)
+      })
+  }
+
+
+
+
+
   const Updatecampaign = itm =>() => {
     // for (let k of array) {
       // if (k.isclicked === true) {
@@ -69,14 +99,14 @@ export default function CampaignListPage() {
           <div className="div2_right">
             <div className="Campaignlist_TitleBar">
               <TitleBar
-                SaveLead={Addcampaign}
+                SaveLead={handleclick_Addcampaign}
                 savebuttonshow={savebuttonshow}
                 titlebar_name={titlebar_name}
                 button_value={button_value}
               />
             </div>
             <div className="Campaignlist_Filterbar">
-              <Filterbar />
+              <Filterbar DeleteFunc={Deletecampaign} />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />

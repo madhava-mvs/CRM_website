@@ -106,10 +106,10 @@ if(k.isclicked === true){
               <TitleBar SaveLead={AddLead} titlebar_name={titlebar_name} button_value={button_value} bulkimportshow={bulkimportshow} savebuttonshow={savebuttonshow}/>
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar DeleteLead={DeleteLead} />
+              <Filterbar DeleteFunc={DeleteLead} />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray}  DeleteLead={DeleteLead}/>
+              <Mainlist array={array} setArray={setArray}  />
             </div>
           </div>
         </div>

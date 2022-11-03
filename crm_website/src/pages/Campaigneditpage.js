@@ -140,8 +140,8 @@ export default function Campaigneditpage() {
         // setError7("")
         // const url = "http://localhost:3000/dev/updateCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
-        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, "id": "3" }
-        const header = {};
+        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2 }
+        const header = { id:updateid};
         axios.post(url, data, header)
             .then((res) => {
                 console.log("Response12==> " + JSON.stringify(res.data))

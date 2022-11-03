@@ -384,7 +384,9 @@ export default function Topbar() {
           </div>
           <MdArrowForwardIos className="Topbar_arrowIcon" />
         </div>
-        <div className="Topbar_col4">
+        <div className="Topbar_col4" onClick={(e) => {
+                  nav("/Userprofile")
+                }}>
           <CgProfile className="Topbar_profileIcon" />
           <div className="Clayton">
             <label>{username1}</label>
@@ -469,7 +471,9 @@ export default function Topbar() {
                     <label>List Leads</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1">
+                <div className="Topbar_content_colb_list1" onClick={(e) => {
+                      nav("/Addlead");
+                    }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Lead</label>
                 </div>
@@ -493,7 +497,9 @@ export default function Topbar() {
                     <label>List Campaign</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1">
+                <div className="Topbar_content_colb_list1" onClick={(e) => {
+                      nav("/AddCampaign");
+                    }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Campaign</label>
                 </div>
