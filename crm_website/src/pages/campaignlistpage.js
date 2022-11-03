@@ -29,7 +29,7 @@ export default function CampaignListPage() {
 
   const [array, setArray] = useState([]);
   const savebuttonshow = true;
-  const titlebar_name = <h3>Campaignlist</h3>;
+  const titlebar_name = "Campaignlist";
   const button_value = "Add Campaign";
 
   // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";

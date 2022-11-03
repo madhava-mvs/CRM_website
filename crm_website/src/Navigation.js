@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Otp from "./components/Otp";
+import Addcampaign from "./pages/AddCampaign";
 import AddLead from "./pages/AddLead";
 import AdminDash from "./pages/AdminDash";
 import Campaigneditpage from "./pages/Campaigneditpage";
@@ -13,6 +14,7 @@ import SalesDashboard from "./pages/salesDashboard";
 import SignUpPage from "./pages/SignUpPage";
 import Tasklist from "./pages/Tasklist";
 import Userprofile from "./pages/Userprofile";
+import Leadupdate from "./pages/Leadupdate";
 
 export default function Navigation() {
   return (
@@ -23,6 +25,8 @@ export default function Navigation() {
           <Route path="/SignUpPage" element={<SignUpPage />}></Route>
           <Route path="/otp" element={<Otp />}></Route>
           <Route path="/Leadlist" element={<LeadListPage />}></Route>
+          <Route path="/Leadupdate" element={<Leadupdate />}></Route>
+
           <Route path="/Addlead" element={<AddLead />}></Route>
           <Route
             path="/Campaignlistpage"
@@ -31,6 +35,10 @@ export default function Navigation() {
           <Route
             path="/Campaigneditpage"
             element={<Campaigneditpage />}
+          ></Route>
+          <Route
+            path="/AddCampaign"
+            element={<Addcampaign />}
           ></Route>
           <Route path="/Tasklist" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
