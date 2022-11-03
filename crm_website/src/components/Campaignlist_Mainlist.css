@@ -90,7 +90,7 @@ margin-left: -14px;
   padding-bottom: 15px;
   padding-left: 60px;
 }
-.Campaignlist_Mainlist_list_row_topSelected label,.Mainlist_list_row_topSelected div{
+.Campaignlist_Mainlist_list_row_topSelected div,.Mainlist_list_row_topSelected div{
 color: white;
 }
 .Campaignlist_Mainlist_list_row {
