@@ -43,7 +43,7 @@ export default function Addcampaign() {
   const titlebar_value1 = "active";
   const titlebar_value2 = "draft";
   const titlebar_value3 = "all";
-  const form_head = "campaign Details";
+  const form_head = "Campaign Details";
 
 
   const addcampaignshow = true;

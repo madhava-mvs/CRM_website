@@ -15,7 +15,7 @@ export default function AddLead() {
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -24,7 +24,7 @@ export default function AddLead() {
   const [leadSourceName, setLeadSourceName] = useState("");
   const [dateAddedOn, setDateAddedOn] = useState("");
   const [activeStatus, setActiveStatus] = useState("");
-  const [leadOwner, setLeadOwner] = useState();
+  const [leadOwner, setLeadOwner] = useState("");
   const [esuffix, setEsuffix] = useState("");
   const [errorfirstname, setEfirstname] = useState("");
   const [errorlastname, setElastname] = useState("");
@@ -165,7 +165,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('eemailvar', erroremail)
-    } else if (phone === undefined) {
+    } else if (phone === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -198,7 +198,7 @@ export default function AddLead() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedonvar', errorcreatedon)
-    } else if (leadOwner === 0) {
+    } else if (leadOwner === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("");
@@ -217,7 +217,7 @@ export default function AddLead() {
         firstname: firstname,
         lastname: lastname,
         company: company,
-        phone: Number(phone),
+        phone: phone,
         email: email,
         address: state,
         createdOn: dateAddedOn,

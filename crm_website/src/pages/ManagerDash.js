@@ -24,14 +24,8 @@ export default function ManagerDash() {
     const [bar, setBar] = useState([]);
 
     const title = ("SalesPerson Wise Prospect Count");
-    const [salesman1, setSalesMan1] = useState(0);
-    const [salesman2, setSalesMan2] = useState(0);
-    const [salesman3, setSalesMan3] = useState(0);
-    const [salesman4, setSalesMan4] = useState(0);
-    const [salesname1, setSalesName1] = useState("SalesPerson One");
-    const [salesname2, setSalesName2] = useState("SalesPerson Two");
-    const [salesname3, setSalesName3] = useState("SalesPerson Three");
-    const [salesname4, setSalesName4] = useState("SalesPerson Four");
+    const summary_show = (false);
+    const [array1, setArray1] = useState([])
 
     //ProspectGrowth Axios
 
@@ -47,7 +41,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error ==> " + err)
             })
-    },[])
+    }, [])
 
     //LeadsFunnel Axios
 
@@ -65,7 +59,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    },[])
+    }, [])
 
     //ProspectProgress Axios
 
@@ -81,7 +75,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    },[])
+    }, [])
 
     //SalesPersonWiseProspectCount Axios
 
@@ -92,13 +86,12 @@ export default function ManagerDash() {
         axios.post(url, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].count))
-                setSalesMan1(res.data[0].count)
-                setSalesName1(res.data[0].txtFirstName)
+                setArray1(res.data)
             })
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    },[])
+    }, [])
 
     //CampaignWiseProspectCount Axios
 
@@ -114,7 +107,7 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    },[])
+    }, [])
 
     return <>
         <div className="ManagerDash_page">
@@ -134,7 +127,8 @@ export default function ManagerDash() {
                     </div>
                     <div className="ManagerDash_page_content_area_row2">
                         <div className="ManagerDash_page_content_area_row2_summary">
-                            <Summary title={title} user1={salesman1} user2={salesman2} user3={salesman3} user4={salesman4} name1={salesname1} name2={salesname2} name3={salesname3} name4={salesname4} />
+                            < Summary title={title} array1={array1} summary_show={summary_show} />
+                            {/* <Summary title={title} user1={salesman1} user2={salesman2} user3={salesman3} user4={salesman4} name1={salesname1} name2={salesname2} name3={salesname3} name4={salesname4} /> */}
                         </div>
                         <div className="ManagerDash_page_content_area_row2_bars">
                             <SummaryCount pcount={pcount} show={show1} />

@@ -74,7 +74,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value1}</span>
+                        { div_value1 == "" ? <span className="warning_error">{ediv_value1}</span>: <></>}
                     </div>
                     <div className="form_inner31">
                         <label>{div_head2}</label>
@@ -88,7 +88,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value2}</span>
+                        { div_value2 == "" ? <span className="warning_error">{ediv_value2}</span>: <></>}
                     </div>
                     <div className="form_inner31">
                         <label>{div_head3}</label>
@@ -102,7 +102,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value10}</span>
+                        { div_value3 == "" ? <span className="warning_error">{ediv_value10}</span>: <></>}
                     </div>
                 </div>
                 <div className="form_inner3">
@@ -118,7 +118,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value3}</span>
+                        { div_value4 == "" ? <span className="warning_error">{ediv_value3}</span>: <></>}
                     </div>
                     <div className="form_inner31">
                         <label>{div_head5}</label>
@@ -132,7 +132,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value11}</span>
+                        { div_value5 == "" ? <span className="warning_error">{ediv_value11}</span>: <></>}
                     </div>
                     <div className="form_inner31">
                         <label>{div_head6}</label>
@@ -146,7 +146,7 @@ export default function Form({
                             className="form_rectangle"
                         />
                         <br />
-                        <span className="warning_error">{ediv_value4}</span>
+                        { div_value6 == "" ? <span className="warning_error">{ediv_value4}</span>: <></>}
                     </div>
                 </div>
                 {addleadshow ? (
@@ -164,7 +164,7 @@ export default function Form({
                                     className="form_rectangle"
                                 />
                                 <br />
-                                <span className="warning_error">{ediv_value5}</span>
+                                { div_value7 == "" ? <span className="warning_error">{ediv_value5}</span>: <></>}
                             </div>
                             <div className="form_inner31">
                                 <label>{div_head8}</label>
@@ -178,7 +178,7 @@ export default function Form({
                                     className="form_rectangle"
                                 />
                                 <br />
-                                <span className="warning_error">{ediv_value6}</span>
+                                { div_value8 == "" ? <span className="warning_error">{ediv_value6}</span>: <></>}
                             </div>
                             <div className="form_inner31">
                                 <label>{div_head9}</label>
@@ -230,7 +230,7 @@ export default function Form({
                                     className="form_rectangle"
                                 />
                                 <br />
-                                <span className="warning_error">{ediv_value7}</span>
+                                { div_value12 == "" ? <span className="warning_error">{ediv_value7}</span>: <></>}
                             </div>
                         </div>
                         <div className="form_inner3">
@@ -270,7 +270,7 @@ export default function Form({
                                     className="form_rectangle"
                                 />
                                 <br />
-                                <span className="warning_error">{ediv_value8}</span>
+                                { div_value15 == "" ? <span className="warning_error">{ediv_value8}</span>: <></>}
                             </div>
                         </div>
                         <div className="form_inner3">
@@ -298,7 +298,7 @@ export default function Form({
                                     className="form_rectangle"
                                 />
                                 <br />
-                                <span className="warning_error">{ediv_value9}</span>
+                                { div_value17 == "" ? <span className="warning_error">{ediv_value9}</span>: <></>}
                             </div>
                             <div className="form_inner31">
                                 <label></label>

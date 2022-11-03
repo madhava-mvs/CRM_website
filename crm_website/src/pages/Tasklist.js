@@ -157,7 +157,11 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
   const [errort, seterrort] = useState("");
   const [mapid, setMapid] = useState("");
   const userid = useSelector((state) => state.userid);
+
+
+
   const Save_Task= async ()=>{
+    setShow(!show)
     console.log(
       campaign_name + "," + lead_name + "," + user_name + "," + activity
     );
@@ -174,13 +178,15 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
       userid: Number(userid),
       campaignid: Number(campaign_name),
       leadid: Number(lead_name),
+      title: title,
+      txtcomments: txtcomments,
+      activity: Number(activity),
     };
     const header = {};
     await axios
       .post(url, data, { headers: header })
       .then((res) => {
-        setMapid(Number(res.data))
-        console.log("internal task mapid====>"+ JSON.stringify(mapid));
+        console.log(JSON.stringify(res.data));
       })
       .catch((err) => {
         console.log(err);
@@ -188,29 +194,29 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
 
 
-      function fun(){
-        return new Promise((resolve)=>{
-        const url1 =
-      "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask";
-    const data1 = {
-      title: title,
-      txtcomments: txtcomments,
-      activity: Number(activity),
-      mapid: Number(mapid),
-    };
-    const header1 = {};
-    axios
-      .post(url1, data1, { headers: header1 })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    },5000)
+    //   function fun(){
+    //     return new Promise((resolve)=>{
+    //     const url1 =
+    //   "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask";
+    // const data1 = {
+    //   title: title,
+    //   txtcomments: txtcomments,
+    //   activity: Number(activity),
+    //   mapid: Number(mapid),
+    // };
+    // const header1 = {};
+    // axios
+    //   .post(url1, data1, { headers: header1 })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // },5000)
     
-    }
-    fun();
+    // }
+    // fun();
 
 
 
