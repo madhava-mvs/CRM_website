@@ -48,7 +48,7 @@ export default function LoginPage() {
             console.log("token" + JSON.stringify(token+"testinggggggg============"+userid));
             if (res.data.jobrole === "Admin") {
               nav("/admindash");
-            } else if (res.data.jobrole === "Owner") {
+            } else if (res.data.jobrole === "Manager") {
               nav("/managerdash");
             }
             else{
