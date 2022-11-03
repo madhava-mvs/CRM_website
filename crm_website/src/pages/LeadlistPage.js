@@ -77,8 +77,8 @@ if(k.isclicked === true){
 }
 }
 
-      // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
-      const url = "http://localhost:3000/dev/DeleteSingleLead"
+      const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
+      // const url = "http://localhost:3000/dev/DeleteSingleLead"
       const data = { id: leadid};
       const header = {};
       axios.post(url, data, { headers: header })
@@ -106,10 +106,10 @@ if(k.isclicked === true){
               <TitleBar SaveLead={AddLead} titlebar_name={titlebar_name} button_value={button_value} bulkimportshow={bulkimportshow} savebuttonshow={savebuttonshow}/>
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar DeleteLead={DeleteLead} />
+              <Filterbar DeleteFunc={DeleteLead} />
             </div>
             <div className="Mainlist">
-              <Mainlist array={array} setArray={setArray}  DeleteLead={DeleteLead}/>
+              <Mainlist array={array} setArray={setArray}  />
             </div>
           </div>
         </div>

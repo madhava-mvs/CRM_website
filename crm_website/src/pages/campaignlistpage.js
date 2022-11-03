@@ -106,7 +106,7 @@ export default function CampaignListPage() {
               />
             </div>
             <div className="Campaignlist_Filterbar">
-              <Filterbar Deletecampaign={Deletecampaign} />
+              <Filterbar DeleteFunc={Deletecampaign} />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />

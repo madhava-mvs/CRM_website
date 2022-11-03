@@ -469,7 +469,9 @@ export default function Topbar() {
                     <label>List Leads</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1">
+                <div className="Topbar_content_colb_list1" onClick={(e) => {
+                      nav("/Addlead");
+                    }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Lead</label>
                 </div>
@@ -493,7 +495,9 @@ export default function Topbar() {
                     <label>List Campaign</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1">
+                <div className="Topbar_content_colb_list1" onClick={(e) => {
+                      nav("/AddCampaign");
+                    }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Campaign</label>
                 </div>
