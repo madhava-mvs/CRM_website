@@ -99,7 +99,7 @@ export default function Signup({
             <label>Job role :</label>
             <select value={jobrole} onChange={(e)=>setJobrole(e.target.value)}>
               <option value="">--------------------</option>
-              <option value="2">Owner</option>
+              <option value="2">Manager</option>
               <option value="3">User</option>
             </select>
           </div>
