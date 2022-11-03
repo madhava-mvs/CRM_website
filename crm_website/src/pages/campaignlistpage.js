@@ -13,8 +13,8 @@ export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  function Addcampaign(){
-    return "add campaign page"
+  const handleclick_Addcampaign = () => {
+    navigate("/AddCampaign")
   }
   const Updatecampaign = itm =>() => {
     // for (let k of array) {
@@ -69,7 +69,7 @@ export default function CampaignListPage() {
           <div className="div2_right">
             <div className="Campaignlist_TitleBar">
               <TitleBar
-                SaveLead={Addcampaign}
+                SaveLead={handleclick_Addcampaign}
                 savebuttonshow={savebuttonshow}
                 titlebar_name={titlebar_name}
                 button_value={button_value}

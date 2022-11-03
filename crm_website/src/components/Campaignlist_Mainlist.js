@@ -66,10 +66,10 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
   let year1 = d.getFullYear();
   return (
     <>
-      <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"} onClick={Updatecampaign(itm)} >
+      <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"}  >
         <input className="Campaignlist_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}/>
               <label for="checkbox"></label>
-        <div className="Campaignlist_Mainlist_list_row">
+        <div className="Campaignlist_Mainlist_list_row"onClick={Updatecampaign(itm)}>
           <div className="Campaignlist_itmFirstName">{itm.CampaignName}</div>
           <div className="Campaignlist_itmLastName">{itm.ParentCampaignName}</div>
           <div className="Campaignlist_itmStatus">{itm.Status}</div>
