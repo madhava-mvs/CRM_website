@@ -384,7 +384,9 @@ export default function Topbar() {
           </div>
           <MdArrowForwardIos className="Topbar_arrowIcon" />
         </div>
-        <div className="Topbar_col4">
+        <div className="Topbar_col4" onClick={(e) => {
+                  nav("/Userprofile")
+                }}>
           <CgProfile className="Topbar_profileIcon" />
           <div className="Clayton">
             <label>{username1}</label>
