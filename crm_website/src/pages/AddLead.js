@@ -47,6 +47,7 @@ export default function AddLead() {
   const form_head = "Lead Details";
   const nav = useNavigate();
 
+
   const addleadshow = true;
   const div_head1 = "Salutation";
   const div_head2 = "FirstName";
@@ -88,6 +89,7 @@ export default function AddLead() {
     /> */
 
   let SaveLead = () => {
+
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
     // const lastname = localStorage.getItem("lastnamevar");
@@ -230,6 +232,7 @@ export default function AddLead() {
         .post(url, data, { headers: header })
         .then((res) => {
           if (res.data === "email id already exists") {
+            setEemail("*email id already exist");
             setEsuffix("");
             setEfirstname("");
             setElastname("");
@@ -239,10 +242,10 @@ export default function AddLead() {
             setEcreatedon("");
             setEcreatedby("");
             setAddlead("");
-            setEemail("*email id already exist");
+            
           } else {
-            setAddlead("*lead has been added");
             nav("/Addlead")
+            setAddlead("*lead has been added");
             setEsuffix("");
             setEfirstname("");
             setElastname("");

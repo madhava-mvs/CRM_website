@@ -12,7 +12,6 @@ import ReactDatePicker from "react-datepicker";
 
 
 export default function Leadupdate() {
-  const nav=useNavigate();
   const update_lead_id = useSelector((state) => state.update_lead_id);
   const [salutation, setSalutation] = useState("");
   const [firstname, setFirstname] = useState("");
@@ -127,6 +126,8 @@ export default function Leadupdate() {
     /> */
 
   let SaveLead = () =>{
+    const nav=useNavigate();
+
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
     // const lastname = localStorage.getItem("lastnamevar");
@@ -297,8 +298,8 @@ export default function Leadupdate() {
             setEemail("*email id already exist");
           }
           else {
-            setAddlead("*lead has been updated");
             nav("/Leadlist")
+            setAddlead("*lead has been updated");
             setEsuffix("");
             setEfirstname("");
             setElastname("");
