@@ -6,6 +6,7 @@ import Form from "../components/Form";
 import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
+import { useNavigate } from "react-router-dom";
 
 export default function AddLead() {
   const [salutation, setSalutation] = useState("");
@@ -44,7 +45,7 @@ export default function AddLead() {
   const titlebar_value2 = "draft";
   const titlebar_value3 = "all";
   const form_head = "Lead Details";
-
+  const nav = useNavigate();
 
   const addleadshow = true;
   const div_head1 = "Salutation";
@@ -65,7 +66,7 @@ export default function AddLead() {
   const div_head16 = "Active Status";
   const div_head17 = "Lead Owner";
 
-    /* <Form form_head={form_head} div_head1={div_head1} div_value1={salutation} setDiv_value1={setSalutation}
+  /* <Form form_head={form_head} div_head1={div_head1} div_value1={salutation} setDiv_value1={setSalutation}
     div_head2={div_head2} div_value2={firstname} setDiv_value2={setFirstname}
     div_head3={div_head3} div_value3={middlename} setDiv_value3={setMiddlename}
     div_head4={div_head4} div_value4={lastname} setDiv_value={setLastname}
@@ -211,7 +212,8 @@ export default function AddLead() {
       // localStorage.setItem('ecreatedbyvar', errorcreatedby)
     } else {
       // const url = "http://localhost:3000/dev/InsertLead";
-      const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead"
+      const url =
+        "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead";
       const data = {
         suffix: salutation,
         firstname: firstname,
@@ -240,6 +242,7 @@ export default function AddLead() {
             setEemail("*email id already exist");
           } else {
             setAddlead("*lead has been added");
+            nav("/Addlead")
             setEsuffix("");
             setEfirstname("");
             setElastname("");
@@ -262,8 +265,8 @@ export default function AddLead() {
     <div>
       <Topbar />
       <div className="AddLead_content">
-        <div  className="AddLead_LeftBar">
-        <LeftBar />
+        <div className="AddLead_LeftBar">
+          <LeftBar />
         </div>
         <div className="AddLead_content_right">
           <div className="AddLead_content_right_inside">
