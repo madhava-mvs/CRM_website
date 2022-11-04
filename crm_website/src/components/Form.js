@@ -65,6 +65,17 @@ export default function Form({
                     <div className="form_inner31">
                         <label>{div_head1}</label>
                         <br />
+
+{div_head1 == "Salutation*"? <>
+<select value={div_value1} onChange={(e)=>setDiv_value1(e.target.value)} className="form_rectangle">
+              <option value="">--Select--</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+            </select>
+
+</>:<>
+
+
                         <input
                             value={div_value1}
                             type={"text"}
@@ -75,6 +86,7 @@ export default function Form({
                         />
                         <br />
                         { div_value1 == "" ? <span className="warning_error">{ediv_value1}</span>: <></>}
+                        </>}
                     </div>
                     <div className="form_inner31">
                         <label>{div_head2}</label>
@@ -165,6 +177,7 @@ export default function Form({
                                 />
                                 <br />
                                 { div_value7 == "" ? <span className="warning_error">{ediv_value5}</span>: <></>}
+                                {ediv_value5 == "*email id already exist" ?  <span className="warning_error">{ediv_value5}</span>:<></>}
                             </div>
                             <div className="form_inner31">
                                 <label>{div_head8}</label>
@@ -267,7 +280,7 @@ export default function Form({
                                     onChange={(e) => {
                                         setDiv_value15(e.target.value);
                                     }}
-                                    className="form_rectangle"
+                                    className="form_rectangle_date"
                                 />
                                 <br />
                                 { div_value15 == "" ? <span className="warning_error">{ediv_value8}</span>: <></>}

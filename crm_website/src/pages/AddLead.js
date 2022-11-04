@@ -49,23 +49,23 @@ export default function AddLead() {
 
 
   const addleadshow = true;
-  const div_head1 = "Salutation";
-  const div_head2 = "FirstName";
+  const div_head1 = "Salutation*";
+  const div_head2 = "FirstName*";
   const div_head3 = "MiddleName";
-  const div_head4 = "LastName";
+  const div_head4 = "LastName*";
   const div_head5 = "Title";
-  const div_head6 = "Company";
-  const div_head7 = "Email";
-  const div_head8 = "Phone";
+  const div_head6 = "Company*";
+  const div_head7 = "Email*";
+  const div_head8 = "Phone*";
   const div_head9 = "Mobile";
   const div_head10 = "Address";
   const div_head11 = "City";
-  const div_head12 = "State";
+  const div_head12 = "State*";
   const div_head13 = "Pin code";
   const div_head14 = "Lead Source Name";
-  const div_head15 = "Date Added On";
+  const div_head15 = "Date Added On*";
   const div_head16 = "Active Status";
-  const div_head17 = "Lead Owner";
+  const div_head17 = "Lead Owner*";
 
   /* <Form form_head={form_head} div_head1={div_head1} div_value1={salutation} setDiv_value1={setSalutation}
     div_head2={div_head2} div_value2={firstname} setDiv_value2={setFirstname}
@@ -231,7 +231,8 @@ export default function AddLead() {
       axios
         .post(url, data, { headers: header })
         .then((res) => {
-          if (res.data === "email id already exists") {
+          console.log(res.data)
+          if (res.data == "email id already exists") {
             setEemail("*email id already exist");
             setEsuffix("");
             setEfirstname("");
@@ -244,7 +245,7 @@ export default function AddLead() {
             setAddlead("");
             
           } else {
-            nav("/Addlead")
+            nav("/Leadlist")
             setAddlead("*lead has been added");
             setEsuffix("");
             setEfirstname("");

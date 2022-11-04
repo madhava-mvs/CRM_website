@@ -25,6 +25,23 @@
     border: none;
     outline: none;
   }
+
+
+
+.form_rectangle_date{
+  background-color: white;
+    height: 35px;
+    width: 170px;
+    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+    /* box-shadow: 0 5px 5px -5px #333; */
+    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    border: none;
+    outline: none;
+}
+
+
+
+
   .form_inner3 {
     width: 100%;
     padding: 13px 0px;

@@ -36,6 +36,8 @@ export default function CampaignListPage() {
     axios.post(url, data, { headers: header })
       .then((res) => {
         console.log("Response ==> " + JSON.stringify(res.data))
+        window.location.reload();
+
       })
       .catch((err) => {
         console.log("Error ==> " + err)
@@ -79,6 +81,7 @@ export default function CampaignListPage() {
         }
         console.log(res.data);
         setArray(res.data);
+
       })
 
       .catch((err) => {

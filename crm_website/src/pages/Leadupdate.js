@@ -13,6 +13,8 @@ import ReactDatePicker from "react-datepicker";
 
 export default function Leadupdate() {
   const update_lead_id = useSelector((state) => state.update_lead_id);
+  const nav=useNavigate();
+
   const [salutation, setSalutation] = useState("");
   const [firstname, setFirstname] = useState("");
   const [middlename, setMiddlename] = useState("");
@@ -126,7 +128,6 @@ export default function Leadupdate() {
     /> */
 
   let SaveLead = () =>{
-    const nav=useNavigate();
 
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
