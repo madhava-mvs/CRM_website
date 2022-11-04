@@ -263,7 +263,7 @@ export default function Form({
                                 <br />
                                 <input
                                     value={div_value15}
-                                    type={"text"}
+                                    type={"date"}
                                     onChange={(e) => {
                                         setDiv_value15(e.target.value);
                                     }}

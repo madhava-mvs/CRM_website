@@ -1,37 +1,40 @@
-.AddLead_content {
+.Leadupdate_content {
     display: flex;
     flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
   }
-  .AddLead_content_right {
+  .Leadupdate_content_right {
     width: 97%;
     display: flex;
     padding: 30px;
     justify-content: center;
     align-items: center;
   }
-  .addlead_titlebar_component{
-    width: 826px;
+  .Leadupdate_titlebar_component{
+    width: 800px;
   }
   
   
-  .AddLead_LeftBar{
+  .Leadupdate_LeftBar{
     height: 90vh;
   }
   
   
-  /* .AddLead_content_right_inside_form {
+  /* .Leadupdate_content_right_inside_form {
     padding: 40px;
   } */
   
-  .AddLead_content_right_inside_form {
+  .Leadupdate_content_right_inside_form {
     border-left: 3px solid #f3f3f4;
     border-bottom: 3px solid #f3f3f4;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-bottom: 20px;
     padding-top: 5px;
+    width: 810px;
+  
   }
   
-  .addlead_text{
+  .Leadupdate_text{
     color: green;
   }
   

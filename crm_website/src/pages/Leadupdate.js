@@ -7,9 +7,12 @@ import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import ReactDatePicker from "react-datepicker";
+
 
 export default function Leadupdate() {
-  
+  const nav=useNavigate();
   const update_lead_id = useSelector((state) => state.update_lead_id);
   const [salutation, setSalutation] = useState("");
   const [firstname, setFirstname] = useState("");
@@ -25,7 +28,7 @@ export default function Leadupdate() {
   const [state, setState] = useState("");
   const [pincode, setPincode] = useState("");
   const [leadSourceName, setLeadSourceName] = useState("");
-  const [dateAddedOn, setDateAddedOn] = useState("");
+  const [dateAddedOn, setDateAddedOn] = useState();
   const [activeStatus, setActiveStatus] = useState("");
   const [leadOwner, setLeadOwner] = useState();
   const [esuffix, setEsuffix] = useState("");
@@ -292,8 +295,10 @@ export default function Leadupdate() {
             setEcreatedby("");
             setAddlead("");
             setEemail("*email id already exist");
-          } else {
+          }
+          else {
             setAddlead("*lead has been updated");
+            nav("/Leadlist")
             setEsuffix("");
             setEfirstname("");
             setElastname("");
@@ -303,7 +308,7 @@ export default function Leadupdate() {
             setEaddress("");
             setEcreatedon("");
             setEcreatedby("");
-            console.log("response==> " + JSON.stringify(res.data));
+            console.log("response" + JSON.stringify(res.data));
           }
         })
         .catch((err) => {
@@ -316,14 +321,14 @@ export default function Leadupdate() {
   return (
     <div>
       <Topbar />
-      <div className="AddLead_content">
-        <div className="AddLead_LeftBar">
+      <div className="Leadupdate_content">
+        <div className="Leadupdate_LeftBar">
           <LeftBar />
         </div>
-        <div className="AddLead_content_right">
-          <div className="AddLead_content_right_inside">
+        <div className="Leadupdate_content_right">
+          <div className="Leadupdate_content_right_inside">
             {/* <TitleBar setEsuffix = {setEsuffix} setEfirstname = {setEfirstname}  setElastname={setElastname} setEcompany={setEcompany} setEphone={setEphone} setEemail={setEemail} setEaddress={setEaddress} setEcreatedon={setEcreatedon} setEcreatedby={setEcreatedby} /> */}
-            <div className="addlead_titlebar_component">
+            <div className="Leadupdate_titlebar_component">
               <TitleBar
                 SaveLead={SaveLead}
                 button_value={button_value}
@@ -336,8 +341,8 @@ export default function Leadupdate() {
                 titlebar_value3={titlebar_value3}
               />
             </div>
-            <div className="AddLead_content_right_inside_form">
-              <label className="addlead_text">{addlead}</label>
+            <div className="Leadupdate_content_right_inside_form">
+              <label className="Leadupdate_text">{addlead}</label>
               {/* <Form esuffix={esuffix} efirstname={errorfirstname} elastname={errorlastname} ecompany={errorcompany} ephone={errorphone} eemail={erroremail} eaddress={erroraddress} ecreatedon={errorcreatedon} ecreatedby={errorcreatedby} addlead={addlead} /> */}
               <Form
                 form_head={form_head}
@@ -409,4 +414,12 @@ export default function Leadupdate() {
       </div>
     </div>
   );
+}
+
+const Date = () => {
+  // const A =res.data[0].dtStartdate
+  const [dateAddedOn, setDateAddedOn] = useState(new Date());
+  return (
+      <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
+  )
 }
