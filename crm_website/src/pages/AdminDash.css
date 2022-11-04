@@ -9,7 +9,7 @@
 }
 
 .Admin_page_topbar {
-    width: 203vh;
+    width: 198vh;
 }
 
 .Admin_page_contentpart_leftbar {
@@ -59,7 +59,7 @@
     align-items: center;
     padding-right: 50px;
     margin-right: 20px;
-    margin-left: -70px;
+    margin-left: -60px;
     margin-top: -10px;
 }
 
@@ -78,5 +78,5 @@
     /* background-color: black; */
     /* margin-top: 25px; */
     margin-left: -70px;
-    margin-top: 75px;
+    margin-top: 100px;
 }

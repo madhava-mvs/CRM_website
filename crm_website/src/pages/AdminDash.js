@@ -10,6 +10,7 @@ import SummaryCount from "../components/SummaryCount";
 import Pending from "../components/Pending";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AdminDash() {
@@ -144,7 +145,6 @@ export default function AdminDash() {
             })
 
     }, [])
-
     const approval_Func = () => {
         const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
         const data = { approval_mail: approval_mail };
@@ -153,6 +153,8 @@ export default function AdminDash() {
             .then((res) => {
                 console.log("updated")
                 setPending_show(!pending_show)
+                window.location.reload();
+
             })
             .catch((err) => {
                 console.log("error ==>" + err)
