@@ -340,7 +340,7 @@ export default function Form({
                 {div_value11 == "" ? (
                   <>
                   <select className="form_rectangle_select">
-                    <option>--select--</option>
+                    <option>-----------</option>
                   </select>
                   </>
                 ) : (
