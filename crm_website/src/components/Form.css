@@ -26,12 +26,38 @@
     outline: none;
   }
 
+  .form_rectangle_select1{
+    background-color: white;
+    color: rgba(125, 143, 177, 1);
+      height: 35px;
+      width: 172px;
+      /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+      /* box-shadow: 0 5px 5px -5px #333; */
+      box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+      border: none;
+      outline: none;
+  }
 
+.form_rectangle_select{
+  background-color: white;
+  color: rgba(125, 143, 177, 1);
+    height: 35px;
+    width: 172px;
+    margin-right: -5px;
+    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+    /* box-shadow: 0 5px 5px -5px #333; */
+    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    border: none;
+    outline: none;
+}
 
 .form_rectangle_date{
   background-color: white;
+  color: rgba(125, 143, 177, 1);
     height: 35px;
-    width: 170px;
+    width: 172px;
+    margin-right: -5px;
+
     /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
     /* box-shadow: 0 5px 5px -5px #333; */
     box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
@@ -53,7 +79,11 @@
   .form_rectangle1{
     background-color: #f9f9f9;
     height: 30px;
-    width: 180px;
+    width: 100%;
+    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+    /* box-shadow: 0 5px 5px -5px #333; */
+    border: none;
+    outline: none;
   }
   .warning_error{
     color: red;

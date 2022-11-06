@@ -39,6 +39,7 @@ export default function AddLead() {
   const [bulkimportshow, setBulkimportshow] = useState(false);
   const [savebuttonshow, setSavebuttonshow] = useState(true);
   const [middledivshow, setMiddledivshow] = useState(false);
+  const [array_lead, setArray_lead] = useState([])
   const button_value = "Save lead";
   const titlebar_name = "Lead List";
   const titlebar_value1 = "active";
@@ -59,13 +60,29 @@ export default function AddLead() {
   const div_head8 = "Phone*";
   const div_head9 = "Mobile";
   const div_head10 = "Address";
-  const div_head11 = "City";
-  const div_head12 = "State*";
+  const div_head11 = "State*";
+  const div_head12 = "City";
   const div_head13 = "Pin code";
   const div_head14 = "Lead Source Name";
   const div_head15 = "Date Added On*";
   const div_head16 = "Active Status";
   const div_head17 = "Lead Owner*";
+
+
+  const url_lead =
+  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+const data_lead = {};
+const header_lead = {};
+axios
+  .post(url_lead, data_lead, { headers: header_lead })
+  .then((res) => {
+    console.log(res.data);
+    setArray_lead(res.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 
   /* <Form form_head={form_head} div_head1={div_head1} div_value1={salutation} setDiv_value1={setSalutation}
     div_head2={div_head2} div_value2={firstname} setDiv_value2={setFirstname}
@@ -325,11 +342,11 @@ export default function AddLead() {
                 div_value10={address}
                 setDiv_value10={setAddress}
                 div_head11={div_head11}
-                div_value11={city}
-                setDiv_value11={setCity}
+                div_value11={state}
+                setDiv_value11={setState}
                 div_head12={div_head12}
-                div_value12={state}
-                setDiv_value12={setState}
+                div_value12={city}
+                setDiv_value12={setCity}
                 div_head13={div_head13}
                 div_value13={pincode}
                 setDiv_value13={setPincode}
@@ -345,6 +362,7 @@ export default function AddLead() {
                 div_head17={div_head17}
                 div_value17={leadOwner}
                 setDiv_value17={setLeadOwner}
+                array_lead={array_lead}
                 ediv_value1={esuffix}
                 ediv_value2={errorfirstname}
                 ediv_value3={errorlastname}
