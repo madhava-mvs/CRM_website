@@ -83,7 +83,6 @@ export default function LeadListPage() {
       .then((res) => {
         console.log("Response ==> " + JSON.stringify(res.data));
         window.location.reload();
-
       })
       .catch((err) => {
         console.log("Error ==> " + err);
