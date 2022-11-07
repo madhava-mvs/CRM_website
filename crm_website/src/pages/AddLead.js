@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddLead.css";
 import Form from "../components/Form";
@@ -9,6 +9,25 @@ import TitleBar from "../components/Titlebar";
 import { useNavigate } from "react-router-dom";
 
 export default function AddLead() {
+
+
+  useEffect(() => {
+    const url_lead =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+    const data_lead = {};
+    const header_lead = {};
+    axios
+      .post(url_lead, data_lead, { headers: header_lead })
+      .then((res) => {
+        console.log(res.data);
+        setArray_lead(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
   const [salutation, setSalutation] = useState("");
   const [firstname, setFirstname] = useState("");
   const [middlename, setMiddlename] = useState("");
@@ -39,7 +58,7 @@ export default function AddLead() {
   const [bulkimportshow, setBulkimportshow] = useState(false);
   const [savebuttonshow, setSavebuttonshow] = useState(true);
   const [middledivshow, setMiddledivshow] = useState(false);
-  const [array_lead, setArray_lead] = useState([])
+  const [array_lead, setArray_lead] = useState([]);
   const button_value = "Save lead";
   const titlebar_name = "Lead List";
   const titlebar_value1 = "active";
@@ -47,7 +66,6 @@ export default function AddLead() {
   const titlebar_value3 = "all";
   const form_head = "Lead Details";
   const nav = useNavigate();
-
 
   const addleadshow = true;
   const div_head1 = "Salutation*";
@@ -67,22 +85,6 @@ export default function AddLead() {
   const div_head15 = "Date Added On*";
   const div_head16 = "Active Status";
   const div_head17 = "Lead Owner*";
-
-
-  const url_lead =
-  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
-const data_lead = {};
-const header_lead = {};
-axios
-  .post(url_lead, data_lead, { headers: header_lead })
-  .then((res) => {
-    console.log(res.data);
-    setArray_lead(res.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
 
   /* <Form form_head={form_head} div_head1={div_head1} div_value1={salutation} setDiv_value1={setSalutation}
     div_head2={div_head2} div_value2={firstname} setDiv_value2={setFirstname}
@@ -106,7 +108,6 @@ axios
     /> */
 
   let SaveLead = () => {
-
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
     // const lastname = localStorage.getItem("lastnamevar");
@@ -240,7 +241,9 @@ axios
         company: company,
         phone: phone,
         email: email,
-        address: state,
+        state: state,
+        city: city,
+        address: address,
         createdOn: dateAddedOn,
         createdBy: Number(leadOwner),
       };
@@ -248,7 +251,7 @@ axios
       axios
         .post(url, data, { headers: header })
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data);
           if (res.data == "email id already exists") {
             setEemail("*email id already exist");
             setEsuffix("");
@@ -260,9 +263,8 @@ axios
             setEcreatedon("");
             setEcreatedby("");
             setAddlead("");
-            
           } else {
-            nav("/Leadlist")
+            nav("/Leadlist");
             setAddlead("*lead has been added");
             setEsuffix("");
             setEfirstname("");

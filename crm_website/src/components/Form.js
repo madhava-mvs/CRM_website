@@ -122,7 +122,14 @@ export default function Form({
                   <option value="Mr">Mr</option>
                   <option value="Mrs">Mrs</option>
                 </select>
+                <br />
+                {div_value1 == "" ? (
+                  <span className="warning_error">{ediv_value1}</span>
+                ) : (
+                  <></>
+                )}
               </>
+              
             ) : (
               <>
                 <input
@@ -340,7 +347,7 @@ export default function Form({
                 {div_value11 == "" ? (
                   <>
                   <select className="form_rectangle_select">
-                    <option>-----------</option>
+                    <option>--Select--</option>
                   </select>
                   </>
                 ) : (
@@ -528,7 +535,7 @@ export default function Form({
                         {array_lead.map((itm, index) => {
                           return (
                             <>
-                              <option value={itm.id}>{itm.txtFirstName}</option>
+                              <option key="{itm.id}" value={itm.id}>{itm.txtFirstName}</option>
                             </>
                           );
                         })}
