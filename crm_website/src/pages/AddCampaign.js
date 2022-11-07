@@ -47,12 +47,12 @@ export default function Addcampaign() {
 
 
   const addcampaignshow = true;
-  const div_head1 = "Campaign name";
-  const div_head2 = "Createdon";
-  const div_head3 = "Startdate";
-  const div_head4 = "Enddate";
-  const div_head5 = "Producttype";
-  const div_head6 = "Createdby";
+  const div_head1 = "Campaign name*";
+  const div_head2 = "Createdon*";
+  const div_head3 = "Startdate*";
+  const div_head4 = "Enddate*";
+  const div_head5 = "Producttype*";
+  const div_head6 = "Createdby*";
   // const div_head7 = "Email";
   // const div_head8 = "Phone";
   // const div_head9 = "Mobile";
