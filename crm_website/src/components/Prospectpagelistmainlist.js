@@ -71,8 +71,8 @@ function ListRow({ itm, array, setArray }) {
           
           <div className="prospectlistpage_itmfirstname">{itm.firstname}</div>
           <div className="prospectlistpage_itmcampaignname">{itm.campaignname}</div>
-          <div className="prospectlistpage_itmcreatedon">{day}-{month}-{year}</div> 
-          <div className="prospectlistpage_itmupdatedon">{sday}-{smonth}-{syear}</div> 
+          <div className="prospectlistpage_itmcreatedon">{year}-{month}-{day}</div> 
+          <div className="prospectlistpage_itmupdatedon">{syear}-{smonth}-{sday}</div> 
           <div className="prospectlistpage_itmusername">{itm.username}</div>
        
           <div className="prospectlistpage_Mainlist_icon">
