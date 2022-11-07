@@ -53,7 +53,7 @@ export default function AddLead() {
   const [errorcompany, setEcompany] = useState("");
   const [erroremail, setEemail] = useState("");
   const [errorphone, setEphone] = useState("");
-  const [erroraddress, setEaddress] = useState("");
+  const [errorstate, setEstate] = useState("");
   const [errorcreatedon, setEcreatedon] = useState("");
   const [errorcreatedby, setEcreatedby] = useState("");
   const [addlead, setAddlead] = useState("");
@@ -139,7 +139,7 @@ export default function AddLead() {
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('esuffixvar', errorsuffix)
@@ -150,7 +150,7 @@ export default function AddLead() {
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       setEfirstname("*firstname is mandatory");
@@ -162,7 +162,7 @@ export default function AddLead() {
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('elastnamevar', errorlastname)
@@ -173,7 +173,7 @@ export default function AddLead() {
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecompanyvar', errorcompany)
@@ -184,7 +184,7 @@ export default function AddLead() {
       setEcompany("");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('eemailvar', erroremail)
@@ -195,7 +195,7 @@ export default function AddLead() {
       setEcompany("");
       setEemail("");
       setEphone("*phone is mandatory");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ephonevar', errorphone)
@@ -206,30 +206,16 @@ export default function AddLead() {
       setEcompany("");
       setEemail("");
       setEphone("");
-      setEaddress("*address is mandatory");
+      setEstate("*state is mandatory");
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('eaddressvar', erroraddress)
     } else if (dateAddedOn === "") {
-      setEsuffix("");
-      setEfirstname("");
-      setElastname("");
-      setEcompany("");
-      setEemail("");
-      setEphone("");
-      setEaddress("");
+      
       setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedonvar', errorcreatedon)
     } else if (leadOwner === "") {
-      setEsuffix("");
-      setEfirstname("");
-      setElastname("");
-      setEcompany("");
-      setEemail("");
-      setEphone("");
-      setEaddress("");
-      setEcreatedon("");
+      
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedbyvar', errorcreatedby)
     } else {
@@ -261,7 +247,7 @@ export default function AddLead() {
             setElastname("");
             setEcompany("");
             setEphone("");
-            setEaddress("");
+            setEstate("");
             setEcreatedon("");
             setEcreatedby("");
             setAddlead("");
@@ -274,7 +260,7 @@ export default function AddLead() {
             setEcompany("");
             setEemail("");
             setEphone("");
-            setEaddress("");
+            setEstate("");
             setEcreatedon("");
             setEcreatedby("");
             console.log("response==> " + JSON.stringify(res.data));
@@ -373,7 +359,7 @@ export default function AddLead() {
                 ediv_value4={errorcompany}
                 ediv_value5={erroremail}
                 ediv_value6={errorphone}
-                ediv_value7={erroraddress}
+                ediv_value7={errorstate}
                 ediv_value8={errorcreatedon}
                 ediv_value9={errorcreatedby}
               />{" "}

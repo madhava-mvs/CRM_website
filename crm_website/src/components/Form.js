@@ -338,7 +338,11 @@ export default function Form({
                                     className="form_rectangle"
                                 /> */}
                 <br />
-                
+                {div_value11 == "" ? (
+                  <span className="warning_error">{ediv_value7}</span>
+                ) : (
+                  <></>
+                )}
               </div>
               <div className="form_inner31">
                 <label>{div_head12}</label>
@@ -458,11 +462,7 @@ export default function Form({
                   }}
                   className="form_rectangle"
                 /> */}
-                {div_value11 == "" ? (
-                  <span className="warning_error">{ediv_value7}</span>
-                ) : (
-                  <></>
-                )}
+                
               </div>
             </div>
             <div className="form_inner3">
