@@ -98,6 +98,9 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 30px;
 }
+.maptable{
+    min-height: 1px;
+}
 
 /* .Normallist_row1_button button :hover {
     background-color: black;
