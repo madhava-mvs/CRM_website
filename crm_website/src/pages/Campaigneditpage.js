@@ -64,8 +64,9 @@ export default function Campaigneditpage() {
     const [arraylist, setarraylist] = useState([]);
     const [show1, setShow1] = useState(false)
     const [show2, setshow2] = useState(false)
-    const updateid = useSelector((state) => state.update_campaign_id);
+    const Campaign_id = useSelector((state) => state.update_campaign_id);
     const userid = useSelector((state) => state.userid);
+    // const update_campaign_id = useSelector((state) => state.update_lead_id);
 
     const [leadid, setLeadid] = useState("")
 
@@ -85,9 +86,9 @@ export default function Campaigneditpage() {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
-        const data = { id: updateid };
-        const Headers = {};
-        axios.post(url, data, { headers: Headers })
+        const data = { id: Campaign_id };
+        const headers = {};
+        axios.post(url, data, { headers: headers })
             .then((res) => {
                 console.log("Response of array==>" + JSON.stringify(res.data));
                 for (const a of res.data) {
@@ -102,15 +103,14 @@ export default function Campaigneditpage() {
     };
     // const [error, setError] = useState("");
     const handleclick2 =  (e)=> {
-        for (let a of arrayData) {
-            if (a.isclicked === true) {
-                setLeadid(Number(a.id))
-            }
-        }
-        console.log(leadid)
+        // for (let a of arrayData) {
+        //     if (a.isclicked === true) {
+        //         setLeadid(Number(a.id))
+        //     }
+        // }
         setShow(!show)
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/checklist";
-        const data = { userid: userid, LeadId: leadid, CampaignId: updateid };
+        const data = { userid: userid, arrayData: arrayData, CampaignId: Campaign_id };
         const Headers = {}
         axios.post(url, data, { headers: Headers })
             .then((res) => {
@@ -130,19 +130,11 @@ export default function Campaigneditpage() {
         setediv_value4("")
         setediv_value10("")
         setediv_value11("")
-        // setediv_value0("")
-
-        // setError3("")
-        // setError4("")
-        // setError5("")
-
-        // setError6("")
-        // setError7("")
         // const url = "http://localhost:3000/dev/updateCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
-        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2 }
-        const header = { id:updateid};
-        axios.post(url, data, header)
+        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2 ,updateid:Campaign_id  }
+        const header = {};
+        axios.post(url, data,header)
             .then((res) => {
                 console.log("Response12==> " + JSON.stringify(res.data))
                 let result = res.data + ""
@@ -168,7 +160,7 @@ export default function Campaigneditpage() {
 
                 if (result.includes("updated")) {
                     // setediv_value0("Updated!!!")
-                    setUpdate_text("succesfully updated!")
+                    setUpdate_text("Succesfully updated!")
                 }
 
             })
@@ -205,7 +197,7 @@ export default function Campaigneditpage() {
         // const url = "http://localhost:3000/dev/getsingleCampaign";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
-            id: updateid,
+            id: Campaign_id,
         };
         const header = {};
         axios.post(url, data, { headers: header })
@@ -253,7 +245,7 @@ export default function Campaigneditpage() {
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
         const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
-        const data = { updateid: updateid };
+        const data = { updateid: Campaign_id };
         const header = {};
         axios.post(url, data, { headers: header })
             .then((res) => {
