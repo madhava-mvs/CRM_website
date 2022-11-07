@@ -35,7 +35,9 @@ export default function Signup({
 // const jobroleFunc = (e)=>{
 //     setJobrole(e.target.value)
 // }
-
+const changeCheckbox = () => {
+  setCheckbox(!Checkbox);
+}
 
   return (
     <>
@@ -145,9 +147,10 @@ export default function Signup({
             <div className="signup_inner_row8_checkboxicon">
               <input
                 type="checkbox"
-                onChange={(e) => {
-                  setCheckbox();
-                }}
+                // onChange={(e) => {
+                //   setCheckbox();
+                // }}
+                onChange={changeCheckbox}
               />
             </div>
             <div className="signup_inner_row8_text">
