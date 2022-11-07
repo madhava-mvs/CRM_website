@@ -10,11 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddLead() {
 
-  
+
 
   useEffect(() => {
     const url_lead =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
     const data_lead = {};
     const header_lead = {};
     axios

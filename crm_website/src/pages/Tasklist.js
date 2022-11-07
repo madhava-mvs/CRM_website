@@ -301,10 +301,10 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                 <div className="email">
                   <label>Email</label>
                 </div>
-                <div className="r1_plus">
-                  <BsFillPlusCircleFill className="r1_plusIcon" />
+                <div className="tasklist_r1_plus" onClick={Save_Task}>
+                  <div><BsFillPlusCircleFill className="tasklist_r1_plusIcon" /></div>
 
-                  <button onClick={Save_Task}>SAVE</button>
+                  <div className="tasklist_savetext_button"><span >SAVE</span></div>
                 </div>
               </div>
               <div className="whitebg">

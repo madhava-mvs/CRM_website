@@ -68,7 +68,7 @@ export default function SignUpPage() {
         password: password,
         repassword: repassword,
         jobrole: jobrole,
-      };
+      }; 
       const headers = {};
       axios
         .post(url, data, {headers: headers})
