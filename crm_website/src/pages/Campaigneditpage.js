@@ -117,6 +117,7 @@ export default function Campaigneditpage() {
                 console.log("Response of Checklist==>" + JSON.stringify(res.data));
                 setarraylist(res.data)
                 console.log("Array==>" + JSON.stringify(arraylist))
+                window.location.reload();
             })
             .catch((err) => {
                 console.log("Error==>" + err);
