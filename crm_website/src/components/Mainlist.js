@@ -95,8 +95,8 @@ function ListRow({ itm, array, setArray }) {
 
           <div className="itmSubject">{itm.Activitytype}</div>
 
-          <div className="itmStatus">pending</div>
-          {/* {itm.Statuses} */}
+          <div className="itmStatus">{itm.Statuses}</div>
+          
           <div className="itmdate">{year}-{month}-{day}</div>
 
 
