@@ -48,7 +48,7 @@ function ListRow({itm, array, setArray}) {
   const handleClick=(e, itm)=>{
     let temp=[...array];
     for (const iterator of temp) {
-      if(itm.FirstName === iterator.FirstName){
+      if(itm.id === iterator.id){
         iterator.isclicked=!iterator.isclicked;
       }
     }

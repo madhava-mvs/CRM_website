@@ -362,7 +362,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         value={campaign_name}
                         onChange={(e) => setCampaign_name(e.target.value)}
                       >
-                        <option value="">--------</option>
+                        <option value="">--Select--</option>
                         {array_campaign.map((itm, index) => {
                           return (
                             <>
@@ -402,7 +402,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         value={lead_name}
                         onChange={(e) => setLead_name(e.target.value)}
                       >
-                        <option value="">--------</option>
+                        <option value="">--Select--</option>
                         {array_lead.map((itm, index) => {
                           return (
                             <>
@@ -429,7 +429,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         value={user_name}
                         onChange={(e) => setUser_name(e.target.value)}
                       >
-                        <option value="">--------</option>
+                        <option value="">--Select--</option>
                         {array_user.map((itm, index) => {
                           return (
                             <>
@@ -458,7 +458,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         value={activity}
                         onChange={(e) => setActivity(e.target.value)}
                       >
-                        <option value="">--------------------</option>
+                        <option value="">--Select--</option>
                         <option value="1">Call</option>
                         <option value="2">Email</option>
                         <option value="3">SMS</option>

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddLead() {
 
+  
 
   useEffect(() => {
     const url_lead =
@@ -26,6 +27,7 @@ export default function AddLead() {
         console.log(err);
       });
   }, []);
+
 
 
   const [salutation, setSalutation] = useState("");
