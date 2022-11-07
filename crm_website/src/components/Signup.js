@@ -98,7 +98,7 @@ export default function Signup({
           <div className="signup_inner_row5_dropdown_role">
             <label>Job role :</label>
             <select value={jobrole} onChange={(e)=>setJobrole(e.target.value)}>
-              <option value="">--------------------</option>
+              <option value="">--Select--</option>
               <option value="2">Manager</option>
               <option value="3">User</option>
             </select>
