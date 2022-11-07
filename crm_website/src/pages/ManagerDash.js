@@ -51,10 +51,11 @@ export default function ManagerDash() {
         const header = {};
         axios.post(url, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + (JSON.stringify(res.data[0].leadscount)) + (JSON.stringify(res.data[1].leadscount)) + (JSON.stringify(res.data[2].leadscount)))
-                setOrangebar(res.data[0].leadscount)
-                setGreenbar(res.data[1].leadscount)
-                setBluebar(res.data[2].leadscount)
+                // console.log("Response => " + (JSON.stringify(res.data[0].Leads)))
+                console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
+                setOrangebar(res.data[0].Leads)
+                setGreenbar(res.data[1].Leads)
+                setBluebar(res.data[2].Leads)
             })
             .catch((err) => {
                 console.log("Error => " + err)
@@ -85,7 +86,7 @@ export default function ManagerDash() {
         const header = {};
         axios.post(url, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data[0].count))
+                console.log("Response => " + JSON.stringify(res.data))
                 setArray1(res.data)
             })
             .catch((err) => {

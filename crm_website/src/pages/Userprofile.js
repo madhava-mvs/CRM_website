@@ -13,6 +13,8 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+// import {datepiker} from "react";
+import ReactDatePicker from "react-datepicker";
 export default function Userprofile() {
 
     const [state, setstate] = useState(false);
@@ -21,9 +23,9 @@ export default function Userprofile() {
     }
 
     const titlebar_name = <h3>Profile</h3>
+    const button_value = "SAVE"
     const [savebuttonshow, setsavebuttonshow] = useState(true);
-    const button_value = <h3>SAVE</h3>
-
+   // const savebuttonshow = true
 
 
     const [Email, setEmail] = useState("");
@@ -46,6 +48,11 @@ export default function Userprofile() {
     const handleclick = (e) => {
         setShow(!show)
     };
+
+
+
+
+    const username1 = useSelector((state) => state.username1);
     const userid = useSelector((state) => state.userid);
     const SAVEclick = (e) => {
 
@@ -64,7 +71,7 @@ export default function Userprofile() {
             // const url = "http://localhost:3000/dev/updateprofile";
             const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
-                "id": "20", Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
+                id: userid, Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
             };
             const header = {};
             axios.post(url, data, header,)
@@ -145,19 +152,24 @@ export default function Userprofile() {
                         <LeftBar />
                     </div>
                     <div className="Userprofile_topbar2_right">
-                        <div className="Userprofile_topbar2_right_1">
-                            <div className="Userprofile_TitleBar">
-                                {/* <Titlebar /> */}
-                                <Titlebar titlebar_name={titlebar_name} savebuttonshow={savebuttonshow} button_value={button_value} SaveLead={SAVEclick} />
 
-                            </div>
+                        <div className="Userprofile_TitleBar">
+
+                            <Titlebar
+                                titlebar_name={titlebar_name}
+                                savebuttonshow={savebuttonshow}
+                                button_value={button_value}
+                                SaveLead={SAVEclick}
+                            />
 
                         </div>
+
+
                         <div className='Profile_outer'>
                             <div className='Profile_outer_column1'>
                                 <img src={pic} ></img>
-                                <div className='Profile_name' >Nancy Powell  </div>
-                                <div className='Profile_id' >c10001</div>
+                                <div className='Profile_name' >{username1} </div>
+                                <div className='Profile_id' >{userid}</div>
                             </div>
                             <div className="Profile_Info">
                                 <div className='Profile_outer_row1'> <label className="erroru">{erroru}</label>
@@ -165,10 +177,10 @@ export default function Userprofile() {
                                     <FiMoreHorizontal className='Profile_more1' />
                                 </div>
                                 <div className='Profileouter_row2'>
-                                    <div className='Profile_fn' >FirstName</div>
+                                    <div className='Profile_fn' >FirstName*</div>
                                     <div className='Profile_ln'>LastName</div>
-                                    <div className='Profile_email'>Email</div>
-                                    <div className='Profile_dob'>Date of Birth</div>
+                                    <div className='Profile_email'>Email*</div>
+                                    <div className='Profile_dob'>Date of Birth*</div>
                                 </div>
                                 <div className='Profileouter_row3'>
                                     <div className='Profile_a3' >
@@ -184,14 +196,16 @@ export default function Userprofile() {
                                         <label className="errore">{errore}</label>
                                     </div>
                                     <div className='Profile_d3'>
-                                        <input type="text" placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value) }} />
+
+                                        <input type="date"
+                                            placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value) }} />
                                         {errorall && Dob == "" ? <label className="errord">Dob is mandatory</label> : ""}</div>
-                                    <MdKeyboardArrowDown className='Profileouter_row3_downarrow' />
+                                    {/* <MdKeyboardArrowDown className='Profileouter_row3_downarrow' /> */}
                                 </div>
                                 <div className='Profileouter_row4'>
-                                    <div className='Profile_a4' >Address</div>
-                                    <div className='Profile_b4' >Password</div>
-                                    <div className='Profile_c4' >Confirm Password</div>
+                                    <div className='Profile_a4' >Address*</div>
+                                    <div className='Profile_b4' >Password*</div>
+                                    <div className='Profile_c4' >Confirm Password*</div>
                                 </div>
 
                                 <div className='Profileouter_row5'>
@@ -202,7 +216,10 @@ export default function Userprofile() {
                                         {/* <input type="Password" placeholder="" value={Password} onChange={(e) => { setPassword(e.target.value) }} /> */}
                                         {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
 
-                                        <input type={state ? "text" : "Password"} value={Password} placeholder="" onClick={togglebtn} />
+                                        <input type={state ? "text" : "Password"} onChange={(e) => { setPassword(e.target.value) }}
+
+
+                                            value={Password} placeholder="" />
                                         <label className="Profile_b5_btn" onClick={togglebtn}>
                                             {
                                                 state ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
@@ -213,10 +230,15 @@ export default function Userprofile() {
 
 
                                         {errorall && Password == "" ? <label className="errorp">Password is mandatory</label> : ""}</div>
+
+
+
                                     <div className='Profile_c5'>
+
                                         <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
                                         {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
                                         <label className="errorpn">{errorpn}</label></div>
+
                                 </div>
                             </div>
                         </div>
