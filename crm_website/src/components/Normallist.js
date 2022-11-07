@@ -31,6 +31,7 @@ export default function Normallist({ arrayData1, setArrayData1 , handleclick1}) 
 
 function Table(item1) {
     const d = new Date(item1.item1.dtUpdatedOn);
+    console.log("D==>"+d)
     let day = d.getDate();
     let month = d.getMonth()+1;
     let year = d.getFullYear();
