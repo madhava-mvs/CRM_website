@@ -531,7 +531,7 @@ export default function Form({
                         onChange={(e) => setDiv_value17(e.target.value)} 
                         className="form_rectangle_select"
                       >
-                        <option value="">--------</option>
+                        <option value="">--Select--</option>
                         {array_lead.map((itm, index) => {
                           return (
                             <>
