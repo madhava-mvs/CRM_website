@@ -18,9 +18,11 @@ export default function Form({
   div_head5,
   div_value5,
   setDiv_value5,
+  array_product,
   div_head6,
   div_value6,
   setDiv_value6,
+  array_user,
   div_head7,
   div_value7,
   setDiv_value7,
@@ -149,7 +151,11 @@ export default function Form({
               </>
             )}
           </div>
-          <div className="form_inner31">
+
+
+
+
+          {/* <div className="form_inner31">
             <label>{div_head2}</label>
             <br />
             <input
@@ -166,7 +172,57 @@ export default function Form({
             ) : (
               <></>
             )}
+          </div> */}
+
+
+<div className="form_inner31">
+            <label>{div_head2}</label>
+            <br />
+            {
+              div_head2 == "Createdon*"?(<>
+
+            <input
+              value={div_value2}
+              type={"date"}
+              onChange={(e) => {
+                setDiv_value2(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            {div_value2 == "" ? (
+              <span className="warning_error">{ediv_value2}</span>
+            ) : (
+              <></>
+            )}
+            </>):(<>
+
+
+            <input
+              value={div_value2}
+              type={"text"}
+              onChange={(e) => {
+                setDiv_value2(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            </>
+  )}
+
+            {div_value2 == "" ? (
+              <span className="warning_error">{ediv_value2}</span>
+            ) : (
+              <></>
+            )}
           </div>
+
+
+
+
+
+
+{/* 
           <div className="form_inner31">
             <label>{div_head3}</label>
             <br />
@@ -185,7 +241,59 @@ export default function Form({
               <></>
             )}
           </div>
+        </div> */}
+
+
+
+<div className="form_inner31">
+            <label>{div_head3}</label>
+            <br />
+            {
+              div_head3 == "Startdate*"?(<>
+
+<input
+              value={div_value3}
+              type={"date"}
+              onChange={(e) => {
+                setDiv_value3(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            {div_value3 == "" ? (
+              <span className="warning_error">{ediv_value10}</span>
+            ) : (
+              <></>
+            )}
+            </>):(<>
+            <input
+              value={div_value3}
+              type={"text"}
+              onChange={(e) => {
+                setDiv_value3(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            </>
+  )}
+
+            {div_value3 == "" ? (
+              <span className="warning_error">{ediv_value10}</span>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
+
+
+
+
+
+
+{/* 
+
+
         <div className="form_inner3">
           <div className="form_inner31">
             <label>{div_head4}</label>
@@ -204,8 +312,74 @@ export default function Form({
             ) : (
               <></>
             )}
-          </div>
+          </div> */}
+
+
+
+
+
+
+          
+
+
+        <div className="form_inner3">
           <div className="form_inner31">
+            <label>{div_head4}</label>
+            <br />
+
+            {
+              div_head4 == "Enddate*"?(<>
+
+<input
+              value={div_value4}
+              type={"date"}
+              onChange={(e) => {
+                setDiv_value4(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            {div_value4 == "" ? (
+              <span className="warning_error">{ediv_value3}</span>
+            ) : (
+              <></>
+            )}
+            </>):(<>
+            <input
+              value={div_value4}
+              type={"text"}
+              onChange={(e) => {
+                setDiv_value4(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br />
+            </>
+  )}
+
+            {div_value4 == "" ? (
+              <span className="warning_error">{ediv_value3}</span>
+            ) : (
+              <></>
+            )}
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* <div className="form_inner31">
             <label>{div_head5}</label>
             <br />
             <input
@@ -222,8 +396,61 @@ export default function Form({
             ) : (
               <></>
             )}
+          </div> */}
+
+
+<div className="form_inner31">
+            <label>{div_head5}</label>
+            <br />
+            {
+              div_head5 == "Producttype*"?(<>
+              <select
+              value={div_value5}
+              onChange={(e) => setDiv_value5(e.target.value)}
+              className="form_rectangle_select"
+            >
+              <option value="">--Select--</option>
+              {console.log("inside form==>"+array_product)}
+              {array_product.map((itm, index) => {
+                return (
+                  <>
+                    <option value={itm.id}>{itm.txtProducttype}</option>
+                  </>
+                );
+              })}
+            </select>
+            <br />
+            {div_value5 == "" ? (
+              <span className="warning_error">{ediv_value11}</span>
+            ) : (
+              <></>
+            )}
+            </>):(<>
+            <input
+              value={div_value5}
+              type={"text"}
+              onChange={(e) => {
+                setDiv_value5(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br /></>
+            )}
+            
+
+            
+            {div_value5 == "" ? (
+              <span className="warning_error">{ediv_value11}</span>
+            ) : (
+              <></>
+            )}
           </div>
-          <div className="form_inner31">
+
+
+
+
+
+          {/* <div className="form_inner31">
             <label>{div_head6}</label>
             <br />
             <input
@@ -240,8 +467,60 @@ export default function Form({
             ) : (
               <></>
             )}
+          </div> */}
+
+<div className="form_inner31">
+            <label>{div_head6}</label>
+          
+            <br />
+            {
+              div_head6 == "Createdby*"?(<>
+            <select
+              value={div_value6}
+              onChange={(e) => setDiv_value6(e.target.value)}
+              className="form_rectangle_select"
+            >
+              <option value="">--Select--</option>
+              {console.log("inside form==>"+array_user)}
+              {array_user.map((itm, index) => {
+                return (
+                  <>
+                    <option key="{itm.id}" value={itm.id}>{itm.txtFirstName}</option>
+                  </>
+                );
+              })}
+  </select>
+  <br />
+  {div_value6 == "" ? (
+              <span className="warning_error">{ediv_value4}</span>
+            ) : (
+              <></>
+            )}
+  </>):(<>
+            <input
+              value={div_value6}
+              type={"text"}
+              onChange={(e) => {
+                setDiv_value6(e.target.value);
+              }}
+              className="form_rectangle"
+            />
+            <br /></>
+            )}
+            
+
+          
+            {div_value6 == "" ? (
+              <span className="warning_error">{ediv_value4}</span>
+            ) : (
+              <></>
+            )}
           </div>
+
+
         </div>
+
+
         {addleadshow ? (
           <>
             <div className="form_inner3">
