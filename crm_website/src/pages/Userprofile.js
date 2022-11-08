@@ -42,8 +42,8 @@ export default function Userprofile() {
     const [errord, seterrord] = useState("");
     const [errora, seterrora] = useState("");
     const [errorp, seterrorp] = useState("");
-    // const [errorc, seterrorc] = useState("");
-    //const [errorpn, seterrorpn] = useState("");
+    const [errorc, seterrorc] = useState("");
+    const [errorpn, seterrorpn] = useState("");
     const [show, setShow] = useState(false)
     const handleclick = (e) => {
         setShow(!show)
@@ -59,18 +59,18 @@ export default function Userprofile() {
     const userid = useSelector((state) => state.userid);
     const SAVEclick = (e) => {
 
-        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == ""  ) {
+        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" || ConfirmPassword == "") {
             seterrorall(true)
         }
-        else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "") {
+        else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "" && ConfirmPassword != "") {
             seterrorf("")
             seterrore("")
             seterroru("")
             seterrord("")
             seterrora("")
             seterrorp("")
-           //seterrorc("")
-           // seterrorpn("")
+            seterrorc("")
+            seterrorpn("")
             // const url = "http://localhost:3000/dev/updateprofile";
             const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
@@ -91,11 +91,10 @@ export default function Userprofile() {
                         seterrora("Address is mandatory")
                     if (result.includes("Password is mandatory"))
                         seterrorp("Password is mandatory")
-                    // if (result.includes("ConfirmPassword is mandatory"))
-                    //     seterrorc("Confirmpassword is mandatory")
-
-                    // if (result.includes("ConfirmPassword not match"))
-                    //     seterrorpn("Password not match")
+                    if (result.includes("ConfirmPassword is mandatory"))
+                        seterrorc("Confirmpassword is mandatory")
+                    if (result.includes("ConfirmPassword not match"))
+                        seterrorpn("Password not match")
                     if (result.includes("Profile Updated!"))
                         seterroru("Profile Updated!")
                     if (result.includes("already exist"))
@@ -220,7 +219,7 @@ export default function Userprofile() {
                                         {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
 
                                         <input type={state ? "text" : "Password"} onChange={(e) => { setPassword(e.target.value) }}
-                                           
+
 
 
                                             value={Password} placeholder="" />
@@ -235,19 +234,19 @@ export default function Userprofile() {
 
                                         {errorall && Password == "" ? <label className="errorp">Password is mandatory</label> : ""}</div>
 
-                                   
-                                   
-                                        <div className='Profile_c5'>
-                                            <div className='Profile_c4' >ConfirmPassword*</div>
-                                            <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} /> 
-                              
 
 
-                                              {/* {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}  */}
-                                            {/* <label className="errorpn">{errorpn}</label>  */}
-                                        </div>
-                                   
-                                   
+                                    <div className='Profile_c5'>
+                                        <div className='Profile_c4' >ConfirmPassword*</div>
+                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
+
+
+
+                                        {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
+                                        <label className="errorpn">{errorpn}</label>
+                                    </div>
+
+
 
 
                                 </div>

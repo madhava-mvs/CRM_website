@@ -109,6 +109,12 @@
 .Topbar_BellIcon,
 .Topbar_cancelIcon{
     color: #b7c2d7;
+    
+}
+.Topbar_cancelIcon{
+    margin-top: 15px;
+    margin-right: -1px;
+   margin-bottom: 10px;
 }
 
 .Topbar_profileIcon{
@@ -166,7 +172,7 @@ margin-left: -10px;
     height: 60px;
     border: 1px solid rgb(235, 234, 234);
     margin-right: 115px;
-    width: 304px;
+    width: 311px;
     margin-left: -12px;
 }
 .Topbar_content_colb{
@@ -254,6 +260,38 @@ margin-left: 10px;
 }
 .topbarlogout{
     /* color:white */
-    color: rgb(113, 123, 151);
+    color: rgb(188, 193, 216);
     font-family:Arial, Helvetica, sans-serif;
+    font-size: 100rem;
 }
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+  }
+  .dropdown-content {
+    display: none;
+    box-shadow: 0px 8px 8px 0px rgba(199, 196, 196, 0.2);
+    position:absolute;
+    width: 500%;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    z-index: 1;
+    color: rgb(113, 123, 151);
+    /* font-family:Arial, Helvetica, sans-serif; */
+    margin-left: -1px;
+    margin-top: 2px;
+   
+  }
+  .dropdown:hover .dropdown-content {
+    display:block;
+  }
+  .dropdown-content label{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    font-weight: 600;
+    margin-top:5px;
+  }
