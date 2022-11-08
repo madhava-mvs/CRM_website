@@ -69,6 +69,8 @@ export default function Addcampaign() {
 
   // const div_head17 = "Lead Owner";
 
+  // const div_head17 = "Lead Owner";
+
     //  <Form form_head={form_head} 
     // div_head1={div_head1} div_value1={campaignname} setDiv_value1={setcampaignname}
     // div_head2={div_head2} div_value2={createdon} setDiv_value2={setcreatedon}
