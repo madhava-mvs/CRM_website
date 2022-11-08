@@ -99,14 +99,17 @@
   color:white
 }
 
+.prospectlistpage_Mainlist_list_row:hover{
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  padding-left: 20px;
+  color:white;
 
-
-
-
-
-
-
+}
 .prospectlistpage_Mainlist_list_row {
   display: flex;
   flex-direction: row;

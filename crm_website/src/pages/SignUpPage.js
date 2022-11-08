@@ -39,7 +39,11 @@ export default function SignUpPage() {
 
 
 
-
+// if(firstname==""){setError(true)}
+// else if (email==""){setError(true)}
+// else if (password==""){setError(true)}
+// else if (repassword==""){setError(true)}
+// else if (Checkbox==""){setError(true)}
 
     if (
       firstname == "" ||
@@ -49,7 +53,8 @@ export default function SignUpPage() {
       Checkbox == false
     ) {
       setError(true);
-    } else{
+    } 
+    else{
       setError1("");
       setError2("");
       setError3("");

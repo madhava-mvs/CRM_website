@@ -440,10 +440,10 @@ export default function Leadupdate() {
   );
 }
 
-const Date = () => {
-  // const A =res.data[0].dtStartdate
-  const [dateAddedOn, setDateAddedOn] = useState(new Date());
-  return (
-      <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
-  )
-}
+// const Date = () => {
+//   // const A =res.data[0].dtStartdate
+//   const [dateAddedOn, setDateAddedOn] = useState(new Date());
+//   return (
+//       <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
+//   )
+// }
