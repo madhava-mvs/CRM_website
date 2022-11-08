@@ -187,7 +187,7 @@ export default function Form({
               onChange={(e) => {
                 setDiv_value2(e.target.value);
               }}
-              className="form_rectangle"
+              className="form_rectangle_date"
             />
             <br />
             {div_value2 == "" ? (
@@ -251,13 +251,13 @@ export default function Form({
             {
               div_head3 == "Startdate*"?(<>
 
-<input
+            <input
               value={div_value3}
               type={"date"}
               onChange={(e) => {
                 setDiv_value3(e.target.value);
               }}
-              className="form_rectangle"
+              className="form_rectangle_date"
             />
             <br />
             {div_value3 == "" ? (
@@ -266,7 +266,12 @@ export default function Form({
               <></>
             )}
             </>):(<>
-            <input
+            
+            </>
+  )}
+
+
+  {div_head3 == "MiddleName"? <><input
               value={div_value3}
               type={"text"}
               onChange={(e) => {
@@ -274,9 +279,10 @@ export default function Form({
               }}
               className="form_rectangle"
             />
-            <br />
-            </>
-  )}
+            <br /></>:<></>}
+
+
+            {/* {div_head3 == "Status"? <></>} */}
 
             {div_value3 == "" ? (
               <span className="warning_error">{ediv_value10}</span>
@@ -336,7 +342,7 @@ export default function Form({
               onChange={(e) => {
                 setDiv_value4(e.target.value);
               }}
-              className="form_rectangle"
+              className="form_rectangle_date"
             />
             <br />
             {div_value4 == "" ? (

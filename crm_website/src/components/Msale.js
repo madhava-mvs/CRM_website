@@ -80,7 +80,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
     const handleTodo = (e, itm) => {
         let temp = [...todo]
         for (const iterator of temp) {
-            if (iterator.id === itm.id) {
+            if (iterator.id === itm.id && iterator.txtActivitytype === itm.txtActivitytype) {
                 iterator.isclicked = !iterator.isclicked
             }
         }
