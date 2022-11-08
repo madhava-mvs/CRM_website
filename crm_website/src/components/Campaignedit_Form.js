@@ -59,12 +59,12 @@ export default function Form({
     // localStorage.setItem("leadOwnervar", leadOwner);
     const d = new Date(div_value4);
     let day = d.getDate();
-    let month=d.getMonth();
-    let year=d.getFullYear();
-// var  k= {day}/{month}/{year};
-// // var j=""+k+"";
-// const [datevar, setDatevar] = useState("")
-// setDatevar(toString({year}+"-"+{month}+"-"+{day}))
+    let month = d.getMonth();
+    let year = d.getFullYear();
+    // var  k= {day}/{month}/{year};
+    // // var j=""+k+"";
+    // const [datevar, setDatevar] = useState("")
+    // setDatevar(toString({year}+"-"+{month}+"-"+{day}))
 
     return (
         <>
@@ -101,37 +101,40 @@ export default function Form({
                         <br />
                         <span className="warning_error">{ediv_value2}</span>
                     </div>
-                    <div className="form_inner31">
+                    <div className="form_inner312">
                         <label>{div_head3}</label>
                         <br />
-                        <input
+                        <select
                             value={div_value3}
-                            type={"text"}
-                            onChange={(e) => {
-                                setDiv_value3(e.target.value);
-                            }}
-                            className="form_rectangle"
-                        />
+                            onChange={(e) =>
+                                setDiv_value3(e.target.value)
+                            }
+                            className="form_rectangle">
+                            {/* <option value="">--Select--</option> */}
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Finished">Finished</option>
+                        </select>
                         <br />
                         <span className="warning_error">{ediv_value10}</span>
                     </div>
                 </div>
-             
+
                 <div className="form_inner3">
                     <div className="form_inner312">
                         <label>{div_head4}</label>
                         <br />
                         {/* {day}-{month}-{year} */}
-                        
+
                         <input
-                        // const d = new Date(div_value4);
-                        // let day = d.getDate();
-                        // let month=d.getMonth();
-                        // let year=d.getFullYear();
-                        // value={{year}{month}{day}}
-                    //    value= {""+{day}-{month}-{year}}
-                    //    value={""+{year}-{month}-{day}}
-                        
+                            // const d = new Date(div_value4);
+                            // let day = d.getDate();
+                            // let month=d.getMonth();
+                            // let year=d.getFullYear();
+                            // value={{year}{month}{day}}
+                            //    value= {""+{day}-{month}-{year}}
+                            //    value={""+{year}-{month}-{day}}
+
                             value={div_value4}
                             // value='2022-01-02'
                             // value={year}{month}{day}
