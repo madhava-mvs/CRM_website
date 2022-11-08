@@ -118,7 +118,9 @@
 
 
 .signup_inner_row5_dropdown_role label{
-    font-weight: bold;
+    font-weight: 650;
+    font-size: 15px;
+    color: rgb(104, 103, 103);
 }
 
 
@@ -131,6 +133,8 @@
     margin-top: 10px;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.214);
+    font-weight: 500;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -142,6 +146,7 @@
     margin-top: 5px;
     box-sizing: border-box;
 }
+
 .signup_inner_row5 input,
 .signup_inner_row6 input,
 .signup_inner_row7 input {
