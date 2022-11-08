@@ -25,7 +25,7 @@ export default function Userprofile() {
     const titlebar_name = <h3>Profile</h3>
     const button_value = "SAVE"
     const [savebuttonshow, setsavebuttonshow] = useState(true);
-   // const savebuttonshow = true
+    // const savebuttonshow = true
 
 
     const [Email, setEmail] = useState("");
@@ -42,13 +42,16 @@ export default function Userprofile() {
     const [errord, seterrord] = useState("");
     const [errora, seterrora] = useState("");
     const [errorp, seterrorp] = useState("");
-   // const [errorc, seterrorc] = useState("");
+    // const [errorc, seterrorc] = useState("");
     //const [errorpn, seterrorpn] = useState("");
     const [show, setShow] = useState(false)
     const handleclick = (e) => {
         setShow(!show)
     };
-
+    // const [show2, setShow2] = useState(false);
+    // const Cancleclick = (e) => {
+    //     setShow2(!show2);
+    // };
 
 
 
@@ -56,7 +59,7 @@ export default function Userprofile() {
     const userid = useSelector((state) => state.userid);
     const SAVEclick = (e) => {
 
-        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" ) {
+        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == ""  ) {
             seterrorall(true)
         }
         else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "") {
@@ -66,8 +69,8 @@ export default function Userprofile() {
             seterrord("")
             seterrora("")
             seterrorp("")
-            //seterrorc("")
-            //seterrorpn("")
+           //seterrorc("")
+           // seterrorpn("")
             // const url = "http://localhost:3000/dev/updateprofile";
             const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
@@ -205,7 +208,7 @@ export default function Userprofile() {
                                 <div className='Profileouter_row4'>
                                     <div className='Profile_a4' >Address*</div>
                                     <div className='Profile_b4' >Password*</div>
-                                    <div className='Profile_c4' >Confirm Password*</div>
+                                    {/* <div className='Profile_c4' >Confirm Password*</div> */}
                                 </div>
 
                                 <div className='Profileouter_row5'>
@@ -217,6 +220,7 @@ export default function Userprofile() {
                                         {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
 
                                         <input type={state ? "text" : "Password"} onChange={(e) => { setPassword(e.target.value) }}
+                                           
 
 
                                             value={Password} placeholder="" />
@@ -231,14 +235,20 @@ export default function Userprofile() {
 
                                         {errorall && Password == "" ? <label className="errorp">Password is mandatory</label> : ""}</div>
 
+                                   
+                                   
+                                        <div className='Profile_c5'>
+                                            <div className='Profile_c4' >ConfirmPassword*</div>
+                                            <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} /> 
+                              
 
 
-                                    <div className='Profile_c5'>
+                                              {/* {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}  */}
+                                            {/* <label className="errorpn">{errorpn}</label>  */}
+                                        </div>
+                                   
+                                   
 
-                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
-                                        {/* {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
-                                        <label className="errorpn">{errorpn}</label>*/}
-                                        </div> 
 
                                 </div>
                             </div>
