@@ -50,7 +50,7 @@ export default function Tasklist() {
       });
 
     const url_user =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
     const data_user = {};
     const header_user = {};
     axios
@@ -175,7 +175,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
     const url =
       "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
     const data = {
-      userid: Number(userid),
+      userid: Number(user_name),
       campaignid: Number(campaign_name),
       leadid: Number(lead_name),
       title: title,
@@ -301,10 +301,10 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                 <div className="email">
                   <label>Email</label>
                 </div>
-                <div className="r1_plus">
-                  <BsFillPlusCircleFill className="r1_plusIcon" />
+                <div className="tasklist_r1_plus" onClick={Save_Task}>
+                  <div><BsFillPlusCircleFill className="tasklist_r1_plusIcon" /></div>
 
-                  <button onClick={Save_Task}>SAVE</button>
+                  <div className="tasklist_savetext_button"><span >SAVE</span></div>
                 </div>
               </div>
               <div className="whitebg">

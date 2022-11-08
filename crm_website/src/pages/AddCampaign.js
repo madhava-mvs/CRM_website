@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AddCampaign.css";
 import Form from "../components/Form";
@@ -14,6 +14,8 @@ export default function Addcampaign() {
   const [enddate, setenddate] = useState("");
   const [producttype, setproducttype] = useState("");
   const [createdby, setcreatedby] = useState("");
+  const [array_product, setArray_product] = useState([]);
+  const [array_user, setArray_user] = useState([]);
   // const [email, setEmail] = useState("");
   // const [phone, setPhone] = useState();
   // const [mobile, setMobile] = useState("");
@@ -47,12 +49,12 @@ export default function Addcampaign() {
 
 
   const addcampaignshow = true;
-  const div_head1 = "Campaign name";
-  const div_head2 = "Createdon";
-  const div_head3 = "Startdate";
-  const div_head4 = "Enddate";
-  const div_head5 = "Producttype";
-  const div_head6 = "Createdby";
+  const div_head1 = "Campaign name*";
+  const div_head2 = "Createdon*";
+  const div_head3 = "Startdate*";
+  const div_head4 = "Enddate*";
+  const div_head5 = "Producttype*";
+  const div_head6 = "Createdby*";
   // const div_head7 = "Email";
   // const div_head8 = "Phone";
   // const div_head9 = "Mobile";
@@ -65,6 +67,11 @@ export default function Addcampaign() {
   // const div_head16 = "Active Status";
   // const div_head17 = "Lead Owner";
 
+  // const div_head17 = "Lead Owner";
+
+  // const div_head17 = "Lead Owner";
+
+  // const div_head17 = "Lead Owner";
     //  <Form form_head={form_head} 
     // div_head1={div_head1} div_value1={campaignname} setDiv_value1={setcampaignname}
     // div_head2={div_head2} div_value2={createdon} setDiv_value2={setcreatedon}
@@ -88,7 +95,38 @@ export default function Addcampaign() {
     //  ediv_value7={erroraddress} ediv_value8={errorcreatedon} ediv_value9={errorcreatedby}
 
     // /> 
-
+    useEffect(() => {
+      const url_product =
+        "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/productapi";
+      const data_product = {};
+      const header_product = {};
+      axios
+        .post(url_product, data_product, { headers: header_product })
+        .then((res) => {
+          console.log("getting" + JSON.stringify(res.data));
+          setArray_product(res.data);
+          console.log("useeffect=====>" + array_product);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }, []);
+        useEffect(() => {
+      const url_user =
+        "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
+      const data_user = {};
+      const header_user = {};
+      axios
+        .post(url_user, data_user, { headers: header_user })
+        .then((res) => {
+          console.log(res.data);
+          setArray_user(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }, []);
+  
   let savecampaign = () => {
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
@@ -296,9 +334,11 @@ export default function Addcampaign() {
                 div_head5={div_head5}
                 div_value5={producttype}
                 setDiv_value5={setproducttype}
+                array_product={array_product}
                 div_head6={div_head6}
                 div_value6={createdby}
                 setDiv_value6={setcreatedby}
+                array_user={array_user}
                 // div_head7={div_head7}
                 // div_value7={email}
                 // setDiv_value7={setEmail}

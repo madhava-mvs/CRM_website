@@ -13,13 +13,13 @@ export default function Mainlist() {
   useEffect(() => {
 
     //const url = "http://localhost:3000/dev/taskfetch";
-    const url = "https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/taskfetch";
+    const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
     const data = {};
     const header = {};
     axios
       .post(url, data, { headers: header })
       .then((res) => {
-        console.log("Response==>" + JSON.stringify(res.data));
+        console.log("Response   ==>" + JSON.stringify(res.data));
         setArray(res.data)
       })
 
@@ -70,7 +70,7 @@ function ListRow({ itm, array, setArray }) {
     }
     setArray(temp)
   }
-  const d = new Date(itm.dtCreatedOn);
+  const d = new Date(itm.dtCreatedon);
   let day = d.getDate();
   let month = d.getMonth();
   let year = d.getFullYear();
@@ -93,17 +93,17 @@ function ListRow({ itm, array, setArray }) {
 
           <div className="itmowner">{itm.owner}</div> */}
 
-          <div className="itmSubject">{itm.Subjects}</div>
+          <div className="itmSubject">{itm.Activitytype}</div>
 
           <div className="itmStatus">{itm.Statuses}</div>
-
+          
           <div className="itmdate">{year}-{month}-{day}</div>
 
 
-          <div className="itmLeadEmail">{itm.Lead_Email}</div>
+          <div className="itmLeadEmail">{itm.leademail}</div>
 
 
-          <div className="itmowner">{itm.Owners}</div>
+          <div className="itmowner">{itm.Assignedto}</div>
           <div className="Tasklist_Mainlist_icon">
             <AiOutlineArrowRight />
           </div>

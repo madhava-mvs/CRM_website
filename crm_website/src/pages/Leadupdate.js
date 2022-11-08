@@ -16,7 +16,7 @@ export default function Leadupdate() {
 
   useEffect(() => {
     const url_lead =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
     const data_lead = {};
     const header_lead = {};
     axios
@@ -114,7 +114,7 @@ export default function Leadupdate() {
         setCity(adata[0].city);
         setState(adata[0].state);
         setPincode(adata[0].pincode);
-        setLeadOwner(adata[0].leadowner);
+        setLeadOwner(adata[0].Owner);
         setDateAddedOn(adata[0].CreatedOn);
         setActiveStatus(adata[0].activestatus);
 
@@ -298,7 +298,7 @@ export default function Leadupdate() {
         state: state,
         address: address,
         pincode: pincode,
-        leadowner: leadOwner,
+        Owner: Number(leadOwner),
         activestatus: activeStatus,
         CreatedOn: dateAddedOn,
       };
