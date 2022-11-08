@@ -70,9 +70,12 @@ body {
 
 .AddtaskPage label,
 .AddtaskPage select {
-  color: rgba(125, 143, 177, 1);
+  /* color: rgba(125, 143, 177, 1); */
 }
-
+.text_to_changecolor{
+  color: rgba(125, 143, 177, 1);
+  font-size: 12px;
+}
 .r1_details {
   justify-content: space-between;
   display: flex;
@@ -363,3 +366,8 @@ body {
   position: absolute;
   padding-top: 2%;
 }
+
+.errormessage_mandatory{
+  color: red;
+}
+

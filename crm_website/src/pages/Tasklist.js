@@ -8,7 +8,6 @@ import Filterbar from "../components/Filterbar";
 import Mainlist from "../components/Mainlist";
 import { useEffect } from "react";
 import { GiBeachBag } from "react-icons/gi";
-
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { json } from "react-router-dom";
@@ -156,43 +155,76 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
   const [user_name, setUser_name] = useState("");
   const [errort, seterrort] = useState("");
   const [mapid, setMapid] = useState("");
+  const [errortitle, setEtitle] = useState("");
+  const [errorcomments, setEcomments] = useState("");
+  const [errorcampaign, setEcampaign] = useState("");
+  const [errorlead, setElead] = useState("");
+  const [erroruser, setEuser] = useState("");
+  const [erroractivity, setEactivity] = useState("");
+
   const userid = useSelector((state) => state.userid);
 
-
-
-  const Save_Task= async ()=>{
-    setShow(!show)
+  const Save_Task = async () => {
     console.log(
       campaign_name + "," + lead_name + "," + user_name + "," + activity
     );
-
-
-
-
-
-
-    
-    const url =
-      "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
-    const data = {
-      userid: Number(user_name),
-      campaignid: Number(campaign_name),
-      leadid: Number(lead_name),
-      title: title,
-      txtcomments: txtcomments,
-      activity: Number(activity),
-    };
-    const header = {};
-    await axios
-      .post(url, data, { headers: header })
-      .then((res) => {
-        console.log(JSON.stringify(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-
+    if (title === "") {
+      setEtitle("title is mandatory");
+      setEcampaign("campaign is mandatory");
+      setElead("lead is mandatory");
+      setEuser("user is mandatory to assign");
+      setEactivity("activity is mandatory");
+    }
+    else if(campaign_name == ""){
+      setEtitle("");
+      setEcampaign("campaign is mandatory");
+      setElead("lead is mandatory");
+      setEuser("user is mandatory to assign");
+      setEactivity("activity is mandatory");
+    }
+    else if(lead_name == ""){
+      setEtitle("");
+      setEcampaign("");
+      setElead("lead is mandatory");
+      setEuser("user is mandatory to assign");
+      setEactivity("activity is mandatory");
+    }
+    else if(user_name == ""){
+      setEtitle("");
+      setEcampaign("");
+      setElead("");
+      setEuser("user is mandatory to assign");
+      setEactivity("activity is mandatory");
+    }
+    else if(activity == ""){
+      setEtitle("");
+      setEcampaign("");
+      setElead("");
+      setEuser("");
+      setEactivity("activity is mandatory");
+    }
+    else {
+      const url =
+        "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+      const data = {
+        userid: Number(user_name),
+        campaignid: Number(campaign_name),
+        leadid: Number(lead_name),
+        title: title,
+        txtcomments: txtcomments,
+        activity: Number(activity),
+      };
+      const header = {};
+      await axios
+        .post(url, data, { headers: header })
+        .then((res) => {
+          console.log(JSON.stringify(res.data));
+          setShow(!show);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
 
     //   function fun(){
     //     return new Promise((resolve)=>{
@@ -214,16 +246,10 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
     //     console.log(err);
     //   });
     // },5000)
-    
+
     // }
     // fun();
-
-
-
   };
-
-  
-
   // const loginClick = (e) => {
   //     // alert("added")
   //     if (title == "" || txtcomments == "" || campaign_name == "" || lead_name == "" || Status == "" || user_name == "") {
@@ -292,19 +318,23 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                     <GiBeachBag className="r1_bagIcon" />
                   </div>
                   <div className="addtaskbold">
-                    <label>ADD TASK</label>
+                    <label className="text_to_changecolor">ADD TASK</label>
                   </div>
                 </div>
                 <div className=" log">
-                  <label>Log a call</label>
+                  <label className="text_to_changecolor">Log a call</label>
                 </div>
                 <div className="email">
-                  <label>Email</label>
+                  <label className="text_to_changecolor">Email</label>
                 </div>
                 <div className="tasklist_r1_plus" onClick={Save_Task}>
-                  <div><BsFillPlusCircleFill className="tasklist_r1_plusIcon" /></div>
+                  <div>
+                    <BsFillPlusCircleFill className="tasklist_r1_plusIcon" />
+                  </div>
 
-                  <div className="tasklist_savetext_button"><span >SAVE</span></div>
+                  <div className="tasklist_savetext_button">
+                    <label>SAVE</label>
+                  </div>
                 </div>
               </div>
               <div className="whitebg">
@@ -312,12 +342,12 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                   <label className="errort">{errort}</label>
 
                   <div className="r2">
-                    <label>Task list details</label>
+                    <label className="text_to_changecolor">Task list details</label>
                   </div>
 
                   <div className="r3">
                     <div className="r3_in">
-                      <label>Title</label>
+                      <label className="text_to_changecolor">Title</label>
                       <br></br>
                       <input
                         type="text"
@@ -328,15 +358,18 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         }}
                       />
 
-                      <label className="errors">{errors}</label>
-                      {errorall && title == "" ? (
-                        <label className="errors">title required</label>
+                      {title == "" ? (
+                        <>
+                          <div>
+                            <label className="errormessage_mandatory">{errortitle}</label>
+                          </div>
+                        </>
                       ) : (
-                        ""
+                        <></>
                       )}
                     </div>
                     <div className="r3_in">
-                      <label>Comments</label>
+                      <label className="text_to_changecolor">Comments</label>
                       <br></br>
                       <input
                         type="text"
@@ -346,16 +379,9 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                           settxtcomments(e.target.value);
                         }}
                       />
-
-                      <label className="errorc">{errorc}</label>
-                      {errorall && txtcomments == "" ? (
-                        <label className="errorc">txtcomments is empty</label>
-                      ) : (
-                        ""
-                      )}
                     </div>
                     <div className="r3_in">
-                      <label>Campaign name: </label>
+                      <label className="text_to_changecolor">Campaign name: </label>
                       <br></br>
                       <br />
                       <select
@@ -382,20 +408,21 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                       {/* <label>created on</label><br></br>
                                             <input type="text" className="S" value={dtCreatedOn} onChange={(e) => { setdtCreatedOn(e.target.value) }} /> */}
 
-                      <label className="errord">{errord}</label>
-                      {errorall && campaign_name == "" ? (
-                        <label className="errord">
-                          campaign name is mandatory
-                        </label>
+                      {campaign_name == "" ? (
+                        <>
+                          <div>
+                            <label className="errormessage_mandatory">{errorcampaign}</label>
+                          </div>
+                        </>
                       ) : (
-                        ""
+                        <></>
                       )}
                     </div>
                   </div>
 
                   <div className="r4">
                     <div className="r4_in">
-                      <label>Lead :</label>
+                      <label className="text_to_changecolor">Lead :</label>
                       <br />
                       <br />
                       <select
@@ -414,15 +441,18 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
                       {/* <label>Assigned to</label><br></br>
                                             <input type="text" className="S" value={Assignedto} onChange={(e) => { setAssignedto(e.target.value) }} /> */}
-                      <label className="errora">{errora}</label>
-                      {errorall && lead_name == "" ? (
-                        <label className="errora">lead name is required</label>
+                      {lead_name == "" ? (
+                        <>
+                          <div>
+                            <label className="errormessage_mandatory">{errorlead}</label>
+                          </div>
+                        </>
                       ) : (
-                        ""
+                        <></>
                       )}
                     </div>
                     <div className="r4_in">
-                      <label>Assigned to</label>
+                      <label className="text_to_changecolor">Assigned to</label>
                       <br />
                       <br />
                       <select
@@ -441,16 +471,19 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
                       {/* <label>Lead email id</label><br></br>
                                             <input type="text" className="S" value={LeadEmail} onChange={(e) => { setLeadEmail(e.target.value) }} /> */}
-                      <label className="errorl">{errorl}</label>
-                      {errorall && user_name == "" ? (
-                        <label className="errorl">username is mandatory</label>
+                      {user_name == "" ? (
+                        <>
+                          <div>
+                            <label className="errormessage_mandatory">{erroruser}</label>
+                          </div>
+                        </>
                       ) : (
-                        ""
+                        <></>
                       )}
                     </div>
 
                     <div className="r4_in">
-                      <label>Activity :</label>
+                      <label className="text_to_changecolor">Activity :</label>
                       <br />
                       <br />
 
@@ -463,6 +496,15 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         <option value="2">Email</option>
                         <option value="3">SMS</option>
                       </select>
+                      {activity == "" ? (
+                        <>
+                          <div>
+                            <label className="errormessage_mandatory">{erroractivity}</label>
+                          </div>
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </div>
                     {/* <div className="r4_in">
 
