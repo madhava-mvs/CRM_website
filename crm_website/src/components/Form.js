@@ -419,6 +419,7 @@ export default function Form({
                 );
               })}
             </select>
+            <br />
             {div_value5 == "" ? (
               <span className="warning_error">{ediv_value11}</span>
             ) : (
@@ -489,6 +490,7 @@ export default function Form({
                 );
               })}
   </select>
+  <br />
   {div_value6 == "" ? (
               <span className="warning_error">{ediv_value4}</span>
             ) : (
