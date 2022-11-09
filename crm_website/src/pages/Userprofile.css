@@ -437,6 +437,7 @@ display: flex;
   font-size: 10px;
   display: flex;
   position: absolute;
+  margin-top: 65px;
 }
 .errorc{
   padding-left: 15px;
@@ -444,6 +445,7 @@ display: flex;
   font-size: 10px;
   display: flex;
   position: absolute;
+  margin-top: 65px;
 }
 .erroru{
   padding-left: 30px;

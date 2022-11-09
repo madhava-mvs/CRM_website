@@ -302,10 +302,10 @@ import "./Topbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export default function Topbar() {
-    const username = useSelector((state) => state.username1);
-    const token = useSelector((state) => state.token);
-    const userid = useSelector((state) => state.userid);
-    const dispatch = useDispatch()
+  const username = useSelector((state) => state.username1);
+  const token = useSelector((state) => state.token);
+  const userid = useSelector((state) => state.userid);
+  const dispatch = useDispatch()
   const nav = useNavigate();
   const [show, setShow] = useState(false);
   const handleclick = (e) => {
@@ -320,7 +320,7 @@ export default function Topbar() {
     dispatch({ type: "setToken", payload: emptyval });
     dispatch({ type: "setUserid", payload: emptyval });
     dispatch({ type: "setUsername1", payload: emptyval });
-    console.log("username===>"+username+"token===>"+token+"user id=====>"+userid)
+    console.log("username===>" + username + "token===>" + token + "user id=====>" + userid)
     nav("/");
   };
   const username1 = useSelector((state) => state.username1);
@@ -385,8 +385,8 @@ export default function Topbar() {
           <MdArrowForwardIos className="Topbar_arrowIcon" />
         </div>
         <div className="Topbar_col4" onClick={(e) => {
-                  nav("/Userprofile")
-                }}>
+          nav("/Userprofile")
+        }}>
           <CgProfile className="Topbar_profileIcon" />
           <div className="Clayton">
             <label>{username1}</label>
@@ -396,12 +396,12 @@ export default function Topbar() {
           <div className="Topbar_Bell_Circle">
             <BsFillBellFill className="Topbar_BellIcon" />
           </div>
-          <div
+          {/* <div
             className="Topbar_cancel_circle"
             onClick={(e) => {
               Cancleclick(e);
             }}
-          >
+           >
             <MdCancel className="Topbar_cancelIcon" />
 
             {show2 ? (
@@ -418,6 +418,21 @@ export default function Topbar() {
             ) : (
               <></>
             )}
+          </div> */}
+          <div
+            className="Topbar_cancel_circle">
+            <div className="dropdown">
+              <MdCancel className="Topbar_cancelIcon" />
+
+              <div className="dropdown-content">
+                <label className="topbarlogout"
+                  onClick={(e) => {
+                    logOut(e);
+                  }}>
+                  LOGOUT
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -472,8 +487,8 @@ export default function Topbar() {
                   </div>
                 </div>
                 <div className="Topbar_content_colb_list1" onClick={(e) => {
-                      nav("/Addlead");
-                    }} >
+                  nav("/Addlead");
+                }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Lead</label>
                 </div>
@@ -498,8 +513,8 @@ export default function Topbar() {
                   </div>
                 </div>
                 <div className="Topbar_content_colb_list1" onClick={(e) => {
-                      nav("/AddCampaign");
-                    }} >
+                  nav("/AddCampaign");
+                }} >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Campaign</label>
                 </div>
