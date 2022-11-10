@@ -262,36 +262,43 @@ margin-left: 10px;
     /* color:white */
     color: rgb(188, 193, 216);
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 100rem;
 }
 
 .dropdown {
     position: relative;
     /* display: inline-block; */
   }
-  .dropdown-content {
+  .dropdown_content {
     display: none;
-    box-shadow: 0px 8px 8px 0px rgba(199, 196, 196, 0.2);
+    /* box-shadow: 0px 8px 10px 0px rgba(199, 196, 196, 0.2); */
     position:absolute;
-    width: 500%;
+    width: 600%;
     height: auto;
     text-align: center;
-    background-color: white;
+    /* background-color: white; */
     z-index: 1;
     color: rgb(113, 123, 151);
-    /* font-family:Arial, Helvetica, sans-serif; */
-    margin-left: -1px;
-    margin-top: 2px;
-   
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: -20px;
+    margin-top: -20px;
+   padding: 15px;
   }
-  .dropdown:hover .dropdown-content {
+
+.dropdown_content_inside{
+padding: 10px;
+width: 80px;
+border-radius: 15px;
+background-color: white;
+box-shadow: 0px 9px 10px 1px rgba(199, 196, 196, 0.2);
+}
+
+  .dropdown:hover .dropdown_content {
     display:block;
   }
-  .dropdown-content label{
+  .dropdown_content label{
     list-style: none;
     display: flex;
     flex-direction: column;
-    font-size: medium;
-    font-weight: 600;
-    margin-top:5px;
+    font-size: 20px;
+    font-weight: 600
   }

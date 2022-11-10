@@ -6,8 +6,10 @@ import Form from "../components/Form";
 import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
+import { useNavigate } from "react-router-dom";
 
 export default function Addcampaign() {
+  const nav = useNavigate()
   const [campaignname, setcampaignname] = useState("");
   const [createdon, setcreatedon] = useState("");
   const [startdate, setstartdate] = useState("");
@@ -280,6 +282,7 @@ export default function Addcampaign() {
             setecreatedby("");
             setecampaignname("");
             console.log("response==> " + JSON.stringify(res.data));
+            nav("/Campaignlistpage")
           }
         })
         .catch((err) => {
