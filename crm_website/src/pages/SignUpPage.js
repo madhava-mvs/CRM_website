@@ -119,13 +119,13 @@ export default function SignUpPage() {
       ) : (
         <></>
       )}
-      {/* show1 ? 
+     { show1 ? 
         <>
         <Success setshow1={setshow1} />
         </> :
          <>
-        </>
-*/}
+        </>}
+
       <Signup
         setshow={setshow}
         firstname={firstname}
