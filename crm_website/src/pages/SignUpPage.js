@@ -49,7 +49,8 @@ export default function SignUpPage() {
       firstname == "" ||
       email == "" ||
       password == "" ||
-      repassword == "" ||
+      repassword == "" 
+      ||
       Checkbox == false
     ) {
       setError(true);
@@ -62,7 +63,7 @@ export default function SignUpPage() {
       setError5("");
       setError6("");
       setError7("")
-      setCheckbox("");
+      setCheckbox(true);
     //   const url =
     //     "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/signup";
     const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/signup"

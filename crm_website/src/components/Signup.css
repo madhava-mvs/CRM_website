@@ -112,13 +112,11 @@
     color: rgb(181, 180, 180);
 } */
 
-.signup_inner_row5_dropdown_role select{
-    color: rgb(104, 103, 103);
-}
+
 
 
 .signup_inner_row5_dropdown_role label{
-    font-weight: 650;
+    font-weight: 450;
     font-size: 15px;
     color: rgb(104, 103, 103);
 }
@@ -133,7 +131,7 @@
     margin-top: 10px;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.214);
-    font-weight: 500;
+    font-weight: 450;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -205,7 +203,6 @@
 .signup_inner_row9 button {
     border-radius: 3px;
     color: rgb(255 255 255);
-    ;
     background-color: #9155fd;
     border: none;
     cursor: pointer;

@@ -9,7 +9,7 @@ export default function Otp({ setshow1, setshow, setshow2 }) {
         setshow2(true)
     }
     const [otp, setOtp] = useState("");
-    return <>
+    return <> 
         <div className="otp_outer">
             <div className="otp_inner">
                 <div className="otp_inner_row1">
