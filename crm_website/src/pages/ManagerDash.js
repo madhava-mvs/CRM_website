@@ -10,8 +10,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function ManagerDash() {
+
     const [pcount, setPcount] = useState("");
-    const [show1, setShow1] = useState(true);
+
 
     const [orangebar, setOrangebar] = useState([]);
     const [greenbar, setGreenbar] = useState([]);
@@ -30,10 +31,11 @@ export default function ManagerDash() {
     //ProspectGrowth Axios
 
     useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+
         const data = {};
         const header = {};
-        axios.post(url, data, { headers: header })
+        const url1 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+        axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
                 console.log("Response ==> " + JSON.stringify(res.data[0].count))
@@ -41,17 +43,13 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error ==> " + err)
             })
-    }, [])
 
-    //LeadsFunnel Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        //LeadsFunnel Axios
+
+        const url2 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
+        axios.post(url2, data, { headers: header })
             .then((res) => {
-                // console.log("Response => " + (JSON.stringify(res.data[0].Leads)))
                 console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
                 setOrangebar(res.data[0].Leads)
                 setGreenbar(res.data[1].Leads)
@@ -60,14 +58,11 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //ProspectProgress Axios
+        //ProspectProgress Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
-        const header = {};
-        axios.post(url, { headers: header })
+        const url3 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
+        axios.post(url3, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
                 setLeads(res.data[0].Leads)
@@ -76,15 +71,11 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //SalesPersonWiseProspectCount Axios
+        //SalesPersonWiseProspectCount Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/SaleswisePropectcount";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url4 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/SaleswisePropectcount";
+        axios.post(url4, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
                 setArray1(res.data)
@@ -92,15 +83,11 @@ export default function ManagerDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //CampaignWiseProspectCount Axios
+        //CampaignWiseProspectCount Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url5 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
+        axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
                 setBar(res.data)
@@ -132,7 +119,7 @@ export default function ManagerDash() {
                             {/* <Summary title={title} user1={salesman1} user2={salesman2} user3={salesman3} user4={salesman4} name1={salesname1} name2={salesname2} name3={salesname3} name4={salesname4} /> */}
                         </div>
                         <div className="ManagerDash_page_content_area_row2_bars">
-                            <SummaryCount pcount={pcount} show={show1} />
+                            <SummaryCount pcount={pcount} show={show} />
                             <Progressbar leadsc={leads} prosc={pros} />
                         </div>
                     </div>
