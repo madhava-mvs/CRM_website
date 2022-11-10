@@ -242,7 +242,7 @@ export default function Userprofile() {
 
 
 
-                                        {/* {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""} */}
+                                        {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
                                         <label className="errorpn">{errorpn}</label>
                                     </div>
 
