@@ -12,13 +12,13 @@
     padding: 20px 40px;
 }
 .checkList_inner11{
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 12px 15px;
+    padding: 5px 10px;
 }
 .checkList_inner11 input{
     width: 88%;
@@ -29,8 +29,9 @@
 .checkList_inner12{
     background-color: #8833FF;
     color: rgba(255, 255, 255, 0.923);
-    padding: 8px 35px;
+    padding: 6px 35px;
     border-radius: 20px;
+    margin-left: 10px;
 }
 .checkList_inner2{
     padding: 15px 42px;
@@ -46,5 +47,10 @@
 }
 .checkList_outer_inner2{
     padding-bottom: 15px;
+    overflow-y: scroll;
+    max-height: 270px;
 }
-
+.close{
+    font-size:x-large;
+    margin-left: 10px;
+}
