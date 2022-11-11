@@ -8,7 +8,10 @@ import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { date } from "check-types";
 import ReactDatePicker from "react-datepicker";
+
+
 
 
 export default function Leadupdate() {
@@ -49,7 +52,7 @@ export default function Leadupdate() {
   const [state, setState] = useState("");
   const [pincode, setPincode] = useState("");
   const [leadSourceName, setLeadSourceName] = useState("");
-  const [dateAddedOn, setDateAddedOn] = useState();
+  const [dateAddedOn, setDateAddedOn] = useState("");
   const [activeStatus, setActiveStatus] = useState("");
   const [leadOwner, setLeadOwner] = useState();
   const [esuffix, setEsuffix] = useState("");
@@ -91,17 +94,22 @@ export default function Leadupdate() {
   const div_head15 = "Date Added On*";
   const div_head16 = "Active Status";
   const div_head17 = "Lead Owner*";
-  
+
 
   useEffect(() => {
-    const url =
-      "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
+    const url ="https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
+
+    // const url = "http://localhost:3000/dev/GetSingleLead";
     const data = { id: update_lead_id };
     const headers = {};
+    
     axios
       .post(url, data, { headers: headers })
       .then((res) => {
+        
         const adata = res.data;
+        var d= (adata[0].dateAddedOn);
+        var newdate =new window.Date(d).toISOString().split(".")[0];
         setSalutation(adata[0].Salutation);
         setFirstname(adata[0].FirstName);
         setMiddlename(adata[0].Middlename);
@@ -115,7 +123,7 @@ export default function Leadupdate() {
         setState(adata[0].state);
         setPincode(adata[0].pincode);
         setLeadOwner(adata[0].Owner);
-        setDateAddedOn(adata[0].CreatedOn);
+        setDateAddedOn(newdate.substring(0, 10));
         setActiveStatus(adata[0].activestatus);
 
         console.log("adata==>" + JSON.stringify(adata));
@@ -300,7 +308,7 @@ export default function Leadupdate() {
         pincode: pincode,
         Owner: Number(leadOwner),
         activestatus: activeStatus,
-        CreatedOn: dateAddedOn,
+        dateAddedOn: dateAddedOn,
       };
    
       const header = {};
@@ -440,10 +448,10 @@ export default function Leadupdate() {
   );
 }
 
-// const Date = () => {
-//   // const A =res.data[0].dtStartdate
-//   const [dateAddedOn, setDateAddedOn] = useState(new Date());
-//   return (
-//       <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
-//   )
-// }
+const Date = () => {
+  // const A =res.data[0].dtStartdate
+  const [dateAddedOn, setDateAddedOn] = useState(new Date());
+  return (
+      <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
+  )
+}
