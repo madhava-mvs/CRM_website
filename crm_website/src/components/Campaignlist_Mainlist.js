@@ -20,7 +20,6 @@ export default function Campaignlist_Mainlist({array, setArray, Updatecampaign})
               <div className="Campaignlist_Header_Main3"><li>Status</li></div>
               <div className="Campaignlist_Header_Main4"><li>StartDate </li></div>
               <div className="Campaignlist_Header_Main5"><li>End Date</li></div>
-              <div className="Campaignlist_Header_Main6"><li>Responses</li></div>
               <div className="Campaignlist_Header_Main7"><li>Owner</li></div>
             
               </ul>
@@ -75,7 +74,6 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
           <div className="Campaignlist_itmStatus">{itm.Status}</div>
           <div className="Campaignlist_itmdate">{year}-{month}-{day}</div>
           <div className="Campaignlist_itmEmail">{year1}-{month1}-{day1}</div>
-          <div className="Campaignlist_itmResponses">{itm.Responses}</div>
           <div className="Campaignlist_itmOwner">{itm.Owner}</div>
           <div className="Campaignlist_Mainlist_icon">
             <AiOutlineArrowRight />

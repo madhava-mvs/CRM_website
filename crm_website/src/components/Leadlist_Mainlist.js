@@ -16,10 +16,8 @@ export default function Leadlist_Mainlist({array, setArray}) {
             <ul>
               <div className="Leadlist_Header_Main1"><li>FirstName</li></div>
               <div className="Leadlist_Header_Main2"><li>LastName</li></div>
-              <div className="Leadlist_Header_Main3"><li>Status</li></div>
               <div className="Leadlist_Header_Main4"><li>Created on </li></div>
               <div className="Leadlist_Header_Main5"><li>Email</li></div>
-              <div className="Leadlist_Header_Main6"><li>Responses</li></div>
               <div className="Leadlist_Header_Main7"><li>Owner</li></div>
               </ul>
           </div>
@@ -77,10 +75,8 @@ function ListRow({itm, array, setArray}) {
         <div className="Leadlist_Mainlist_list_row" onClick={fetch(itm)}>
           <div className="Leadlist_itmFirstName">{itm.FirstName}</div>
           <div className="Leadlist_itmLastName">{itm.LastName}</div>
-          <div className="Leadlist_itmStatus">{itm.Status}</div>
           <div className="Leadlist_itmdate">{year}-{month}-{day}</div>
           <div className="Leadlist_itmEmail">{itm.Email}</div>
-          <div className="Leadlist_itmResponses">{itm.Responses}</div>
           <div className="Leadlist_itmOwner">{itm.Owner}</div>
           <div className="Leadlist_Mainlist_icon">
             <AiOutlineArrowRight />
