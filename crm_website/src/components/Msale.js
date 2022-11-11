@@ -119,7 +119,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                 {/*< AiOutlineDown onClick={(e) => { tododropDown(todoArray, itm1) }} />*/}
 
                                 < AiOutlineDown onClick={(e) => handleTodo(e, itm1)} />
-                                <label>{itm1.txtDescription}</label>
+                                <label>{itm1.txtTitle}</label>
                                 < BsThreeDots className="sales_threedotsicon" />
                             </div>
 
