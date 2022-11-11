@@ -101,6 +101,9 @@ export default function Campaigneditpage() {
                 console.log("Error==>" + err);
             });
     };
+    const handleclick3 = (e) => {
+        setShow(!show)
+    }
     // const [error, setError] = useState("");
     const handleclick2 = (e) => {
         // for (let a of arrayData) {
@@ -108,7 +111,7 @@ export default function Campaigneditpage() {
         //         setLeadid(Number(a.id))
         //     }
         // }
-        setShow(!show)
+        
         const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
         const data = { userid: userid, arrayData: arrayData, CampaignId: Campaign_id };
         const Headers = {}
@@ -292,7 +295,7 @@ export default function Campaigneditpage() {
 
                                 {
                                     show ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div><div className="Campaigneditpage_Checklist_popup">
-                                        <CheckList arraylist={arrayData} setArrayData={setArrayData} handleclick2={handleclick2} />
+                                        <CheckList arraylist={arrayData} setArrayData={setArrayData} handleclick2={handleclick2} handleclick3={handleclick3} />
                                     </div></>
                                     ) : (
                                         <></>
