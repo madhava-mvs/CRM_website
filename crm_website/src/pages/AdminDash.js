@@ -10,7 +10,6 @@ import SummaryCount from "../components/SummaryCount";
 import Pending from "../components/Pending";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
 export default function AdminDash() {
@@ -50,10 +49,12 @@ export default function AdminDash() {
     //ProspectGrowth Axios
 
     useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+
         const data = {};
         const header = {};
-        axios.post(url, data, { headers: header })
+
+        const url1 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+        axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
                 console.log("Response ==> " + JSON.stringify(res.data[0].count))
@@ -61,15 +62,11 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error ==> " + err)
             })
-    }, [])
 
-    //LeadsFunnel Axios
+        //LeadsFunnel Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url2 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
+        axios.post(url2, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
                 setOrangebar(res.data[0].Leads)
@@ -79,14 +76,11 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //ProspectProgress Axios
+        //ProspectProgress Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
-        const header = {};
-        axios.post(url, { headers: header })
+        const url3 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
+        axios.post(url3, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
                 setLeads(res.data[0].Leads)
@@ -95,15 +89,11 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //ManagerWiseProspectCount Axios
+        //ManagerWiseProspectCount Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url4 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
+        axios.post(url4, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
                 setArray1(res.data)
@@ -111,15 +101,11 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //CampaignWiseProspectCount Axios
+        //CampaignWiseProspectCount Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url5 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
+        axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
                 setBar(res.data)
@@ -127,15 +113,11 @@ export default function AdminDash() {
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
 
-    //UserList Axios
+        //UserList Axios
 
-    useEffect(() => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
-        const data = {};
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url6 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
+        axios.post(url6, data, { headers: header })
             .then((res) => {
                 setUser((res.data))
                 console.log("Response => " + JSON.stringify(res.data))
@@ -145,6 +127,7 @@ export default function AdminDash() {
             })
 
     }, [])
+
     const approval_Func = () => {
         const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
         const data = { approval_mail: approval_mail };

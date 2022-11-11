@@ -305,7 +305,7 @@ export default function Topbar() {
   const username = useSelector((state) => state.username1);
   const token = useSelector((state) => state.token);
   const userid = useSelector((state) => state.userid);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const nav = useNavigate();
   const [show, setShow] = useState(false);
   const handleclick = (e) => {
@@ -316,11 +316,13 @@ export default function Topbar() {
     setShow2(!show2);
   };
   const logOut = (e) => {
-    const emptyval = ""
+    const emptyval = "";
     dispatch({ type: "setToken", payload: emptyval });
     dispatch({ type: "setUserid", payload: emptyval });
     dispatch({ type: "setUsername1", payload: emptyval });
-    console.log("username===>" + username + "token===>" + token + "user id=====>" + userid)
+    console.log(
+      "username===>" + username + "token===>" + token + "user id=====>" + userid
+    );
     nav("/");
   };
   const username1 = useSelector((state) => state.username1);
@@ -384,9 +386,12 @@ export default function Topbar() {
           </div>
           <MdArrowForwardIos className="Topbar_arrowIcon" />
         </div>
-        <div className="Topbar_col4" onClick={(e) => {
-          nav("/Userprofile")
-        }}>
+        <div
+          className="Topbar_col4"
+          onClick={(e) => {
+            nav("/Userprofile");
+          }}
+        >
           <CgProfile className="Topbar_profileIcon" />
           <div className="Clayton">
             <label>{username1}</label>
@@ -419,18 +424,26 @@ export default function Topbar() {
               <></>
             )}
           </div> */}
-          <div
-            className="Topbar_cancel_circle">
+          <div className="Topbar_cancel_circle">
             <div className="dropdown">
               <MdCancel className="Topbar_cancelIcon" />
-
-              <div className="dropdown-content">
-                <label className="topbarlogout"
+              
+                <div
+                  className="dropdown_content"
                   onClick={(e) => {
                     logOut(e);
-                  }}>
-                  LOGOUT
-                </label>
+                  }}
+                >
+                  <div className="dropdown_content_inside">
+                  <label
+                    className="topbarlogout"
+                    onClick={(e) => {
+                      logOut(e);
+                    }}
+                  >
+                    LOGOUT
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -453,7 +466,7 @@ export default function Topbar() {
               <div
                 className="Tobar_col2_Tasks"
                 onClick={(e) => {
-                  nav("/Tasklist")
+                  nav("/Tasklist");
                 }}
               >
                 <label>Tasks</label>
@@ -486,9 +499,12 @@ export default function Topbar() {
                     <label>List Leads</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1" onClick={(e) => {
-                  nav("/Addlead");
-                }} >
+                <div
+                  className="Topbar_content_colb_list1"
+                  onClick={(e) => {
+                    nav("/Addlead");
+                  }}
+                >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Lead</label>
                 </div>
@@ -512,9 +528,12 @@ export default function Topbar() {
                     <label>List Campaign</label>
                   </div>
                 </div>
-                <div className="Topbar_content_colb_list1" onClick={(e) => {
-                  nav("/AddCampaign");
-                }} >
+                <div
+                  className="Topbar_content_colb_list1"
+                  onClick={(e) => {
+                    nav("/AddCampaign");
+                  }}
+                >
                   <BsFillBookFill className="Topbar_bookicon" />
                   <label>Create Campaign</label>
                 </div>
