@@ -7,21 +7,23 @@ import Topbar from "../components/Topbar";
 import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function AddLead() {
+  const userid = useSelector((state) => state.userid);
 
 
 
   useEffect(() => {
-    const url_lead =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
-    const data_lead = {};
-    const header_lead = {};
+    const url_campaign =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaign";
+    const data_campaign = {};
+    const header_campaign = {};
     axios
-      .post(url_lead, data_lead, { headers: header_lead })
+      .post(url_campaign, data_campaign, { headers: header_campaign })
       .then((res) => {
         console.log(res.data);
-        setArray_lead(res.data);
+        setArray_campaign(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -34,7 +36,7 @@ export default function AddLead() {
   const [firstname, setFirstname] = useState("");
   const [middlename, setMiddlename] = useState("");
   const [lastname, setLastname] = useState("");
-  const [title, setTitle] = useState("");
+  const [campaignid, setCampaignid] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -56,11 +58,12 @@ export default function AddLead() {
   const [errorstate, setEstate] = useState("");
   const [errorcreatedon, setEcreatedon] = useState("");
   const [errorcreatedby, setEcreatedby] = useState("");
+  const [errorcampaignid, setEcampaignid] = useState("")
   const [addlead, setAddlead] = useState("");
   const [bulkimportshow, setBulkimportshow] = useState(false);
   const [savebuttonshow, setSavebuttonshow] = useState(true);
   const [middledivshow, setMiddledivshow] = useState(false);
-  const [array_lead, setArray_lead] = useState([]);
+  const [array_campaign, setArray_campaign] = useState([]);
   const button_value = "Save lead";
   const titlebar_name = "Lead List";
   const titlebar_value1 = "active";
@@ -74,7 +77,7 @@ export default function AddLead() {
   const div_head2 = "FirstName*";
   const div_head3 = "MiddleName";
   const div_head4 = "LastName*";
-  const div_head5 = "Title";
+  const div_head5 = "campaign*";
   const div_head6 = "Company*";
   const div_head7 = "Email*";
   const div_head8 = "Phone*";
@@ -136,46 +139,55 @@ export default function AddLead() {
       setEsuffix("*suffix is mandatory");
       setEfirstname("*firstname is mandatory");
       setElastname("*lastname is mandatory");
+      setEcampaignid("*campaign is mandatory")
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('esuffixvar', errorsuffix)
     } else if (firstname === "") {
       setEsuffix("");
       setEfirstname("*firstname is mandatory");
       setElastname("*lastname is mandatory");
+      setEcampaignid("*campaign is mandatory")
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
-      setEfirstname("*firstname is mandatory");
+    
       // localStorage.setItem('efirstnamevar', errorfirstname)
     } else if (lastname === "") {
       setEsuffix("");
       setEfirstname("");
       setElastname("*lastname is mandatory");
+      setEcampaignid("*campaign is mandatory")
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
+     
       // localStorage.setItem('elastnamevar', errorlastname)
-    } else if (company === "") {
+    }  else if(campaignid === "" ){
       setEsuffix("");
       setEfirstname("");
       setElastname("");
+      setEcampaignid("*campaign is mandatory")
       setEcompany("*company is mandatory");
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
+      
+    
+  } else if (company === "") {
+      setEsuffix("");
+      setEfirstname("");
+      setElastname("");
+      setEcampaignid("")
+      setEcompany("*company is mandatory");
+      setEemail("*email is mandatory");
+      setEphone("*phone is mandatory");
+      setEstate("*state is mandatory");
+     
       // localStorage.setItem('ecompanyvar', errorcompany)
     } else if (email === "") {
       setEsuffix("");
@@ -185,8 +197,7 @@ export default function AddLead() {
       setEemail("*email is mandatory");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
+     
       // localStorage.setItem('eemailvar', erroremail)
     } else if (phone === "") {
       setEsuffix("");
@@ -196,8 +207,7 @@ export default function AddLead() {
       setEemail("");
       setEphone("*phone is mandatory");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
+      
       // localStorage.setItem('ephonevar', errorphone)
     } else if (state === "") {
       setEsuffix("");
@@ -207,21 +217,13 @@ export default function AddLead() {
       setEemail("");
       setEphone("");
       setEstate("*state is mandatory");
-      setEcreatedon("*created on is mandatory");
-      setEcreatedby("*leads owner is mandatory");
+      
       // localStorage.setItem('eaddressvar', erroraddress)
-    } else if (dateAddedOn === "") {
-      
-      setEcreatedon("*created on is mandatory");
-      // localStorage.setItem('ecreatedonvar', errorcreatedon)
-    } else if (leadOwner === "") {
-      
-      setEcreatedby("*leads owner is mandatory");
-      // localStorage.setItem('ecreatedbyvar', errorcreatedby)
-    } else {
+    }
+     else {
       // const url = "http://localhost:3000/dev/InsertLead";
       const url =
-        "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertLead";
+        "https://k17eex2o14.execute-api.us-east-1.amazonaws.com/dev/InsertLead";
       const data = {
         suffix: salutation,
         firstname: firstname,
@@ -229,27 +231,24 @@ export default function AddLead() {
         company: company,
         phone: phone,
         email: email,
-        state: state,
-        city: city,
-        address: address,
-        createdOn: dateAddedOn,
-        createdBy: Number(leadOwner),
+        // state: state,
+        // city: city,
+        // address: address,
+        createdBy: 2,
+        campaignid: campaignid
       };
       const header = {};
-      axios
-        .post(url, data, { headers: header })
+      axios.post(url, data, {headers: header})
         .then((res) => {
           console.log(res.data);
-          if (res.data == "email id already exists") {
-            setEemail("*email id already exist");
+          if (res.data === "lead id has already added") {
+            setEemail("*lead id has already added");
             setEsuffix("");
             setEfirstname("");
             setElastname("");
             setEcompany("");
             setEphone("");
             setEstate("");
-            setEcreatedon("");
-            setEcreatedby("");
             setAddlead("");
           } else {
             nav("/Leadlist");
@@ -261,8 +260,6 @@ export default function AddLead() {
             setEemail("");
             setEphone("");
             setEstate("");
-            setEcreatedon("");
-            setEcreatedby("");
             console.log("response==> " + JSON.stringify(res.data));
           }
         })
@@ -314,8 +311,8 @@ export default function AddLead() {
                 div_value4={lastname}
                 setDiv_value4={setLastname}
                 div_head5={div_head5}
-                div_value5={title}
-                setDiv_value5={setTitle}
+                div_value5={campaignid}
+                setDiv_value5={setCampaignid}
                 div_head6={div_head6}
                 div_value6={company}
                 setDiv_value6={setCompany}
@@ -339,20 +336,21 @@ export default function AddLead() {
                 setDiv_value12={setCity}
                 div_head13={div_head13}
                 div_value13={pincode}
-                setDiv_value13={setPincode}
-                div_head14={div_head14}
-                div_value14={leadSourceName}
-                setDiv_value14={setLeadSourceName}
-                div_head15={div_head15}
-                div_value15={dateAddedOn}
-                setDiv_value15={setDateAddedOn}
-                div_head16={div_head16}
-                div_value16={activeStatus}
-                setDiv_value16={setActiveStatus}
-                div_head17={div_head17}
-                div_value17={leadOwner}
-                setDiv_value17={setLeadOwner}
-                array_lead={array_lead}
+                array_campaign={array_campaign}
+                // setDiv_value13={setPincode}
+                // div_head14={div_head14}
+                // div_value14={leadSourceName}
+                // setDiv_value14={setLeadSourceName}
+                // div_head15={div_head15}
+                // div_value15={dateAddedOn}
+                // setDiv_value15={setDateAddedOn}
+                // div_head16={div_head16}
+                // div_value16={activeStatus}
+                // setDiv_value16={setActiveStatus}
+                // div_head17={div_head17}
+                // div_value17={leadOwner}
+                // setDiv_value17={setLeadOwner}
+                // array_lead={array_lead}
                 ediv_value1={esuffix}
                 ediv_value2={errorfirstname}
                 ediv_value3={errorlastname}
@@ -362,6 +360,7 @@ export default function AddLead() {
                 ediv_value7={errorstate}
                 ediv_value8={errorcreatedon}
                 ediv_value9={errorcreatedby}
+                ediv_value11={errorcampaignid}
               />{" "}
             </div>
           </div>
