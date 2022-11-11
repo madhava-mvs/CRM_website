@@ -13,6 +13,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
+  const [OTP, setotp] = useState("");
 
   const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
@@ -64,9 +65,10 @@ export default function SignUpPage() {
       setError6("");
       setError7("")
       setCheckbox(true);
-    //   const url =
+      const url ="https://biw855rg2h.execute-api.us-east-1.amazonaws.com/dev/signup"
     //     "https://tkywgev296.execute-api.us-east-1.amazonaws.com/dev/signup";
-    const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/signup"
+    // const url = "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/signup"
+      // const url ="http://localhost:3000/dev/signup"
       const data = {
         firstname: firstname,
         lastname: lastname,
@@ -107,21 +109,21 @@ export default function SignUpPage() {
     <>
       {show ? (
         <>
-          <Otp setshow1={setshow1} setshow={setshow} setshow2={setshow2} />
+          <Otp setshow1={setshow1} setshow={setshow} setshow2={setshow2} email={email} OTP={OTP} setotp={setotp}/>
         </>
       ) : (
         <></>
       )}
-      {show2 ? (
+      {show1 ? (
         <>
-          <Failed setshow2={setshow2} message={"Failed"} />
+          <Failed setshow1={setshow1} message={"Failed"} setotp={setotp}/>
         </>
       ) : (
         <></>
       )}
-     { show1 ? 
+     { show2 ? 
         <>
-        <Success setshow1={setshow1} />
+        <Success setshow2={setshow2} />
         </> :
          <>
         </>}

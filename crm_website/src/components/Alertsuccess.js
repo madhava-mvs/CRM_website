@@ -4,14 +4,14 @@ import img1 from './images/alertsuccess_righttick.png';
 export default function Success({ setshow1 }) {
     const navigate = useNavigate();
     function OK() {
-        navigate('/Login')
+        navigate("/") 
     }
     return <>
         <div className='alertsuccess'>
             <div className='alertsuccess_popup'>
                 <img src={img1} />
                 <label>Success!</label>
-                <button type='Button' onClick={(e) => { setshow1(false) }}/* onClick={OK}*/>OK</button>
+                <button type='Button' onClick={OK}/* onClick={OK}*/>OK</button>
             </div>
         </div>
     </>
