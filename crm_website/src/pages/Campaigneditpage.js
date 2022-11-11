@@ -85,8 +85,8 @@ export default function Campaigneditpage() {
     const handleclick1 = (e) => {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
-        const data = { id: Campaign_id };
+        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
+        const data = { updateid: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
             .then((res) => {
@@ -102,14 +102,14 @@ export default function Campaigneditpage() {
             });
     };
     // const [error, setError] = useState("");
-    const handleclick2 =  (e)=> {
+    const handleclick2 = (e) => {
         // for (let a of arrayData) {
         //     if (a.isclicked === true) {
         //         setLeadid(Number(a.id))
         //     }
         // }
         setShow(!show)
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/checklist";
+        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
         const data = { userid: userid, arrayData: arrayData, CampaignId: Campaign_id };
         const Headers = {}
         axios.post(url, data, { headers: Headers })
@@ -132,10 +132,10 @@ export default function Campaigneditpage() {
         setediv_value10("")
         setediv_value11("")
         // const url = "http://localhost:3000/dev/updateCampaign";
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
-        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2 ,updateid:Campaign_id  }
+        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
+        const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, updateid: Campaign_id }
         const header = {};
-        axios.post(url, data,header)
+        axios.post(url, data, header)
             .then((res) => {
                 console.log("Response12==> " + JSON.stringify(res.data))
                 let result = res.data + ""
@@ -172,7 +172,7 @@ export default function Campaigneditpage() {
 
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfunnel";
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
+        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
         const data = {};
         const header = {};
         axios.post(url, data, { headers: header })
@@ -196,7 +196,7 @@ export default function Campaigneditpage() {
     useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
             id: Campaign_id,
         };
@@ -204,31 +204,20 @@ export default function Campaigneditpage() {
         axios.post(url, data, { headers: header })
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
-                // let date3 = new Date(res.data[0].dtStartdate).toLocaleDateString()
-                // console.log(date3)
-                // const A = new Date(res.data[0].dtStartdate);
-                // let day1 = A.getDate();
-                // let month1 = A.getMonth();
-                // let year1 = A.getFullYear();
-                // console.log("year===>" + JSON.stringify({ year1 } - { month1 } - { day1 }))
-
-                // const [startDate, setStartDate] = useState(res.data[0].dtStartdate);
-                // // const startDate = res.data[0].dtStartdate;
-                // console.log("123==>" + JSON.stringify(startDate))
-                // return (
-                //     <DatePicker
-                //         dateFormat="yyyy-MM-dd"
-                //         selected={startDate}
-                //         onChange={(date) => setStartDate(date)}
-                //     />
-                // );
 
                 console.log(res.data[0])
                 if (res.data.length > 0) {
+                    var d = res.data[0].dtStartdate;
+                    var db = new window.Date(d).toISOString().split(".")[0];
+                    var c = res.data[0].dtEnddate;
+                    var cb = new window.Date(c).toISOString().split(".")[0];
                     setDiv_value1(res.data[0].txtCampaignName)
-                    setDiv_value4(res.data[0].dtStartdate)
+                    setDiv_value4(db.substring(0, 10))
+                    // setDiv_value4(res.data[0].dtStartdate)
+
+                    // setDiv_value5(res.data[0].dtEnddate)
                     // console.log("date==>"+ setDiv_value4({year1}-{month1}-{day1}))
-                    setDiv_value5(res.data[0].dtEnddate)
+                    setDiv_value5(cb.substring(0, 10))
                     setDiv_value3(res.data[0].Status1)
                     setDiv_value6(res.data[0].txtOwner)
                     setDiv_value2(res.data[0].ParentCampaignName)
@@ -245,7 +234,7 @@ export default function Campaigneditpage() {
 
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
-        const url = "https://n1ejwbrvfc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
         const data = { updateid: Campaign_id };
         const header = {};
         axios.post(url, data, { headers: header })
