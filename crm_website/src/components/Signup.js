@@ -167,12 +167,8 @@ const changeCheckbox = () => {
           </div>
 
           <div className="signup_inner_row9">
-            <button
-              onClick={(e) => {
-                SignUp(e); /*setshow(true) */
-              }}
-            >
-              {" "}
+            <button  onClick={(e) => {SignUp(e) /*setshow(true) */}}>
+              
               REGISTER
             </button>
           </div>
