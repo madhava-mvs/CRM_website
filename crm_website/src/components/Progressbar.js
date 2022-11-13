@@ -81,8 +81,8 @@ export default function Progressbar({ leadsc, prosc }) {
           </div>
         </div>
       </div>
-    </>
-  );
+</>
+);
 }
 
 

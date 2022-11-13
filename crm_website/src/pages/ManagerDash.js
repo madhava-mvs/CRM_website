@@ -8,6 +8,7 @@ import Summary from '../components/Summary';
 import SummaryCount from "../components/SummaryCount";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function ManagerDash() {
 
@@ -27,14 +28,15 @@ export default function ManagerDash() {
     const title = ("SalesPerson Wise Prospect Count");
     const summary_show = (false);
     const [array1, setArray1] = useState([])
+    const userid = useSelector((state) => state.userid);
 
     //ProspectGrowth Axios
 
     useEffect(() => {
 
-        const data = {};
+        const data = { userid: userid };
         const header = {};
-        const url1 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+        const url1 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectGrowth";
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
@@ -47,7 +49,7 @@ export default function ManagerDash() {
 
         //LeadsFunnel Axios
 
-        const url2 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
+        const url2 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerDashleadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
@@ -61,8 +63,8 @@ export default function ManagerDash() {
 
         //ProspectProgress Axios
 
-        const url3 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
-        axios.post(url3, { headers: header })
+        const url3 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectprogress";
+        axios.post(url3, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
                 setLeads(res.data[0].Leads)
@@ -86,7 +88,7 @@ export default function ManagerDash() {
 
         //CampaignWiseProspectCount Axios
 
-        const url5 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
+        const url5 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
