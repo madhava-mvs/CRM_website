@@ -85,7 +85,7 @@ export default function Campaigneditpage() {
     const handleclick1 = (e) => {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
-        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
         const data = { updateid: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
@@ -112,7 +112,7 @@ export default function Campaigneditpage() {
         //     }
         // }
         
-        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
         const data = { userid: userid, arrayData: arrayData, CampaignId: Campaign_id };
         const Headers = {}
         axios.post(url, data, { headers: Headers })
@@ -135,7 +135,7 @@ export default function Campaigneditpage() {
         setediv_value10("")
         setediv_value11("")
         // const url = "http://localhost:3000/dev/updateCampaign";
-        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
         const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, updateid: Campaign_id }
         const header = {};
         axios.post(url, data, header)
@@ -175,7 +175,7 @@ export default function Campaigneditpage() {
 
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfunnel";
-        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
         const data = {};
         const header = {};
         axios.post(url, data, { headers: header })
@@ -186,7 +186,8 @@ export default function Campaigneditpage() {
                 // // // console.log("leadscount==>" + JSON.stringify(res.data[0].leadscount))
                 // setGreenbar(res.data[1].count)
                 // setBluebar(res.data[2].count)
-                console.log("Response => " + (JSON.stringify(res.data[0].count)) + (JSON.stringify(res.data[1].count)) + (JSON.stringify(res.data[2].count)))
+                // console.log("count->" )
+                console.log("Response => "(JSON.stringify(res.data[0].count)) + (JSON.stringify(res.data[1].count)) + (JSON.stringify(res.data[2].count)))
                 setOrangebar(res.data[0].count)
                 setGreenbar(res.data[1].count)
                 setBluebar(res.data[2].count)
@@ -199,7 +200,7 @@ export default function Campaigneditpage() {
     useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
             id: Campaign_id,
         };
@@ -237,7 +238,7 @@ export default function Campaigneditpage() {
 
     useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
-        const url = "https://6kg4aglwpc.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
         const data = { updateid: Campaign_id };
         const header = {};
         axios.post(url, data, { headers: header })
