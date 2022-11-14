@@ -53,7 +53,7 @@ export default function AdminDash() {
         const data = {};
         const header = {};
 
-        const url1 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+        const url1 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
@@ -65,7 +65,7 @@ export default function AdminDash() {
 
         //LeadsFunnel Axios
 
-        const url2 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
+        const url2 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
@@ -79,7 +79,7 @@ export default function AdminDash() {
 
         //ProspectProgress Axios
 
-        const url3 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
+        const url3 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
         axios.post(url3, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
@@ -92,7 +92,7 @@ export default function AdminDash() {
 
         //ManagerWiseProspectCount Axios
 
-        const url4 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
+        const url4 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
         axios.post(url4, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
@@ -104,7 +104,7 @@ export default function AdminDash() {
 
         //CampaignWiseProspectCount Axios
 
-        const url5 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
+        const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("Response => " + JSON.stringify(res.data))
@@ -116,7 +116,7 @@ export default function AdminDash() {
 
         //UserList Axios
 
-        const url6 = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
+        const url6 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
         axios.post(url6, data, { headers: header })
             .then((res) => {
                 setUser((res.data))
@@ -129,7 +129,7 @@ export default function AdminDash() {
     }, [])
 
     const approval_Func = () => {
-        const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
+        const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
         const data = { approval_mail: approval_mail };
         const header = {}
         axios.post(url, data, { headers: header })
