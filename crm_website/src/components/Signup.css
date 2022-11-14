@@ -1,238 +1,228 @@
 .signup_outer {
-    background-color: #f4f5fa;
-    min-height: 100vh;
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #f4f5fa;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup_inner {
-    min-height: 70vh;
-    background-color: white;
-    border: 0.5px solid rgba(223, 223, 223, 0.918);
-    box-shadow: 10px;
-    border-radius: 5px;
-    align-items: center;
-    justify-items: center;
-    padding: 20px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 70vh;
+  background-color: white;
+  border: 0.5px solid rgba(223, 223, 223, 0.918);
+  box-shadow: 10px;
+  border-radius: 5px;
+  align-items: center;
+  justify-items: center;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .signup_inner_row1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .signup_inner_row1 img {
-    width: 35px;
+  width: 35px;
 }
 
 .signup_inner_row1 label {
-    font-size: 25px;
-    font-weight: 500;
-    font-size: 1.2rem;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
+  font-size: 25px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .signup_inner_row2 {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 }
 
 .signup_inner_row2 label {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    font-size: 1.2rem;
-    font-weight: 649;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 1.2rem;
+  font-weight: 649;
 }
 
 .signup_inner_row2_handicon {
-    color: #ECB476;
-    margin-top: 5px;
+  color: #ecb476;
+  margin-top: 5px;
 }
 
 .signup_inner_row3 {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .signup_inner_row3 label {
-    font-size: 0.8rem;
-    font-weight: 450;
-    color: #9d9d9e;
+  font-size: 0.8rem;
+  font-weight: 450;
+  color: #9d9d9e;
 }
 
 .signup_inner_row4 {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .signup_inner_row4_left input,
 .signup_inner_row4_right input {
-    outline: none;
-    padding: 10px 8px;
-    border-radius: 5px;
-    background-color: white;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.214);
+  outline: none;
+  padding: 10px 8px;
+  border-radius: 5px;
+  background-color: white;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.214);
 }
 
 .signup_inner_row4_left input::placeholder,
 .signup_inner_row4_right input::placeholder {
-    color: rgb(181, 180, 180);
+  color: rgb(181, 180, 180);
 }
 
-
-
-
-
 .signup_inner_row4_right input {
-    margin-left: 8px;
-    padding-right: 25px;
+  margin-left: 8px;
+  padding-right: 25px;
 }
 
 .signup_inner_row5,
 .signup_inner_row6,
 .signup_inner_row7 {
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
 }
-
 
 /* 
 .signup_inner_row5_dropdown_role select{
     color: rgb(181, 180, 180);
 } */
 
-
-
-
-.signup_inner_row5_dropdown_role label{
-    font-weight: 450;
-    font-size: 15px;
-    color: rgb(104, 103, 103);
+.signup_inner_row5_dropdown_role label {
+  font-weight: 450;
+  font-size: 15px;
+  color: rgb(104, 103, 103);
 }
 
-
-.signup_inner_row5_dropdown_role select{
-    outline: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    background-color: white;
-    width: 100%;
-    margin-top: 10px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.214);
-    font-weight: 450;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.signup_inner_row5_dropdown_role select {
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.214);
+  font-weight: 450;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.signup_inner_row5_dropdown_role{
-    outline: none;
-    border-radius: 5px;
-    background-color: white;
-    width: 100%;
-    margin-top: 5px;
-    box-sizing: border-box;
+.signup_inner_row5_dropdown_role {
+  outline: none;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
 
 .signup_inner_row5 input,
 .signup_inner_row6 input,
 .signup_inner_row7 input {
-    outline: none;
-    padding: 10px 8px;
-    border-radius: 5px;
-    background-color: white;
-    width: 100%;
-    margin-top: 10px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.214);
+  outline: none;
+  padding: 10px 8px;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.214);
 }
 
 .signup_inner_row5 input::placeholder,
 .signup_inner_row6 input::placeholder,
 .signup_inner_row7 input::placeholder {
-    color: rgb(181, 180, 180);
+  color: rgb(181, 180, 180);
 }
 
 .signup_inner_row8 {
-
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .signup_inner_row8 input {
-    width: 15px;
-    margin-left: 10px;
-    height: 15px;
-    border: 3px solid black;
+  width: 15px;
+  margin-left: 10px;
+  height: 15px;
+  border: 3px solid black;
 }
 
 .signup_inner_row8_checkboxicon {
-
-    margin-top: 12px;
-    margin-right: 7px;
-
+  margin-top: 12px;
+  margin-right: 7px;
 }
 
 .signup_inner_row8 text {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup_inner_row8 span {
-    color: blueviolet;
+  color: blueviolet;
 }
 
 .signup_inner_row9 {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: row;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .signup_inner_row9 button {
-    border-radius: 3px;
-    color: rgb(255 255 255);
-    background-color: #9155fd;
-    border: none;
-    cursor: pointer;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    margin-top: 8px;
-    font-size: 11px;
-    width: 100%;
+  border-radius: 3px;
+  color: rgb(255 255 255);
+  background-color: #9155fd;
+  border: none;
+  cursor: pointer;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-top: 8px;
+  font-size: 11px;
+  width: 100%;
+}
+
+.signup_inner_row9 button:hover {
+  background-color: #7654b4;
+  box-shadow: 0px 3px 5px 3px lightgray;
 }
 
 .signup_err {
-
-    color: red;
-    font-size: 10px;
-    display: flex;
-    position: absolute;
+  color: red;
+  font-size: 10px;
+  display: flex;
+  position: absolute;
 }
 
 .signup_error {
-    display: flex;
-    color: red;
-    font-size: 10px;
-    position: absolute;
+  display: flex;
+  color: red;
+  font-size: 10px;
+  position: absolute;
 }
 
 .signup_Error {
-    display: flex;
-    padding-left: 37px;
-    color: red;
-    font-size: 10px;
-    position: absolute;
-    margin-top: 42px;
+  display: flex;
+  padding-left: 37px;
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  margin-top: 42px;
 }
