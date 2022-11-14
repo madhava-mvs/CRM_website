@@ -29,10 +29,13 @@ export default function ManagerDash() {
     const summary_show = (false);
     const [array1, setArray1] = useState([])
     const userid = useSelector((state) => state.userid);
+    // const userid = 32;
 
+    
     //ProspectGrowth Axios
 
     useEffect(() => {
+        
 
         const data = { userid: userid };
         const header = {};
