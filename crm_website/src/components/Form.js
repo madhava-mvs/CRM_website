@@ -192,12 +192,13 @@ export default function Form({
                 <br />
               </>
             )}
-
+{/* s1
             {div_value2 == "" ? (
               <span className="warning_error">{ediv_value2}</span>
             ) : (
               <></>
             )}
+            s1 */}
           </div>
 
           {/* 
@@ -262,12 +263,13 @@ export default function Form({
             )}
 
             {/* {div_head3 == "Status"? <></>} */}
-
+{/* s1
             {div_value3 == "" ? (
               <span className="warning_error">{ediv_value10}</span>
             ) : (
               <></>
             )}
+            s1 */}
           </div>
         </div>
 
@@ -329,12 +331,13 @@ export default function Form({
                 <br />
               </>
             )}
-
+{/* s1
             {div_value4 == "" ? (
               <span className="warning_error">{ediv_value3}</span>
             ) : (
               <></>
             )}
+            s1 */}
           </div>
 
           {/* <div className="form_inner31">
@@ -482,12 +485,13 @@ export default function Form({
                 <br />
               </>
             )}
-
+{/* s1
             {div_value6 == "" ? (
               <span className="warning_error">{ediv_value4}</span>
             ) : (
               <></>
             )}
+            s1 */}
           </div>
         </div>
 
