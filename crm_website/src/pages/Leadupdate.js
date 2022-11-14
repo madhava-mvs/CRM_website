@@ -11,12 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { date } from "check-types";
 import ReactDatePicker from "react-datepicker";
 
-
-
-
 export default function Leadupdate() {
-
-
   useEffect(() => {
     const url_lead =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
@@ -33,15 +28,14 @@ export default function Leadupdate() {
       });
   }, []);
 
-
-
   const update_lead_id = useSelector((state) => state.update_lead_id);
-  const nav=useNavigate();
+  const nav = useNavigate();
 
   const [salutation, setSalutation] = useState("");
   const [firstname, setFirstname] = useState("");
   const [middlename, setMiddlename] = useState("");
   const [lastname, setLastname] = useState("");
+  const [campaignid, setCampaignid] = useState("");
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -64,8 +58,10 @@ export default function Leadupdate() {
   const [erroraddress, setEaddress] = useState("");
   const [errorcreatedon, setEcreatedon] = useState("");
   const [errorcreatedby, setEcreatedby] = useState("");
+  const [errorcampaignid, setEcampaignid] = useState("")
   const [addlead, setAddlead] = useState("");
   const [array_lead, setArray_lead] = useState([]);
+  const [array_campaign, setArray_campaign] = useState([])
   const [bulkimportshow, setBulkimportshow] = useState(false);
   const [savebuttonshow, setSavebuttonshow] = useState(true);
   const [middledivshow, setMiddledivshow] = useState(false);
@@ -81,7 +77,7 @@ export default function Leadupdate() {
   const div_head2 = "FirstName*";
   const div_head3 = "MiddleName";
   const div_head4 = "LastName*";
-  const div_head5 = "Title";
+  const div_head5 = "campaign*";
   const div_head6 = "Company*";
   const div_head7 = "Email*";
   const div_head8 = "Phone*";
@@ -95,21 +91,34 @@ export default function Leadupdate() {
   const div_head16 = "Active Status";
   const div_head17 = "Lead Owner*";
 
-
   useEffect(() => {
-    const url ="https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
+    const url_campaign =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaign";
+    const data_campaign = {};
+    const header_campaign = {};
+    axios
+      .post(url_campaign, data_campaign, { headers: header_campaign })
+      .then((res) => {
+        console.log(res.data);
+        setArray_campaign(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    const url =
+      "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
 
     // const url = "http://localhost:3000/dev/GetSingleLead";
     const data = { id: update_lead_id };
     const headers = {};
-    
+
     axios
       .post(url, data, { headers: headers })
       .then((res) => {
-        
         const adata = res.data;
-        var d= (adata[0].dateAddedOn);
-        var newdate =new window.Date(d).toISOString().split(".")[0];
+        var d = adata[0].dateAddedOn;
+        var newdate = new window.Date(d).toISOString().split(".")[0];
         setSalutation(adata[0].Salutation);
         setFirstname(adata[0].FirstName);
         setMiddlename(adata[0].Middlename);
@@ -131,7 +140,7 @@ export default function Leadupdate() {
       .catch((err) => {
         console.log(err);
       });
-    },[]);
+  }, []);
 
   // "Salutation":"Mr","FirstName":"Madhav","Middlename":"Sai","LastName":"Akash","CompanyName":"Bizcloud","Email":"Madhav@biz.com",
 
@@ -156,8 +165,7 @@ export default function Leadupdate() {
     
     /> */
 
-  let SaveLead = () =>{
-
+  let SaveLead = () => {
     // const suffix = localStorage.getItem("salutationvar");
     // const firstname = localStorage.getItem("firstnamevar");
     // const lastname = localStorage.getItem("lastnamevar");
@@ -191,94 +199,94 @@ export default function Leadupdate() {
       setEcreatedon("*created on is mandatory");
       setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('esuffixvar', errorsuffix)
-    // } else if (firstname === "") {
-    //   setEsuffix("");
-    //   setEfirstname("*firstname is mandatory");
-    //   setElastname("*lastname is mandatory");
-    //   setEcompany("*company is mandatory");
-    //   setEemail("*email is mandatory");
-    //   setEphone("*phone is mandatory");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   setEfirstname("*firstname is mandatory");
-    //   // localStorage.setItem('efirstnamevar', errorfirstname)
-    // } else if (lastname === "") {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("*lastname is mandatory");
-    //   setEcompany("*company is mandatory");
-    //   setEemail("*email is mandatory");
-    //   setEphone("*phone is mandatory");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('elastnamevar', errorlastname)
-    // } else if (company === "") {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("*company is mandatory");
-    //   setEemail("*email is mandatory");
-    //   setEphone("*phone is mandatory");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('ecompanyvar', errorcompany)
-    // } else if (email === "") {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("");
-    //   setEemail("*email is mandatory");
-    //   setEphone("*phone is mandatory");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('eemailvar', erroremail)
-    // } else if (phone === undefined) {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("");
-    //   setEemail("");
-    //   setEphone("*phone is mandatory");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('ephonevar', errorphone)
-    // } else if (state === "") {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("");
-    //   setEemail("");
-    //   setEphone("");
-    //   setEaddress("*address is mandatory");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('eaddressvar', erroraddress)
-    // } else if (dateAddedOn === "") {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("");
-    //   setEemail("");
-    //   setEphone("");
-    //   setEaddress("");
-    //   setEcreatedon("*created on is mandatory");
-    //   setEcreatedby("*leads owner is mandatory");
-    //   // localStorage.setItem('ecreatedonvar', errorcreatedon)
-    // } else if (leadOwner === 0) {
-    //   setEsuffix("");
-    //   setEfirstname("");
-    //   setElastname("");
-    //   setEcompany("");
-    //   setEemail("");
-    //   setEphone("");
-    //   setEaddress("");
-    //   setEcreatedon("");
-    //   setEcreatedby("*leads owner is mandatory");
+      // } else if (firstname === "") {
+      //   setEsuffix("");
+      //   setEfirstname("*firstname is mandatory");
+      //   setElastname("*lastname is mandatory");
+      //   setEcompany("*company is mandatory");
+      //   setEemail("*email is mandatory");
+      //   setEphone("*phone is mandatory");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   setEfirstname("*firstname is mandatory");
+      //   // localStorage.setItem('efirstnamevar', errorfirstname)
+      // } else if (lastname === "") {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("*lastname is mandatory");
+      //   setEcompany("*company is mandatory");
+      //   setEemail("*email is mandatory");
+      //   setEphone("*phone is mandatory");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('elastnamevar', errorlastname)
+      // } else if (company === "") {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("*company is mandatory");
+      //   setEemail("*email is mandatory");
+      //   setEphone("*phone is mandatory");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('ecompanyvar', errorcompany)
+      // } else if (email === "") {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("");
+      //   setEemail("*email is mandatory");
+      //   setEphone("*phone is mandatory");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('eemailvar', erroremail)
+      // } else if (phone === undefined) {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("");
+      //   setEemail("");
+      //   setEphone("*phone is mandatory");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('ephonevar', errorphone)
+      // } else if (state === "") {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("");
+      //   setEemail("");
+      //   setEphone("");
+      //   setEaddress("*address is mandatory");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('eaddressvar', erroraddress)
+      // } else if (dateAddedOn === "") {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("");
+      //   setEemail("");
+      //   setEphone("");
+      //   setEaddress("");
+      //   setEcreatedon("*created on is mandatory");
+      //   setEcreatedby("*leads owner is mandatory");
+      //   // localStorage.setItem('ecreatedonvar', errorcreatedon)
+      // } else if (leadOwner === 0) {
+      //   setEsuffix("");
+      //   setEfirstname("");
+      //   setElastname("");
+      //   setEcompany("");
+      //   setEemail("");
+      //   setEphone("");
+      //   setEaddress("");
+      //   setEcreatedon("");
+      //   setEcreatedby("*leads owner is mandatory");
       // localStorage.setItem('ecreatedbyvar', errorcreatedby)
     } else {
       const url =
@@ -310,7 +318,7 @@ export default function Leadupdate() {
         activestatus: activeStatus,
         dateAddedOn: dateAddedOn,
       };
-   
+
       const header = {};
       axios
         .post(url, data, { headers: header })
@@ -326,9 +334,8 @@ export default function Leadupdate() {
             setEcreatedby("");
             setAddlead("");
             setEemail("*email id already exist");
-          }
-          else {
-            nav("/Leadlist")
+          } else {
+            nav("/Leadlist");
             setAddlead("*lead has been updated");
             setEsuffix("");
             setEfirstname("");
@@ -347,7 +354,6 @@ export default function Leadupdate() {
         });
     }
   };
- 
 
   return (
     <div>
@@ -391,8 +397,9 @@ export default function Leadupdate() {
                 div_value4={lastname}
                 setDiv_value4={setLastname}
                 div_head5={div_head5}
-                div_value5={title}
-                setDiv_value5={setTitle}
+                div_value5={campaignid}
+                setDiv_value5={setCampaignid}
+                array_campaign={array_campaign}
                 div_head6={div_head6}
                 div_value6={company}
                 setDiv_value6={setCompany}
@@ -452,6 +459,9 @@ const Date = () => {
   // const A =res.data[0].dtStartdate
   const [dateAddedOn, setDateAddedOn] = useState(new Date());
   return (
-      <ReactDatePicker selected={dateAddedOn} onChange={(date) => setDateAddedOn(date)} />
-  )
-}
+    <ReactDatePicker
+      selected={dateAddedOn}
+      onChange={(date) => setDateAddedOn(date)}
+    />
+  );
+};

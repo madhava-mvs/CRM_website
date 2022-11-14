@@ -123,6 +123,13 @@
     margin-top: 8px;
     width: 100%;
   }
+
+.login_inner_row7 input:hover{
+  background-color: #7654b4;
+  box-shadow: 0px 3px 5px 3px lightgray;
+}
+
+
   
   .login_outer_row2 {
     margin-top: 35px;
