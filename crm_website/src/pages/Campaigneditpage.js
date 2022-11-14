@@ -200,7 +200,7 @@ export default function Campaigneditpage() {
     useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url = "https://37g0pux779.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data = {
             id: Campaign_id,
         };
