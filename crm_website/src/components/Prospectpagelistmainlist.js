@@ -24,7 +24,17 @@ export default function Mainlist({array,setArray}) {
     <>
       <div className="prospectlistpage_Mainlist_Outer">
        
+      <div className="prospectlistpage_header" >
+   
+              <div className="prospectlistpage_header1">FirstName</div>
+              <div className="prospectlistpage_header2">Campaign</div>
+              <div className="prospectlistpage_header3">Created on </div>
+              <div className="prospectlistpage_header4">Updated on</div>
+              <div className="prospectlistpage_header5">Created by</div>
+            
 
+    </div>
+      
         <div className="prospectlistpage_Mainlist_Innerbox">
           <div className="prospectlistpage_Mainlist_list">
             {array.map((itm, indx) => {
@@ -62,7 +72,7 @@ function ListRow({ itm, array, setArray }) {
 
   return (
     <>
-      
+ 
       <div className={itm.isclicked?"prospectlistpage_Mainlist_list_row_topSelected":"prospectlistpage_Mainlist_list_row_top"} >
         <input className="prospectlistpage_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}/>
               <label for="checkbox"></label>
