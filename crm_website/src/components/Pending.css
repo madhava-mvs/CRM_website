@@ -1,6 +1,6 @@
 .otp_outer {
     background-color: rgb(231 231 231 / 64%);
-    height: 100vh;
+    height: 130vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     min-width: 28%;
     display: flex;
     flex-direction: column;
-    border: 2.5px solid rgba(223, 223, 223, 0.918)
+    border: 2.5px solid rgba(223, 223, 223, 0.918);
 }
 
 .otp_inner_row1 {
