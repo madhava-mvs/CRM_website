@@ -349,7 +349,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                   <div className="r3">
                     <div className="r3_in">
                       <label className="text_to_changecolor">Title</label>
-                      <br></br>
+                      <br/>
                       <input
                         type="text"
                         className="S"
@@ -371,7 +371,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                     </div>
                     <div className="r3_in">
                       <label className="text_to_changecolor">Comments</label>
-                      <br></br>
+                      <br/>
                       <input
                         type="text"
                         className="S"
@@ -383,8 +383,8 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                     </div>
                     <div className="r3_in">
                       <label className="text_to_changecolor">Campaign name: </label>
-                      <br></br>
-                      <br />
+                      <br/>
+                      <br/>
                       <select
                         value={campaign_name}
                         onChange={(e) => setCampaign_name(e.target.value)}
