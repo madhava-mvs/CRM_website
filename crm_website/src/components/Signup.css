@@ -180,6 +180,11 @@
   color: blueviolet;
 }
 
+.signup_inner_row8 span:hover {
+  color: #7654b4;
+  text-decoration: underline;
+}
+
 .signup_inner_row9 {
   padding-top: 10px;
   display: flex;

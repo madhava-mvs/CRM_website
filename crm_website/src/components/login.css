@@ -107,6 +107,12 @@
     color: #8c08ece0;
     text-decoration: none;
   }
+
+  .login_inner_row6 a:hover{
+    color: #7654b4;
+    text-decoration: underline;
+   }
+
   
   .login_inner_row7 {
     
@@ -142,6 +148,12 @@
     font-weight: 500;
     margin-left: 5px;
   }
+
+  .login_outer_row2 span:hover{
+    color: #7654b4;
+    text-decoration: underline;
+  }
+
   .login_err1 {
     padding-top: 5px;
     color: red;

@@ -205,7 +205,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
     }
     else {
       const url =
-        "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+        "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
       const data = {
         userid: Number(user_name),
         campaignid: Number(campaign_name),
@@ -225,6 +225,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
           console.log(err);
         });
     }
+
 
     //   function fun(){
     //     return new Promise((resolve)=>{

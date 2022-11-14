@@ -223,7 +223,7 @@ export default function AddLead() {
      else {
       // const url = "http://localhost:3000/dev/InsertLead";
       const url =
-        "https://k17eex2o14.execute-api.us-east-1.amazonaws.com/dev/InsertLead";
+        "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertLead";
       const data = {
         suffix: salutation,
         firstname: firstname,
