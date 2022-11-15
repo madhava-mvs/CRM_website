@@ -8,7 +8,6 @@ import Summary from '../components/Summary';
 import SummaryCount from "../components/SummaryCount";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 export default function ManagerDash() {
 

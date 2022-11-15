@@ -1,5 +1,6 @@
 import "./Bargraph.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
+// import { Scrollbars } from 'react-custom-scrollbars';
 
 // export default function Bargraph({ blueh, greenh, orangeh, bluec, greenc, orangec }) {
 
@@ -59,6 +60,7 @@ export default function Bargraph({ bar }) {
                     }
                 </ul>
             </div>
+            {/* <Scrollbars style={{ width: 100, height: 10 }}></Scrollbars> */}
         </div>
     </>
 }

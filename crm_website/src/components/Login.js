@@ -1,14 +1,14 @@
 import './login.css';
 import { useNavigate } from 'react-router-dom';
 import login_logo from "./images/Login_logo.png";
-export default function LOGIN({Login,error1,error,username,password,setpassword,dispatch}) {
-    
+export default function LOGIN({ Login, error1, error, username, password, setpassword, dispatch }) {
+
     const navigate = useNavigate();
     function SignUp() {
         navigate('/SignUpPage')
     }
-   
-    
+
+
     return <>
         <div className='login'>
             <div className='login_outer_row1'>
@@ -16,7 +16,7 @@ export default function LOGIN({Login,error1,error,username,password,setpassword,
                 <div className='login_inner_row2'>Welcome!</div>
                 <div className='login_inner_row3'>Please Sign-in to your Account</div>
                 <label className="login_err1">{error}</label>
-                <div className='login_inner_row4'><input type='email' placeholder='Email' onChange={(e) => dispatch({type:"setEmail",payload:e.target.value})} /></div>
+                <div className='login_inner_row4'><input type='email' placeholder='Email' onChange={(e) => dispatch({ type: "setEmail", payload: e.target.value })} /></div>
                 {error1 && username == "" ? <label className="login_Err">Username is mandatory</label> : ""}
 
                 <div className='login_inner_row5'><input type='Password' placeholder='Password' onChange={(e) => (setpassword(e.target.value))} /></div>

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
+  const editshow = (true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleclick_Addcampaign = () => {
@@ -109,7 +110,7 @@ export default function CampaignListPage() {
               />
             </div>
             <div className="Campaignlist_Filterbar">
-              <Filterbar DeleteFunc={Deletecampaign} />
+              <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />

@@ -1,11 +1,13 @@
 import { legacy_createStore } from "redux";
 const initialState = {
   username1: "",
-  email:"",
+  email: "",
   userid: "",
   token: "",
   update_campaign_id: "",
   update_lead_id: "",
+  company: "XYZ",
+  jobrole: "",
 };
 const reducer = (prevState = initialState, action) => {
   switch (action.type) {
@@ -26,6 +28,12 @@ const reducer = (prevState = initialState, action) => {
       break;
     case "setUpdate_lead_id":
       return { ...prevState, update_lead_id: action.payload };
+      break;
+    case "setCompany":
+      return { ...prevState, company: action.payload };
+      break;
+    case "setJobrole":
+      return { ...prevState, jobrole: action.payload };
       break;
   }
   return prevState;
