@@ -40,7 +40,7 @@ function Table(item1) {
         <div className="Normallist_row5">
             <label>{item1.item1.txtFirstName}</label>
             <label>{item1.item1.txtLastName}</label>
-            <label>{item1.item1.status1}</label>
+            <label>{item1.item1.txtConversionType}</label>
             <label>{year}-{month}-{day}</label>
         </div>
     </>
