@@ -62,12 +62,12 @@ function ListRow({ itm, array, setArray }) {
   };
   const d = new Date(itm.createdon);
   let day = d.getDate();
-  let month=d.getMonth();
+  let month=d.getMonth()+1;
   let year=d.getFullYear();
 
   const s = new Date(itm.updatedon);
   let sday = s.getDate();
-  let smonth=s.getMonth();
+  let smonth=s.getMonth()+1;
   let syear=s.getFullYear();
 
   return (
