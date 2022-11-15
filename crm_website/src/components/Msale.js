@@ -4,79 +4,12 @@ import { BsThreeDots } from "react-icons/bs";
 import { RiBookmarkFill } from "react-icons/ri"
 import { HiUser } from "react-icons/hi";
 //import { click } from "@testing-library/user-event/dist/click";
-// import { useState } from "react";
+import { useState } from "react";
 // import Pop from "./Pop.js";
 
 export default function SalesDash({ todo, inprogress, completed, setTodo, setInProgress, setCompleted }) {
 
-
-    //const [todoArray, setTodoArray] = useState([])
-    // const [inprogressArray, setInprogressArray] = useState([])
-    // const [completedArray, setCompletedArray] = useState([])
-
-    // console.log(todo)
-    // console.log("after" + JSON.stringify(todo))
-
-
-    //setTodoArray(todo)
-    //console.log(todoArray)
-
-    // setInprogressArray(JSON.stringify(inprogress))
-    // setCompletedArray(JSON.stringify(completed))
-    // console.log(todo, inprogressArray, completedArray)
-    // const [edit1, setEdit1] = useState(false)
-    // const [edit11, setEdit11] = useState(false)
-    // const [edit2, setEdit2] = useState(false)
-    // const [edit21, setEdit21] = useState(false)
-    // const [edit3, setEdit3] = useState(false)
-    //const [edit31, setEdit31] = useState(false)
-
-
-    // const [show1, setShow1] = useState(false)
-    // const [show11, setShow11] = useState(false)
-    // const [show2, setShow2] = useState(false)
-    // const [show21, setShow21] = useState(false)
-    // const [show3, setShow3] = useState(false)
-    //const [show31, setShow31] = useState(false)
-    // const url = "http://localhost:3000/dev/getTODO";
-    // const data = {};
-    // const header = {};
-    // axios.post(url, data, header)
-    //   .then((res) => {
-    //     console.log("Response==>" + JSON.stringify(res.data))
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error==>" + err)
-    //   })
-
-    // const tododropDown = (todoArray, itm1) => {
-    //     let temp = [...todoArray]
-    //     for (const iter of temp) {
-    //         if (iter.id === itm1.id && iter.txtActivitytype === itm1.txtActivitytype) {
-    //             iter.isClicked = !itm1.isClicked
-    //         }
-    //     }
-    //     setTodoArray(temp)
-    // }
-    // const inprogressdropDown = (inprogressArray, itm2) => {
-    //     let temp = [...inprogressArray]
-    //     for (const iter of temp) {
-    //         if (iter.id === itm2.id && iter.txtActivitytype === itm2.txtActivitytype) {
-    //             iter.isClicked = !itm2.isClicked
-    //         }
-    //     }
-    //     setInprogressArray(temp)
-    // }
-    // const completeddropDown = (completedArray, itm3) => {
-    //     let temp = [...completedArray]
-    //     for (const iter of temp) {
-    //         if (iter.id === itm3.id && iter.txtActivitytype === itm3.txtActivitytype) {
-    //             iter.isClicked = !itm3.isClicked
-    //         }
-    //     }
-    //     setCompletedArray(temp)
-    // }
-
+    
     const handleTodo = (e, itm) => {
         let temp = [...todo]
         for (const iterator of temp) {
@@ -105,25 +38,100 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
         setCompleted(temp)
     }
 
+    const [todoArray, setTodoArray] = useState({
+        data: todo,
+        count: todo.length,
+    });
+    const [inprogressArray, setInProgressArray] = useState({
+        data: inprogress,
+        count: inprogress.length,
+    });
+    const [completedArray, setCompletedArray] = useState({
+        data: completed,
+        count: completed.length
+    });
+
+
+    
+    const [dragElement, setDragElement] = useState({});
+    const allowDrop = (e) => {
+        e.preventDefault();
+    };
+    const handleDrop = (e) => {
+        console.log(e);
+        e.preventDefault();
+        var target = e.target.className;
+        var startedDiv = dragElement.startedDiv;
+        if (
+            target !== startedDiv &&
+            (e.target.className === "sales_SalesInner1" ||
+                e.target.className === "sales_SalesInner2" ||
+                e.target.className === "sales_SalesInner3")
+        ) {
+            if (startedDiv === "sales_SalesInner1") {
+                delete todoArray.data[dragElement.index];
+            } else if (startedDiv === "sales_SalesInner2") {
+                delete inprogressArray.data[dragElement.index];
+            } else if (startedDiv === "sales_SalesInner3") {
+                delete completedArray.data[dragElement.index];
+            }
+            if (target === "sales_SalesInner1") {
+                var temp1 = todoArray.data;
+                temp1.push(dragElement.item);
+                setTodoArray({ data: temp1, count: temp1.length });
+            } else if (target === "sales_SalesInner2") {
+                var temp2 = inprogressArray.data;
+                temp2.push(dragElement.item);
+                setInProgressArray({ data: temp2, count: temp2.length });
+            }
+            if (target === "sales_SalesInner3") {
+                var temp3 = completedArray.data;
+                temp3.push(dragElement.item);
+                setCompletedArray({ data: temp3, count: temp3.length });
+            }
+        }
+    };
+    const handleDrag = (e, index, startedDiv, item) => {
+        setDragElement({ index: index, startedDiv: startedDiv, item: item });
+    };
+
+    const handleDragging = (e, i) => {
+        console.log(i)
+    }
+
     return <>
         <div className="sales_SalesOuter">
-            <div className="sales_SalesInner1">
+            <div className="sales_SalesInner1"
+                onDragOver={(e) => allowDrop(e)}
+                onDrop={(e) => handleDrop(e)}>
                 <div className="sales_Inner1_row1">
                     <AiOutlineDown className="sales_dropdownicon" />
                     <label>TODO</label>
                 </div>
                 {
-                    todo.map((itm1, indx) => {
-                        return (<div className="sales_Inner_row2">
-                            <div className="sales_Inner_row2_row1">
-                                {/*< AiOutlineDown onClick={(e) => { tododropDown(todoArray, itm1) }} />*/}
+                    todoArray.data.map((item, index) => {
+                        return (<div className="sales_Inner_row2" draggable="true"
+                            // onDrag={(e)=>{handleDragging(e)}}
+                            onDragStart={(e) => handleDrag(e, index, "sales_SalesInner1", item)} >
 
-                                < AiOutlineDown onClick={(e) => handleTodo(e, itm1)} />
-                                <label>{itm1.txtTitle}</label>
+                            {/* {todoArray.data.map((item, index) => {
+                                return (
+                                    <p
+                                        draggable="true"
+                                        // onDrag={(e)=>{handleDragging(e)}}
+                                        onDragStart={(e) => handleDrag(e, index, "sales_Inner_row2", item)}
+                                    >
+                                        {item}
+                                    </p>
+                                );
+                            })} */}
+                            <div className="sales_Inner_row2_row1">
+                                {/* {/< AiOutlineDown onClick={(e) => { tododropDown(todoArray, itm1) }} />/} */}
+                                < AiOutlineDown onClick={(e) => handleTodo(e, item)} />
+                                <label>{item.txtTitle}</label>
                                 < BsThreeDots className="sales_threedotsicon" />
                             </div>
-
-                            {itm1.isclicked ? (<>
+                            {item.isclicked ? (<>
                                 <div className="Event_Task_Lead_top">
                                     <div className="Event_Task_Lead">
                                         <ul>
@@ -131,19 +139,19 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                                 <div className="sales_eventicon_outer">
                                                     < RiBookmarkFill className="sales_eventicon" />
                                                 </div>
-                                                <label>{itm1.txtCampaignName}</label>
+                                                <label>{item.txtCampaignName}</label>
                                             </li>
                                             <li>
                                                 <div className="sales_taskicon_outer">
                                                     < RiBookmarkFill className="sales_taskicon" />
                                                 </div>
-                                                <label>{itm1.txtActivitytype}</label>
+                                                <label>{item.txtActivitytype}</label>
                                             </li>
                                             <li>
                                                 <div className="sales_leadicon_outer">
                                                     < HiUser className="sales_leadicon" />
                                                 </div>
-                                                <label>{itm1.txtFirstName}</label>
+                                                <label>{item.txtFirstName}</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -159,22 +167,40 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                     <label>+</label>
                 </div>
             </div>
-            <div className="sales_SalesInner2">
+            <div className="sales_SalesInner2"
+                onDragOver={(e) => allowDrop(e)}
+                onDrop={(e) => handleDrop(e)}
+                onDrag={(e, i) => { handleDragging(e, i) }}>
                 <div className="sales_Inner2_row1">
                     <AiOutlineDown className="sales_dropdownicon" />
                     <label>PROGRESS</label>
                 </div>
                 {
-                    inprogress.map((itm2, indx) => {
+                    inprogressArray.data.map((item, index) => {
                         return (
-                            <div className="sales_Inner_row2">
+                            <div className="sales_Inner_row2"
+                                draggable="true"
+                                onDragStart={(e) => handleDrag(e, index, "sales_SalesInner2", item)}
+                                id={item}>
+
+                                {/* {inprogressArray.data.map((item, index) => {
+                                    return (
+                                        <p
+                                            draggable="true"
+                                            // onDrag={(e)=>{handleDragging(e)}}
+                                            onDragStart={(e) => handleDrag(e, index, "sales_Inner_row2", item)}
+                                        >
+                                            {item}
+                                        </p>
+                                    );
+                                })} */}
                                 <div className="sales_Inner_row2_row1">
-                                    < AiOutlineDown onClick={(e) => { handleInProgress(e, itm2) }} />
+                                    < AiOutlineDown onClick={(e) => { handleInProgress(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { inprogressdropDown(inprogressArray, itm2) }} /> */}
-                                    <label>{itm2.txtDescription}</label>
+                                    <label>{item.txtTitle}</label>
                                     < BsThreeDots className="sales_threedotsicon" />
                                 </div>
-                                {itm2.isclicked ? (<>
+                                {item.isclicked ? (<>
                                     <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>
@@ -182,19 +208,19 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                                     <div className="sales_eventicon_outer">
                                                         < RiBookmarkFill className="sales_eventicon" />
                                                     </div>
-                                                    <label>{itm2.txtCampaignName}</label>
+                                                    <label>{item.txtCampaignName}</label>
                                                 </li>
                                                 <li>
                                                     <div className="sales_taskicon_outer">
                                                         < RiBookmarkFill className="sales_taskicon" />
                                                     </div>
-                                                    <label>{itm2.txtActivitytype}</label>
+                                                    <label>{item.txtActivitytype}</label>
                                                 </li>
                                                 <li>
                                                     <div className="sales_leadicon_outer">
                                                         < HiUser className="sales_leadicon" />
                                                     </div>
-                                                    <label>{itm2.txtFirstName}</label>
+                                                    <label>{item.txtFirstName}</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -211,22 +237,38 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                     <label>+</label>
                 </div>
             </div>
-            <div className="sales_SalesInner3">
+            <div className="sales_SalesInner3"
+                onDragOver={(e) => allowDrop(e)}
+                onDrop={(e) => handleDrop(e)}>
                 <div className="sales_Inner3_row1">
                     <AiOutlineDown className="sales_dropdownicon" />
                     <label>COMPLETED</label>
                 </div>
                 {
-                    completed.map((itm3, indx) => {
+                    completedArray.data.map((item, index) => {
                         return (
-                            <div className="sales_Inner_row2">
+                            <div className="sales_Inner_row2"
+                                draggable="true"
+                                onDrag={(e) => { handleDragging(e) }}
+                                onDragStart={(e) => handleDrag(e, index, "sales_SalesInner3", item)}>
+                                {/* {completedArray.data.map((item, index) => {
+                                    return (
+                                        <p
+                                            draggable="true"
+                                            // onDrag={(e)=>{handleDragging(e)}}
+                                            onDragStart={(e) => handleDrag(e, index, "sales_Inner_row2", item)}
+                                        >
+                                            {item}
+                                        </p>
+                                    );
+                                })} */}
                                 <div className="sales_Inner_row2_row1">
-                                    < AiOutlineDown onClick={(e) => { handleCompleted(e, itm3) }} />
+                                    < AiOutlineDown onClick={(e) => { handleCompleted(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { completeddropDown(completedArray, itm3) }} /> */}
-                                    <label>{itm3.txtDescription}</label>
+                                    <label>{item.txtTitle}</label>
                                     < BsThreeDots className="sales_threedotsicon" />
                                 </div>
-                                {itm3.isclicked ? (<>
+                                {item.isclicked ? (<>
                                     <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>
@@ -234,19 +276,21 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                                     <div className="sales_eventicon_outer">
                                                         < RiBookmarkFill className="sales_eventicon" />
                                                     </div>
-                                                    <label>{itm3.txtCampaignName}</label>
+                                                    <label>{item.txtCampaignName}</label>
                                                 </li>
                                                 <li>
                                                     <div className="sales_taskicon_outer">
                                                         < RiBookmarkFill className="sales_taskicon" />
                                                     </div>
-                                                    <label>{itm3.txtActivitytype}</label>
+
+                                                    
+                                                    <label>{item.txtActivitytype}</label>
                                                 </li>
                                                 <li>
                                                     <div className="sales_leadicon_outer">
                                                         < HiUser className="sales_leadicon" />
                                                     </div>
-                                                    <label>{itm3.txtFirstName}</label>
+                                                    <label>{item.txtFirstName}</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -264,4 +308,6 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
             </div>
         </div>
     </>
+
+
 }
