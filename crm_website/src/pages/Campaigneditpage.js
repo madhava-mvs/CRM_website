@@ -41,7 +41,7 @@ export default function Campaigneditpage() {
     const [ediv_value11, setediv_value11] = useState("");
 
 
-    const [orangebar, setOrangebar] = useState([]);
+    const [orangebar, setOrangebar] = useState("");
     const [greenbar, setGreenbar] = useState([]);
     const [bluebar, setBluebar] = useState([]);
     // const [show2, setShow2] = useState(false);
@@ -106,7 +106,7 @@ export default function Campaigneditpage() {
     }
 
     const handleclick2 = (e) => {
-        const url = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
+        const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
         const data = { userid: userid, arrayData: arrayData, CampaignId: Campaign_id };
         const Headers = {}
         axios.post(url, data, { headers: Headers })
@@ -183,25 +183,25 @@ export default function Campaigneditpage() {
                 // setGreenbar(res.data[1].count)
                 // setBluebar(res.data[2].count)
                 // console.log("count->" )
-                console.log("Response => "+(JSON.stringify(res.data[0].count)) + (JSON.stringify(res.data[1].count)))
+                console.log("Response => "+JSON.stringify(res.data[0]) + (JSON.stringify(res.data[1]))+(JSON.stringify(res.data[2])))
                 setOrangebar(res.data[0].count)
                 setGreenbar(res.data[1].count)
-                // setBluebar(res.data[2].count)
+                setBluebar(res.data[2].count)
             })
             .catch((err) => {
                 console.log("Error => " + err)
             })
-    }, [])
+    // }, [])
 
-    useEffect(() => {
+    // useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
-        const data = {
+        const url1 = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const data1 = {
             id: Campaign_id,
         };
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const header1 = {};
+        axios.post(url1, data1, { headers: header1 })
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
 
@@ -229,15 +229,15 @@ export default function Campaigneditpage() {
             .catch((err) => {
                 console.log("Response==> " + JSON.stringify(err))
             })
-    }, [])
+    // }, [])
 
 
-    useEffect(() => {
+    // useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
-        const url = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
-        const data = { updateid: Campaign_id };
-        const header = {};
-        axios.post(url, data, { headers: header })
+        const url2 = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const data2 = { updateid: Campaign_id };
+        const header2 = {};
+        axios.post(url2, data2, { headers: header2 })
             .then((res) => {
                 console.log("Response==>" + JSON.stringify(res.data))
                 setArrayData1(res.data)
@@ -299,7 +299,7 @@ export default function Campaigneditpage() {
                                     )}
                             </div>
                             <div className="Campaigneditpage_topbar2_right_2_right">
-                                <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show2} />
+                                <Horizontalbar orangebar={orangebar} setOrangebar={setOrangebar} greenbar={greenbar} setGreenbar={setGreenbar} bluebar={bluebar} setBluebar={setBluebar}  show2={show2} />
                             </div>
                         </div>
 
