@@ -61,6 +61,24 @@ export default function Userprofile() {
 
         if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" || ConfirmPassword == "") {
             seterrorall(true)
+            if(FirstName == ""){
+                seterrorf("Firstname is mandatory")
+            }
+            else if(FirstName == ""){
+                seterrore("Email is mandatory")
+            }
+            else if(FirstName == ""){
+                seterrord("Dob is mandatory")
+            }
+            else if(FirstName == ""){
+                seterrora("Address is mandatory")
+            }
+            else if(FirstName == ""){
+                seterrorp("Password is mandatory")
+            }
+            else if(FirstName == ""){
+                seterrorc("Confirmpassword is mandatory")
+            }
         }
         else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "" && ConfirmPassword != "") {
             seterrorf("")
@@ -80,68 +98,60 @@ export default function Userprofile() {
             axios.post(url, data, header,)
                 .then((res) => {
                     console.log("Response==>" + JSON.stringify(res.data))
-                    let result = res.data + " "
-                    if (result.includes("Firstname is mandatory"))
-                        seterrorf("Firstname is mandatory")
-                    if (result.includes("Email is mandatory"))
-                        seterrore("Email is mandatory")
-                    if (result.includes("Dob is mandatory"))
-                        seterrord("Dob is mandatory")
-                    if (result.includes("Address is mandatory"))
-                        seterrora("Address is mandatory")
-                    if (result.includes("Password is mandatory"))
-                        seterrorp("Password is mandatory")
-                    if (result.includes("ConfirmPassword is mandatory"))
-                        seterrorc("Confirmpassword is mandatory")
-                    if (result.includes("ConfirmPassword not match"))
+                    if (res.data.includes("ConfirmPassword not match")){
                         seterrorpn("Password not match")
-                    if (result.includes("Profile Updated!"))
-                        seterroru("Profile Updated!")
-                    if (result.includes("already exist"))
-                        seterrore("Email already exist")
-                    //// //localStorage.setItem("tokenvariable", res.data)
-                    ///// const token = localStorage.getItem("tokenvariable");
-                    /// //navigate("/home");
-                })
+                    } else if (res.data.includes("Profile Updated!")){
+                    seterroru("Profile Updated!")}
+                else if (res.data.includes("already exist")){
+                    seterrore("Email already exist")}
+                    if (res.data.length > 0) {
+                        setFirstName(res.data[0].txtFirstName)
+                        setLastName(res.data[0].txtLastName)
+                        setEmail(res.data[0].txtEmail)
+                        setAddress(res.data[0].txtaddress)
+                        setPassword(res.data[0].txtPassword)
+                        setConfirmPassword(res.data[0].txtPassword)
+                        setDob(res.data[0].txtdob)
+                    }               })
                 .catch((err) => {
                     console.log("Response==> " + JSON.stringify(err))
                 })
         }
     }
 
-    useEffect(() => {
-        //const url = "http://localhost:3000/dev/getprofile";
-        const url = " https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/getprofile";
-        const data = {
-            id: userid,
-        };
-        const headers = {};
-        axios.post(url, data, headers,)
-            .then((res) => {
-                console.log("Response==>" + JSON.stringify(res.data))
+    // useEffect(() => {
+    //     //const url = "http://localhost:3000/dev/getprofile";
+    //     const url = " https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/getprofile";
+    //     const data = {
+    //         id: userid,
+    //     };
+    //     const headers = {};
+    //     axios.post(url, data, headers,)
+    //         .then((res) => {
+    //             console.log("Response==>" + JSON.stringify(res.data))
 
 
-                // localStorage.setItem("tokenvariable", res.data)
-                // const token = localStorage.getItem("tokenvariable");
-                //navigate("/home");
-                if (res.data.length > 0) {
-                    setFirstName(res.data[0].txtFirstName)
-                    setLastName(res.data[0].txtLastName)
-                    setEmail(res.data[0].txtEmail)
-                    setAddress(res.data[0].txtaddress)
-                    setPassword(res.data[0].txtPassword)
-                    // setConfirmPassword(res.data[0].txtPassword)
-                    setDob(res.data[0].txtdob)
-                }
+    //             // localStorage.setItem("tokenvariable", res.data)
+    //             // const token = localStorage.getItem("tokenvariable");
+    //             //navigate("/home");
+    //             if (res.data.length > 0) {
+    //                 setFirstName(res.data[0].txtFirstName)
+    //                 setLastName(res.data[0].txtLastName)
+    //                 setEmail(res.data[0].txtEmail)
+    //                 setAddress(res.data[0].txtaddress)
+    //                 setPassword(res.data[0].txtPassword)
+    //                 // setConfirmPassword(res.data[0].txtPassword)
+    //                 setDob(res.data[0].txtdob)
+    //             }
 
-                //if (res.data.length > 0) {
-                //    setRepassword(res.data[0].txtPassword)
-                //}
-            })
-            .catch((err) => {
-                console.log("Response==> " + JSON.stringify(err))
-            })
-    }, [])
+    //             //if (res.data.length > 0) {
+    //             //    setRepassword(res.data[0].txtPassword)
+    //             //}
+    //         })
+    //         .catch((err) => {
+    //             console.log("Response==> " + JSON.stringify(err))
+    //         })
+    // }, [])
     return (
 
         <>
@@ -174,7 +184,7 @@ export default function Userprofile() {
                                 <div className='Profile_id' >{userid}</div>
                             </div>
                             <div className="Profile_Info">
-                                <div className='Profile_outer_row1'> <label className="erroru">{erroru}</label>
+                                <div className='Profile_outer_row1'> <label className="erroru">{erroru && erroru}</label>
                                     <input type="text" placeholder="Personal Information"></input>
                                     <FiMoreHorizontal className='Profile_more1' />
                                 </div>
@@ -186,21 +196,21 @@ export default function Userprofile() {
                                 </div>
                                 <div className='Profileouter_row3'>
                                     <div className='Profile_a3' >
-                                        <input type="text" placeholder="" value={FirstName} onChange={(e) => { setFirstName(e.target.value) }} />
+                                        <input type="text" placeholder="" value={FirstName} onChange={(e) => { setFirstName(e.target.value);seterroru("") }} />
                                         <label className="errorf">{errorf}</label>
                                         {errorall && FirstName == "" ? <label className="errorf">Firstname is mandatory</label> : ""}</div>
 
                                     <div className='Profile_b3' >
-                                        <input type="text" placeholder="" value={LastName} onChange={(e) => { setLastName(e.target.value) }} /></div>
+                                        <input type="text" placeholder="" value={LastName} onChange={(e) => { setLastName(e.target.value);seterroru("") }} /></div>
                                     <div className='Profile_c3' >
-                                        <input type="text" placeholder="" value={Email} onChange={(e) => { setEmail(e.target.value) }} />
+                                        <input type="text" placeholder="" value={Email} onChange={(e) => { setEmail(e.target.value) ;seterroru("")}} />
                                         {errorall && Email == "" ? <label className="errore">Email is mandatory</label> : ""}<br />
                                         <label className="errore">{errore}</label>
                                     </div>
                                     <div className='Profile_d3'>
 
                                         <input type="date"
-                                            placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value) }} />
+                                            placeholder="" value={Dob} onChange={(e) => { setDob(e.target.value);seterroru("") }} />
                                         {errorall && Dob == "" ? <label className="errord">Dob is mandatory</label> : ""}</div>
                                     {/* <MdKeyboardArrowDown className='Profileouter_row3_downarrow' /> */}
                                 </div>
@@ -212,13 +222,13 @@ export default function Userprofile() {
 
                                 <div className='Profileouter_row5'>
                                     <div className='Profile_a5'>
-                                        <input type="text" placeholder="" value={Address} onChange={(e) => { setAddress(e.target.value) }} />
+                                        <input type="text" placeholder="" value={Address} onChange={(e) => { setAddress(e.target.value);seterroru("") }} />
                                         {errorall && Address == "" ? <label className="errora">Address is mandatory</label> : ""}</div>
                                     <div className='Profile_b5'>
                                         {/* <input type="Password" placeholder="" value={Password} onChange={(e) => { setPassword(e.target.value) }} /> */}
                                         {/* <input type="Password"  value={Password} onChange={(e) => (setPassword(e.target.value))} placeholder="Password" /> */}
 
-                                        <input type={state ? "text" : "Password"} onChange={(e) => { setPassword(e.target.value) }}
+                                        <input type={state ? "text" : "Password"} onChange={(e) => { setPassword(e.target.value);seterroru("") }}
 
 
 
@@ -238,7 +248,7 @@ export default function Userprofile() {
 
                                     <div className='Profile_c5'>
                                         <div className='Profile_c4' >ConfirmPassword*</div>
-                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
+                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value);seterroru("") }} />
 
 
 
