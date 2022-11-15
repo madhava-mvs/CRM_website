@@ -10,8 +10,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { date } from "check-types";
 import ReactDatePicker from "react-datepicker";
+import Leadcampaignlist from "../components/Leadcampaignlist";
 
 export default function Leadupdate() {
+  const update_lead_id = useSelector((state) => state.update_lead_id);
+
   useEffect(() => {
     const url_lead =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
@@ -28,7 +31,7 @@ export default function Leadupdate() {
       });
   }, []);
 
-  const update_lead_id = useSelector((state) => state.update_lead_id);
+  // const update_lead_id = useSelector((state) => state.update_lead_id);
   const nav = useNavigate();
 
   const [salutation, setSalutation] = useState("");
@@ -58,13 +61,14 @@ export default function Leadupdate() {
   const [erroraddress, setEaddress] = useState("");
   const [errorcreatedon, setEcreatedon] = useState("");
   const [errorcreatedby, setEcreatedby] = useState("");
-  const [errorcampaignid, setEcampaignid] = useState("")
+  const [errorcampaignid, setEcampaignid] = useState("");
   const [addlead, setAddlead] = useState("");
   const [array_lead, setArray_lead] = useState([]);
-  const [array_campaign, setArray_campaign] = useState([])
+  const [array_campaign, setArray_campaign] = useState([]);
   const [bulkimportshow, setBulkimportshow] = useState(false);
   const [savebuttonshow, setSavebuttonshow] = useState(true);
   const [middledivshow, setMiddledivshow] = useState(false);
+  const [array_leadcampaignlist, setArray_leadcampaignlist] = useState([])
   const button_value = "Save lead";
   const titlebar_name = "Lead List";
   const titlebar_value1 = "active";
@@ -136,6 +140,24 @@ export default function Leadupdate() {
         setActiveStatus(adata[0].activestatus);
 
         console.log("adata==>" + JSON.stringify(adata));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    const url_leadcampaign =
+      "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/Leadcampaignlist";
+    const data_leadcampaign = {
+      leadid: update_lead_id,
+    };
+    const header_leadcampaign = {};
+    axios
+      .post(url_leadcampaign, data_leadcampaign, {
+        headers: header_leadcampaign,
+      })
+      .then((res) => {
+        console.log("leadcampaignlist==>" + JSON.stringify(res.data));
+        setArray_leadcampaignlist(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -449,6 +471,9 @@ export default function Leadupdate() {
               />{" "}
             </div>
           </div>
+        </div>
+        <div>
+          <Leadcampaignlist array_leadcampaignlist={array_leadcampaignlist} />
         </div>
       </div>
     </div>

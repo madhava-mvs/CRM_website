@@ -190,6 +190,11 @@ export default function Form({
                   className="form_rectangle"
                 />
                 <br />
+                {div_value2 == "" ? (
+                  <span className="warning_error">{ediv_value2}</span>
+                ) : (
+                  <></>
+                )}
               </>
             )}
 {/* s1
@@ -337,6 +342,11 @@ export default function Form({
                   className="form_rectangle"
                 />
                 <br />
+                {div_value4 == "" ? (
+                  <span className="warning_error">{ediv_value3}</span>
+                ) : (
+                  <></>
+                )}
               </>
             )}
 {/* s1
