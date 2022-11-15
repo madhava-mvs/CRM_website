@@ -17,6 +17,7 @@ export default function ProspectListpage() {
   const titlebar_value3 = "Assembly";
   const middledivshow = true;
   const [array, setArray] = useState([]);
+  const editshow = (true);
 
 
 
@@ -105,7 +106,7 @@ export default function ProspectListpage() {
           
         </div>
           <div className="ProspectListpage_Filterbar">
-            <Filterbar DeleteFunc={Deleteprospect}/>
+            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow}/>
           </div>
           <div className="ProspectListpage_Mainlist">
             <Prospectpagelistmainlist array={array} setArray={setArray} />

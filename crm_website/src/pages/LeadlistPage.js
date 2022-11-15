@@ -22,6 +22,7 @@ export default function LeadListPage() {
 
   const [array, setArray] = useState([]);
   const [array1, setArray1] = useState([]);
+  const editshow = (false);
 
   useEffect(() => {
     const url =
@@ -110,7 +111,7 @@ export default function LeadListPage() {
               />
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar DeleteFunc={DeleteLead} />
+              <Filterbar DeleteFunc={DeleteLead} editshow={editshow}/>
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} />

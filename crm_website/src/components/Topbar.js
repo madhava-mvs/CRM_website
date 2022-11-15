@@ -326,6 +326,23 @@ export default function Topbar() {
     nav("/");
   };
   const username1 = useSelector((state) => state.username1);
+  const company = useSelector((state) => state.company);
+
+
+  const jobrole = useSelector((state) => state.jobrole);
+  const Dashboardclick = () => {
+    if (jobrole === "Admin") {
+      nav("/admindash")
+    }
+    else if (jobrole === "Manager") {
+      nav("/managerdash")
+    }
+    else {
+      nav("/salesDashboard")
+    }
+  }
+
+
   return (
     <>
       <div className="Topbar_header">
@@ -334,12 +351,12 @@ export default function Topbar() {
             <AiOutlineMenu />
           </div>
           <div className="Topbar_Company">
-            <h3>Company</h3>
+            <h3>{company}</h3>
           </div>
         </div>
         <div className="Topbar_col2">
           <ul>
-            <li>Dashboard</li>
+            <li onClick={Dashboardclick}>Dashboard</li>
             <li>Accounts</li>
             <div
               className="Tobar_col2_on"
@@ -427,14 +444,14 @@ export default function Topbar() {
           <div className="Topbar_cancel_circle">
             <div className="dropdown">
               <MdCancel className="Topbar_cancelIcon" />
-              
-                <div
-                  className="dropdown_content"
-                  onClick={(e) => {
-                    logOut(e);
-                  }}
-                >
-                  <div className="dropdown_content_inside">
+
+              <div
+                className="dropdown_content"
+                onClick={(e) => {
+                  logOut(e);
+                }}
+              >
+                <div className="dropdown_content_inside">
                   <label
                     className="topbarlogout"
                     onClick={(e) => {

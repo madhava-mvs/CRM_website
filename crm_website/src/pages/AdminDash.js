@@ -26,7 +26,6 @@ export default function AdminDash() {
 
     const [bar, setBar] = useState([]);
 
-
     const title = ("Managerwise Prospect Count");
     const [array1, setArray1] = useState([]);
     const summary_show = (true);
