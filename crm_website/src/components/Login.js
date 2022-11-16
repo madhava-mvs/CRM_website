@@ -7,7 +7,9 @@ export default function LOGIN({ Login, error1, error, username, password, setpas
     function SignUp() {
         navigate('/SignUpPage')
     }
-
+    function forgotpwd(){
+        navigate("/emailvalidation")
+    }
 
     return <>
         <div className='login'>
@@ -24,7 +26,7 @@ export default function LOGIN({ Login, error1, error, username, password, setpas
 
 
                 <div className='login_inner_row6'><input type='checkbox' /><label>Remember Me</label>
-                    <a href='random'>Forgot Password?</a></div>
+                    <span onClick={forgotpwd}>Forgot Password?</span></div>
                 <div className='login_inner_row7'><input type='submit' value="LOGIN" onClick={(e) => { Login(e) }/*{ setshowfail(true) }*/} /></div>
 
             </div>

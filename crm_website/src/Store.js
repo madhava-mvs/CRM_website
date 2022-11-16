@@ -8,6 +8,7 @@ const initialState = {
   update_lead_id: "",
   company: "XYZ",
   jobrole: "",
+  email: ""
 };
 const reducer = (prevState = initialState, action) => {
   switch (action.type) {
@@ -34,6 +35,9 @@ const reducer = (prevState = initialState, action) => {
       break;
     case "setJobrole":
       return { ...prevState, jobrole: action.payload };
+      break;
+    case "setemail":
+      return { ...prevState, email: action.payload }
       break;
   }
   return prevState;

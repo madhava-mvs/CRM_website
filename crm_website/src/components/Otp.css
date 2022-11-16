@@ -1,6 +1,6 @@
 .otp_outer {
     background-color: rgb(231 231 231 / 64%);
-    height: 130vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;

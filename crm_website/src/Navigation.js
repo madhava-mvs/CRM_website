@@ -15,6 +15,8 @@ import SignUpPage from "./pages/SignUpPage";
 import Tasklist from "./pages/Tasklist";
 import Userprofile from "./pages/Userprofile";
 import Leadupdate from "./pages/Leadupdate";
+import Emailvalidation from "./components/Emailvalidation";
+import Resetpassword from "./components/Resetpassword";
 
 export default function Navigation() {
   return (
@@ -26,7 +28,8 @@ export default function Navigation() {
           <Route path="/otp" element={<Otp />}></Route>
           <Route path="/Leadlist" element={<LeadListPage />}></Route>
           <Route path="/Leadupdate" element={<Leadupdate />}></Route>
-
+          <Route path="/emailvalidation" element={<Emailvalidation/>}></Route>
+          <Route path="/resetpassword" element={<Resetpassword/>}></Route>
           <Route path="/Addlead" element={<AddLead />}></Route>
           <Route
             path="/Campaignlistpage"
