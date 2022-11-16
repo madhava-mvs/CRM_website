@@ -36,3 +36,24 @@ body{
 .div2_left{
   height: 140vh;
 }
+.leadlistpage_Checklist_popup_blur{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.71);
+  margin-bottom: 23px;
+  width: 105vw;
+  height: 141vh;
+  margin-top: -1091px;
+  margin-left: -282px;
+}
+
+
+.leadlistpage_Checklist_popup{
+  box-shadow: 1px 1px 1px 2px #edebeb;
+  position: absolute;
+  margin-top: -760px;
+  margin-left: 264px;
+  border-radius: 20px;
+
+}

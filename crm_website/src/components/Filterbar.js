@@ -5,7 +5,7 @@ import { MdEdit, MdDelete } from "react-icons/md"
 import { VscListFlat } from "react-icons/vsc"
 import { CgMenuGridR } from "react-icons/cg"
 import { FaList } from "react-icons/fa"
-export default function Filterbar({ DeleteFunc, editshow, handleselectall }) {
+export default function Filterbar({ DeleteFunc, editshow, handleselectall,handleclick1 }) {
     return <>
         <div className="Filterbar_Column">
             <div className="Column1">
@@ -23,7 +23,7 @@ export default function Filterbar({ DeleteFunc, editshow, handleselectall }) {
                 </div>
                 <div className="Column2_inner3">
                     <MdEdit className="Column2_inner3_Edit" />
-                    {editshow ? (<label>Edit</label>) : (<label>Campaign</label>)}
+                    {editshow ? (<label>Edit</label>) : (<label onClick={(e) => { handleclick1(e) }} >Campaign</label>)}
                 </div>
                 <div className="Column2_inner4" onClick={DeleteFunc}>
                     <MdDelete className="Column2_inner4_Delete" />
