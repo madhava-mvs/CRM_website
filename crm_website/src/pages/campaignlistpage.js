@@ -89,7 +89,15 @@ export default function CampaignListPage() {
         console.log("Error==>" + err);
       });
   }, []);
-
+  
+  const handleselectall = (e, itm) => {
+    let temp = [...array];
+    for (const iterator of temp) {
+        iterator.isclicked = !iterator.isclicked;
+      
+    }
+    setArray(temp);
+  };
   return (
     <>
       <div className="Campaignlist_page">
@@ -110,7 +118,7 @@ export default function CampaignListPage() {
               />
             </div>
             <div className="Campaignlist_Filterbar">
-              <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} />
+              <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} handleselectall={handleselectall} />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />

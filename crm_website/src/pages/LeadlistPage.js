@@ -6,6 +6,7 @@ import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import Filterbar from "../components/Filterbar";
 import Mainlist from "../components/Leadlist_Mainlist";
+import CheckList from "../components/Checklist1";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -19,20 +20,25 @@ export default function LeadListPage() {
   const button_value = "Add Lead";
   const bulkimportshow = true;
   const savebuttonshow = true;
-
+  const [show, setShow] = useState();
   const [array, setArray] = useState([]);
   const [array1, setArray1] = useState([]);
   const editshow = (false);
+  const [array2, setArray2] = useState([]);
+
+  const Campaign_id = useSelector((state) => state.update_campaign_id);
+  const userid = useSelector((state) => state.userid);
+  const update_lead_id = useSelector((state) => state.update_lead_id);
 
   useEffect(() => {
-    const url =
+    const url1 =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Leadlist";
     // const url = "http://localhost:3000/dev/Leadlist";
 
-    const data = {};
+    const data1 = {};
     const Headers = {};
     axios
-      .post(url, data, Headers)
+      .post(url1, data1, Headers)
       .then((res) => {
         console.log("Response==>" + JSON.stringify(res.data));
         for (const temp of res.data) {
@@ -45,11 +51,10 @@ export default function LeadListPage() {
       .catch((err) => {
         console.log("Error==>" + err);
       });
-  }, []);
-  const update_lead_id = useSelector((state) => state.update_lead_id);
+    // }, []);
 
-  // const data = localStorage.getItem();
-  useEffect(() => {
+    // const data = localStorage.getItem();
+    // useEffect(() => {
     const url =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
     const data = { id: update_lead_id };
@@ -89,6 +94,40 @@ export default function LeadListPage() {
         console.log("Error ==> " + err);
       });
   };
+  const handleclick1 = (e) => {
+    setShow(!show);
+    const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getCampaign";
+    const data = { id: userid  };
+    const headers = {};
+    axios.post(url, data, { headers: headers })
+        .then((res) => {
+            console.log("Response of array==>" + JSON.stringify(res.data));
+            // for (const a of res.data) {
+            //     a.isclicked = false
+            // }
+            setArray2(res.data)
+            console.log("Array== " + JSON.stringify(array2))
+        })
+        .catch((err) => {
+            console.log("Error==>" + err);
+        });
+   
+  };
+  const handleclick3 = (e) => {
+    setShow(!show);
+  };
+  const handleclick2 =(e) => {
+
+  }
+  const handleselectall = (e, itm) => {
+    let temp1 = [...array];
+    for (const iterator of temp1) {
+        iterator.isclicked = !iterator.isclicked;
+      
+    }
+    setArray(temp1);
+  };
+
 
   return (
     <>
@@ -111,10 +150,21 @@ export default function LeadListPage() {
               />
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar DeleteFunc={DeleteLead} editshow={editshow}/>
+              <Filterbar DeleteFunc={DeleteLead} editshow={editshow} handleclick1={handleclick1} handleselectall={handleselectall}/>
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} />
+              {show ? (
+                <>
+                  <div className="leadlistpage_Checklist_popup_blur"></div>
+                  <div className="leadlistpage_Checklist_popup">
+                    <CheckList handleclick2={handleclick2} setArray2={setArray2}  handleclick3={handleclick3} array2={array2}
+                    />
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

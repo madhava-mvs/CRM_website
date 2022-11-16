@@ -8,7 +8,7 @@ import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { date } from "check-types";
+// import { date } from "check-types";
 import ReactDatePicker from "react-datepicker";
 import Leadcampaignlist from "../components/Leadcampaignlist";
 
@@ -39,7 +39,7 @@ export default function Leadupdate() {
   const [middlename, setMiddlename] = useState("");
   const [lastname, setLastname] = useState("");
   const [campaignid, setCampaignid] = useState("");
-  const [title, setTitle] = useState("");
+  // const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState();
@@ -81,7 +81,7 @@ export default function Leadupdate() {
   const div_head2 = "FirstName*";
   const div_head3 = "MiddleName";
   const div_head4 = "LastName*";
-  const div_head5 = "campaign*";
+  const div_head5 = "";
   const div_head6 = "Company*";
   const div_head7 = "Email*";
   const div_head8 = "Phone*";
@@ -90,10 +90,10 @@ export default function Leadupdate() {
   const div_head11 = "State*";
   const div_head12 = "City";
   const div_head13 = "Pin code";
-  const div_head14 = "Lead Source Name";
-  const div_head15 = "Date Added On*";
-  const div_head16 = "Active Status";
-  const div_head17 = "Lead Owner*";
+  // const div_head14 = "Lead Source Name";
+  // const div_head15 = "Date Added On*";
+  // const div_head16 = "Active Status";
+  // const div_head17 = "Lead Owner*";
 
   useEffect(() => {
     const url_campaign =
@@ -138,6 +138,7 @@ export default function Leadupdate() {
         setLeadOwner(adata[0].Owner);
         setDateAddedOn(newdate.substring(0, 10));
         setActiveStatus(adata[0].activestatus);
+
 
         console.log("adata==>" + JSON.stringify(adata));
       })
@@ -336,9 +337,9 @@ export default function Leadupdate() {
         state: state,
         address: address,
         pincode: pincode,
-        Owner: Number(leadOwner),
-        activestatus: activeStatus,
-        dateAddedOn: dateAddedOn,
+        // Owner: Number(leadOwner),
+        // activestatus: activeStatus,
+        // dateAddedOn: dateAddedOn,
       };
 
       const header = {};
@@ -445,20 +446,20 @@ export default function Leadupdate() {
                 setDiv_value12={setCity}
                 div_head13={div_head13}
                 div_value13={pincode}
-                setDiv_value13={setPincode}
-                div_head14={div_head14}
-                div_value14={leadSourceName}
-                setDiv_value14={setLeadSourceName}
-                div_head15={div_head15}
-                div_value15={dateAddedOn}
-                setDiv_value15={setDateAddedOn}
-                div_head16={div_head16}
-                div_value16={activeStatus}
-                setDiv_value16={setActiveStatus}
-                div_head17={div_head17}
-                div_value17={leadOwner}
-                setDiv_value17={setLeadOwner}
-                array_lead={array_lead}
+                // setDiv_value13={setPincode}
+                // div_head14={div_head14}
+                // div_value14={leadSourceName}
+                // setDiv_value14={setLeadSourceName}
+                // div_head15={div_head15}
+                // div_value15={dateAddedOn}
+                // setDiv_value15={setDateAddedOn}
+                // div_head16={div_head16}
+                // div_value16={activeStatus}
+                // setDiv_value16={setActiveStatus}
+                // div_head17={div_head17}
+                // div_value17={leadOwner}
+                // setDiv_value17={setLeadOwner}
+                // array_lead={array_lead}
                 ediv_value1={esuffix}
                 ediv_value2={errorfirstname}
                 ediv_value3={errorlastname}
