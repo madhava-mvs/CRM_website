@@ -1,0 +1,102 @@
+.emailvalidation{
+    max-width: 100%;
+    min-height: 100vh;
+    background-color:#f4f5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.outer_emailvalidation{
+        min-height: 40vh;
+        min-width:50vh ;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        border: 0.5px solid rgb(237, 224, 224);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.inner_emailvalidation_row1{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.inner_emailvalidation_row1 label{
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+
+.inner_emailvalidation_row2{
+    display: flex;
+    justify-content: center;
+
+}
+.inner_emailvalidation_row2 label{
+    font-size: 15px;
+}
+.inner_emailvalidation_row3{
+    display: flex;
+    justify-content: center;
+}
+.inner_emailvalidation_row3 label{
+    font-size: 15px;
+}
+.inner_emailvalidation_row4{
+    margin-top: 25px;
+}
+.inner_emailvalidation_row4 label{
+    font-size: 15px;
+    margin-left: 2px;
+    font-weight: 500;
+}
+.inner_emailvalidation_row5{
+    margin-top: 5px;
+}
+.inner_emailvalidation_row5 input{
+    outline: none;
+    padding: 10px 8px;
+    border-radius: 5px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.214);
+}
+.inner_emailvalidation_row5 input ::placeholder{
+    color: rgb(181, 180, 180);
+}
+.inner_emailvalidation_row6 {
+    margin-top: 15px;
+
+}
+.inner_emailvalidation_row6 button{
+    border-radius: 3px;
+    color: rgb(255 255 255);
+    background-color: #9155fd;
+    border: none;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 8px;
+    width: 100%;
+}
+.inner_emailvalidation_row7{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+
+}
+.inner_emailvalidation_row7 label{
+    font-size: 15px;
+}
+.inner_emailvalidation_row7 label span{
+
+    text-decoration: none;
+    color: blueviolet;
+    cursor: pointer;
+    font-weight: 500;
+}

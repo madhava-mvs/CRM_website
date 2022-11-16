@@ -102,10 +102,11 @@
     margin-top: 5px;
   }
   
-  .login_inner_row6 a {
+  .login_inner_row6 span {
     margin-left: 102px;
     color: #8c08ece0;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .login_inner_row6 a:hover{
