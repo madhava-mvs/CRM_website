@@ -5,11 +5,11 @@ import { MdEdit, MdDelete } from "react-icons/md"
 import { VscListFlat } from "react-icons/vsc"
 import { CgMenuGridR } from "react-icons/cg"
 import { FaList } from "react-icons/fa"
-export default function Filterbar({ DeleteFunc, editshow }) {
+export default function Filterbar({ DeleteFunc, editshow, handleselectall }) {
     return <>
         <div className="Filterbar_Column">
             <div className="Column1">
-                <BsFillCheckCircleFill className="Column1_Cirleicon" />
+                <input type={"checkbox"} className="filterbar_selectall" onChange={handleselectall} />
                 <label>Select All</label>
             </div>
             <div className="Column2">

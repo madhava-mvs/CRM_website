@@ -13,7 +13,76 @@ import { useSelector } from "react-redux";
 import { json } from "react-router-dom";
 
 export default function Tasklist() {
-  console.log("your in task list");
+
+  const [array_mainlist, setArray_mainlist] = useState([]);
+  const jobrole = useSelector((state) => state.jobrole);
+  const userid = useSelector((state) => state.userid);
+  useEffect(() => {
+    //const url = "http://localhost:3000/dev/taskfetch";
+    const url =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
+    const data = {};
+    const header = {};
+    axios
+      .post(url, data, { headers: header })
+      .then((res) => {
+        if (jobrole == "Admin") {
+          console.log("Response of admin   ==>" + JSON.stringify(res.data));
+          setArray_mainlist(res.data);
+        } else if (jobrole == "Manager") {
+          const url =
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+          const data = {
+            id: userid,
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+              console.log("Response   ==>" + JSON.stringify(res.data));
+              setArray_mainlist(res.data);
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            });
+        } else if (jobrole == "User") {
+          const url =
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+          const data = {
+            id: userid,
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+              console.log("Response   ==>" + JSON.stringify(res.data));
+              setArray_mainlist(res.data);
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            });
+        }
+      })
+
+      .catch((err) => {
+        console.log("Error==>" + err);
+      });
+  }, []);
+
+
+  const handleClickselectall = (e, itm) => {
+    let temp = [...array_mainlist];
+    for (const iterator of temp) {
+        iterator.isclicked = !iterator.isclicked;
+      
+    }
+    setArray_mainlist(temp);
+  };
+
+
+
+
+
 
   const [array_campaign, setArray_campaign] = useState([]);
   const [array_lead, setArray_lead] = useState([]);
@@ -127,10 +196,10 @@ export default function Tasklist() {
               </div>
             </div>
             <div className="Tasklist2_Filterbar">
-              <Filterbar />
+              <Filterbar handleselectall={handleClickselectall} />
             </div>
             <div className="Tasklist2_Mainlist">
-              <Mainlist array={array} setArray={setArray} />
+              <Mainlist array={array_mainlist} setArray={setArray_mainlist} />
             </div>
           </div>
         </div>
@@ -140,13 +209,7 @@ export default function Tasklist() {
 }
 
 function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
-  const [errorall, seterrorall] = useState("");
-  const [errors, seterrors] = useState("");
-  const [errorc, seterrorc] = useState("");
-  const [errord, seterrord] = useState("");
-  const [errorstatus, seterrorstatus] = useState("");
-  const [errora, seterrora] = useState("");
-  const [errorl, seterrorl] = useState("");
+
   const [title, setTitle] = useState("");
   const [txtcomments, settxtcomments] = useState("");
   const [campaign_name, setCampaign_name] = useState("");
