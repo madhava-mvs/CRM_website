@@ -77,9 +77,11 @@ function ListRow({ itm, array, setArray }) {
         <input
           className="Tasklist_Cb"
           type="checkbox"
-          onClick={(e) => handleClick(e, itm)}
+          onClick={(e) => {
+            handleClick(e, itm)
+          }}
+          checked={itm.isclicked? "true": ""}
         />
-        <label for="checkbox"></label>
         <div className="Tasklist_Mainlist_list_row">
           {/* <div className="itmSubject">{itm.Subject}</div>
 

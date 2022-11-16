@@ -91,11 +91,13 @@ export default function SalesDashboard() {
   const titlebar_value1="Activity"
   const titlebar_value2="lead"
   const titlebar_value3="All"
-
+  const sales_button_value = "search"
   const [todo, setTodo]=useState([])
   const [inProgress, setInProgress]=useState([])
   const [completed, setCompleted]=useState([])
   const [show, setShow]=useState(true)
+  const [salesbuttonshow, setSalesbuttonshow]=useState(true)
+
   ///
   useEffect(()=>{
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/TODO";
@@ -152,7 +154,7 @@ export default function SalesDashboard() {
         <div className='salesdash_content_right'>
             <div className='salesdash_content_right_inside'>
               <div className='salesdash_titlebar'>
-            <TitleBar titlebar_name={titlebar_name}savebuttonshow={savebuttonshow} button_value={button_value} middledivshow={middledivshow} titlebar_value1={ titlebar_value1} titlebar_value2={ titlebar_value2} titlebar_value3={ titlebar_value3}/></div>
+            <TitleBar titlebar_name={titlebar_name}savebuttonshow={savebuttonshow} button_value={button_value} middledivshow={middledivshow} titlebar_value1={ titlebar_value1} titlebar_value2={ titlebar_value2} titlebar_value3={ titlebar_value3} salesbuttonshow={salesbuttonshow} sales_button_value={sales_button_value}/></div>
             <SalesDash todo={todo} inprogress={inProgress} completed={completed} setTodo={setTodo} setInProgress={setInProgress} setCompleted={setCompleted} handleclick={handleclick}/>
             {
               show?(

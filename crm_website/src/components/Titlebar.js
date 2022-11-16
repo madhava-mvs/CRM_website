@@ -25,7 +25,9 @@ export default function TitleBar({
   middledivshow,
   titlebar_value1,
   titlebar_value2,
-  titlebar_value3
+  titlebar_value3,
+  salesbuttonshow,
+  sales_button_value
 }) {
   // const SaveLead = () => {
   //   const suffix = localStorage.getItem("salutationvar");
@@ -239,6 +241,11 @@ export default function TitleBar({
           <div className="titlebar_top_col22_inside">
             <BsFillPlusCircleFill className="titlebar_plusIcon" />
             <label>{button_value}</label>
+            </div>
+          </div>:<></>}
+          {salesbuttonshow?<div className="titlebar_top_col22" onClick={SaveLead}>
+          <div className="titlebar_top_col22_inside">
+            <label>{sales_button_value}</label>
             </div>
           </div>:<></>}
         </div>
