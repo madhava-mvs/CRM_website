@@ -1,28 +1,61 @@
-
-
-
-
 import "./Mainlist.css";
 import axios from "axios";
 import React from "react";
-
+import { useSelector } from "react-redux";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useEffect, useState } from "react";
 export default function Mainlist() {
   const [array, setArray] = useState([]);
+  const jobrole = useSelector((state) => state.jobrole);
+  const userid = useSelector((state) => state.userid);
   useEffect(() => {
 
     //const url = "http://localhost:3000/dev/taskfetch";
-    const url = "https://yrxkax15th.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
+    const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
     const data = {};
     const header = {};
     axios
       .post(url, data, { headers: header })
       .then((res) => {
+        if(jobrole=="Admin"){
         console.log("Response   ==>" + JSON.stringify(res.data));
         setArray(res.data)
-      })
+        }
+        else if(jobrole=="Manager"){
+          const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+          const data = {
+id:userid
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+console.log("Response   ==>" + JSON.stringify(res.data));
+        setArray(res.data)
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            }); 
+        }
+        else if(jobrole=="User"){
+          const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+          const data = {
+            id:userid
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+console.log("Response   ==>" + JSON.stringify(res.data));
+        setArray(res.data)
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            }); 
+        }
 
+      })
+    
       .catch((err) => {
         console.log("Error==>" + err);
       });
@@ -64,13 +97,13 @@ function ListRow({ itm, array, setArray }) {
   const handleClick = (e, itm) => {
     let temp = [...array];
     for (const iterator of temp) {
-      if (itm.id === iterator.id) {
+      if (itm.leademail === iterator.leademail) {
         iterator.isclicked = !iterator.isclicked;
       }
     }
     setArray(temp)
   }
-  const d = new Date(itm.dtCreatedon);
+  const d = new Date(itm.dtcreatedon);
   let day = d.getDate();
   let month = d.getMonth();
   let year = d.getFullYear();
@@ -93,9 +126,9 @@ function ListRow({ itm, array, setArray }) {
 
           <div className="itmowner">{itm.owner}</div> */}
 
-          <div className="itmSubject">{itm.Activitytype}</div>
+          <div className="itmSubject">{itm.subject}</div>
 
-          <div className="itmStatus">{itm.Statuses}</div>
+          <div className="itmStatus">{itm.status}</div>
           
           <div className="itmdate">{year}-{month}-{day}</div>
 
@@ -103,7 +136,7 @@ function ListRow({ itm, array, setArray }) {
           <div className="itmLeadEmail">{itm.leademail}</div>
 
 
-          <div className="itmowner">{itm.Assignedto}</div>
+          <div className="itmowner">{itm.owner}</div>
           <div className="Tasklist_Mainlist_icon">
             <AiOutlineArrowRight />
           </div>
@@ -112,3 +145,4 @@ function ListRow({ itm, array, setArray }) {
     </>
   );
 }
+{/* <AiOutlineArrowRight /> */}
