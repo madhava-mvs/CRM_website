@@ -78,6 +78,15 @@ export default function ProspectListpage() {
         console.log("Error==>" + err);
       });
   }, []);
+
+  const handleselectall = (e, itm) => {
+    let temp = [...array];
+    for (const iterator of temp) {
+        iterator.isclicked = !iterator.isclicked;
+      
+    }
+    setArray(temp);
+  };
   return (
     <>
       <div className="ProspectListpage">
@@ -106,7 +115,7 @@ export default function ProspectListpage() {
           
         </div>
           <div className="ProspectListpage_Filterbar">
-            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow}/>
+            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow} handleselectall={handleselectall}/>
           </div>
           <div className="ProspectListpage_Mainlist">
             <Prospectpagelistmainlist array={array} setArray={setArray} />
