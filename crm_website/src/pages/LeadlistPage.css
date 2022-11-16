@@ -23,7 +23,7 @@ body{
 .Leadlist_Filterbar{
   margin-top: 20px;
   height: 60px;
-  width: 124vh;
+  min-width: 124vh;
   margin-left: 15px;
 }
 .Leadlist_TitleBar{

@@ -91,3 +91,8 @@
     border: 0.2px solid #f3f3f4;
     box-shadow: 1px 1px #f3f3f4;
 }
+.filterbar_search{
+ width:60px;
+ border: none;
+ outline-color: white;
+}
