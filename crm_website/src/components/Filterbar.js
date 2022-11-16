@@ -19,7 +19,8 @@ export default function Filterbar({ DeleteFunc, editshow, handleselectall,handle
                 </div>
                 <div className="Column2_inner2">
                     <AiOutlineSearch className="Column2_inner2_Search" />
-                    <label>Search</label>
+                    <input type={"text"} placeholder="Search" className="filterbar_search"/>
+                    {/* <label>Search</label> */}
                 </div>
                 <div className="Column2_inner3">
                     <MdEdit className="Column2_inner3_Edit" />
