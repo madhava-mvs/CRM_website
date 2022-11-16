@@ -74,6 +74,7 @@ import TitleBar from '../components/Titlebar'
 import Topbar from '../components/Topbar'
 import './salesDashboard.css'
 import SalesDash from '../components/Msale'
+import Pop from '../components/Pop'
 
 import axios from 'axios'
 import { useSelector } from 'react-redux'
@@ -94,6 +95,7 @@ export default function SalesDashboard() {
   const [todo, setTodo]=useState([])
   const [inProgress, setInProgress]=useState([])
   const [completed, setCompleted]=useState([])
+  const [show, setShow]=useState(true)
   ///
   useEffect(()=>{
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/TODO";
@@ -136,6 +138,10 @@ export default function SalesDashboard() {
       console.log(err)
     })
   },[]);
+   
+  const handleclick =(e)=>{
+    setShow(!show)
+  }
   return (
     <div className='salesdash_outer'>
       <Topbar />
@@ -147,7 +153,18 @@ export default function SalesDashboard() {
             <div className='salesdash_content_right_inside'>
               <div className='salesdash_titlebar'>
             <TitleBar titlebar_name={titlebar_name}savebuttonshow={savebuttonshow} button_value={button_value} middledivshow={middledivshow} titlebar_value1={ titlebar_value1} titlebar_value2={ titlebar_value2} titlebar_value3={ titlebar_value3}/></div>
-            <SalesDash todo={todo} inprogress={inProgress} completed={completed} setTodo={setTodo} setInProgress={setInProgress} setCompleted={setCompleted} />
+            <SalesDash todo={todo} inprogress={inProgress} completed={completed} setTodo={setTodo} setInProgress={setInProgress} setCompleted={setCompleted} handleclick={handleclick}/>
+            {
+              show?(
+                <>
+                <div className="popup">
+                  <Pop />
+                </div>
+              </>
+            ) : (
+              <></>
+              )
+            }
             </div>
         </div>
       </div>
