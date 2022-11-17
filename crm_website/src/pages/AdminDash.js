@@ -13,7 +13,9 @@ import { useEffect, useState } from "react";
 
 
 export default function AdminDash() {
-
+    const [bargraph_status, setBargraph_status] = useState("");
+    const campaignwiseprospect_popup_show = (true)
+    const [count_value, setCountvalue] = useState("");
     const [pcount, setPcount] = useState("");
 
     const [orangebar, setOrangebar] = useState([]);
@@ -25,6 +27,7 @@ export default function AdminDash() {
     const [pros, setPros] = useState([]);
 
     const [bar, setBar] = useState([]);
+    const [bar1, setBar1] = useState([]);
 
     const title = ("Managerwise Prospect Count");
     const [array1, setArray1] = useState([]);
@@ -43,7 +46,9 @@ export default function AdminDash() {
     const [user, setUser] = useState([]);
 
     const [pending_show, setPending_show] = useState(false);
-    const [approval_mail, setApproval_mail] = useState("")
+    const [approval_mail, setApproval_mail] = useState("");
+
+    const leadsfunnel_popup_show = (true);
 
     //ProspectGrowth Axios
 
@@ -106,8 +111,9 @@ export default function AdminDash() {
         const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data))
+                console.log("Response old val => " + JSON.stringify(res.data))
                 setBar(res.data)
+                setBar1(res.data)
             })
             .catch((err) => {
                 console.log("Error => " + err)
@@ -143,6 +149,50 @@ export default function AdminDash() {
             })
     }
 
+    const campaignstatus = (e) => {
+        console.log("Bargraph direct: " + e.target.value)
+        setBargraph_status(e.target.value)
+        console.log("bargraph status:" + bargraph_status)
+        if (e.target.value === "empty") {
+            setBar(bar1)
+        }
+        else {
+            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountstatusfilter";
+            const data = { value: e.target.value };
+            const header = {}
+            axios.post(url, data, { headers: header })
+                .then((res) => {
+                    console.log("Response new val => " + JSON.stringify(res.data))
+                    setBar(res.data)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+    };
+
+    const filtercount = (e) => {
+        console.log("Bargraph default: " + e.target.value)
+        setCountvalue(e.target.value)
+        console.log("bargraph filter:" + count_value)
+        if (e.target.value === "empty") {
+            setBar(bar1)
+        }
+        else {
+            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountcountfilter";
+            const data = { value: e.target.value };
+            const header = {}
+            axios.post(url, data, { headers: header })
+                .then((res) => {
+                    console.log("Response new val => " + JSON.stringify(res.data))
+                    setBar(res.data)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+    }
+
 
 
     return <>
@@ -161,9 +211,9 @@ export default function AdminDash() {
                 </div>
                 <div className='Admin_page_contentpart_main'>
                     <div className='Admin_page_contentpart_main_row1'>
-                        <Bargraph bar={bar} />
+                        <Bargraph bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} />
                         <div className="Admin_page_contentpart_main_horizontal">
-                            <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} />
+                            <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} />
                         </div>
                     </div>
                     <div className='Admin_page_contentpart_main_row2'>
@@ -184,4 +234,6 @@ export default function AdminDash() {
         </div >
     </>
 }
+
+
 

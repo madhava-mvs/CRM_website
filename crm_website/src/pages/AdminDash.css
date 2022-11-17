@@ -1,6 +1,7 @@
 .Admin_page {
     display: absolute;
     flex-direction: column;
+    width: 100%;
 }
 
 .Admin_page_contentpart {
@@ -9,8 +10,9 @@
 }
 
 .Admin_page_topbar {
-    width: 204vh;
+    width: 1489px;
 }
+
 
 .Admin_page_contentpart_leftbar {
     background-color: #f3f3f4;
@@ -25,7 +27,7 @@
     margin-left: 80px;
     align-items: center;
     justify-content: center;
-    height: 120vh;
+    /* height: 120vh; */
 }
 
 .Admin_page_contentpart_main_row1 {
