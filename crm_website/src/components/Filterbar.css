@@ -96,3 +96,10 @@
  border: none;
  outline-color: white;
 }
+.filterbar_search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #8298c2;
+    padding-left: 5px;
+    font-weight:normal;
+    font-size:medium;
+}
+  
