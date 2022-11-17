@@ -74,7 +74,7 @@ function ListRow({ itm, array, setArray }) {
     <>
  
       <div className={itm.isclicked?"prospectlistpage_Mainlist_list_row_topSelected":"prospectlistpage_Mainlist_list_row_top"} >
-        <input className="prospectlistpage_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}/>
+        <input className="prospectlistpage_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}checked={itm.isclicked? "true": ""}/>
               <label for="checkbox"></label>
         <div className="prospectlistpage_Mainlist_list_row">
 
@@ -93,3 +93,4 @@ function ListRow({ itm, array, setArray }) {
     </>
   );
 }
+// }

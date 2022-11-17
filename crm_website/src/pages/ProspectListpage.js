@@ -19,7 +19,7 @@ export default function ProspectListpage() {
   const [array, setArray] = useState([]);
   const editshow = (true);
 
-
+  const [selectall_isclicked, setSelectall_isclicked] = useState(true);
 
 
 
@@ -79,14 +79,41 @@ export default function ProspectListpage() {
       });
   }, []);
 
-  const handleselectall = (e, itm) => {
-    let temp = [...array];
-    for (const iterator of temp) {
-        iterator.isclicked = !iterator.isclicked;
+  // const handleselectall = (e, itm) => {
+  //   let temp = [...array];
+  //   for (const iterator of temp) {
+  //       iterator.isclicked = !iterator.isclicked;
       
+  //   }
+  //   setArray(temp);
+  // };
+
+
+
+
+
+
+
+  const handleselectall = (e, itm) => {
+    setSelectall_isclicked(!selectall_isclicked);
+    let temp = [...array];
+    if (selectall_isclicked === true) {
+      for (const iterator of temp) {
+        iterator.isclicked = true;
+      }
+    }
+    else{
+      for (const iterator of temp) {
+        iterator.isclicked = false;
+      }
     }
     setArray(temp);
   };
+
+
+
+
+
   return (
     <>
       <div className="ProspectListpage">
