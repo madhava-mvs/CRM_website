@@ -1,0 +1,130 @@
+.filter_outer {
+  background-color: rgba(211, 211, 211, 0.341);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+.filter_inner {
+  background-color: white;
+  margin-top: 200px;
+  padding: 20px;
+  border-radius: 30px;
+  width: 800px;
+}
+
+.filter_inner label {
+  color: #7c8aa5;
+}
+
+.filter_inner1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.filter_inner1_date {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 10px 35px;
+  padding-bottom: 30px;
+}
+.filter_inner1_date label {
+  padding-bottom: 20px;
+}
+
+.filter_inner1_date input {
+  width: 135px;
+  padding: 10px 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(148, 148, 148);
+}
+
+.filter_inner1_campaign {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 10px 25px;
+  padding-bottom: 30px;
+}
+
+.filter_inner1_status {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 10px 25px;
+  padding-bottom: 30px;
+}
+
+.multi_select {
+  width: 200px;
+}
+
+.filter_inner2 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter_inner2_1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.filter_inner2_1:hover {
+  box-shadow: 0px 3px 5px 3px lightgray;
+}
+
+.filter_inner2_deleteicon {
+  color: gray;
+}
+
+.filter_inner2_buttons {
+  width: 185px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tasklist_applyfilter_button {
+  background-color: rgb(154, 80, 224);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+}
+
+.tasklist_applyfilter_button:hover {
+  background-color: #7654b4;
+  box-shadow: 0px 3px 5px 3px lightgray;
+}
+
+.tasklist_cancel_button {
+  background-color: #f3f3f4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: gray;
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+}
+
+.tasklist_cancel_button:hover {
+  box-shadow: 0px 3px 5px 3px lightgray;
+}

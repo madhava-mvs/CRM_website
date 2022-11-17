@@ -11,12 +11,16 @@ import { GiBeachBag } from "react-icons/gi";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { json } from "react-router-dom";
+import Tasklist_filterbar from "../components/tasklist_filterpopup";
 
 export default function Tasklist() {
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
   const [array_mainlist, setArray_mainlist] = useState([]);
+  const [array_mainlist_duplicate, setArray_mainlist_dplicate] = useState([]);
   const jobrole = useSelector((state) => state.jobrole);
   const userid = useSelector((state) => state.userid);
+  const [filterpopup_show, setFilterpopup_show] = useState(false);
+  const editshow = true;
   useEffect(() => {
     //const url = "http://localhost:3000/dev/taskfetch";
     const url =
@@ -29,6 +33,7 @@ export default function Tasklist() {
         if (jobrole == "Admin") {
           console.log("Response of admin   ==>" + JSON.stringify(res.data));
           setArray_mainlist(res.data);
+          setArray_mainlist_dplicate(res.data);
         } else if (jobrole == "Manager") {
           const url =
             "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
@@ -41,6 +46,7 @@ export default function Tasklist() {
             .then((res) => {
               console.log("Response   ==>" + JSON.stringify(res.data));
               setArray_mainlist(res.data);
+              setArray_mainlist_dplicate(res.data);
             })
             .catch((err) => {
               console.log("Error==>" + err);
@@ -57,6 +63,7 @@ export default function Tasklist() {
             .then((res) => {
               console.log("Response   ==>" + JSON.stringify(res.data));
               setArray_mainlist(res.data);
+              setArray_mainlist_dplicate(res.data);
             })
             .catch((err) => {
               console.log("Error==>" + err);
@@ -76,8 +83,7 @@ export default function Tasklist() {
       for (const iterator of temp) {
         iterator.isclicked = true;
       }
-    }
-    else{
+    } else {
       for (const iterator of temp) {
         iterator.isclicked = false;
       }
@@ -167,9 +173,23 @@ export default function Tasklist() {
       });
   }, []);
 
+  const handleclickfilterbar_filter = () => {
+    setFilterpopup_show(!filterpopup_show);
+  };
+
   return (
     <>
       <div className="Tasklist2_page">
+        {filterpopup_show ? (
+          <Tasklist_filterbar
+            handleclickfilterbar_filter={handleclickfilterbar_filter}
+            array_mainlist_duplicate={array_mainlist_duplicate}
+            array_mainlist={array_mainlist}
+            setArray_mainlist={setArray_mainlist}
+          />
+        ) : (
+          <></>
+        )}
         <div className="Tasklist2_div1">
           <Topbar />
         </div>
@@ -197,7 +217,11 @@ export default function Tasklist() {
               </div>
             </div>
             <div className="Tasklist2_Filterbar">
-              <Filterbar handleselectall={handleClickselectall} />
+              <Filterbar
+                editshow={editshow}
+                handleselectall={handleClickselectall}
+                handleclickfilterbar_filter={handleclickfilterbar_filter}
+              />
             </div>
             <div className="Tasklist2_Mainlist">
               <Mainlist array={array_mainlist} setArray={setArray_mainlist} />

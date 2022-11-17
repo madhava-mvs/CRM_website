@@ -59,7 +59,7 @@ function ListRow({ itm, array, setArray }) {
         <input
           className="Tasklist_Cb"
           type="checkbox"
-          onClick={(e) => {
+          onChange={(e) => {
             handleClick(e, itm)
           }}
           checked={itm.isclicked? "true": ""}
