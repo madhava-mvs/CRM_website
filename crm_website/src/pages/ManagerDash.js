@@ -8,6 +8,7 @@ import Summary from '../components/Summary';
 import SummaryCount from "../components/SummaryCount";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function ManagerDash() {
 
@@ -18,6 +19,7 @@ export default function ManagerDash() {
     const [greenbar, setGreenbar] = useState([]);
     const [bluebar, setBluebar] = useState([]);
     const show = (true);
+    const campaignwiseprospect_popup_show = (false)
 
     const [leads, setLeads] = useState([]);
     const [pros, setPros] = useState([]);
@@ -26,11 +28,11 @@ export default function ManagerDash() {
 
     const title = ("SalesPerson Wise Prospect Count");
     const summary_show = (false);
-    const [array1, setArray1] = useState([])
-    // const userid = useSelector((state) => state.userid);
-    const userid = 32;
+    const [array1, setArray1] = useState([]);
+    const userid = useSelector((state) => state.userid);
 
 
+    const leadsfunnel_popup_show = (true);
     //ProspectGrowth Axios
 
     useEffect(() => {
@@ -112,9 +114,9 @@ export default function ManagerDash() {
                 </div>
                 <div className="ManagerDash_page_content_area">
                     <div className="ManagerDash_page_content_area_row1">
-                        <Bargraph bar={bar} />
+                        <Bargraph bar={bar} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} />
                         <div className="ManagerDash_page_content_area_horizontal">
-                            <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show} />
+                            <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show} leadsfunnel_popup_show={leadsfunnel_popup_show} />
                         </div>
                     </div>
                     <div className="ManagerDash_page_content_area_row2">

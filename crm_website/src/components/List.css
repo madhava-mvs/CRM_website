@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     color: #727f97;
-    width: 280px;
+    width: 300px;
 }
 
 .list_title{
@@ -38,10 +38,22 @@
     width: 250px;
 }
 
+.list_singlerow_name{
+    /* background-color: yellow; */
+    width: 110px;
+    /* padding-left: 10px; */
+}
+
+.list_singlerow_role{
+    /* background-color: brown; */
+    width:110px;
+}
+
 .list_singlerow_circle{
     background-color: white;
+    /* background-color: tomato; */
     width: 40px;
-    height: 40px;
+    height: 30px;
     border-radius: 20px;
     display: flex;
     align-items: center;
