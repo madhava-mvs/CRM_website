@@ -11,29 +11,11 @@ export default function Mainlist({array, setArray}) {
       <div className="Mainlist_Outer">
         <div className="Mainlist_box"></div>
         <div className="TaskList_Mainlist_header">
-          <div className="Tasklist_Mainlist_row1">
-            <ul>
-              <div className="Tasklist_Header_Main1">
-                <li>Subject</li>
-              </div>
-
-              <div className="Tasklist_Header_Main2">
-                <li>Status</li>
-              </div>
-
-              <div className="Tasklist_Header_Main3">
-                <li>dtCreatedOn</li>
-              </div>
-
-              <div className="Tasklist_Header_Main4">
-                <li>LeadEmail</li>
-              </div>
-
-              <div className="Tasklist_Header_Main5">
-                <li>owner</li>
-              </div>
-            </ul>
-          </div>
+              <div className="Tasklist_header1">Subject</div>
+              <div className="Tasklist_header2">Status</div>
+              <div className="Tasklist_header3">dtCreatedon</div>
+              <div className="Tasklist_header4">LeadEmail</div>
+              <div className="Tasklist_header5">Owner</div>
         </div>
         <div className="Tasklist_Mainlist_Innerbox">
           <div className="Tasklist_Mainlist_list">
@@ -63,7 +45,7 @@ function ListRow({ itm, array, setArray }) {
   };
   const d = new Date(itm.dtcreatedon);
   let day = d.getDate();
-  let month = d.getMonth();
+  let month = d.getMonth()+1;
   let year = d.getFullYear();
   return (
     <>
@@ -95,17 +77,17 @@ function ListRow({ itm, array, setArray }) {
 
           <div className="itmowner">{itm.owner}</div> */}
 
-          <div className="itmSubject">{itm.subject}</div>
+          <div className="task_itmSubject">{itm.subject}</div>
 
-          <div className="itmStatus">{itm.status}</div>
+          <div className="task_itmStatus">{itm.status}</div>
 
-          <div className="itmdate">
+          <div className="task_itmdate">
             {year}-{month}-{day}
           </div>
 
-          <div className="itmLeadEmail">{itm.leademail}</div>
+          <div className="task_itmLeadEmail">{itm.leademail}</div>
 
-          <div className="itmowner">{itm.owner}</div>
+          <div className="task_itmowner">{itm.owner}</div>
           <div className="Tasklist_Mainlist_icon">
             <AiOutlineArrowRight />
           </div>

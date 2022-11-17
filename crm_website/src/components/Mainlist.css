@@ -1,9 +1,5 @@
-.TaskList_Mainlist_header {
-  margin-top: 30px;
-  width: 100%;
-  padding-left: 15px;
-  
-}
+
+
 .Tasklist_Mainlist_row1 ul {
   width: 90%;
   display: flex;
@@ -49,7 +45,8 @@
   color: #c3cad9;
   font-size: 1.2rem;
   border: 1px solid lightgray;
-  
+  margin-left: -42px;
+
   /* filter:blur(0.3px) */
   
   
@@ -165,52 +162,58 @@ color:white
 }
 
 
-.itmSubject{
-  width:80px;
+.TaskList_Mainlist_header{
+  display: flex;
+  flex-direction: row;
+  font-size: smaller bold;
+  align-items: center;
+  color:rgba(125, 143, 177, 1);
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 16px;
+  margin-right: 147px;
+  height: 30px;
+  margin-top: 12px;
+  margin-bottom: 21px;
+}
+.Tasklist_header1{
+  margin-left: 65px;
+}
+.Tasklist_header2{
+  margin-left: 62px;
+}
+.Tasklist_header3{
+  margin-left: 92px;
+}
+.Tasklist_header4{
+  margin-left: 88px;
+}
+.Tasklist_header5{
+  margin-left: 142px;
+}
+
+
+
+.task_itmSubject{
+  width: 55px;
+  margin-left: 6px;
+}
   
- }
-
- .Tasklist_Header_Main1{
-  width:60px;
-  margin-left:15px;
+ 
+ .task_itmStatus{
+  width: 64px;
+  margin-left: 45px;
 }
-
-.itmStatus{
-  width:85px;
-  margin-left:-15px;
+.task_itmdate{
+  width: 112px;
+  margin-left: 60px;
 }
-
-.Tasklist_Header_Main2{
-  width: 96px;
-  margin-left: 22px;
-  padding-left: 4%;
+.task_itmLeadEmail{
+  width: 190px;
+  margin-left: 50px;
 }
+.task_itmowner{
+  
+     width: 100px; 
+    margin-left: 20px;
 
-
-.Tasklist_Header_Main3{
-  width:61px;
-  margin-left:15px;
-  padding-left: 1%;
-}
-
-.Tasklist_Header_Main4{
-  width:103px;
-  margin-left:55px;
-  padding-left: 6%;
-}
-
-.itmLeadEmail{
-  width:160px;
-  margin-left:15px;
-}
-
-.Tasklist_Header_Main5{
-  width:103px;
-  margin-left:42px;
-  padding-left: 9%;
-}
-
-.itmowner{
-  width:100px;
-  margin-left:15px;
 }
