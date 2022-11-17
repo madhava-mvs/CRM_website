@@ -25,6 +25,8 @@ export default function LeadListPage() {
   const [array1, setArray1] = useState([]);
   const editshow = (false);
   const [array2, setArray2] = useState([]);
+  const [selectall_isclicked, setSelectall_isclicked] = useState(true);
+
 
   const Campaign_id = useSelector((state) => state.update_campaign_id);
   const userid = useSelector((state) => state.userid);
@@ -102,9 +104,9 @@ export default function LeadListPage() {
     axios.post(url, data, { headers: headers })
         .then((res) => {
             console.log("Response of array==>" + JSON.stringify(res.data));
-            // for (const a of res.data) {
-            //     a.isclicked = false
-            // }
+            for (const temp of res.data) {
+              temp.isclicked = false;
+            }
             setArray2(res.data)
             console.log("Array== " + JSON.stringify(array2))
         })
@@ -117,13 +119,48 @@ export default function LeadListPage() {
     setShow(!show);
   };
   const handleclick2 =(e) => {
+    console.log("addlead array==>" + JSON.stringify(array));
+    console.log("addcamp array==>" + JSON.stringify(array2));
 
+
+    let leadid;
+    for (const k of array) {
+      if (k.isclicked === true) {
+        leadid = k.id;
+      }
+    }
+    let campaignid;
+    for (const i of array2) {
+      if (i.isclicked === true) {
+        campaignid = i.campaignid;
+      }
+    }
+    const url =
+      "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/adddleadtocamp";
+    // const url = "http://localhost:3000/dev/DeleteSingleLead"
+    const data = { LeadId: leadid ,CampaignId:campaignid, id: userid};
+    const header = {};
+    axios
+      .post(url, data, { headers: header })
+      .then((res) => {
+        console.log("Response ==> " + JSON.stringify(res.data));
+      })
+      .catch((err) => {
+        console.log("Error ==> " + err);
+      });
   }
   const handleselectall = (e, itm) => {
+    setSelectall_isclicked(!selectall_isclicked);
     let temp1 = [...array];
-    for (const iterator of temp1) {
-        iterator.isclicked = !iterator.isclicked;
-      
+    if (selectall_isclicked === true) {
+      for (const iterator of temp1) {
+        iterator.isclicked = true;
+      }
+    }
+    else{
+      for (const iterator of temp1) {
+        iterator.isclicked = false;
+      }
     }
     setArray(temp1);
   };

@@ -61,6 +61,8 @@ export default function CampaignListPage() {
   }
 
   const [array, setArray] = useState([]);
+  const [selectall_isclicked, setSelectall_isclicked] = useState([]);
+
   const savebuttonshow = true;
   const titlebar_name = "Campaignlist";
   const button_value = "Add Campaign";
@@ -91,10 +93,17 @@ export default function CampaignListPage() {
   }, []);
   
   const handleselectall = (e, itm) => {
+    setSelectall_isclicked(!selectall_isclicked);
     let temp = [...array];
-    for (const iterator of temp) {
-        iterator.isclicked = !iterator.isclicked;
-      
+    if (selectall_isclicked === true) {
+      for (const iterator of temp) {
+        iterator.isclicked = true;
+      }
+    }
+    else{
+      for (const iterator of temp) {
+        iterator.isclicked = false;
+      }
     }
     setArray(temp);
   };

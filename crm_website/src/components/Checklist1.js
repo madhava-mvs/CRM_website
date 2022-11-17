@@ -33,11 +33,12 @@ export default function CheckList({ array2,handleclick2, setArray2, handleclick3
 
 function List({ itm,setArray2,array2 }) {
   const dispatch = useDispatch()
+  console.log("array2==> "+ JSON.stringify(array2))
   dispatch({ type: "userid", payload: itm.id });
   const handleClick11=(e, itm)=>{
     let temp = [...array2];
     for (const iterator of temp) {
-      if (itm.id === iterator.id) {
+      if (itm.campaignid === iterator.campaignid) {
         iterator.isclicked = !iterator.isclicked;
       }
       

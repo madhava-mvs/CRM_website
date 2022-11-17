@@ -66,7 +66,8 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
   return (
     <>
       <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"}  >
-        <input className="Campaignlist_Cb" type="checkbox" onClick={e=>handleClick(e, itm)}/>
+        <input className="Campaignlist_Cb" type="checkbox" onClick={e=>handleClick(e, itm)} checked={itm.isclicked? "true": ""}
+/>
               <label for="checkbox"></label>
         <div className="Campaignlist_Mainlist_list_row"onClick={Updatecampaign(itm)}>
           <div className="Campaignlist_itmFirstName">{itm.CampaignName}</div>
