@@ -1,17 +1,19 @@
 .bargraph {
+    /* background-color: black; */
+    min-width: 350px;
     margin-top: 50px;
     margin-left: 50px;
     background-color: #f3f3f4;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
     border-radius: 10px;
     max-width: 350px;
 }
 
 .bargraph_title label,
-.bargraph_title .icon {
+.bargraph_threedot_icon {
     color: #6b7a99;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
@@ -22,16 +24,31 @@
     margin-right: 5px;
 }
 
+.bargraph_title_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.threedot_icon_div {
+    /* background-color: red; */
+    width: 15px;
+}
+
 .bargraph_graph {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    max-width: 350px;
+    /* max-width: 200px; */
+    /* max-width: fit-content; */
+    overflow-x: scroll;
 }
 
-.bargraph .icon {
+
+.bargraph_threedot_icon {
     margin-top: 5px;
-    padding-left: 75px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -40,20 +57,25 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
     margin: 0;
     align-items: center;
+    width: 110%;
 }
 
 .bargraph_graph li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center;
+    width: 10px;
 }
 
+.bargraph_graph label {
+    display: flex;
+    flex-direction: column;
+}
 
 .bargraph_blue_value {
     color: blue;
@@ -73,4 +95,46 @@
     width: 25px;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.bargraph_campaignwiseprospect_popup_content label {
+    color: #6b7a99;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 5px 5px;
+    font-size: 12px;
+}
+
+.campaign_rectangle_select {
+    background-color: white;
+    color: rgba(125, 143, 177, 1);
+    height: 25px;
+    width: 100px;
+    margin-right: -5px;
+    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
+    /* box-shadow: 0 5px 5px -5px #333; */
+    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    border: none;
+    outline: none;
+}
+
+
+.bargraph_campaignwiseprospect_popup {
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    height: 120px;
+    width: 120px;
+    position: relative;
+    display: none;
+}
+
+.bargraph_campaignwiseprospect_popup_content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+}
+
+
+.bargraph_title :hover .bargraph_campaignwiseprospect_popup {
+    display: block;
 }
