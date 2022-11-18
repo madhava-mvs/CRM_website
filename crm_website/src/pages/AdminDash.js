@@ -21,6 +21,9 @@ export default function AdminDash() {
     const [orangebar, setOrangebar] = useState([]);
     const [greenbar, setGreenbar] = useState([]);
     const [bluebar, setBluebar] = useState([]);
+    const [orangebar1, setOrangebar1] = useState([]);
+    const [greenbar1, setGreenbar1] = useState([]);
+    const [bluebar1, setBluebar1] = useState([]);
     const show = (false);
 
     const [leads, setLeads] = useState([]);
@@ -50,6 +53,13 @@ export default function AdminDash() {
 
     const leadsfunnel_popup_show = (true);
 
+    const [campaign_array, setCampaign_Array] = useState([]);
+    const [manager_array, setManager_Array] = useState([]);
+
+    const [manager_filter, setManager_Filter] = useState("");
+
+    const [campid, setCampid] = useState("");
+
     //ProspectGrowth Axios
 
     useEffect(() => {
@@ -61,10 +71,10 @@ export default function AdminDash() {
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
-                console.log("Response ==> " + JSON.stringify(res.data[0].count))
+                console.log("ProspectGrowth Response ==>  Prospects :" + JSON.stringify(res.data[0].count))
             })
             .catch((err) => {
-                console.log("Error ==> " + err)
+                console.log("ProspectGrowth Error ==> " + err)
             })
 
         //LeadsFunnel Axios
@@ -72,13 +82,16 @@ export default function AdminDash() {
         const url2 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
+                console.log("LeadsFunnel Response ==>  Leads : " + (JSON.stringify(res.data[0].Leads)) + " Nurtring : " + (JSON.stringify(res.data[1].Leads)) + " Prospects : " + (JSON.stringify(res.data[2].Leads)))
                 setOrangebar(res.data[0].Leads)
                 setGreenbar(res.data[1].Leads)
                 setBluebar(res.data[2].Leads)
+                setOrangebar1(res.data[0].Leads)
+                setGreenbar1(res.data[1].Leads)
+                setBluebar1(res.data[2].Leads)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("LeadsFunnel Error ==> " + err)
             })
 
         //ProspectProgress Axios
@@ -86,12 +99,12 @@ export default function AdminDash() {
         const url3 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
         axios.post(url3, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
+                console.log("ProspectProgress Response ==>  Leads : " + JSON.stringify(res.data[0].Leads) + " Prospects : " + JSON.stringify(res.data[1].Leads))
                 setLeads(res.data[0].Leads)
                 setPros(res.data[1].Leads)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("ProspectProgress Error ==> " + err)
             })
 
         //ManagerWiseProspectCount Axios
@@ -99,11 +112,11 @@ export default function AdminDash() {
         const url4 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
         axios.post(url4, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data))
+                console.log("ManagerWiseProspectCount Response ==> " + JSON.stringify(res.data))
                 setArray1(res.data)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("ManagerWiseProspectCount Error ==> " + err)
             })
 
         //CampaignWiseProspectCount Axios
@@ -111,12 +124,12 @@ export default function AdminDash() {
         const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
-                console.log("Response old val => " + JSON.stringify(res.data))
+                console.log("CampaignWiseProspectCount Response ==> " + JSON.stringify(res.data))
                 setBar(res.data)
                 setBar1(res.data)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("CampaignWiseProspectCount Error ==> " + err)
             })
 
         //UserList Axios
@@ -125,11 +138,35 @@ export default function AdminDash() {
         axios.post(url6, data, { headers: header })
             .then((res) => {
                 setUser((res.data))
-                console.log("Response => " + JSON.stringify(res.data))
+                console.log("UserList Response ==> " + JSON.stringify(res.data))
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("UserList Error ==> " + err)
             })
+
+        //AdminDashLeadsFunnelFilterGetCampaign Axios
+
+        const url_camp = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetCampaign";
+        axios.post(url_camp, data, { headers: header })
+            .then((res) => {
+                console.log("AdminDashLeadsFunnelFilterGetCampaign Response ==> " + JSON.stringify(res.data));
+                setCampaign_Array(res.data);
+            })
+            .catch((err) => {
+                console.log("AdminDashLeadsFunnelFilterGetCampaign Error ==> " + err);
+            });
+
+        //AdminDashLeadsFunnelFilterGetManager Axios
+
+        const url_getmanager = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetManager";
+        axios.post(url_getmanager, data, { headers: header })
+            .then((res) => {
+                console.log("AdminDashLeadsFunnelFilterGetManager Response ==> " + JSON.stringify(res.data));
+                setManager_Array(res.data);
+            })
+            .catch((err) => {
+                console.log("AdminDashLeadsFunnelFilterGetManager Error ==> " + err);
+            });
 
     }, [])
 
@@ -162,7 +199,7 @@ export default function AdminDash() {
             const header = {}
             axios.post(url, data, { headers: header })
                 .then((res) => {
-                    console.log("Response new val => " + JSON.stringify(res.data))
+                    console.log("Response new val ==> " + JSON.stringify(res.data))
                     setBar(res.data)
                 })
                 .catch((err) => {
@@ -184,7 +221,7 @@ export default function AdminDash() {
             const header = {}
             axios.post(url, data, { headers: header })
                 .then((res) => {
-                    console.log("Response new val => " + JSON.stringify(res.data))
+                    console.log("Response new val ==> " + JSON.stringify(res.data))
                     setBar(res.data)
                 })
                 .catch((err) => {
@@ -192,6 +229,62 @@ export default function AdminDash() {
                 })
         }
     }
+
+
+    const managerclick = (e) => {
+        console.log("Leads Funnel default: " + e.target.value)
+        setManager_Filter(e.target.value)
+        console.log("Leads Funnel Manager filter:" + manager_filter)
+        if (e.target.value === "empty") {
+            setOrangebar(orangebar1);
+            setGreenbar(greenbar1);
+            setBluebar(bluebar1);
+        }
+        else {
+            const url_manager = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelManagerFilter";
+            const data_manager = { userid: Number(e.target.value) };
+            const header = {}
+            axios.post(url_manager, data_manager, { headers: header })
+                .then((res) => {
+                    console.log("Leads Funnel Manager Filter Response ==>  Leads : " + (JSON.stringify(res.data[0].Leads)) + " Nurturing : " + (JSON.stringify(res.data[1].Leads)) + " Prospects : " + (JSON.stringify(res.data[2].Leads)))
+                    setOrangebar(res.data[0].Leads)
+                    setGreenbar(res.data[1].Leads)
+                    setBluebar(res.data[2].Leads)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+    }
+
+
+    const campaignclick = (e) => {
+        console.log("Campaign Filter default : " + e.target.value)
+        setCampid(e.target.value)
+        console.log("Campaign Filter Selected :" + campid)
+        if (e.target.value === "empty") {
+            setOrangebar(orangebar1);
+            setGreenbar(greenbar1);
+            setBluebar(bluebar1);
+        }
+        else {
+            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelCampaignFilter";
+            const data = { campaignid: e.target.value };
+            const header = {}
+            axios.post(url, data, { headers: header })
+                .then((res) => {
+                    console.log("Leads Funnel Campaign Filter Response ==>  Leads : " + (JSON.stringify(res.data[0].Leads)) + " Nurturing : " + (JSON.stringify(res.data[1].Leads)) + " Prospects : " + (JSON.stringify(res.data[2].Leads)))
+                    setOrangebar(res.data[0].Leads)
+                    setGreenbar(res.data[1].Leads)
+                    setBluebar(res.data[2].Leads)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+    }
+
+
 
 
 
@@ -213,7 +306,7 @@ export default function AdminDash() {
                     <div className='Admin_page_contentpart_main_row1'>
                         <Bargraph bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} />
                         <div className="Admin_page_contentpart_main_horizontal">
-                            <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} />
+                            <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} campaign_array={campaign_array} manager_array={manager_array} managerclick={managerclick} manager_filter={manager_filter} setManager_Array={setManager_Array} campaignclick={campaignclick} campid={campid} setCampid={setCampid} />
                         </div>
                     </div>
                     <div className='Admin_page_contentpart_main_row2'>

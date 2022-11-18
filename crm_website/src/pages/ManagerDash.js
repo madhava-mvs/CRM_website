@@ -32,7 +32,7 @@ export default function ManagerDash() {
     const userid = useSelector((state) => state.userid);
 
 
-    const leadsfunnel_popup_show = (true);
+    const leadsfunnel_popup_show = (false);
     //ProspectGrowth Axios
 
     useEffect(() => {
@@ -44,10 +44,10 @@ export default function ManagerDash() {
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
-                console.log("Response ==> " + JSON.stringify(res.data[0].count))
+                console.log("ManagerDash Prospect Growth Response ==> " + JSON.stringify(res.data[0].count))
             })
             .catch((err) => {
-                console.log("Error ==> " + err)
+                console.log("ManagerDash Prospect Growth Error ==> " + err)
             })
 
 
@@ -56,13 +56,13 @@ export default function ManagerDash() {
         const url2 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashleadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
+                console.log("ManagerDash Leads Funnel Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
                 setOrangebar(res.data[0].Leads)
                 setGreenbar(res.data[1].Leads)
                 setBluebar(res.data[2].Leads)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("ManagerDash Leads Funnel Error => " + err)
             })
 
         //ProspectProgress Axios
@@ -70,12 +70,12 @@ export default function ManagerDash() {
         const url3 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectprogress";
         axios.post(url3, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
+                console.log("ManagerDash Prospect Progress Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
                 setLeads(res.data[0].Leads)
                 setPros(res.data[1].Leads)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("ManagerDash Prospect Progress Error => " + err)
             })
 
         //SalesPersonWiseProspectCount Axios
@@ -83,11 +83,11 @@ export default function ManagerDash() {
         const url4 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/SaleswisePropectcount";
         axios.post(url4, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data))
+                console.log("SalesPersonwisePropectcount Response => " + JSON.stringify(res.data))
                 setArray1(res.data)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("SalesPersonwisePropectcount Error => " + err)
             })
 
         //CampaignWiseProspectCount Axios
@@ -95,11 +95,11 @@ export default function ManagerDash() {
         const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
-                console.log("Response => " + JSON.stringify(res.data))
+                console.log("ManagerDash CampaignwiseProspectcount Response => " + JSON.stringify(res.data))
                 setBar(res.data)
             })
             .catch((err) => {
-                console.log("Error => " + err)
+                console.log("ManagerDash CampaignwiseProspectcount Error => " + err)
             })
     }, [])
 

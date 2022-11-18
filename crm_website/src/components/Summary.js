@@ -56,14 +56,14 @@ export default function Summary({ summary_show, array1, title }) {
                         {
                             summary_show ? (<div className="summary_row">
                                 <div className="summary_single">
-                                    <label className="summary_value">{item.count}</label>
-                                    <label className="summary_single_title"> {item.txtFirstName}</label>
+                                    <label className="summary_value"  >{item.count}</label>
+                                    <label className="summary_single_title"  > {item.txtFirstName}</label>
                                 </div>
                             </div>) :
                                 (<div className="summary_row">
                                     <div className="summary_single">
-                                        <label className="summary_value">{item.count}</label>
-                                        <label className="summary_single_title"> {item.SalesPerson}</label>
+                                        <label className="summary_value"  >{item.count}</label>
+                                        <label className="summary_single_title"  > {item.SalesPerson}</label>
                                     </div>
                                 </div>)
                         }
