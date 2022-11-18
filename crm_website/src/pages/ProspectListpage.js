@@ -8,6 +8,10 @@ import Prospectpagelistmainlist from "../components/Prospectpagelistmainlist";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+// import Tasklist_filterbar from "../components/tasklist_filterpopup";
+import Prospect_filterbar from "../components/Prospectlistfilterpopup";
+
+
 
 
 export default function ProspectListpage() {
@@ -17,6 +21,9 @@ export default function ProspectListpage() {
   const titlebar_value3 = "Assembly";
   const middledivshow = true;
   const [array, setArray] = useState([]);
+  const [array_mainlist_duplicate, setArray_mainlist_dplicate] = useState([]);
+  const [filterpopup_show, setFilterpopup_show] = useState(false);
+
   const editshow = (true);
 
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
@@ -64,7 +71,7 @@ export default function ProspectListpage() {
   useEffect(() => {
    
     const url =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Getlead";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getprospect9966";
     const data = {};
     const Headers = {};
     axios
@@ -73,6 +80,7 @@ export default function ProspectListpage() {
       
         console.log("Response==>" + JSON.stringify(res.data));
         setArray(res.data);
+        setArray_mainlist_dplicate(res.data);
       })
       .catch((err) => {
         console.log("Error==>" + err);
@@ -111,12 +119,27 @@ export default function ProspectListpage() {
   };
 
 
+  const handleclickfilterbar_filter = () => {
+    setFilterpopup_show(!filterpopup_show);
+  };
 
 
 
   return (
     <>
       <div className="ProspectListpage">
+      {filterpopup_show ? (
+          // <Tasklist_filterbar
+          <Prospect_filterbar
+            handleclickfilterbar_filter={handleclickfilterbar_filter}
+            array_mainlist_duplicate={array_mainlist_duplicate}
+            array_mainlist={array}
+        
+            setArray_mainlist={setArray}
+          />
+        ) : (
+          <></>
+        )}
         <div className="ProspectListpage_topbar">
           <Topbar />
          
@@ -142,7 +165,11 @@ export default function ProspectListpage() {
           
         </div>
           <div className="ProspectListpage_Filterbar">
-            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow} handleselectall={handleselectall}/>
+            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow}
+             handleselectall={handleselectall}
+             handleclickfilterbar_filter={handleclickfilterbar_filter}
+
+             />
           </div>
           <div className="ProspectListpage_Mainlist">
             <Prospectpagelistmainlist array={array} setArray={setArray} />

@@ -25,6 +25,7 @@ export default function Tasklist() {
     //const url = "http://localhost:3000/dev/taskfetch";
     const url =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
+     
     const data = {};
     const header = {};
     axios
@@ -34,10 +35,13 @@ export default function Tasklist() {
           console.log("Response of admin   ==>" + JSON.stringify(res.data));
           setArray_mainlist(res.data);
           setArray_mainlist_dplicate(res.data);
-        } else if (jobrole == "Manager") {
+        } else if (jobrole =="Manager") {
           const url =
-            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
+            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
+
           const data = {
+         
             id: userid,
           };
           const header = {};
@@ -53,7 +57,7 @@ export default function Tasklist() {
             });
         } else if (jobrole == "User") {
           const url =
-            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist1";
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
           const data = {
             id: userid,
           };

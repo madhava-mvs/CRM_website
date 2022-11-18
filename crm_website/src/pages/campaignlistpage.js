@@ -9,8 +9,13 @@ import Mainlist from "../components/Campaignlist_Mainlist";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Campaign_filterbar from "../components/Campaignlistpagefilterpop";
+
 export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
+  const [filterpopup_show, setFilterpopup_show] = useState(false);
+  const [array_mainlist_duplicate, setArray_mainlist_dplicate] = useState([]);
+
   const editshow = (true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -70,7 +75,8 @@ export default function CampaignListPage() {
   // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
   useEffect(() => {
     const url =
-      "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Campaignlist";
+      // "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Campaignlist";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignr"
     // const url = "http://localhost:3000/dev/GetSingleCampaign";
     const data = {};
     const Headers = {};
@@ -84,6 +90,7 @@ export default function CampaignListPage() {
         }
         console.log(res.data);
         setArray(res.data);
+        setArray_mainlist_dplicate(res.data);
 
       })
 
@@ -107,9 +114,28 @@ export default function CampaignListPage() {
     }
     setArray(temp);
   };
+
+
+  const handleclickfilterbar_filter = () => {
+    setFilterpopup_show(!filterpopup_show);
+  };
+
   return (
     <>
       <div className="Campaignlist_page">
+
+      {filterpopup_show ? (
+          // <Tasklist_filterbar
+          <Campaign_filterbar
+            handleclickfilterbar_filter={handleclickfilterbar_filter}
+            array_mainlist_duplicate={array_mainlist_duplicate}
+            array_mainlist={array}
+        
+            setArray_mainlist={setArray}
+          />
+        ) : (
+          <></>
+        )}
         <div className="div1">
           <Topbar />
         </div>
@@ -127,7 +153,10 @@ export default function CampaignListPage() {
               />
             </div>
             <div className="Campaignlist_Filterbar">
-              <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} handleselectall={handleselectall} />
+              <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} handleselectall={handleselectall} 
+                         handleclickfilterbar_filter={handleclickfilterbar_filter}
+
+            />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} Updatecampaign={Updatecampaign} />
