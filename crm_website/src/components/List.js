@@ -22,17 +22,19 @@ export default function List({ user, pending_show, setPending_show, setApproval_
                             <BsBellFill />
                         </div>
                         <div className="list_singlerow_name_and_icon">
-                            <div className="list_singlerow_name">
+                            <div className="list_singlerow_name" >
                                 {
-                                    <label>{(item.txtFirstName)}</label>
+                                    <label >{(item.txtFirstName)}</label>
                                 }
                             </div>
                             <div className="list_singlerow_role">
-                            {
-                                <label>{item.txtRole}</label>
-                            }
+                                {
+                                    <label >{item.txtRole}</label>
+                                }
                             </div>
-                            <button onClick={Pend(item)}>Pending</button>
+                            <div className="list_singlerow_button">
+                                <button onClick={Pend(item)}>Pending</button>
+                            </div>
                         </div>
                     </div>
                 );

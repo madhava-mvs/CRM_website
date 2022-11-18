@@ -115,7 +115,7 @@ export default function Tasklist_filterbar({
           if (j.dtcreatedon !== null) {
             if (
               j.dtcreatedon.toString().substring(0, 10) ===
-                dtcreatedon_filter.toString() &&
+              dtcreatedon_filter.toString() &&
               i === j.campaignid.toString()
             ) {
               console.log(j);
@@ -135,7 +135,7 @@ export default function Tasklist_filterbar({
           if (j.dtcreatedon !== null) {
             if (
               j.dtcreatedon.toString().substring(0, 10) ===
-                dtcreatedon_filter.toString() &&
+              dtcreatedon_filter.toString() &&
               i === j.progresstypeid.toString()
             ) {
               console.log(j);
@@ -172,7 +172,7 @@ export default function Tasklist_filterbar({
             if (k.dtcreatedon !== null) {
               if (
                 k.dtcreatedon.toString().substring(0, 10) ===
-                  dtcreatedon_filter.toString() &&
+                dtcreatedon_filter.toString() &&
                 i === k.campaignid.toString() &&
                 j === k.progresstypeid.toString()
               ) {

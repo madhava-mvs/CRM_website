@@ -1,4 +1,4 @@
-.list_main{
+.list_main {
     /* background-color: chocolate; */
     /* margin-right: 100px; */
     margin-top: 15px;
@@ -10,18 +10,18 @@
     width: 300px;
 }
 
-.list_title{
+.list_title {
     margin-top: 10px;
     margin-left: 15px;
     display: flex;
     flex-direction: row;
 }
 
-.list_title label{
+.list_title label {
     width: 100%;
 }
 
-.list_singlerow{
+.list_singlerow {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,7 +30,7 @@
     /* justify-content: space-between; */
 }
 
-.list_singlerow_name_and_icon{
+.list_singlerow_name_and_icon {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -38,18 +38,20 @@
     width: 250px;
 }
 
-.list_singlerow_name{
-    /* background-color: yellow; */
+.list_singlerow_name {
     width: 110px;
-    /* padding-left: 10px; */
 }
 
-.list_singlerow_role{
-    /* background-color: brown; */
-    width:110px;
+.list_singlerow_role {
+    width: 110px;
 }
 
-.list_singlerow_circle{
+.list_singlerow_button {
+    width: 110px;
+    padding-left: 10px;
+}
+
+.list_singlerow_circle {
     background-color: white;
     /* background-color: tomato; */
     width: 40px;
@@ -60,13 +62,13 @@
     justify-content: center;
 }
 
-.list_singlerow label{
+.list_singlerow label {
     margin-left: 10px;
     margin-right: 10px;
     color: #4D5E80;
 }
 
-.list_singlerow button{
+.list_singlerow button {
     color: #4D5E80;
     border-radius: 20px;
     border: none;

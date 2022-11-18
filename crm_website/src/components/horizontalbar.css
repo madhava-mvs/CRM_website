@@ -141,7 +141,7 @@
     box-shadow: 2px 2px 2px 2px lightgray;
     height: 120px;
     width: 120px;
-    position: relative;
+    position: absolute;
     display: none;
 }
 
@@ -151,10 +151,6 @@
     padding: 10px 10px;
 }
 
-/* .Horizontalbar_main_row1:hover .leadsfunnel_popup {
-    display: block;
-} */
-
-.Horizontalbar_main_row1 :hover .leadsfunnel_popup {
+.Horizontalbar_main_row1_icon:hover .leadsfunnel_popup {
     display: block;
 }
