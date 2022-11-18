@@ -34,7 +34,7 @@ body{
   
 }
 .div2_left{
-  height: 140vh;
+  height: 110vh;
 }
 .leadlistpage_Checklist_popup_blur{
   display: flex;
@@ -44,7 +44,7 @@ body{
   margin-bottom: 23px;
   width: 105vw;
   height: 141vh;
-  margin-top: -1531px;
+  margin-top: -1091px;
   margin-left: -282px;
 }
 
@@ -52,7 +52,7 @@ body{
 .leadlistpage_Checklist_popup{
   box-shadow: 1px 1px 1px 2px #edebeb;
   position: absolute;
-  margin-top: -1244px;
+  margin-top: -600px;
   margin-left: 264px;
   border-radius: 20px;
 
