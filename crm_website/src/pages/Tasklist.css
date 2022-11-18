@@ -16,19 +16,19 @@ body {
 .Tasklist2_div2_right {
   padding-top: 80px;
   padding-left: 200px;
-  width: 924px;
+  width: 1020px;
 }
 
 .Tasklist2_Filterbar {
   margin-top: 20px;
   height: 60px;
-  width: 124vh;
+  width: 140vh;
   margin-left: 15px;
 }
 .Tasklist2_TitleBar {
   height: 30px;
   padding: 15px;
-  width: 116vh;
+  width: 131vh;
 }
 .Tasklist2_div2_left {
   height: 140vh;

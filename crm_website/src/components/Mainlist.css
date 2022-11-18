@@ -176,44 +176,50 @@ color:white
   margin-bottom: 21px;
 }
 .Tasklist_header1{
-  margin-left: 65px;
+  margin-left: 60px;
 }
 .Tasklist_header2{
-  margin-left: 62px;
+  margin-left:55px;
 }
 .Tasklist_header3{
-  margin-left: 92px;
+  margin-left:72px;
 }
 .Tasklist_header4{
-  margin-left: 88px;
+  margin-left: 125px;
 }
 .Tasklist_header5{
-  margin-left: 142px;
+  margin-left: 78px;
 }
 
+.Tasklist_header6{
+  margin-left: 128px;
+}
 
 
 .task_itmSubject{
   width: 55px;
-  margin-left: 6px;
+  margin-left: 0px;
 }
-  
+.task_itmcampaign{
+  width: 148px;
+  margin-left: 45px;
+}
  
  .task_itmStatus{
-  width: 64px;
-  margin-left: 45px;
+  width: 82px;
+  margin-left: 39px;
 }
 .task_itmdate{
   width: 112px;
-  margin-left: 60px;
+  margin-left: 45px;
 }
-.task_itmLeadEmail{
-  width: 190px;
-  margin-left: 50px;
+.task_itmLeadname{
+  width: 115px;
+  margin-left: 45px;
 }
 .task_itmowner{
   
      width: 100px; 
-    margin-left: 20px;
+    margin-left: 45px;
 
 }

@@ -13,9 +13,10 @@ export default function Mainlist({array, setArray}) {
         <div className="TaskList_Mainlist_header">
               <div className="Tasklist_header1">Subject</div>
               <div className="Tasklist_header2">Status</div>
-              <div className="Tasklist_header3">dtCreatedon</div>
-              <div className="Tasklist_header4">LeadEmail</div>
-              <div className="Tasklist_header5">Owner</div>
+              <div className="Tasklist_header3">Campaign</div>
+              <div className="Tasklist_header4">dtCreatedon</div>
+              <div className="Tasklist_header5">Lead</div>
+              <div className="Tasklist_header6">Owner</div>
         </div>
         <div className="Tasklist_Mainlist_Innerbox">
           <div className="Tasklist_Mainlist_list">
@@ -37,7 +38,7 @@ function ListRow({ itm, array, setArray }) {
   const handleClick = (e, itm) => {
     let temp = [...array];
     for (const iterator of temp) {
-      if (itm.leademail === iterator.leademail) {
+      if (itm.activityid === iterator.activityid) {
         iterator.isclicked = !iterator.isclicked;
       }
     }
@@ -80,12 +81,12 @@ function ListRow({ itm, array, setArray }) {
           <div className="task_itmSubject">{itm.subject}</div>
 
           <div className="task_itmStatus">{itm.status}</div>
-
+          <div className="task_itmcampaign">{itm.campaignname}</div>
           <div className="task_itmdate">
             {year}-{month}-{day}
           </div>
 
-          <div className="task_itmLeadEmail">{itm.leademail}</div>
+          <div className="task_itmLeadname">{itm.leadname}</div>
 
           <div className="task_itmowner">{itm.owner}</div>
           <div className="Tasklist_Mainlist_icon">

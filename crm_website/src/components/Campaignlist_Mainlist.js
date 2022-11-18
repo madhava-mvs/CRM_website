@@ -54,7 +54,7 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
     }
     setArray(temp)
   }
-  const d=new Date(itm.Startdate);
+  const d=new Date(itm.dtcreatedon);
   let day = d.getDate();
   let month = d.getMonth()+1;
   let year = d.getFullYear();
@@ -72,7 +72,7 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
         <div className="Campaignlist_Mainlist_list_row"onClick={Updatecampaign(itm)}>
           <div className="Campaignlist_itmFirstName">{itm.CampaignName}</div>
           <div className="Campaignlist_itmLastName">{itm.ParentCampaignName}</div>
-          <div className="Campaignlist_itmStatus">{itm.Status}</div>
+          <div className="Campaignlist_itmStatus">{itm.status}</div>
           <div className="Campaignlist_itmdate">{year}-{month}-{day}</div>
           <div className="Campaignlist_itmEmail">{year1}-{month1}-{day1}</div>
           <div className="Campaignlist_itmOwner">{itm.Owner}</div>
