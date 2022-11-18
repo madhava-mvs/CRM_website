@@ -7,6 +7,8 @@ import TitleBar from "../components/Titlebar";
 import Filterbar from "../components/Filterbar";
 import Mainlist from "../components/Leadlist_Mainlist";
 import CheckList from "../components/Checklist1";
+import Filter from "../components/Leadlist_filterpopup";
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,11 +24,12 @@ export default function LeadListPage() {
   const savebuttonshow = true;
   const [show, setShow] = useState();
   const [array, setArray] = useState([]);
+  const [array3, setArray3] = useState([]);
   const [array1, setArray1] = useState([]);
-  const editshow = (false);
+  const editshow = false;
   const [array2, setArray2] = useState([]);
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
-
+  const [filterpopup_show, setFilterpopup_show] = useState(false);
 
   const Campaign_id = useSelector((state) => state.update_campaign_id);
   const userid = useSelector((state) => state.userid);
@@ -48,6 +51,7 @@ export default function LeadListPage() {
         }
         console.log(res.data);
         setArray(res.data);
+        setArray3(res.data);
       })
 
       .catch((err) => {
@@ -98,30 +102,30 @@ export default function LeadListPage() {
   };
   const handleclick1 = (e) => {
     setShow(!show);
-    const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getCampaign";
-    const data = { id: userid  };
+    const url =
+      "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getCampaign";
+    const data = { id: userid };
     const headers = {};
-    axios.post(url, data, { headers: headers })
-        .then((res) => {
-            console.log("Response of array==>" + JSON.stringify(res.data));
-            for (const temp of res.data) {
-              temp.isclicked = false;
-            }
-            setArray2(res.data)
-            console.log("Array== " + JSON.stringify(array2))
-        })
-        .catch((err) => {
-            console.log("Error==>" + err);
-        });
-   
+    axios
+      .post(url, data, { headers: headers })
+      .then((res) => {
+        console.log("Response of array==>" + JSON.stringify(res.data));
+        for (const temp of res.data) {
+          temp.isclicked = false;
+        }
+        setArray2(res.data);
+        console.log("Array== " + JSON.stringify(array2));
+      })
+      .catch((err) => {
+        console.log("Error==>" + err);
+      });
   };
   const handleclick3 = (e) => {
     setShow(!show);
   };
-  const handleclick2 =(e) => {
+  const handleclick2 = (e) => {
     console.log("addlead array==>" + JSON.stringify(array));
     console.log("addcamp array==>" + JSON.stringify(array2));
-
 
     let leadid;
     for (const k of array) {
@@ -138,7 +142,7 @@ export default function LeadListPage() {
     const url =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/adddleadtocamp";
     // const url = "http://localhost:3000/dev/DeleteSingleLead"
-    const data = { LeadId: leadid ,CampaignId:campaignid, id: userid};
+    const data = { LeadId: leadid, CampaignId: campaignid, id: userid };
     const header = {};
     axios
       .post(url, data, { headers: header })
@@ -148,7 +152,7 @@ export default function LeadListPage() {
       .catch((err) => {
         console.log("Error ==> " + err);
       });
-  }
+  };
   const handleselectall = (e, itm) => {
     setSelectall_isclicked(!selectall_isclicked);
     let temp1 = [...array];
@@ -156,19 +160,30 @@ export default function LeadListPage() {
       for (const iterator of temp1) {
         iterator.isclicked = true;
       }
-    }
-    else{
+    } else {
       for (const iterator of temp1) {
         iterator.isclicked = false;
       }
     }
     setArray(temp1);
   };
-
+  const handleclickfilterbar_filter = () => {
+    setFilterpopup_show(!filterpopup_show);
+  };
 
   return (
     <>
       <div className="Leadlist_page">
+        {filterpopup_show ? (
+          <Filter
+            handleclickfilterbar_filter={handleclickfilterbar_filter}
+            array3={array3}
+            array={array}
+            setArray={setArray}
+          />
+        ) : (
+          <></>
+        )}
         <div className="div1">
           <Topbar />
         </div>
@@ -187,7 +202,13 @@ export default function LeadListPage() {
               />
             </div>
             <div className="Leadlist_Filterbar">
-              <Filterbar DeleteFunc={DeleteLead} editshow={editshow} handleclick1={handleclick1} handleselectall={handleselectall}/>
+              <Filterbar
+                DeleteFunc={DeleteLead}
+                editshow={editshow}
+                handleclick1={handleclick1}
+                handleselectall={handleselectall}
+                handleclickfilterbar_filter={handleclickfilterbar_filter}
+              />
             </div>
             <div className="Mainlist">
               <Mainlist array={array} setArray={setArray} />
@@ -195,7 +216,11 @@ export default function LeadListPage() {
                 <>
                   <div className="leadlistpage_Checklist_popup_blur"></div>
                   <div className="leadlistpage_Checklist_popup">
-                    <CheckList handleclick2={handleclick2} setArray2={setArray2}  handleclick3={handleclick3} array2={array2}
+                    <CheckList
+                      handleclick2={handleclick2}
+                      setArray2={setArray2}
+                      handleclick3={handleclick3}
+                      array2={array2}
                     />
                   </div>
                 </>

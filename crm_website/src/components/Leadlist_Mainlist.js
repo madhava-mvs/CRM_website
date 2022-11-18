@@ -70,7 +70,7 @@ function ListRow({itm, array, setArray}) {
   return (
     <>
       <div className={itm.isclicked?"Leadlist_Mainlist_list_row_topSelected":"Leadlist_Mainlist_list_row_top"}  >
-        <input className="Leadlist_Cb" type="checkbox" onClick={e=>handleClick(e, itm)} checked={itm.isclicked? "true": ""}/>
+        <input className="Leadlist_Cb" type="checkbox" onChange={e=>handleClick(e, itm)} checked={itm.isclicked? "true": ""}/>
         <div className="Leadlist_Mainlist_list_row" onClick={fetch(itm)}>
           <div className="Leadlist_itmFirstName">{itm.FirstName}</div>
           <div className="Leadlist_itmLastName">{itm.LastName}</div>
