@@ -9,31 +9,15 @@ export default function Tasklist_filterbar({
   array_mainlist_duplicate,
   array_mainlist,
   setArray_mainlist,
+  options_status,
+  array_campaign_filter,
+  filterpopup_show,
+  setFilterpopup_show
 }) {
-  const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [dtcreatedon_filter, setDtcreatedon_filter] = useState([]);
-  const [filteredarray, setFilteredarray] = useState([]);
-  useEffect(() => {
-    const url_campaign =
-      "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/getfiltercampaign";
-    const data_campaign = {};
-    const header_campaign = {};
-    axios
-      .post(url_campaign, data_campaign, { headers: header_campaign })
-      .then((res) => {
-        console.log(res.data);
-        setArray_campaign_filter(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  
 
-  const options_status = [
-    { label: "To Do", value: "1" },
-    { label: "In Progress", value: "2" },
-    { label: "Completed", value: "3" },
-  ];
+  
 
   const [campaign_searchvalue, setCampaign_searchvalue] = useState("");
   const [status_searchvalue, setStatus_searchvalue] = useState("");
@@ -51,6 +35,9 @@ export default function Tasklist_filterbar({
   };
 
   const handleclickapplyfilter = () => {
+
+    setFilterpopup_show(!filterpopup_show)
+
     const valuecampaignarray = campaign_searchvalue.split(/[,]/);
     const valuestatusarray = status_searchvalue.split(/[,]/);
     console.log("dt filter==> " + dtcreatedon_filter);

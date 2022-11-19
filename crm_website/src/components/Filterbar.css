@@ -1,63 +1,73 @@
 .Filterbar_Column {
-    height: 100%;
-    border-radius: 2px;
-    /* border-style: ridge; */
-    border-color: #EEEFEF;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 0px 0px 1px #f3f3f4;
-    font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  border-radius: 2px;
+  /* border-style: ridge; */
+  border-color: #eeefef;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 0px 1px #f3f3f4;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .Column1 {
-    /* background-color: blueviolet; */
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* background-color: blueviolet; */
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Column1_Cirleicon {
-    color: #C3CAD9;
-    font-size: large;
-    margin: 5px;
+  color: #c3cad9;
+  font-size: large;
+  margin: 5px;
 }
 
 .Column2 {
-    /* background-color:yellow; */
-    width: 55%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  /* background-color:yellow; */
+  width: 55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .Column2_inner1,
-.Column2_inner2,
 .Column2_inner3,
 .Column2_inner4 {
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: 0.2px solid #f3f3f4;
+  box-shadow: 1px 1px #f3f3f4;
+}
 
-    background-color: white;
-    width: 100px;
-    height: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    border: 0.2px solid #f3f3f4;
-    box-shadow: 1px 1px #f3f3f4;
-
+.Column2_inner2 {
+  background-color: white;
+  width: 250px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  border: 0.2px solid #f3f3f4;
+  box-shadow: 1px 1px #f3f3f4;
 }
 
 .Column2_inner1_Filter,
 .Column2_inner2_Search,
 .Column2_inner3_Edit,
 .Column2_inner4_Delete {
-    color: #C3CAD9;
-    font-size: large;
-    padding-top: 3px;
+  color: #c3cad9;
+  font-size: large;
+  padding-top: 3px;
 }
 
 .Column1 label,
@@ -65,41 +75,79 @@
 .Column2_inner2 label,
 .Column2_inner3 label,
 .Column2_inner4 label {
-    color: #8298c2;
-    padding-left: 5px;
-    padding-top: 2px;
+  color: #8298c2;
+  padding-left: 5px;
+  padding-top: 2px;
 }
 
 .Column3 {
-    /* background-color: tomato; */
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  /* background-color: tomato; */
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .Column3_Menuicon,
 .Column3_CgMenuicon,
 .Column3_Listicon {
-    background-color: white;
-    width: 10%;
-    border-radius: 2px;
-    padding: 6px;
-    font-size: large;
-    color: #C3CAD9;
-    border: 0.2px solid #f3f3f4;
-    box-shadow: 1px 1px #f3f3f4;
+  background-color: white;
+  width: 10%;
+  border-radius: 2px;
+  padding: 6px;
+  font-size: large;
+  color: #c3cad9;
+  border: 0.2px solid #f3f3f4;
+  box-shadow: 1px 1px #f3f3f4;
 }
-.filterbar_search{
- width:60px;
- border: none;
- outline-color: white;
+
+.Column2_inner2_Search_div {
+  padding: 2px 5px;
 }
-.filterbar_search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #8298c2;
-    padding-left: 5px;
-    font-weight:normal;
-    font-size:medium;
+
+.Column2_inner2_Search_div:hover {
+  box-shadow: 0px 3px 3px 1px gray;
 }
-  
+
+.filterbar_search {
+    margin-left: 3px;
+  width: 200px;
+  border: none;
+  outline-color: white;
+  padding-top: 4px;
+  color: #7c8aa5;
+  font-size: medium;
+}
+.filterbar_search::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8298c2;
+  padding-left: 3px;
+  font-weight: normal;
+  font-size: medium;
+}
+
+.filterbar_dropdown {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(228, 227, 227, 0.792);
+  margin-top: 90px;
+  width: 250px;
+}
+
+.filterbar_dropdown:empty {
+  border: none;
+}
+
+.filterbar_dropdown_row {
+  color: #7c8aa5;
+  cursor: pointer;
+  text-align: start;
+  padding: 5px 3px;
+}
+
+.filterbar_dropdown_row:hover {
+  border: 1px solid rgba(228, 227, 227, 0.516);
+}

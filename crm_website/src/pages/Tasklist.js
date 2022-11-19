@@ -20,12 +20,15 @@ export default function Tasklist() {
   const jobrole = useSelector((state) => state.jobrole);
   const userid = useSelector((state) => state.userid);
   const [filterpopup_show, setFilterpopup_show] = useState(false);
+  const [array_campaign_filter, setArray_campaign_filter] = useState([]);
+  const [array_tasklist_search, setArray_tasklist_search] = useState([]);
+  const aftersearch_array = [];
   const editshow = true;
   useEffect(() => {
     //const url = "http://localhost:3000/dev/taskfetch";
     const url =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
-     
+
     const data = {};
     const header = {};
     axios
@@ -35,13 +38,12 @@ export default function Tasklist() {
           console.log("Response of admin   ==>" + JSON.stringify(res.data));
           setArray_mainlist(res.data);
           setArray_mainlist_dplicate(res.data);
-        } else if (jobrole =="Manager") {
+        } else if (jobrole == "Manager") {
           const url =
             "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
-            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
+          // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
 
           const data = {
-         
             id: userid,
           };
           const header = {};
@@ -74,11 +76,60 @@ export default function Tasklist() {
             });
         }
       })
-
       .catch((err) => {
         console.log("Error==>" + err);
       });
+
+    ////////////////////////Api for fetching search list to search
+
+    const url_search_tasklist =
+      "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/getsearchlist_fortasklist";
+    const data_search_tasklist = {
+      userid: userid,
+      jobrole: jobrole,
+    };
+    const header_search_tasklist = {};
+    axios
+      .post(url_search_tasklist, data_search_tasklist, {
+        headers: header_search_tasklist,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setArray_tasklist_search(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    ///////////////////////Api for fetching campaign list for filter
+
+    const url_campaign_filter =
+      "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/getfiltercampaign";
+    const data_campaign_filter = {
+      userid: userid,
+      jobrole: jobrole,
+    };
+    const header_campaign_filter = {};
+    axios
+      .post(url_campaign_filter, data_campaign_filter, {
+        headers: header_campaign_filter,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setArray_campaign_filter(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
+  //////////////////array for filter by status.
+
+  const options_status = [
+    { label: "To Do", value: "1" },
+    { label: "In Progress", value: "2" },
+    { label: "Completed", value: "3" },
+  ];
 
   const handleClickselectall = (e, itm) => {
     setSelectall_isclicked(!selectall_isclicked);
@@ -150,7 +201,7 @@ export default function Tasklist() {
   const bulkimportshow = false;
   const savebuttonshow = true;
   const [show, setShow] = useState(false);
-
+  const tasklistsearchshow = true;
   const [array, setArray] = useState([]);
 
   // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
@@ -181,6 +232,46 @@ export default function Tasklist() {
     setFilterpopup_show(!filterpopup_show);
   };
 
+  const [search_value, setSearch_value] = useState("");
+
+  const onChange = (event) => {
+    setSearch_value(event.target.value);
+  };
+
+  const onSearch_updatevalue_from_dropdown = (searchTerm) => {
+    setSearch_value(searchTerm);
+  };
+
+  const onSearch = (searchTerm) => {
+    console.log("array task list search");
+    console.log(array_tasklist_search);
+    setSearch_value(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+
+    if (searchTerm === "") {
+      setArray_mainlist(array_mainlist_duplicate);
+    } else if (
+      searchTerm === "To Do" ||
+      searchTerm === "In Progress" ||
+      searchTerm === "Completed"
+    ) {
+      for (let i of array_mainlist_duplicate) {
+        if (i.status === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
+      setArray_mainlist(aftersearch_array);
+    } else {
+      for (let i of array_mainlist_duplicate) {
+        if (i.campaignname === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
+      setArray_mainlist(aftersearch_array);
+    }
+  };
+
   return (
     <>
       <div className="Tasklist2_page">
@@ -190,6 +281,10 @@ export default function Tasklist() {
             array_mainlist_duplicate={array_mainlist_duplicate}
             array_mainlist={array_mainlist}
             setArray_mainlist={setArray_mainlist}
+            options_status={options_status}
+            array_campaign_filter={array_campaign_filter}
+            filterpopup_show={filterpopup_show}
+            setFilterpopup_show={setFilterpopup_show}
           />
         ) : (
           <></>
@@ -225,6 +320,15 @@ export default function Tasklist() {
                 editshow={editshow}
                 handleselectall={handleClickselectall}
                 handleclickfilterbar_filter={handleclickfilterbar_filter}
+                tasklistsearchshow={tasklistsearchshow}
+                search_array={array_tasklist_search}
+                setSearch_array={setArray_tasklist_search}
+                search_value={search_value}
+                onChange={onChange}
+                onSearch={onSearch}
+                onSearch_updatevalue_from_dropdown={
+                  onSearch_updatevalue_from_dropdown
+                }
               />
             </div>
             <div className="Tasklist2_Mainlist">
