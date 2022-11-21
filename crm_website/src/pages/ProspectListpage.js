@@ -27,6 +27,7 @@ export default function ProspectListpage() {
   const [filterpopup_show, setFilterpopup_show] = useState(false);
 
   const editshow = (true);
+  const [search_dropdownshow, setSearch_dropdownshow] = useState(false)
 
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
 
@@ -44,6 +45,7 @@ export default function ProspectListpage() {
       }
     }
 
+    useEffect(() => {
    
     const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/deleteprospect"
     const data = { id: leadid };
@@ -57,11 +59,13 @@ export default function ProspectListpage() {
       .catch((err) => {
         console.log("Error ==> " + err)
       })
+    }, []);
+
   }
 
 
 
-
+  useEffect(() => {
   const url_search_prospect =
   "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/searchprospect";
 const data_search_prospect = {};
@@ -78,7 +82,7 @@ axios
     console.log(err);
   });
 
-
+}, []);
 
 
   const tasklistsearchshow = true;
@@ -146,11 +150,13 @@ axios
   const [search_value, setSearch_value] = useState("");
 
   const onChange = (event) => {
+    setSearch_dropdownshow(true)
     setSearch_value(event.target.value);
   };
 
   const onSearch_updatevalue_from_dropdown = (searchTerm) => {
     setSearch_value(searchTerm);
+    setSearch_dropdownshow(false)
   };
 
   const onSearch = (searchTerm) => {
@@ -191,6 +197,9 @@ axios
             array_mainlist={array}
         
             setArray_mainlist={setArray}
+
+            filterpopup_show={filterpopup_show}
+            setFilterpopup_show={setFilterpopup_show}
           />
         ) : (
           <></>
@@ -235,6 +244,7 @@ axios
              onSearch_updatevalue_from_dropdown={
                onSearch_updatevalue_from_dropdown
              }
+             search_dropdownshow={search_dropdownshow}
 
              />
           </div>

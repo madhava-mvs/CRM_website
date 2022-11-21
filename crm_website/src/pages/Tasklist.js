@@ -153,6 +153,7 @@ export default function Tasklist() {
   const [array_user, setArray_user] = useState([]);
 
   function HandleClick() {
+    // useEffect(() => {
     const url_campaign =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignt";
     const data_campaign = {
@@ -202,6 +203,7 @@ export default function Tasklist() {
       });
 
     setShow(!show);
+  // }, []);
   }
 
   const titlebar_name = "Task list";

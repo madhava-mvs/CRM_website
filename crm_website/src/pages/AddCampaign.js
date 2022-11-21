@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./AddCampaign.css";
 import Form from "../components/Form";
@@ -7,6 +7,7 @@ import LeftBar from "../components/LeftBar";
 import TitleBar from "../components/Titlebar";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function Addcampaign() {
   const nav = useNavigate()
@@ -118,7 +119,10 @@ export default function Addcampaign() {
      
     
     } else {
-     
+      // useEffect(() => {
+        // useEffect(()=>{
+
+       
       const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Addcampaign"
       
       const data = {
@@ -161,6 +165,8 @@ export default function Addcampaign() {
         .catch((err) => {
           console.log(err);
         });
+      // },[])
+      // }, []);
     }
   };
 

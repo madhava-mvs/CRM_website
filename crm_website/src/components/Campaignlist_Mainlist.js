@@ -60,9 +60,9 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
   let year = d.getFullYear();
 
   const d1=new Date(itm.Enddate);
-  let day1 = d.getDate();
-  let month1 = d.getMonth()+1;
-  let year1 = d.getFullYear();
+  let day1 = d1.getDate();
+  let month1 = d1.getMonth()+1;
+  let year1 = d1.getFullYear();
   return (
     <>
       <div className={itm.isclicked?"Campaignlist_Mainlist_list_row_topSelected":"Campaignlist_Mainlist_list_row_top"}  >
