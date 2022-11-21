@@ -51,7 +51,7 @@ export default function CampaignListPage() {
   }
 
 
-
+  const tasklistsearchshow = true;
 
 
   const Updatecampaign = itm =>() => {
@@ -67,7 +67,8 @@ export default function CampaignListPage() {
 
   const [array, setArray] = useState([]);
   const [selectall_isclicked, setSelectall_isclicked] = useState([]);
-
+  const [array_campaign_search, setArray_campaign_search] = useState([]);
+  const aftersearch_array = [];
   const savebuttonshow = true;
   const titlebar_name = "Campaignlist";
   const button_value = "Add Campaign";
@@ -120,6 +121,70 @@ export default function CampaignListPage() {
     setFilterpopup_show(!filterpopup_show);
   };
 
+
+
+
+
+  const [search_value, setSearch_value] = useState("");
+
+  const onChange = (event) => {
+    setSearch_value(event.target.value);
+  };
+
+  const onSearch_updatevalue_from_dropdown = (searchTerm) => {
+    setSearch_value(searchTerm);
+  };
+
+  const onSearch = (searchTerm) => {
+    console.log("array campaign search");
+    console.log(array_campaign_search);
+    setSearch_value(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+
+    if (searchTerm === "") {
+      setArray(array_mainlist_duplicate);
+    }  else {
+      for (let i of array_mainlist_duplicate) {
+        if (i.CampaignName === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
+      setArray(aftersearch_array);
+    }
+  };
+
+
+
+
+
+
+
+  const url_search_campaign =
+  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/campaignsearch";
+const data_search_campaign = {};
+const header_search_campaign = {};
+axios
+  .post(url_search_campaign, data_search_campaign, {
+    headers: header_search_campaign,
+  })
+  .then((res) => {
+    console.log(res.data);
+    setArray_campaign_search(res.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="Campaignlist_page">
@@ -156,6 +221,16 @@ export default function CampaignListPage() {
               <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} handleselectall={handleselectall} 
                          handleclickfilterbar_filter={handleclickfilterbar_filter}
 
+
+                         tasklistsearchshow={tasklistsearchshow}
+                         search_array={array_campaign_search}
+                         setSearch_array={setArray_campaign_search}
+                         search_value={search_value}
+                         onChange={onChange}
+                         onSearch={onSearch}
+                         onSearch_updatevalue_from_dropdown={
+                           onSearch_updatevalue_from_dropdown
+                         }
             />
             </div>
             <div className="Mainlist">

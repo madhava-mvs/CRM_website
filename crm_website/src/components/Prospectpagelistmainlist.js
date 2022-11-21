@@ -36,6 +36,7 @@ export default function Mainlist({array,setArray}) {
     </div>
       
         <div className="prospectlistpage_Mainlist_Innerbox">
+        <div className="Leadlist_Mainlist_Innerbox">
           <div className="prospectlistpage_Mainlist_list">
             {array.map((itm, indx) => {
               return <ListRow itm={itm} array={array} setArray={setArray} />;
@@ -45,6 +46,7 @@ export default function Mainlist({array,setArray}) {
               <button className="prospectlistpage_Mainlist_Button">load more leads</button>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

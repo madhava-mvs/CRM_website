@@ -12,6 +12,7 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { json } from "react-router-dom";
 import Tasklist_filterbar from "../components/tasklist_filterpopup";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 export default function Tasklist() {
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
@@ -152,8 +153,10 @@ export default function Tasklist() {
 
   function HandleClick() {
     const url_campaign =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaign";
-    const data_campaign = {};
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignt";
+    const data_campaign = {
+      id:userid
+    };
     const header_campaign = {};
     axios
       .post(url_campaign, data_campaign, { headers: header_campaign })
@@ -167,7 +170,9 @@ export default function Tasklist() {
 
     const url_lead =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
-    const data_lead = {};
+    const data_lead = {
+      id:userid
+    };
     const header_lead = {};
     axios
       .post(url_lead, data_lead, { headers: header_lead })
@@ -181,7 +186,9 @@ export default function Tasklist() {
 
     const url_user =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
-    const data_user = {};
+    const data_user = {
+      id:userid
+    };
     const header_user = {};
     axios
       .post(url_user, data_user, { headers: header_user })
@@ -320,6 +327,7 @@ export default function Tasklist() {
                 editshow={editshow}
                 handleselectall={handleClickselectall}
                 handleclickfilterbar_filter={handleclickfilterbar_filter}
+               
                 tasklistsearchshow={tasklistsearchshow}
                 search_array={array_tasklist_search}
                 setSearch_array={setArray_tasklist_search}
@@ -496,6 +504,9 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
   //         //  }, []);
   //     }
   // }
+  const handleclick7 = (e) => {
+    setShow(!show);
+  };
   return show ? (
     <>
       <div className=" A1">
@@ -525,8 +536,12 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                   <div className="tasklist_savetext_button">
                     <label>SAVE</label>
                   </div>
+                  <AiFillCloseCircle className="tasklist_cancel" onClick={(e) => { handleclick7(e) }} />
                 </div>
+              
+                
               </div>
+              
               <div className="whitebg">
                 <div className="rowitems">
                   <label className="errort">{errort}</label>

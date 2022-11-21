@@ -372,3 +372,11 @@ body {
   color: red;
 }
 
+.tasklist_cancel{
+  margin-left: 40px;
+  width: 53px;
+  height: 37px;
+  margin-right: -74px;
+  color: #9155fd;
+  margin-top: -4px;
+}

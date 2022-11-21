@@ -8,8 +8,10 @@ import Prospectpagelistmainlist from "../components/Prospectpagelistmainlist";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+
 // import Tasklist_filterbar from "../components/tasklist_filterpopup";
 import Prospect_filterbar from "../components/Prospectlistfilterpopup";
+
 
 
 
@@ -29,7 +31,8 @@ export default function ProspectListpage() {
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
 
 
-
+  const [array_prospect_search, setArray_prospect_search] = useState([]);
+  const aftersearch_array = [];
 
   const Deleteprospect = () => {
     console.log("delete array==>" + JSON.stringify(array))
@@ -59,12 +62,26 @@ export default function ProspectListpage() {
 
 
 
+  const url_search_prospect =
+  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/searchprospect";
+const data_search_prospect = {};
+const header_search_prospect = {};
+axios
+  .post(url_search_prospect, data_search_prospect, {
+    headers: header_search_prospect,
+  })
+  .then((res) => {
+    console.log(res.data);
+    setArray_prospect_search(res.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 
 
 
-
-
+  const tasklistsearchshow = true;
 
 
 
@@ -125,6 +142,44 @@ export default function ProspectListpage() {
 
 
 
+
+  const [search_value, setSearch_value] = useState("");
+
+  const onChange = (event) => {
+    setSearch_value(event.target.value);
+  };
+
+  const onSearch_updatevalue_from_dropdown = (searchTerm) => {
+    setSearch_value(searchTerm);
+  };
+
+  const onSearch = (searchTerm) => {
+    console.log("array prospect search");
+    console.log(array_prospect_search);
+    setSearch_value(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+
+    if (searchTerm === "") {
+      setArray(array_mainlist_duplicate);
+    }  else {
+      for (let i of array_mainlist_duplicate) {
+        if (i.firstname === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
+      setArray(aftersearch_array);
+    }
+  };
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="ProspectListpage">
@@ -165,9 +220,21 @@ export default function ProspectListpage() {
           
         </div>
           <div className="ProspectListpage_Filterbar">
-            <Filterbar DeleteFunc={Deleteprospect} editshow={editshow}
+            <Filterbar 
+            DeleteFunc={Deleteprospect} 
+            editshow={editshow}
              handleselectall={handleselectall}
              handleclickfilterbar_filter={handleclickfilterbar_filter}
+
+             tasklistsearchshow={tasklistsearchshow}
+             search_array={array_prospect_search}
+             setSearch_array={setArray_prospect_search}
+             search_value={search_value}
+             onChange={onChange}
+             onSearch={onSearch}
+             onSearch_updatevalue_from_dropdown={
+               onSearch_updatevalue_from_dropdown
+             }
 
              />
           </div>
