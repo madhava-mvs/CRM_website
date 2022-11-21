@@ -131,17 +131,22 @@
   display: none;
 }
 
+.Column2_inner2:hover  .filterbar_dropdown1{
+background-color: yellow;
+}
+
+
 .Column2_inner2:hover  .filterbar_dropdown {
   position: absolute;
   background-color: white;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(228, 227, 227, 0.792);
-  margin-top: 175px;
+  margin-top: 147px;
   width: 250px;
-  min-height: 140px;
-  cursor: pointer;
+  min-height: 110px;
   overflow-y: scroll;
+  display: block;
 }
 
 .filterbar_dropdown:empty {

@@ -23,7 +23,7 @@ export default function Tasklist() {
   const [filterpopup_show, setFilterpopup_show] = useState(false);
   const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [array_tasklist_search, setArray_tasklist_search] = useState([]);
-  const [search_dropdownshow, setSearch_dropdownshow] = useState([])
+  const [search_dropdownshow, setSearch_dropdownshow] = useState(false)
   const aftersearch_array = [];
   const editshow = true;
   useEffect(() => {
@@ -278,6 +278,11 @@ export default function Tasklist() {
           aftersearch_array.push(i);
         }
       }
+      for (let i of array_mainlist_duplicate) {
+        if (i.owner === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
       setArray_mainlist(aftersearch_array);
     }
   };
@@ -340,7 +345,7 @@ export default function Tasklist() {
                 onSearch_updatevalue_from_dropdown={
                   onSearch_updatevalue_from_dropdown
                 }
-                setSearch_dropdownshow={setSearch_dropdownshow}
+                search_dropdownshow={search_dropdownshow}
               />
             </div>
             <div className="Tasklist2_Mainlist">

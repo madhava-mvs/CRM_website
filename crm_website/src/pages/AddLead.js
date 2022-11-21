@@ -234,7 +234,7 @@ export default function AddLead() {
         // state: state,
         // city: city,
         // address: address,
-        createdBy: 2,
+        createdBy: userid,
         campaignid: campaignid
       };
       const header = {};

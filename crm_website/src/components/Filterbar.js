@@ -54,7 +54,7 @@ export default function Filterbar({
                   value={search_value}
                   onChange={onChange}
                 />
-                {search_dropdownshow!=""?<div className="filterbar_dropdown">
+                {search_dropdownshow?<div className= {search_dropdownshow?"filterbar_dropdown" : "filterbar_dropdown1"}>
                   {search_array
                     .filter((item) => {
                       const searchTerm = search_value.toLowerCase();
