@@ -18,7 +18,7 @@ export default function LeadListPage() {
   function AddLead() {
     navigate("/AddLead");
   }
-  
+
   const [array_lead_search, setArray_lead_search] = useState([]);
   const aftersearch_array = [];
   const titlebar_name = "Lead List";
@@ -45,9 +45,9 @@ export default function LeadListPage() {
     // const url = "http://localhost:3000/dev/Leadlist";
 
     const data1 = {};
-    const Headers = {};
+    const Headers_leadlist = {};
     axios
-      .post(url1, data1, Headers)
+      .post(url1, data1, { headers: Headers_leadlist })
       .then((res) => {
         console.log("Response==>" + JSON.stringify(res.data));
         for (const temp of res.data) {
@@ -62,16 +62,13 @@ export default function LeadListPage() {
       .catch((err) => {
         console.log("Error==>" + err);
       });
-    // }, []);
-
-    // const data = localStorage.getItem();
-    // useEffect(() => {
-    const url =
+    
+    const url_singlelead =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
-    const data = { id: update_lead_id };
-    const headers = {};
+    const data_singlelead = { id: update_lead_id };
+    const headers_singlelead = {};
     axios
-      .post(url, data, { headers: headers })
+      .post(url_singlelead, data_singlelead, { headers: headers_singlelead })
       .then((res) => {
         console.log(JSON.stringify(res.data));
         setArray1(res.data);
@@ -79,7 +76,24 @@ export default function LeadListPage() {
       .catch((err) => {
         console.log(err);
       });
+
+    const url_search_lead =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/searchlead";
+    const data_search_lead = {};
+    const header_search_lead = {};
+    axios
+      .post(url_search_lead, data_search_lead, {
+        headers: header_search_lead,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setArray_lead_search(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
   const DeleteLead = () => {
     console.log("delete array==>" + JSON.stringify(array));
 
@@ -105,8 +119,10 @@ export default function LeadListPage() {
         console.log("Error ==> " + err);
       });
   };
+
   const handleclick1 = (e) => {
     setShow(!show);
+
     const url =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getCampaign";
     const data = { id: userid };
@@ -128,6 +144,7 @@ export default function LeadListPage() {
   const handleclick3 = (e) => {
     setShow(!show);
   };
+
   const handleclick2 = (e) => {
     console.log("addlead array==>" + JSON.stringify(array));
     console.log("addcamp array==>" + JSON.stringify(array2));
@@ -176,48 +193,7 @@ export default function LeadListPage() {
     setFilterpopup_show(!filterpopup_show);
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const url_search_lead =
-  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/searchlead"
-const data_search_lead = {};
-const header_search_lead = {};
-axios
-  .post(url_search_lead, data_search_lead, {
-    headers: header_search_lead,
-  })
-  .then((res) => {
-    console.log(res.data);
-    setArray_lead_search(res.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-
-
   const tasklistsearchshow = true;
-
-
-
 
   const [search_value, setSearch_value] = useState("");
 
@@ -238,7 +214,7 @@ axios
 
     if (searchTerm === "") {
       setArray(array_mainlist_duplicate);
-    }  else {
+    } else {
       for (let i of array_mainlist_duplicate) {
         if (i.FirstName === searchTerm) {
           aftersearch_array.push(i);
@@ -247,16 +223,6 @@ axios
       setArray(aftersearch_array);
     }
   };
-
-
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -295,19 +261,15 @@ axios
                 handleclick1={handleclick1}
                 handleselectall={handleselectall}
                 handleclickfilterbar_filter={handleclickfilterbar_filter}
-
-
-
-                
-             tasklistsearchshow={tasklistsearchshow}
-             search_array={array_lead_search}
-             setSearch_array={setArray_lead_search}
-             search_value={search_value}
-             onChange={onChange}
-             onSearch={onSearch}
-             onSearch_updatevalue_from_dropdown={
-               onSearch_updatevalue_from_dropdown
-             }
+                tasklistsearchshow={tasklistsearchshow}
+                search_array={array_lead_search}
+                setSearch_array={setArray_lead_search}
+                search_value={search_value}
+                onChange={onChange}
+                onSearch={onSearch}
+                onSearch_updatevalue_from_dropdown={
+                  onSearch_updatevalue_from_dropdown
+                }
               />
             </div>
             <div className="Mainlist">
