@@ -19,6 +19,7 @@ export default function Mainlist({array, setArray}) {
               <div className="Tasklist_header6">Owner</div>
         </div>
         <div className="Tasklist_Mainlist_Innerbox">
+        <div className="Leadlist_Mainlist_Innerbox">
           <div className="Tasklist_Mainlist_list">
             {array.map((itm, indx) => {
               return <ListRow itm={itm} array={array} setArray={setArray} />;
@@ -30,6 +31,7 @@ export default function Mainlist({array, setArray}) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

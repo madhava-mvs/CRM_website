@@ -36,6 +36,8 @@ export default function CampaignListPage() {
     }
 
     // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
+
+    useEffect(() => {
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleCampaign"
     const data = { id: campid };
     const header = {};
@@ -48,6 +50,7 @@ export default function CampaignListPage() {
       .catch((err) => {
         console.log("Error ==> " + err)
       })
+    }, []);
   }
 
 
@@ -159,7 +162,7 @@ export default function CampaignListPage() {
 
 
 
-
+  useEffect(() => {
   const url_search_campaign =
   "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/campaignsearch";
 const data_search_campaign = {};
@@ -176,7 +179,7 @@ axios
     console.log(err);
   });
 
-
+}, []);
 
 
 
