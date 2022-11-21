@@ -18,17 +18,15 @@
 
 .summarycount_label {
     font-size: small;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     flex-direction: row;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .summarycount_inner label {
     color: #4D5E80;
     font-family: Arial, Helvetica, sans-serif;
-    /* font-weight: bold; */
 }
 
 .summarycount_inner_row1 {

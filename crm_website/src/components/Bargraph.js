@@ -55,9 +55,8 @@ export default function Bargraph({ bar, campaignstatus, bargraph_status, filterc
                                         <label>Status</label>
                                         <select className="campaign_rectangle_select" value={bargraph_status} onChange={(e) => campaignstatus(e)} >
                                             <option value="empty">Select</option>
-                                            <option value="In Progress" onClick={campaignstatus}>In Progress</option>
-                                            <option value="To Do" onClick={campaignstatus}>To Do</option>
-                                            <option value="Completed" onClick={campaignstatus} >Completed</option>
+                                            <option value="Active" onClick={campaignstatus}>Active</option>
+                                            <option value="Inactive" onClick={campaignstatus}>Inactive</option>
                                         </select>
 
                                         <label>Limit</label>
@@ -92,7 +91,6 @@ export default function Bargraph({ bar, campaignstatus, bargraph_status, filterc
                     }
                 </ul>
             </div>
-            {/* <Scrollbars style={{ width: 100, height: 10 }}></Scrollbars> */}
         </div>
     </>
 }

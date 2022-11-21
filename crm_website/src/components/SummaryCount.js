@@ -10,7 +10,7 @@ export default function SummaryCount({ pcount, value, show }) {
                         <label className="summarycount_label">Prospect Growth</label>
                     </div>
                     <div className="summarycount_inner_row2">
-                        <label className="summarycount_value">#{pcount} </label>
+                        <label className="summarycount_value"># {pcount} </label>
                     </div>
                     {show ? (<div className="summarycount_inner_row3">
                         <BiTrendingUp className="summarycount_inner_row3_icon" />
