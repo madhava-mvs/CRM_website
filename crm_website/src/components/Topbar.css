@@ -1,5 +1,4 @@
-
-.Topbar_header{
+.Topbar_header {
     background-color: #f3f3f4;
     width: 100%;
     padding-top: 10px;
@@ -10,7 +9,7 @@
 }
 
 .Topbar_Bell_Circle,
-.Topbar_cancel_circle{
+.Topbar_cancel_circle {
     background-color: white;
     border-radius: 20px;
     height: 35px;
@@ -22,9 +21,10 @@
     margin-top: 10px;
     margin-left: -17px;
 
-    
+
 }
-.Topbar_icon_circle{
+
+.Topbar_icon_circle {
     background-color: white;
     border-radius: 20px;
     height: 35px;
@@ -37,33 +37,38 @@
     margin-left: 10px;
     margin-right: 16px;
 }
-.Topbar_col1{
+
+.Topbar_col1 {
     display: flex;
     flex-direction: row;
     color: rgb(113, 123, 151);
     padding-left: 5px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
-.Topbar_col1 label{
+
+.Topbar_col1 label {
     padding-left: 60px;
     padding-top: 5px;
     color: rgba(142, 154, 177, 1);
 }
-.Topbar_col2 ul{
+
+.Topbar_col2 ul {
     display: flex;
     flex-direction: row;
     margin-left: -30px;
     color: rgba(142, 154, 177, 1);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
-.Topbar_col2 ul li{
+
+.Topbar_col2 ul li {
     padding-top: 5px;
     padding-left: 45px;
     padding-right: 25px;
     list-style-type: none;
 }
+
 .Topbar_col3 {
     width: 241px;
     height: 38px;
@@ -75,85 +80,99 @@
     margin-right: -29px;
     margin-top: 11px;
 }
-.Topbar_col3 input{
+
+.Topbar_col3 input {
     border: none;
     outline: none;
-    font-size:9px;
+    font-size: 9px;
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
     padding-right: 20px;
     width: 170px;
-    
+
 }
+
 .Topbar_Search_content,
-.Topbar_arrowIcon{
-    color: lightgrey; 
+.Topbar_arrowIcon {
+    color: lightgrey;
 }
+
 .Topbar_searchIcon {
     font-size: 25px;
     margin-right: 13px;
     margin-left: 10px;
     color: lightgrey;
 }
-.Topbar_col4{
+
+.Topbar_col4 {
     padding-top: 5px;
     margin-left: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
     font-weight: bold;
 }
-.Topbar_profileIcon{
-    color: #b7c2d7 ;
-}
-.Topbar_BellIcon,
-.Topbar_cancelIcon{
+
+.Topbar_profileIcon {
     color: #b7c2d7;
-    
-}
-.Topbar_cancelIcon{
-    margin-top: 15px;
-    margin-right: -1px;
-   margin-bottom: 10px;
 }
 
-.Topbar_profileIcon{
+.Topbar_BellIcon,
+.Topbar_cancelIcon {
+    color: #b7c2d7;
+
+}
+
+.Topbar_cancelIcon {
+    margin-top: 15px;
+    margin-right: -1px;
+    margin-bottom: 10px;
+}
+
+.Topbar_profileIcon {
     font-size: 25px;
     font-weight: 50px;
     margin-left: 35px;
     margin-top: 10px;
     color: #b7c2d7;
 }
+
 .Topbar_col4 label {
     margin-left: 10px;
     color: #a7b1c3;
 }
-.Topbar_col5{
+
+.Topbar_col5 {
     padding-top: 3px;
     margin-left: 60px;
     display: flex;
     flex-direction: row;
 }
-.Topbar_cancel_circle{
+
+.Topbar_cancel_circle {
     margin-left: 9px;
 }
-.Topbar_content{
-    width: 90%;
-margin-left: -10px;
+
+.Topbar_content {
+    width: 100%;
+    /* height: 100%; */
+    margin-left: -10px;
     background-color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-a;
     margin-right: 200px;
     position: absolute;
 }
-.Topbar_content_cola{
+
+.Topbar_content_cola {
     background-color: white;
     width: 22%;
     margin-right: 40px;
-   
+
 }
-.Topbar_content_cola_list{
+
+.Topbar_content_cola_list {
     padding: 30px;
     border: 1px solid rgb(235, 234, 234);
     display: flex;
@@ -161,32 +180,37 @@ margin-left: -10px;
     background-color: #f3f3f4;
     margin-left: -12px;
 }
-.Topbar_content_cola_list label{
+
+.Topbar_content_cola_list label {
     padding-left: 40px;
     padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 
 }
+
 .Topbar_content_cola_list1 {
     background-color: #f3f3f4;
     height: 60px;
     border: 1px solid rgb(235, 234, 234);
     margin-right: 115px;
-    width: 311px;
+    width: 342px;
     margin-left: -12px;
 }
-.Topbar_content_colb{
+
+.Topbar_content_colb {
     background-color: white;
     padding-left: 100px;
     padding-top: 20px;
     width: 20%;
-   
+
 }
-.Topbar_label_head{
+
+.Topbar_label_head {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.Topbar_content_colb_list1{
+
+.Topbar_content_colb_list1 {
     padding: 10px 20px 10px 10px;
     width: 166px;
     display: flex;
@@ -194,57 +218,67 @@ margin-left: -10px;
     font-family: Arial, Helvetica, sans-serif;
 
 }
-.Topbar_caricon{
+
+.Topbar_caricon {
     display: flex;
     position: absolute;
-    
+
 }
-.Topbar_bookicon{
+
+.Topbar_bookicon {
     display: flex;
     position: absolute;
     padding-right: 20px;
     padding-top: 3px;
 }
 
-.Topbar_content_colb_list1 label{
+.Topbar_content_colb_list1 label {
     padding-left: 35px;
     display: flex;
     flex-direction: row;
 }
-.Topbar_content_colb_list{
+
+.Topbar_content_colb_list {
     padding-top: 20px;
 }
-.Topbar_content_colc{
+
+.Topbar_content_colc {
     background-color: white;
     padding-left: 100px;
     padding-top: 20px;
     width: 20%;
 }
-.Topbar_content_cold{
+
+.Topbar_content_cold {
     background-color: white;
     padding-left: 100px;
     padding-top: 20px;
     width: 20%;
 }
-.Topbar_bookicon{
+
+.Topbar_bookicon {
     color: #C499FF;
 }
-.Topbar_caricon{
-      color: #C499FF;
+
+.Topbar_caricon {
+    color: #C499FF;
 }
+
 .Clayton {
     margin-left: 66px;
     margin-top: -24px;
 }
-.Topbar_Company{
-margin-left: 10px;
+
+.Topbar_Company {
+    margin-left: 10px;
 }
 
 
-.Topbar_col2 ul li label{
+.Topbar_col2 ul li label {
     color: rgba(142, 154, 177, 1);
 }
-.Topbar_cancelIcon_button{
+
+.Topbar_cancelIcon_button {
     /* background-color: blueviolet; */
     background-color: #f3f3f4;
     border: 100px;
@@ -256,49 +290,52 @@ margin-left: 10px;
     margin-top: 135px;
     margin-bottom: 10px;
     color: rgb(113, 123, 151);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.topbarlogout{
+
+.topbarlogout {
     /* color:white */
     color: rgb(188, 193, 216);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .dropdown {
     position: relative;
     /* display: inline-block; */
-  }
-  .dropdown_content {
+}
+
+.dropdown_content {
     display: none;
     /* box-shadow: 0px 8px 10px 0px rgba(199, 196, 196, 0.2); */
-    position:absolute;
+    position: absolute;
     width: 600%;
     height: auto;
     text-align: center;
     /* background-color: white; */
     z-index: 1;
     color: rgb(113, 123, 151);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: -20px;
     margin-top: -20px;
-   padding: 15px;
-  }
-
-.dropdown_content_inside{
-padding: 10px;
-width: 80px;
-border-radius: 15px;
-background-color: white;
-box-shadow: 0px 9px 10px 1px rgba(199, 196, 196, 0.2);
+    padding: 15px;
 }
 
-  .dropdown:hover .dropdown_content {
-    display:block;
-  }
-  .dropdown_content label{
+.dropdown_content_inside {
+    padding: 10px;
+    width: 80px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 9px 10px 1px rgba(199, 196, 196, 0.2);
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.dropdown_content label {
     list-style: none;
     display: flex;
     flex-direction: column;
     font-size: 15px;
     font-weight: 600
-  }
+}
