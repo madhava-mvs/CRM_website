@@ -30,9 +30,8 @@ export default function Campaign_filterbar({
   }, []);
 
   const options_status = [
-    { label: "To Do", value: "1" },
-    { label: "In Progress", value: "2" },
-    { label: "Completed", value: "3" },
+    { label: "Active", value: "1" },
+    { label: "InActive", value: "2" },
   ];
 
   const [campaign_searchvalue, setCampaign_searchvalue] = useState("");
