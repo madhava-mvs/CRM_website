@@ -30,8 +30,7 @@ export default function Userprofile() {
 
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    // const [ConfirmPassword, setConfirmPassword] = useState("");
-    const [rePassword, setrePassword] = useState("");
+    const [ConfirmPassword, setConfirmPassword] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
     const [Address, setAddress] = useState("");
@@ -60,10 +59,10 @@ export default function Userprofile() {
     const userid = useSelector((state) => state.userid);
     const SAVEclick = (e) => {
 
-        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" || rePassword == "") {
+        if (FirstName == "" || Email == "" || Dob == "" || Address == "" || Password == "" || ConfirmPassword == "") {
             seterrorall(true)
         }
-        else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "" && rePassword != "") {
+        else if (FirstName != "" && Email != "" && Password != "" && Dob != "" && Address != "" && ConfirmPassword != "") {
             seterrorf("")
             seterrore("")
             seterroru("")
@@ -73,18 +72,18 @@ export default function Userprofile() {
             seterrorc("")
             seterrorpn("")
             // const url = "http://localhost:3000/dev/updateprofile";
-            const url = "https://biw855rg2h.execute-api.us-east-1.amazonaws.com/dev/updateprofile"//"https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
+            const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
-                id: userid, Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, rePassword: rePassword,
+                id: userid, Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
             };
             const header = {};
             axios.post(url, data, header,)
                 .then((res) => {
                     console.log("Response==>" + JSON.stringify(res.data))
                     let result = res.data + " "
-                    if (result.includes("firstname is mandatory"))
+                    if (result.includes("Firstname is mandatory"))
                         seterrorf("Firstname is mandatory")
-                    if (result.includes("email is mandatory"))
+                    if (result.includes("Email is mandatory"))
                         seterrore("Email is mandatory")
                     if (result.includes("Dob is mandatory"))
                         seterrord("Dob is mandatory")
@@ -92,13 +91,13 @@ export default function Userprofile() {
                         seterrora("Address is mandatory")
                     if (result.includes("Password is mandatory"))
                         seterrorp("Password is mandatory")
-                    if (result.includes("repassword is mandatory"))
-                        seterrorc("repassword is mandatory")
-                    if (result.includes("repassword not match"))
+                    if (result.includes("ConfirmPassword is mandatory"))
+                        seterrorc("Confirmpassword is mandatory")
+                    if (result.includes("ConfirmPassword not match"))
                         seterrorpn("Password not match")
-                    if (result.includes("user updated"))
+                    if (result.includes("Profile Updated!"))
                         seterroru("Profile Updated!")
-                    if (result.includes("email already exists"))
+                    if (result.includes("already exist"))
                         seterrore("Email already exist")
                     //// //localStorage.setItem("tokenvariable", res.data)
                     ///// const token = localStorage.getItem("tokenvariable");
@@ -194,7 +193,7 @@ export default function Userprofile() {
                                     <div className='Profile_b3' >
                                         <input type="text" placeholder="" value={LastName} onChange={(e) => { setLastName(e.target.value) }} /></div>
                                     <div className='Profile_c3' >
-                                        <input type="text" placeholder="" value={Email} onChange={(e) => { setEmail(e.target.value) }} />
+                                        <input type="text" placeholder=""  value={Email} onChange={(e) => { setEmail(e.target.value) }} />
                                         {errorall && Email == "" ? <label className="errore">Email is mandatory</label> : ""}<br />
                                         <label className="errore">{errore}</label>
                                     </div>
@@ -239,11 +238,11 @@ export default function Userprofile() {
 
                                     <div className='Profile_c5'>
                                         <div className='Profile_c4' >ConfirmPassword*</div>
-                                        <input type="Password" placeholder="" value={rePassword} onChange={(e) => { setrePassword(e.target.value) }} />
+                                        <input type="Password" placeholder="" value={ConfirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
 
 
 
-                                        {errorall && rePassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
+                                        {errorall && ConfirmPassword == "" ? <label className="errorc">ConfirmPassword is mandatory</label> : ""}
                                         <label className="errorpn">{errorpn}</label>
                                     </div>
 

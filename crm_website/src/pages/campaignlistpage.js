@@ -31,13 +31,11 @@ export default function CampaignListPage() {
     let campid
     for (const k of array) {
       if (k.isclicked === true) {
-        campid = Number(k.id)
+        campid = Number(k.campaignid)
       }
     }
 
     // const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleLead";
-
-    useEffect(() => {
     const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/DeleteSingleCampaign"
     const data = { id: campid };
     const header = {};
@@ -50,7 +48,6 @@ export default function CampaignListPage() {
       .catch((err) => {
         console.log("Error ==> " + err)
       })
-    }, []);
   }
 
 
@@ -61,7 +58,7 @@ export default function CampaignListPage() {
     // for (let k of array) {
       // if (k.isclicked === true) {
         // console.log("arraydata===>" + JSON.stringify(k.isclicked));
-        dispatch({ type: "setUpdate_campaign_id", payload: itm.id  });
+        dispatch({ type: "setUpdate_campaign_id", payload: itm.campaignid  });
         console.log("updated id==>"+updateid);
       
     
@@ -80,7 +77,7 @@ export default function CampaignListPage() {
   useEffect(() => {
     const url =
       // "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Campaignlist";
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignr"
+      "https://wi1qfr9f9f.execute-api.us-east-1.amazonaws.com/dev/getcampaignr"
     // const url = "http://localhost:3000/dev/GetSingleCampaign";
     const data = {};
     const Headers = {};
@@ -100,6 +97,22 @@ export default function CampaignListPage() {
 
       .catch((err) => {
         console.log("Error==>" + err);
+      });
+      
+      const url_search_campaign =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/campaignsearch";
+    const data_search_campaign = {};
+    const header_search_campaign = {};
+    axios
+      .post(url_search_campaign, data_search_campaign, {
+        headers: header_search_campaign,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setArray_campaign_search(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
   
@@ -162,24 +175,8 @@ export default function CampaignListPage() {
 
 
 
-  useEffect(() => {
-  const url_search_campaign =
-  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/campaignsearch";
-const data_search_campaign = {};
-const header_search_campaign = {};
-axios
-  .post(url_search_campaign, data_search_campaign, {
-    headers: header_search_campaign,
-  })
-  .then((res) => {
-    console.log(res.data);
-    setArray_campaign_search(res.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
-}, []);
+
 
 
 
