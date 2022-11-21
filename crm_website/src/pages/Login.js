@@ -4,6 +4,8 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import store from "../Store.js";
+
 export default function LoginPage() {
   const nav = useNavigate();
   const [showfail, setshowfail] = useState(false);
@@ -13,9 +15,11 @@ export default function LoginPage() {
   const token = useSelector((state) => state.token);
   const userid = useSelector((state) => state.userid);
   const jobrole = useSelector((state)=>state.jobrole);
+  const rememberMe = useSelector((state)=>state.rememberMe);
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
   const Login = (e) => {
+    console.log(rememberMe);
     seterror1("");
     if (username == "" || password == "") {
       seterror1(true);
@@ -49,6 +53,9 @@ export default function LoginPage() {
             dispatch({ type: "setUsername1", payload: res.data.username });
             dispatch({ type: "setJobrole", payload: res.data.jobrole });
             console.log("token" + JSON.stringify(token+"testinggggggg============"+userid));
+            // Setcookie for email
+            console.log(store.getState().rememberMe)
+            store.getState().rememberMe ? setCookie('username', username) : deleteCookie('username');
             if (res.data.jobrole === "Admin") {
               nav("/admindash");
             } else if (res.data.jobrole === "Manager") {
@@ -64,6 +71,15 @@ export default function LoginPage() {
         });
     }
   };
+
+  function setCookie(cname, uname) {
+    document.cookie = `${cname}=${uname}`;
+  }
+
+  function deleteCookie(username) {
+    document.cookie = `${username} =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  }
+
   return (
     <>
       {showfail ? (
@@ -86,3 +102,5 @@ export default function LoginPage() {
     </>
   );
 }
+
+

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import Otp from "./components/Otp";
 import Addcampaign from "./pages/AddCampaign";
 import AddLead from "./pages/AddLead";
@@ -17,10 +18,30 @@ import Userprofile from "./pages/Userprofile";
 import Leadupdate from "./pages/Leadupdate";
 import Emailvalidation from "./components/Emailvalidation";
 import Resetpassword from "./components/Resetpassword";
+// import AuthApi from "./AuthApi";
+// import { useState,useContext } from "react";
+
 
 export default function Navigation() {
+  // const [auth,setAuth] =useState(false);
+  // const ProtectedRoute = ({auth,component:Component,...rest})=>{
+  //   return(
+  //   <Route
+  //     {...rest}
+  //     render ={()=>auth?
+  //       (
+  //       <Component/>
+  //   ):(
+  //     <redirect to="/"/>
+  //   )
+  //     }
+  //     />
+  //     )
+  // }
+  // const Auth=useContext(AuthApi)
   return (
     <div>
+      {/* <AuthApi.Provider values={{auth,setAuth}}> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
@@ -45,13 +66,14 @@ export default function Navigation() {
           ></Route>
           <Route path="/Tasklist" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
-          <Route path="/salesDashboard" element={<SalesDashboard />}></Route>
+          <Route path="/salesDashboard"  element={<SalesDashboard/> }></Route>
           <Route path="/admindash" element={<AdminDash />}></Route>
           <Route path="/managerdash" element={<ManagerDash />}></Route>
           <Route path="/Userprofile" element={<Userprofile />}>
                 </Route>
         </Routes>
       </BrowserRouter>
+      {/* </AuthApi.Provider> */}
     </div>
   );
 }

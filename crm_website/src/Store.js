@@ -8,37 +8,31 @@ const initialState = {
   update_lead_id: "",
   company: "XYZ",
   jobrole: "",
-  email: ""
+  email: "",
+  rememberMe: false,
 };
 const reducer = (prevState = initialState, action) => {
   switch (action.type) {
     case "setUsername1":
       return { ...prevState, username1: action.payload };
-      break;
     case "setEmail":
       return { ...prevState, email: action.payload };
-      break;
     case "setUserid":
       return { ...prevState, userid: action.payload };
-      break;
     case "setToken":
       return { ...prevState, token: action.payload };
-      break;
     case "setUpdate_campaign_id":
       return { ...prevState, update_campaign_id: action.payload };
-      break;
     case "setUpdate_lead_id":
       return { ...prevState, update_lead_id: action.payload };
-      break;
     case "setCompany":
       return { ...prevState, company: action.payload };
-      break;
     case "setJobrole":
       return { ...prevState, jobrole: action.payload };
-      break;
     case "setemail":
-      return { ...prevState, email: action.payload }
-      break;
+      return { ...prevState, email: action.payload };
+    case "setRememberMe":
+      return { ...prevState, rememberMe: action.payload };
   }
   return prevState;
 };
