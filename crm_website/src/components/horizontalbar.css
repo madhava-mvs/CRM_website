@@ -130,7 +130,7 @@
     margin-right: -5px;
     /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
     /* box-shadow: 0 5px 5px -5px #333; */
-    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    /* box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496); */
     border: none;
     outline: none;
 }
@@ -153,4 +153,5 @@
 
 .Horizontalbar_main_row1_icon:hover .leadsfunnel_popup {
     display: block;
+    right: 500px;
 }
