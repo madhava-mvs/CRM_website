@@ -316,6 +316,10 @@ export default function Topbar() {
     setShow2(!show2);
   };
   const logOut = (e) => {
+    dispatch({ type: "setEmail", payload: '' });
+
+    
+    
     const emptyval = "";
     dispatch({ type: "setToken", payload: emptyval });
     dispatch({ type: "setUserid", payload: emptyval });
