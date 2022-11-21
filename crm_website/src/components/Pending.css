@@ -11,6 +11,8 @@
 }
 
 .pending_inner {
+    margin-bottom: 15%;
+    margin-left: 40%;
     background-color: #ffffff;
     min-width: 28%;
     display: flex;
@@ -19,12 +21,12 @@
 }
 
 .pending_inner_row1 {
-   margin-top: 35px;
-   margin-bottom: 20px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-right: 20px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
 }
 
 .pending_inner_row1 label {
@@ -36,36 +38,17 @@
 }
 
 .pending_inner_row2 {
-    margin: 5px;
-}
-
-.pending_inner_row2 input {
-    outline: none;
-    padding: 10px 8px ;
-    border-radius: 5px;
-    background-color: white;
-    width: 96%;
-    margin-top: 10px;
-    margin-left: 7px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.214);
-}
-.pending_inner_row2 input::placeholder{
-    color: rgb(181, 180, 180);
-}
-.pending_inner_row3 {
-    
     display: flex;
     flex-direction: row;
 }
 
-.otp_inner_row3 button {
+.pending_inner_row2 button {
     width: 80%;
     padding: 10px;
     border: none;
     background-color: #9155fd;
     border-radius: 5px;
     color: rgb(255 255 255);
-   margin: 15px;
+    margin: 15px;
     cursor: pointer;
 }

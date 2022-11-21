@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 
 
 export default function AdminDash() {
+
     const [bargraph_status, setBargraph_status] = useState("");
     const campaignwiseprospect_popup_show = (true)
     const [count_value, setCountvalue] = useState("");
@@ -35,16 +36,6 @@ export default function AdminDash() {
     const title = ("Managerwise Prospect Count");
     const [array1, setArray1] = useState([]);
     const summary_show = (true);
-
-    // const [genman, setGenMan] = useState(0);
-    // const [areaman, setAreaMan] = useState(0);
-    // const [assisman, setAssisMan] = useState(0);
-    // const [salesman, setSalesMan] = useState(0);
-    // const Man1 = ("General Manager");
-    // const Man2 = ("Area Manager");
-    // const Man3 = ("Assistant Manager");
-    // const Man4 = ("Sales Manager");
-
 
     const [user, setUser] = useState([]);
 

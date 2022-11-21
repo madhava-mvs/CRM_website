@@ -10,6 +10,7 @@
     padding: 20px;
     border-radius: 10px;
     max-width: 350px;
+    overflow: hidden;
 }
 
 .bargraph_title label {
@@ -33,13 +34,12 @@
 }
 
 .bargraph_graph {
+    /* background-color: yellow; */
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    max-width: 350px;
-    /* max-width: 200px; */
-    /* max-width: fit-content; */
+    max-width: 100%;
     overflow-x: scroll;
 }
 
@@ -51,14 +51,15 @@
 }
 
 .bargraph_graph ul {
+    /* background-color: yellow; */
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    justify-content: space-around;
+    justify-content:first baseline;
     padding: 0;
     margin: 0;
     align-items: center;
-    width: 150%;
+    margin-right: -650px;
 }
 
 .bargraph_graph li {
@@ -113,9 +114,7 @@
     height: 25px;
     width: 100px;
     margin-right: -5px;
-    /* box-shadow: 5px 5px 10px 3px #e0e0e09c; */
-    /* box-shadow: 0 5px 5px -5px #333; */
-    box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496);
+    /* box-shadow: 5px 5px 5px -5px rgba(153, 152, 152, 0.496); */
     border: none;
     outline: none;
 }
@@ -136,23 +135,25 @@
     padding: 10px 10px;
 }
 
-/* 
-.bargraph_title :hover .bargraph_campaignwiseprospect_popup {
-    display: block;
-} */
-
 .bargraph_graph::-webkit-scrollbar {
-    background-color: #6b7a99;
+    /* background-color: #6b7a99; */
     border-radius: 10px;
-    height: 0.7em;
+    height: 0.4em;
+    visibility: hidden;
 }
 
 .bargraph_graph::-webkit-scrollbar-thumb {
     background-color: #a3a3ac;
     border-radius: 10px;
+    visibility: hidden;
 }
 
+.bargraph_graph::-webkit-scrollbar:hover,
+.bargraph_graph::-webkit-scrollbar-thumb:hover {
+    visibility: visible;
+}
 
 .threedot_icon_div:hover .bargraph_campaignwiseprospect_popup {
     display: block;
+    right: 700%;
 }
