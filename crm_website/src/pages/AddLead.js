@@ -336,6 +336,7 @@ export default function AddLead() {
                 setDiv_value12={setCity}
                 div_head13={div_head13}
                 div_value13={pincode}
+                setDiv_value13={setPincode}
                 array_campaign={array_campaign}
                 // setDiv_value13={setPincode}
                 // div_head14={div_head14}
