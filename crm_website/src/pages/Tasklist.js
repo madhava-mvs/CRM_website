@@ -23,6 +23,7 @@ export default function Tasklist() {
   const [filterpopup_show, setFilterpopup_show] = useState(false);
   const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [array_tasklist_search, setArray_tasklist_search] = useState([]);
+  const [search_dropdownshow, setSearch_dropdownshow] = useState([])
   const aftersearch_array = [];
   const editshow = true;
   useEffect(() => {
@@ -242,11 +243,13 @@ export default function Tasklist() {
   const [search_value, setSearch_value] = useState("");
 
   const onChange = (event) => {
+    setSearch_dropdownshow(true)
     setSearch_value(event.target.value);
   };
 
   const onSearch_updatevalue_from_dropdown = (searchTerm) => {
     setSearch_value(searchTerm);
+    setSearch_dropdownshow(false)
   };
 
   const onSearch = (searchTerm) => {
@@ -337,6 +340,7 @@ export default function Tasklist() {
                 onSearch_updatevalue_from_dropdown={
                   onSearch_updatevalue_from_dropdown
                 }
+                setSearch_dropdownshow={setSearch_dropdownshow}
               />
             </div>
             <div className="Tasklist2_Mainlist">

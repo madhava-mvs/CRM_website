@@ -20,6 +20,7 @@ export default function Filterbar({
   search_value,
   onChange,
   onSearch,
+  search_dropdownshow
 }) {
   return (
     <>
@@ -53,7 +54,7 @@ export default function Filterbar({
                   value={search_value}
                   onChange={onChange}
                 />
-                <div className="filterbar_dropdown">
+                {search_dropdownshow!=""?<div className="filterbar_dropdown">
                   {search_array
                     .filter((item) => {
                       const searchTerm = search_value.toLowerCase();
@@ -65,7 +66,7 @@ export default function Filterbar({
                         fullName !== searchTerm
                       );
                     })
-                    .slice(0, 10)
+                    .slice(0, 5)
                     .map((item) => (
                       <div
                         onClick={() => onSearch_updatevalue_from_dropdown(item.label)}
@@ -75,7 +76,7 @@ export default function Filterbar({
                         {item.label}
                       </div>
                     ))}
-                </div>
+                </div>:<></>}
               </>
             ) : (
               <>
