@@ -2,6 +2,7 @@ import Form from "../components/Campaignedit_Form";
 import Horizontalbar from "../components/Horizontalbar";
 import LeftBar from "../components/LeftBar";
 import Normallist from "../components/Normallist";
+// import Normallist1 from "../components/Normallist1";
 import TitleBar from "../components/Titlebar";
 import Topbar from "../components/Topbar";
 import CheckList from "../components/checkList";
@@ -24,13 +25,8 @@ export default function Campaigneditpage() {
     const [div_value5, setDiv_value5] = useState("");
     const [div_value6, setDiv_value6] = useState("");
     const [show, setShow] = useState(false);
-    const [Error1, setError1] = useState("")
-    const [Error2, setError2] = useState("")
-    const [Error3, setError3] = useState("")
-    const [Error4, setError4] = useState("")
-    const [Error5, setError5] = useState("")
-    const [Error6, setError6] = useState("")
-    const [Error7, setError7] = useState("")
+    const [showsale, setShowsale] = useState(false);
+
 
     const [ediv_value1, setediv_value1] = useState("");
     const [ediv_value2, setediv_value2] = useState("");
@@ -51,22 +47,30 @@ export default function Campaigneditpage() {
     const [savebuttonshow, setsavebuttonshow] = useState(true);
     const button_value = "SAVE";
 
+    const [leadsfunnel_popup_show, setleadsfunnel_popup_show] = useState(false)
+
     const div_head1 = "Name";
     const div_head2 = "Parent Campaign";
     const div_head3 = "Status";
     const div_head4 = "Start Date";
     const div_head5 = "End Date";
     const div_head6 = "Owner";
+    const Normallist_name = "Leads";
+    const Hello = "Sales";
 
     const [Error, setError] = useState("")
     const [arrayData, setArrayData] = useState([]);
     const [arrayData1, setArrayData1] = useState([]);
+    const [arrayData22, setArrayData22] = useState([]);
+    const [arrayData2, setArrayData2] = useState([]);
     const [arraylist, setarraylist] = useState([]);
     const [show1, setShow1] = useState(false)
+    const [show11, setShow11] = useState(false)
     const [show2, setshow2] = useState(false)
     const Campaign_id = useSelector((state) => state.update_campaign_id);
     const userid = useSelector((state) => state.userid);
-    const leadsfunnel_popup_show = (false);
+    const date1show = (true);
+    const date2show = (true);
     // const update_campaign_id = useSelector((state) => state.update_lead_id);
 
     const [leadid, setLeadid] = useState("")
@@ -86,7 +90,7 @@ export default function Campaigneditpage() {
     const handleclick1 = (e) => {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
-        const url = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
+        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
         const data = { updateid: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
@@ -105,6 +109,10 @@ export default function Campaigneditpage() {
     const handleclick3 = (e) => {
         setShow(!show)
     }
+    const handleclick4 = (e) => {
+        setShowsale(!showsale)
+    }
+
 
     const handleclick2 = (e) => {
         const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Addleadtocampaign";
@@ -130,7 +138,7 @@ export default function Campaigneditpage() {
         setediv_value10("")
         setediv_value11("")
         // const url = "http://localhost:3000/dev/updateCampaign";
-        const url = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
+        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
         const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, updateid: Campaign_id }
         const header = {};
         axios.post(url, data, header)
@@ -168,9 +176,32 @@ export default function Campaigneditpage() {
             })
     }
 
+    const handleclick12 = (e) => {
+        setShowsale(!showsale)
+        // const url = "http://localhost:3000/dev/getsinglelead";
+        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsinglesales";
+        const data = { CampaignId: Campaign_id, userid: userid };
+        const headers = {};
+        axios.post(url, data, { headers: headers })
+            .then((res) => {
+                console.log("Response of array==>" + JSON.stringify(res.data));
+                for (const a of res.data) {
+                    a.isclicked = false
+                }
+                setArrayData2(res.data)
+                console.log("Array of sales== " + JSON.stringify(arrayData2))
+            })
+            .catch((err) => {
+                console.log("Error==>" + err);
+            });
+
+    }
+
     useEffect(() => {
+        console.log("Campaign ID==>", Campaign_id)
+
         // const url = "http://localhost:3000/dev/leadfunnel";
-        const url = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
+        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
         const data = { id: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
@@ -185,9 +216,9 @@ export default function Campaigneditpage() {
                 // setBluebar(res.data[2].count)
                 // console.log("count->" )
                 console.log("Response => " + JSON.stringify(res.data[0]) + (JSON.stringify(res.data[1])) + (JSON.stringify(res.data[2])))
-                setOrangebar(res.data[0].count)
-                setGreenbar(res.data[1].count)
-                setBluebar(res.data[2].count)
+                setOrangebar(res.data[0].counts)
+                setBluebar(res.data[1].counts)
+                setGreenbar(res.data[2].counts)
             })
             .catch((err) => {
                 console.log("Error => " + err)
@@ -197,7 +228,7 @@ export default function Campaigneditpage() {
         // useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url1 = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const url1 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data1 = {
             id: Campaign_id,
         };
@@ -220,7 +251,7 @@ export default function Campaigneditpage() {
                     // console.log("date==>"+ setDiv_value4({year1}-{month1}-{day1}))
                     setDiv_value5(cb.substring(0, 10))
                     setDiv_value3(res.data[0].Status1)
-                    setDiv_value6(res.data[0].txtOwner)
+                    setDiv_value6(res.data[0].txtFirstName)
                     setDiv_value2(res.data[0].ParentCampaignName)
 
 
@@ -230,24 +261,41 @@ export default function Campaigneditpage() {
             .catch((err) => {
                 console.log("Response==> " + JSON.stringify(err))
             })
-        // }, [])
+    }, [])
 
 
-        // useEffect(() => {
+    useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
-        const url2 = "https://3sqplq1k9f.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const url2 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
         const data2 = { updateid: Campaign_id };
         const header2 = {};
         axios.post(url2, data2, { headers: header2 })
             .then((res) => {
-                console.log("Response==>" + JSON.stringify(res.data))
+                console.log("Response of lead==>" + JSON.stringify(res.data))
                 setArrayData1(res.data)
-                console.log("Array== " + JSON.stringify(arrayData1))
+                console.log("Array of lead== " + JSON.stringify(arrayData1))
             })
             .catch((err) => {
                 console.log("Error==>" + err);
             });
+
+
+        const url3 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/Salesfetch";
+        const data3 = { id: Campaign_id };
+        const header3 = {};
+        axios.post(url3, data3, { headers: header3 })
+            .then((res) => {
+                console.log("Response of sales==>" + JSON.stringify(res.data))
+                setArrayData22(res.data)
+                console.log("Array of sales== " + JSON.stringify(arrayData22))
+            })
+            .catch((err) => {
+                console.log("Error==>" + err);
+            });
+
     }, [])
+
+
 
     // useEffect(() => {
     //     const url = "http://localhost:3000/dev/";
@@ -289,7 +337,7 @@ export default function Campaigneditpage() {
                         </div>
                         <div className="Campaigneditpage_topbar2_right_2">
                             <div className="Campaigneditpage_topbar2_right_2_left">
-                                <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} />
+                                <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} Normallist_name={Normallist_name}  date1show={date1show} />
 
                                 {
                                     show ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div><div className="Campaigneditpage_Checklist_popup">
@@ -300,13 +348,28 @@ export default function Campaigneditpage() {
                                     )}
                             </div>
                             <div className="Campaigneditpage_topbar2_right_2_right">
-                                <Horizontalbar orangebar={orangebar} setOrangebar={setOrangebar} greenbar={greenbar} setGreenbar={setGreenbar} bluebar={bluebar} setBluebar={setBluebar} show2={show2} />
+                                <Horizontalbar orangebar={orangebar} setOrangebar={setOrangebar} greenbar={greenbar} setGreenbar={setGreenbar} bluebar={bluebar} setBluebar={setBluebar} show2={show2} leadsfunnel_popup_show={leadsfunnel_popup_show} />
                             </div>
                         </div>
+                        <div className="Campaigneditpage_topbar2_right_3">
+                            <div className="Campaigneditpage_topbar2_right_3_left">
+                                <Normallist arrayData1={arrayData22} setArrayData1={setArrayData22} handleclick1={handleclick12} Normallist_name={Hello} date2show={date2show}  />
 
+                                {
+                                    showsale ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div>
+                                        <div className="Campaigneditpage_Checklist_popup_sales">
+                                            <CheckList arraylist={arrayData2} setarraylist={setArrayData2} handleclick2={handleclick2} handleclick3={handleclick4} />
+                                        </div></>
+                                    ) : (
+                                        <></>
+                                    )}
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
+
 
         </>
     )
