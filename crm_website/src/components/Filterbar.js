@@ -13,6 +13,7 @@ export default function Filterbar({
   handleclick1,
   handleclickfilterbar_filter,
   tasklistsearchshow,
+  prospectsearchshow,
   search_array,
   setSearch_array,
   onSearch_updatevalue_from_dropdown,
@@ -88,7 +89,97 @@ export default function Filterbar({
                 />
               </>
             )}
+{/* 
+if(tasklistsearchshow){
+ <>
+                <div
+                  className="Column2_inner2_Search_div"
+                  onClick={() => onSearch(search_value)}
+                >
+                  <AiOutlineSearch className="Column2_inner2_Search" />
+                </div>
+                <input
+                  type={"text"}
+                  placeholder="Search"
+                  className="filterbar_search"
+                  value={search_value}
+                  onChange={onChange}
+                />
+                <div className="filterbar_dropdown">
+                  {search_array
+                    .filter((item) => {
+                      const searchTerm = search_value.toLowerCase();
+                      const fullName = item.label.toLowerCase();
 
+                      return (
+                        searchTerm &&
+                        fullName.startsWith(searchTerm) &&
+                        fullName !== searchTerm
+                      );
+                    })
+                    .slice(0, 10)
+                    .map((item) => (
+                      <div
+                        onClick={() => onSearch_updatevalue_from_dropdown(item.label)}
+                        className="filterbar_dropdown_row"
+                        key={item.value}
+                      >
+                        {item.label}
+                      </div>
+                    ))}
+                </div>
+              </>
+}else if(prospectsearchshow){
+ <>
+ <div
+   className="Column2_inner2_Search_div"
+   onClick={() => onSearch(search_value)}
+ >
+   <AiOutlineSearch className="Column2_inner2_Search" />
+ </div>
+ <input
+   type={"text"}
+   placeholder="Search"
+   className="filterbar_search"
+   value={search_value}
+   onChange={onChange}
+ />
+ <div className="filterbar_dropdown">
+   {search_array
+     .filter((item) => {
+       const searchTerm = search_value.toLowerCase();
+       const fullName = item.label.toLowerCase();
+
+       return (
+         searchTerm &&
+         fullName.startsWith(searchTerm) &&
+         fullName !== searchTerm
+       );
+     })
+     .slice(0, 10)
+     .map((item) => (
+       <div
+         onClick={() => onSearch_updatevalue_from_dropdown(item.label)}
+         className="filterbar_dropdown_row"
+         key={item.value}
+       >
+         {item.label}
+       </div>
+     ))}
+ </div>
+</>
+}else{
+                <>
+                <div className="Column2_inner2_Search_div">
+                  <AiOutlineSearch className="Column2_inner2_Search" />
+                </div>
+                <input
+                  type={"text"}
+                  placeholder="Search"
+                  className="filterbar_search"
+                />
+              </>
+} */}
             {/* <label>Search</label> */}
           </div>
           <div className="Column2_inner3">

@@ -4,15 +4,20 @@ import { AiFillDelete } from "react-icons/ai";
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 import "./tasklist_filterpopup.css";
+
 export default function Prospect_filterbar({
+  
   handleclickfilterbar_filter,
   array_mainlist_duplicate,
   array_mainlist,
   setArray_mainlist,
-}) {
+}) 
+{
   const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [updatedon_filter, setupdatedon_filter] = useState([]);
+  const [array_location, setarray_location] = useState([]);
   const [filteredarray, setFilteredarray] = useState([]);
+  
   useEffect(() => {
     const url_campaign =
       "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/getfiltercampaign";
@@ -29,14 +34,31 @@ export default function Prospect_filterbar({
       });
   }, []);
 
-  const options_status = [
-    { label: "To Do", value: "1" },
-    { label: "In Progress", value: "2" },
-    { label: "Completed", value: "3" },
-  ];
+  useEffect(() => {
+    const url_location =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/location";
+    const data_location = {};
+    const header_location = {};
+    axios
+      .post(url_location, data_location, { headers: header_location })
+      .then((res) => {
+        console.log(res.data);
+        setarray_location(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // const options_status = [
+  //   { label: "To Do", value: "1" },
+  //   { label: "In Progress", value: "2" },
+  //   { label: "Completed", value: "3" },
+  // ];
 
   const [campaign_searchvalue, setCampaign_searchvalue] = useState("");
-  const [status_searchvalue, setStatus_searchvalue] = useState("");
+  const [location_searchvalue, setLocation_searchvalue] = useState("");
+  // const [status_searchvalue, setStatus_searchvalue] = useState("");
   let filarray = [];
   const handleOnchangecampaign = (val) => {
     setCampaign_searchvalue(val);
@@ -44,27 +66,27 @@ export default function Prospect_filterbar({
     // console.log(options)
   };
 
-  const handleOnchangestatus = (val) => {
-    setStatus_searchvalue(val);
-    console.log(status_searchvalue);
+  const handleOnchangelocation = (val) => {
+    setLocation_searchvalue(val);
+    console.log(location_searchvalue);
     // console.log(options)
   };
 
   const handleclickapplyfilter = () => {
     const valuecampaignarray = campaign_searchvalue.split(/[,]/);
-    const valuestatusarray = status_searchvalue.split(/[,]/);
+    const valuelocationarray = location_searchvalue.split(/[,]/);
     console.log("dt filter==> " + updatedon_filter);
     console.log("campaign array==> " + valuecampaignarray.length);
-    console.log("status array==> " + valuestatusarray.length);
+    console.log("location array==> " + valuelocationarray.length);
     console.log("tasklist test==> " + JSON.stringify(array_mainlist_duplicate));
     console.log(array_mainlist_duplicate);
     if (
       updatedon_filter.toString() === "" &&
       valuecampaignarray[0] === "" &&
-      valuestatusarray[0] === ""
+      valuelocationarray[0] === ""
     ) {
       setArray_mainlist(array_mainlist_duplicate);
-    } else if (valuecampaignarray[0] === "" && valuestatusarray[0] === "") {
+    } else if (valuecampaignarray[0] === "" && valuelocationarray[0] === "") {
       for (let i of array_mainlist_duplicate) {
         if (i.updatedon !== null) {
           if (
@@ -78,7 +100,7 @@ export default function Prospect_filterbar({
       setArray_mainlist(filarray);
     } else if (
       updatedon_filter.toString() === "" &&
-      valuestatusarray[0] === ""
+      valuelocationarray[0] === ""
     ) {
       for (let i of valuecampaignarray) {
         for (let j of array_mainlist_duplicate) {
@@ -94,20 +116,24 @@ export default function Prospect_filterbar({
       updatedon_filter.toString() === "" &&
       valuecampaignarray[0] === ""
     ) {
-      for (let i of valuestatusarray) {
+     console.log("else if location")
+     console.log(valuelocationarray)
+     console.log(array_mainlist_duplicate)
+      for (let i of valuelocationarray) {
         for (let j of array_mainlist_duplicate) {
-          console.log(j.progresstypeid);
-          if (i === j.progresstypeid.toString()) {
+          // console.log(j.id.toString());
+          if (i === j.state) {
             console.log(j);
             filarray.push(j);
           }
         }
       }
+      
       setArray_mainlist(filarray);
     } else if (
       updatedon_filter.toString() !== "" &&
       valuecampaignarray[0] !== "" &&
-      valuestatusarray[0] === ""
+      valuelocationarray[0] === ""
     ) {
       console.log("inside date and campaign filter");
       for (let i of valuecampaignarray) {
@@ -128,15 +154,15 @@ export default function Prospect_filterbar({
     } else if (
       updatedon_filter.toString() !== "" &&
       valuecampaignarray[0] === "" &&
-      valuestatusarray[0] !== ""
+      valuelocationarray[0] !== ""
     ) {
-      for (let i of valuestatusarray) {
+      for (let i of valuelocationarray) {
         for (let j of array_mainlist_duplicate) {
           if (j.updatedon !== null) {
             if (
               j.updatedon.toString().substring(0, 10) ===
               updatedon_filter.toString() &&
-              i === j.progresstypeid.toString()
+              i === j.state.toString()
             ) {
               console.log(j);
               filarray.push(j);
@@ -148,15 +174,15 @@ export default function Prospect_filterbar({
     } else if (
       updatedon_filter.toString() === "" &&
       valuecampaignarray[0] !== "" &&
-      valuestatusarray[0] !== ""
+      valuelocationarray[0] !== ""
     ) {
       console.log("your inside campaign and status");
       for (let i of valuecampaignarray) {
-        for (let j of valuestatusarray) {
+        for (let j of valuelocationarray) {
           for (let k of array_mainlist_duplicate) {
             if (
               i === k.campaignid.toString() &&
-              j === k.progresstypeid.toString()
+              j === k.state.toString()
             ) {
               filarray.push(k);
             }
@@ -167,14 +193,14 @@ export default function Prospect_filterbar({
     } else {
       console.log("all filters");
       for (let i of valuecampaignarray) {
-        for (let j of valuestatusarray) {
+        for (let j of valuelocationarray) {
           for (let k of array_mainlist_duplicate) {
             if (k.updatedon !== null) {
               if (
                 k.updatedon.toString().substring(0, 10) ===
                 updatedon_filter.toString() &&
                 i === k.campaignid.toString() &&
-                j === k.progresstypeid.toString()
+                j === k.state.toString()
               ) {
                 filarray.push(k);
               }
@@ -191,6 +217,7 @@ export default function Prospect_filterbar({
     //     console.log(i);
     //   }
     // }
+   
   };
 
   return (
@@ -214,13 +241,13 @@ export default function Prospect_filterbar({
               options={array_campaign_filter}
             />
           </div>
-          <div className="filter_inner1_status">
+          <div className="filter_inner1_campaign">
             <label>Location:</label>
             <br />
             <MultiSelect
               className="multi_select"
-              onChange={handleOnchangestatus}
-              options={options_status}
+              onChange={handleOnchangelocation}
+              options={array_location}
             />
           </div>
         </div>

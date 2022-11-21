@@ -18,6 +18,9 @@ export default function LeadListPage() {
   function AddLead() {
     navigate("/AddLead");
   }
+  
+  const [array_lead_search, setArray_lead_search] = useState([]);
+  const aftersearch_array = [];
   const titlebar_name = "Lead List";
   const button_value = "Add Lead";
   const bulkimportshow = true;
@@ -30,6 +33,7 @@ export default function LeadListPage() {
   const [array2, setArray2] = useState([]);
   const [selectall_isclicked, setSelectall_isclicked] = useState(true);
   const [filterpopup_show, setFilterpopup_show] = useState(false);
+  const [array_mainlist_duplicate, setArray_mainlist_dplicate] = useState([]);
 
   const Campaign_id = useSelector((state) => state.update_campaign_id);
   const userid = useSelector((state) => state.userid);
@@ -52,6 +56,7 @@ export default function LeadListPage() {
         console.log(res.data);
         setArray(res.data);
         setArray3(res.data);
+        setArray_mainlist_dplicate(res.data);
       })
 
       .catch((err) => {
@@ -171,6 +176,88 @@ export default function LeadListPage() {
     setFilterpopup_show(!filterpopup_show);
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const url_search_lead =
+  "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/searchlead"
+const data_search_lead = {};
+const header_search_lead = {};
+axios
+  .post(url_search_lead, data_search_lead, {
+    headers: header_search_lead,
+  })
+  .then((res) => {
+    console.log(res.data);
+    setArray_lead_search(res.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
+
+  const tasklistsearchshow = true;
+
+
+
+
+  const [search_value, setSearch_value] = useState("");
+
+  const onChange = (event) => {
+    setSearch_value(event.target.value);
+  };
+
+  const onSearch_updatevalue_from_dropdown = (searchTerm) => {
+    setSearch_value(searchTerm);
+  };
+
+  const onSearch = (searchTerm) => {
+    console.log("array lead search");
+    console.log(array_lead_search);
+    setSearch_value(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+
+    if (searchTerm === "") {
+      setArray(array_mainlist_duplicate);
+    }  else {
+      for (let i of array_mainlist_duplicate) {
+        if (i.FirstName === searchTerm) {
+          aftersearch_array.push(i);
+        }
+      }
+      setArray(aftersearch_array);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="Leadlist_page">
@@ -208,6 +295,19 @@ export default function LeadListPage() {
                 handleclick1={handleclick1}
                 handleselectall={handleselectall}
                 handleclickfilterbar_filter={handleclickfilterbar_filter}
+
+
+
+                
+             tasklistsearchshow={tasklistsearchshow}
+             search_array={array_lead_search}
+             setSearch_array={setArray_lead_search}
+             search_value={search_value}
+             onChange={onChange}
+             onSearch={onSearch}
+             onSearch_updatevalue_from_dropdown={
+               onSearch_updatevalue_from_dropdown
+             }
               />
             </div>
             <div className="Mainlist">

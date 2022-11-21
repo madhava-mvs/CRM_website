@@ -216,3 +216,14 @@ width: 100px;
 .prospectlistpage_header5{
   margin-left: 42px;
 }
+.prospectlistpage_Mainlist_Innerbox::-webkit-scrollbar {
+    background-color: #d7dce4;
+    border-radius: 10px;
+    height: 0.7em;
+    width: 0.5em;
+}
+
+.prospectlistpage_Mainlist_Innerbox::-webkit-scrollbar-thumb {
+    background-color:#f3f3f4;
+    border-radius: 10px;
+}
