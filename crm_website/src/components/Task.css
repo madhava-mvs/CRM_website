@@ -1,0 +1,157 @@
+.task_box_outer{
+    background-color: rgb(237, 230, 230);
+   
+  
+    box-shadow: 0px 0px 0px 2px lightgray;
+    height: 9em;
+    width:17em ;
+}
+.task_box_row1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.userid label{
+    color: gray;
+    width: 4px;
+    margin-top: 14px;
+}
+.Ldetails{
+    margin-right: 2px;
+}
+.campaignname label{
+    margin-left: 5px;
+  /* padding-top: 25px; */
+  /* padding: 10px; */
+  width: 150px;
+  height: 2px;
+  margin-top: 15px;
+  /* border: 1px solid lightgray; */
+  border: 1px  lightcyan;
+  border-radius: 5px;
+  outline: none;
+  padding-bottom: 18px;
+}
+.contact{
+    font-size:larger;
+    margin-top: 3px;
+}
+.dots{
+    font-size:large;
+    margin-top: 4px;
+} 
+
+
+.txtP input{
+    width: 17em;
+    min-height: 3em;
+    margin-left: 16px;
+    margin-top: 8px;
+    /* border: 1px solid lightgray; */
+    border: 1px lightcyan;
+    box-shadow: 0px 0px 0px 1px lightgray;
+    border-radius: 5px;
+    outline: none;
+    padding-bottom: 18px;
+}
+.task_box_row3{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.message{
+    font-size: x-large;
+    margin-left: 10px;
+   
+}
+.convstatus select{
+    margin-left: 5px;
+    padding: -7px;
+    width: 111px;
+    /* height: 2px; */
+    height: -10.5px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px lightcyan;
+    box-shadow: 0px 2px 0px 0px #dfdcdcc6;
+    border-radius: 5px;
+    outline: none;
+    padding-bottom: 4px;
+    color: #757575;
+    padding-left: 7px;
+    padding-top: -2px;
+    margin-right: 12px;
+    margin-top: 0px;
+}
+.detail_box_outer{
+   
+
+
+
+
+    position: absolute;
+    background-color: rgb(237, 230, 230);
+    height: 32vh;
+    min-height: 28vh;
+    min-width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+.detail_box_row1 ,
+.detail_box_row3 ,
+.detail_box_row4 ,
+.detail_box_row5 ,
+.detail_box_row6 {
+    margin-left: 5px; 
+    background-color: white;
+     width: 150px;
+    height: 30px;
+    border: 1px lightcyan;
+    box-shadow: 0px 2px 0px 0px #dfdcdcc6;
+    border-radius: 5px;
+    outline: none;
+   
+}
+
+.detail_box_row1 label ,
+.detail_box_row3 label ,
+.detail_box_row4 label ,
+.detail_box_row5 label ,
+.detail_box_row6 label{
+    padding-bottom: -8px;
+    margin: 4px;
+    justify-content: center;
+    align-items: center;
+    display: flex
+}
+
+.detail_box_row2{
+    margin-left: 5px; 
+    background-color: white;
+     width: 150px;
+    height: 30px;
+    border: 1px lightcyan;
+    box-shadow: 0px 2px 0px 0px #dfdcdcc6;
+    border-radius: 5px;
+    outline: none;
+}
+
+.detail_box_row2 select{
+        padding: -7px;
+        width: 150px;
+        height: 30px;
+        height: -0.5px;
+        border: 1px lightcyan;
+        box-shadow: 0px 2px 0px 0px #dfdcdcc6;
+        border-radius: 5px;
+        outline: none;
+        padding-bottom: 4px;
+        color: #757575;
+        padding-left: 50px;
+        padding-top: 4px;
+}
