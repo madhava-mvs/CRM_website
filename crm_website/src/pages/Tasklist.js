@@ -23,6 +23,7 @@ export default function Tasklist() {
   const [filterpopup_show, setFilterpopup_show] = useState(false);
   const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [array_tasklist_search, setArray_tasklist_search] = useState([]);
+  const [campaign_name, setCampaign_name] = useState("");
   const [search_dropdownshow, setSearch_dropdownshow] = useState(false)
   const aftersearch_array = [];
   const editshow = true;
@@ -150,9 +151,11 @@ export default function Tasklist() {
   };
 
   const [array_campaign, setArray_campaign] = useState([]);
-  const [array_lead, setArray_lead] = useState([]);
-  const [array_user, setArray_user] = useState([]);
 
+  const [array_user, setArray_user] = useState([]);
+ 
+  const [array_lead1, setArray_lead1] = useState([]);
+  const [array_lead, setArray_lead] = useState([]);
   function HandleClick() {
     // useEffect(() => {
     const url_campaign =
@@ -171,21 +174,27 @@ export default function Tasklist() {
         console.log(err);
       });
 
-    const url_lead =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+      
+      const url_lead =
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getleadfetch"
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettinglead_bycampaignid";
     const data_lead = {
-      id:userid
+  id:11
     };
     const header_lead = {};
     axios
       .post(url_lead, data_lead, { headers: header_lead })
       .then((res) => {
-        console.log(res.data);
         setArray_lead(res.data);
+        console.log("setArray_lead"  + JSON.stringify(array_lead1));
+       
       })
       .catch((err) => {
         console.log(err);
       });
+    
+    
 
     const url_user =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
@@ -197,6 +206,7 @@ export default function Tasklist() {
       .post(url_user, data_user, { headers: header_user })
       .then((res) => {
         console.log("user data array==>" + JSON.stringify(res.data));
+        console.log("nnnnnnnnnnnnnnnnnnnnnnnnnn"+campaign_name)
         setArray_user(res.data);
       })
       .catch((err) => {
@@ -360,8 +370,15 @@ export default function Tasklist() {
     </>
   );
 }
-
-function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
+  // for (let i of array_lead1) {
+  //   // if (i.campaignid=={campaign_name}) {
+  //     if (i.campaignid==11) {
+  //     new_array.push(i);
+  //   }
+  // }
+  // setArray_lead(new_array);
+// function Addtask({ show, setShow, array_campaign, array_lead,setArray_lead, array_user,array_lead1}) {
+  function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
   const [title, setTitle] = useState("");
   const [txtcomments, settxtcomments] = useState("");
   const [campaign_name, setCampaign_name] = useState("");
@@ -376,8 +393,15 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
   const [errorlead, setElead] = useState("");
   const [erroruser, setEuser] = useState("");
   const [erroractivity, setEactivity] = useState("");
-
+ 
+  const new_array = [];
   const userid = useSelector((state) => state.userid);
+
+
+
+
+  
+
 
   const Save_Task = async () => {
     console.log(
@@ -530,6 +554,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
     setShow(!show);
   };
   return show ? (
+    
     <>
       <div className=" A1">
         <div className="AddtaskPage">
@@ -613,7 +638,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                     </div>
                     <div className="r3_in">
                       <label className="text_to_changecolor">
-                        Campaign name:{" "}
+                      {campaign_name}Campaign name:{" "}
                       </label>
                       <br />
                       <br />
@@ -665,6 +690,9 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
                         onChange={(e) => setLead_name(e.target.value)}
                       >
                         <option value="">--Select--</option>
+
+
+                      
                         {array_lead.map((itm, index) => {
                           return (
                             <>
