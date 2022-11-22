@@ -29,6 +29,7 @@ export default function Tasklist() {
   useEffect(() => {
     //const url = "http://localhost:3000/dev/taskfetch";
     const url =
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist";
 
     const data = {};
@@ -380,7 +381,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
   const Save_Task = async () => {
     console.log(
-      campaign_name + "," + lead_name + "," + user_name + "," + activity
+      title+","+txtcomments+","+campaign_name + "," + lead_name + "," + user_name + "," + activity
     );
     if (title === "") {
       setEtitle("title is mandatory");
@@ -414,7 +415,9 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
       setEactivity("activity is mandatory");
     } else {
       const url =
-        "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertlead99"
+        // "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+        // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
       const data = {
         userid: Number(user_name),
         campaignid: Number(campaign_name),
@@ -428,13 +431,21 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
         .post(url, data, { headers: header })
         .then((res) => {
           console.log(JSON.stringify(res.data));
-          setShow(!show);
+          if(res.data=="already exist in 2"){
+            seterrort("already exist")
+          }
+          else{
+            setShow(!show);
+            // window.location.reload();
+          }
+         
         })
         .catch((err) => {
           console.log(err);
         });
     }
-
+   
+  };
     //   function fun(){
     //     return new Promise((resolve)=>{
     //     const url1 =
@@ -458,7 +469,7 @@ function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
 
     // }
     // fun();
-  };
+ 
   // const loginClick = (e) => {
   //     // alert("added")
   //     if (title == "" || txtcomments == "" || campaign_name == "" || lead_name == "" || Status == "" || user_name == "") {
