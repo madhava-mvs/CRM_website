@@ -58,14 +58,17 @@ export default function Horizontalbar({ orangebar, greenbar, bluebar, show2, Hor
                     <ul>
                         <li>
                             <label className="Horizontalbar_graph_orange_label">Leads</label>
+                            <div className="Horizontalbar_graph_orange_value">{orangebar}</div>
                             <div className="Horizontalbar_graph_orange" style={{ width: `${orangebar}%` }}></div>
                         </li>
                         <li>
                             <label>Nurturing</label>
+                            <div className="Horizontalbar_graph_green_value">{greenbar}</div>
                             <div className="Horizontalbar_graph_green" style={{ width: `${greenbar}%` }}></div>
                         </li>
                         <li>
                             <label>Prospects</label>
+                            <div className="Horizontalbar_graph_blue_value">{bluebar}</div>
                             <div className="Horizontalbar_graph_blue" style={{ width: `${bluebar}%` }}></div>
                         </li>
                     </ul>

@@ -306,8 +306,12 @@ export default function AdminDash() {
                             {/* <Summary title={title} user1={genman} user2={areaman} user3={assisman} user4={salesman} name1={Man1} name2={Man2} name3={Man3} name4={Man4} /> */}
                         </div>
                         <div className="Admin_page_contentpart_main_row2_innerrow2">
-                            <SummaryCount pcount={pcount} />
-                            <Progressbar leadsc={leads} prosc={pros} />
+                            <div className="Admin_page_contentpart_main_row2_innerrow2_summary">
+                                <SummaryCount pcount={pcount} />
+                            </div>
+                            <div className="Admin_page_contentpart_main_row2_innerrow2_progress">
+                                <Progressbar leadsc={leads} prosc={pros} />
+                            </div>
                         </div>
                     </div>
                 </div>
