@@ -1,7 +1,9 @@
 // import { useState } from "react";
 import "./Form.css";
 export default function Form({
+  box5show,
   form_head,
+  leadupdateshow,
   addleadshow,
   div_head1,
   div_value1,
@@ -408,7 +410,28 @@ export default function Form({
           )}
         </>
             ) : (
+              <>
+              {box5show?(<>
+                 <div className="form_inner31">
+                {/* <label>{div_head5}</label> */}
+                <br />
+                <input
+                  value={div_value5}
+                  type={"text"}
+                  onChange={(e) => {
+                    setDiv_value5(e.target.value);
+                  }}
+                  className="form_rectangle"
+                />
+                {/* {
+                div_value5 == "" ? (
+              <span className="warning_error">{}</span>
+            ) : (
               <></>
+            )} */}
+              </div>
+              </>):(<></>)}
+              </>
             )}
           </div>
 
@@ -694,6 +717,8 @@ export default function Form({
                 /> */}
               </div>
             </div>
+            {leadupdateshow ? (
+          <>
             <div className="form_inner3">
               <div className="form_inner31">
                 <label>{div_head13}</label>
@@ -738,6 +763,7 @@ export default function Form({
                 )}
               </div> */}
             </div>
+            </>):(<></>)}
             {/* <div className="form_inner3">
               <div className="form_inner31">
                 <label>{div_head16}</label>

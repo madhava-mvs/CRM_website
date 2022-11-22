@@ -37,7 +37,7 @@ export default function Addcampaign() {
   const titlebar_value3 = "all";
   const form_head = "Campaign Details";
 
-
+  const box5show = false;
   const addcampaignshow = true;
   const div_head1 = "Campaign name*";
   const div_head2 = "Startdate*";
@@ -198,6 +198,7 @@ export default function Addcampaign() {
 
 
                 form_head={form_head}
+                box5show={box5show}
                 addcampaignshow={addcampaignshow}
                 div_head1={div_head1}
                 div_value1={campaignname}

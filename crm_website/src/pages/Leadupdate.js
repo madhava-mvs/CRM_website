@@ -75,13 +75,14 @@ export default function Leadupdate() {
   const titlebar_value2 = "draft";
   const titlebar_value3 = "all";
   const form_head = "Lead Details";
-
+  // const leadupdateshow=true;
+  const box5show = true;
   const addleadshow = true;
   const div_head1 = "Salutation*";
   const div_head2 = "FirstName*";
   const div_head3 = "MiddleName";
   const div_head4 = "LastName*";
-  const div_head5 = "";
+  const div_head5 = "Pincode";
   const div_head6 = "Company*";
   const div_head7 = "Email*";
   const div_head8 = "Phone*";
@@ -89,7 +90,7 @@ export default function Leadupdate() {
   const div_head10 = "Address";
   const div_head11 = "State*";
   const div_head12 = "City";
-  const div_head13 = "Pin code";
+  // const div_head13 = "Pincode";
   // const div_head14 = "Lead Source Name";
   // const div_head15 = "Date Added On*";
   // const div_head16 = "Active Status";
@@ -407,6 +408,8 @@ export default function Leadupdate() {
               <Form
                 form_head={form_head}
                 addleadshow={addleadshow}
+                box5show={box5show}
+                // leadupdateshow={leadupdateshow}
                 div_head1={div_head1}
                 div_value1={salutation}
                 setDiv_value1={setSalutation}
@@ -420,8 +423,8 @@ export default function Leadupdate() {
                 div_value4={lastname}
                 setDiv_value4={setLastname}
                 div_head5={div_head5}
-                div_value5={campaignid}
-                setDiv_value5={setCampaignid}
+                div_value5={pincode}
+                setDiv_value5={setPincode}
                 array_campaign={array_campaign}
                 div_head6={div_head6}
                 div_value6={company}
@@ -444,8 +447,8 @@ export default function Leadupdate() {
                 div_head12={div_head12}
                 div_value12={city}
                 setDiv_value12={setCity}
-                div_head13={div_head13}
-                div_value13={pincode}
+                // div_head13={div_head13}
+                // div_value13={pincode}
                 // setDiv_value13={setPincode}
                 // div_head14={div_head14}
                 // div_value14={leadSourceName}
