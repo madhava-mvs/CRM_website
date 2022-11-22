@@ -65,7 +65,7 @@ export default function Campaigneditpage() {
     const [arrayData2, setArrayData2] = useState([]);
     const [arraylist, setarraylist] = useState([]);
     const [arrayData8, setArrayData8] = useState([]);
-    
+
     // const [arraylist1, setarraylist1] = useState([]);
     const [show1, setShow1] = useState(false)
     const [show11, setShow11] = useState(false)
@@ -110,6 +110,22 @@ export default function Campaigneditpage() {
             .catch((err) => {
                 console.log("Error==>" + err);
             });
+
+        // let arraydatalead = []
+        // for (let i of arrayData) {
+        //     let a = 0
+        //     for (let j of arraydatalead) {
+        //         if (i == j) {
+        //             a += 1
+        //         }
+        //     }
+        //     if (a == 0) {
+        //         arraydatalead.push(i)
+        //     }
+        // }
+        // setArrayData(arraydatalead)
+
+
     };
     const handleclick3 = (e) => {
         setShow(!show)
@@ -301,6 +317,19 @@ export default function Campaigneditpage() {
             .catch((err) => {
                 console.log("Error==>" + err);
             });
+        let arrayData11 = []
+        for (let i of arrayData1) {
+            let c = 0
+            for (let j of arrayData11) {
+                if (i === j) {
+                    c += 1
+                }
+            }
+            if (c == 0) {
+                arrayData11.push(i)
+            }
+        }
+        setArrayData1(arrayData11)
 
 
         const url3 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/Salesfetch";
