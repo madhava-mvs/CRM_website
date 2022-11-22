@@ -1,7 +1,8 @@
 .Horizontalbar_main {
     background-color: #f3f3f4;
     /* background-color: aqua; */
-    /* min-width: 80%; */
+    max-width: 370px;
+    min-width: 350px;
     margin-top: 50px;
     padding-left: 30px;
     padding-bottom: 30px;
@@ -86,28 +87,63 @@
     /* padding-left: 20px; */
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
+    /* background-color: yellow; */
+    width: 80px;
 }
 
 .Horizontalbar_graph_orange {
     background-color: #FE7E08;
-    height: 5px;
-    margin-left: 50px;
+    height: 7px;
+    margin-left: 20px;
     border-radius: 20px;
 }
 
 .Horizontalbar_graph_green {
     background-color: #29CC39;
-    height: 5px;
+    height: 7px;
     margin-left: 25px;
     border-radius: 20px;
 }
 
 .Horizontalbar_graph_blue {
     background-color: #052DFF;
-    height: 5px;
+    height: 7px;
     margin-left: 20px;
     border-radius: 20px;
 }
+
+.Horizontalbar_graph_orange_value {
+    /* background-color: #29CC39; */
+    color: #6c7b9a;
+    font-weight: bold;
+    width: 20px;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Horizontalbar_graph_green_value {
+    /* background-color: #29CC39; */
+    color: #6c7b9a;
+    font-weight: bold;
+    width: 20px;
+    margin-top: 2px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Horizontalbar_graph_blue_value {
+    /* background-color: #29CC39; */
+    color: #6c7b9a;
+    font-weight: bold;
+    width: 20px;
+    margin-top: 2px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 
 .Horizontalbar_graph label {
     color: #6c7b9a;

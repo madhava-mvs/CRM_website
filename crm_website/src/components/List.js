@@ -13,7 +13,7 @@ export default function List({ user, pending_show, setPending_show, setApproval_
         <div className="list_main">
             <div className="list_title">
                 <label>User List</label>
-                <BsThreeDotsVertical />
+                <BsThreeDotsVertical className="list_title_three_dots_icon" />
             </div>
             {user.map((item, index) => {
                 return (
