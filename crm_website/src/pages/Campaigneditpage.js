@@ -95,7 +95,7 @@ export default function Campaigneditpage() {
     const handleclick1 = (e) => {
         setShow(!show)
         // const url = "http://localhost:3000/dev/getsinglelead";
-        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
+        const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/getsinglelead";
         const data = { updateid: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
@@ -159,7 +159,7 @@ export default function Campaigneditpage() {
         setediv_value10("")
         setediv_value11("")
         // const url = "http://localhost:3000/dev/updateCampaign";
-        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
+        const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/updateCampaign";
         const data = { CampaignName: div_value1, Startdate: div_value4, Enddate: div_value5, Status: div_value3, Owner: div_value6, ParentCampaign: div_value2, updateid: Campaign_id }
         const header = {};
         axios.post(url, data, header)
@@ -198,8 +198,9 @@ export default function Campaigneditpage() {
     }
 
     const handleclick22 = (e) => {
-        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/Addsalestocampaign";
-        const data = { arrayDataSales: arrayData2, CampaignId: Campaign_id };
+        const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/Addsalestocampaign";
+        // const url ="http://localhost:3000/dev/Addsalestocampaign"
+        const data = { arrayDataSales: arrayData8, CampaignId: Campaign_id };
         const Headers = {}
         axios.post(url, data, { headers: Headers })
             .then((res) => {
@@ -218,17 +219,17 @@ export default function Campaigneditpage() {
     const handleclick12 = (e) => {
         setShowsale(!showsale)
         // const url = "http://localhost:3000/dev/getsinglelead";
-        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsinglesales";
+        const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/getsinglesales";
         const data = { CampaignId: Campaign_id, userid: userid };
         const headers = {};
         axios.post(url, data, { headers: headers })
             .then((res) => {
-                console.log("Response of array==>" + JSON.stringify(res.data));
+                console.log("Response of array==>" + JSON.stringify(res.data))
                 for (const a of res.data) {
                     a.isclicked = false
                 }
-                setArrayData2(res.data)
-                console.log("Array of sales== " + JSON.stringify(arrayData2))
+                setArrayData8(res.data)
+                console.log("Array of sales== " + JSON.stringify(arrayData8))
             })
             .catch((err) => {
                 console.log("Error==>" + err);
@@ -240,7 +241,7 @@ export default function Campaigneditpage() {
         console.log("Campaign ID==>", Campaign_id)
 
         // const url = "http://localhost:3000/dev/leadfunnel";
-        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
+        const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/leadfunnel";
         const data = { id: Campaign_id };
         const headers = {};
         axios.post(url, data, { headers: headers })
@@ -267,7 +268,7 @@ export default function Campaigneditpage() {
         // useEffect(() => {
 
         // const url = "http://localhost:3000/dev/getsingleCampaign";
-        const url1 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
+        const url1 = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/getsingleCampaign";
         const data1 = {
             id: Campaign_id,
         };
@@ -305,7 +306,7 @@ export default function Campaigneditpage() {
 
         // useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
-        const url2 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
+        const url2 = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
         const data2 = { updateid: Campaign_id };
         const header2 = {};
         axios.post(url2, data2, { headers: header2 })
@@ -332,7 +333,7 @@ export default function Campaigneditpage() {
         setArrayData1(arrayData11)
 
 
-        const url3 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/Salesfetch";
+        const url3 = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/Salesfetch";
         const data3 = { id: Campaign_id };
         const header3 = {};
         axios.post(url3, data3, { headers: header3 })
@@ -410,7 +411,7 @@ export default function Campaigneditpage() {
                                 {
                                     showsale ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div>
                                         <div className="Campaigneditpage_Checklist_popup_sales">
-                                            <CheckList arraylist={arrayData8} setarraylist={setArrayData8} handleclick2={handleclick22} handleclick3={handleclick4} checkshow1={checkshow1} />
+                                            <CheckList arraylist={arrayData8} setArrayData8={setArrayData8} handleclick2={handleclick22} handleclick3={handleclick4} checkshow1={checkshow1} />
                                         </div></>
                                     ) : (
                                         <></>

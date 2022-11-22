@@ -2,7 +2,7 @@ import "./checkList.css";
 import { BiSearch } from "react-icons/bi";
 import { AiFillCloseCircle } from "react-icons/ai";
 
-export default function CheckList({ arraylist, handleclick2, setArrayData, handleclick3,checkshow,checkshow1 }) {
+export default function CheckList({ arraylist, handleclick2, setArrayData, handleclick3, checkshow, checkshow1,setArrayData8 }) {
   return (
     <>
       <div className="checkList_outer">
@@ -22,7 +22,7 @@ export default function CheckList({ arraylist, handleclick2, setArrayData, handl
           {console.log("checklist==>" + JSON.stringify(arraylist))}
           {arraylist.map((item, index) => {
             return (<>
-              <List item={item} arrayData={arraylist} setArrayData={setArrayData} checkshow={checkshow} checkshow1={checkshow1} /></>)
+              <List item={item} arrayData={arraylist} arrayData8={arraylist}  setArrayData={setArrayData} setArrayData8={setArrayData8} checkshow={checkshow} checkshow1={checkshow1} /></>)
           })}
         </div>
       </div>
@@ -31,7 +31,7 @@ export default function CheckList({ arraylist, handleclick2, setArrayData, handl
 }
 
 
-function List({ item, arrayData, setArrayData, checkshow1, checkshow ,arrayData8,setArrayData8}) {
+function List({ item, arrayData, setArrayData, checkshow1, checkshow, arrayData8, setArrayData8 }) {
   const handleClick11 = (e, item) => {
     let temp = [...arrayData];
     for (const iterator of temp) {
@@ -42,14 +42,14 @@ function List({ item, arrayData, setArrayData, checkshow1, checkshow ,arrayData8
     setArrayData(temp)
   }
 
-  const handleClick15 = (e, item) => {
-    let temp = [...arrayData8];
-    for (const iterator of temp) {
+  const handleClick15 = (e, item,) => {
+    let temp1 = [...arrayData8];
+    for (const iterator of temp1) {
       if (item.id === iterator.id) {
         iterator.isclicked = !iterator.isclicked;
       }
     }
-    setArrayData8(temp)
+    setArrayData8(temp1)
   }
 
   return (
