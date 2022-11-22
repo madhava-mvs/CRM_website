@@ -64,6 +64,9 @@ export default function Campaigneditpage() {
     const [arrayData22, setArrayData22] = useState([]);
     const [arrayData2, setArrayData2] = useState([]);
     const [arraylist, setarraylist] = useState([]);
+    const [arrayData8, setArrayData8] = useState([]);
+    
+    // const [arraylist1, setarraylist1] = useState([]);
     const [show1, setShow1] = useState(false)
     const [show11, setShow11] = useState(false)
     const [show2, setshow2] = useState(false)
@@ -71,6 +74,8 @@ export default function Campaigneditpage() {
     const userid = useSelector((state) => state.userid);
     const date1show = (true);
     const date2show = (true);
+    const checkshow = (true);
+    const checkshow1 = (true);
     // const update_campaign_id = useSelector((state) => state.update_lead_id);
 
     const [leadid, setLeadid] = useState("")
@@ -120,9 +125,9 @@ export default function Campaigneditpage() {
         const Headers = {}
         axios.post(url, data, { headers: Headers })
             .then((res) => {
-                console.log("Response of Checklist==>" + JSON.stringify(res.data));
+                console.log("Response of Checklist of lead==>" + JSON.stringify(res.data));
                 setarraylist(res.data)
-                console.log("Array==>" + JSON.stringify(arraylist))
+                console.log("Array of lead==>" + JSON.stringify(arraylist))
                 window.location.reload();
             })
             .catch((err) => {
@@ -175,6 +180,24 @@ export default function Campaigneditpage() {
                 console.log("Error==> " + err)
             })
     }
+
+    const handleclick22 = (e) => {
+        const url = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/Addsalestocampaign";
+        const data = { arrayDataSales: arrayData2, CampaignId: Campaign_id };
+        const Headers = {}
+        axios.post(url, data, { headers: Headers })
+            .then((res) => {
+                console.log("Response of Checklist of sales==>" + JSON.stringify(res.data));
+                setarraylist(res.data)
+                console.log("Array of sales==>" + JSON.stringify(arraylist))
+                window.location.reload();
+            })
+            .catch((err) => {
+                console.log("Error==>" + err);
+            });
+
+    };
+
 
     const handleclick12 = (e) => {
         setShowsale(!showsale)
@@ -261,10 +284,10 @@ export default function Campaigneditpage() {
             .catch((err) => {
                 console.log("Response==> " + JSON.stringify(err))
             })
-    }, [])
+        // }, [])
 
 
-    useEffect(() => {
+        // useEffect(() => {
         // const url = "http://localhost:3000/dev/leadfetch";
         const url2 = "https://9ygijc96w4.execute-api.us-east-1.amazonaws.com/dev/leadfetch";
         const data2 = { updateid: Campaign_id };
@@ -337,11 +360,11 @@ export default function Campaigneditpage() {
                         </div>
                         <div className="Campaigneditpage_topbar2_right_2">
                             <div className="Campaigneditpage_topbar2_right_2_left">
-                                <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} Normallist_name={Normallist_name}  date1show={date1show} />
+                                <Normallist arrayData1={arrayData1} setArrayData1={setArrayData1} handleclick1={handleclick1} Normallist_name={Normallist_name} date1show={date1show} />
 
                                 {
                                     show ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div><div className="Campaigneditpage_Checklist_popup">
-                                        <CheckList arraylist={arrayData} setArrayData={setArrayData} handleclick2={handleclick2} handleclick3={handleclick3} />
+                                        <CheckList arraylist={arrayData} setArrayData={setArrayData} handleclick2={handleclick2} handleclick3={handleclick3} checkshow={checkshow} />
                                     </div></>
                                     ) : (
                                         <></>
@@ -353,12 +376,12 @@ export default function Campaigneditpage() {
                         </div>
                         <div className="Campaigneditpage_topbar2_right_3">
                             <div className="Campaigneditpage_topbar2_right_3_left">
-                                <Normallist arrayData1={arrayData22} setArrayData1={setArrayData22} handleclick1={handleclick12} Normallist_name={Hello} date2show={date2show}  />
+                                <Normallist arrayData1={arrayData22} setArrayData1={setArrayData22} handleclick1={handleclick12} Normallist_name={Hello} date2show={date2show} />
 
                                 {
                                     showsale ? (<><div className="Campaigneditpage_Checklist_popup_blur"></div>
                                         <div className="Campaigneditpage_Checklist_popup_sales">
-                                            <CheckList arraylist={arrayData2} setarraylist={setArrayData2} handleclick2={handleclick2} handleclick3={handleclick4} />
+                                            <CheckList arraylist={arrayData8} setarraylist={setArrayData8} handleclick2={handleclick22} handleclick3={handleclick4} checkshow1={checkshow1} />
                                         </div></>
                                     ) : (
                                         <></>
