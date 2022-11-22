@@ -71,7 +71,7 @@ export default function AddLead() {
   const titlebar_value3 = "all";
   const form_head = "Lead Details";
   const nav = useNavigate();
-
+  const leadupdateshow=true;
   const addleadshow = true;
   const div_head1 = "Salutation*";
   const div_head2 = "FirstName*";
@@ -296,6 +296,7 @@ export default function AddLead() {
               <label className="addlead_text">{addlead}</label>
               {/* <Form esuffix={esuffix} efirstname={errorfirstname} elastname={errorlastname} ecompany={errorcompany} ephone={errorphone} eemail={erroremail} eaddress={erroraddress} ecreatedon={errorcreatedon} ecreatedby={errorcreatedby} addlead={addlead} /> */}
               <Form
+              leadupdateshow={leadupdateshow}
                 form_head={form_head}
                 addleadshow={addleadshow}
                 div_head1={div_head1}
