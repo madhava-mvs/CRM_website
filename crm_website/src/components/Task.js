@@ -99,7 +99,7 @@ export default function Task({ item, campaignName, taskid, leadname, txtActivity
             }
           </div>
           <div className="owner">
-            <label>{owner}</label>
+            <label>{item.owner}</label>
           </div>
           <div className="convstatus">
             {/* <input type="status"

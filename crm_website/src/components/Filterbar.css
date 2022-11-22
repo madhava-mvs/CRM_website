@@ -145,6 +145,7 @@ background-color: yellow;
   margin-top: 147px;
   width: 250px;
   min-height: 110px;
+  max-height: 110px;
   overflow-y: scroll;
   display: block;
 }
