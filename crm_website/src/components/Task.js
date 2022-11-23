@@ -1,28 +1,34 @@
 import { IoMdContact } from "react-icons/io";
 //import { BsThreeDotsVertical } from "react-icons/bs";
 import { AiOutlineMessage } from "react-icons/ai";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Pop from "./Pop.js";
 import Pop2 from './Pop2';
 
 import "./Task.css";
 export default function Task({ item, status_of_lead, setStatus_of_lead, setActivity_of_lead,activity_of_lead }) {
-
+  useEffect(()=>{
+    setStatus_of_lead(item.conversionid)
+setActivity_of_lead(item.activitytypeid)
+  },[])
   const [show1, setShow1] = useState("")
   // const [show2, setShow2] = useState("")
   const [show3, setShow3] = useState("")
+  // const [Status_of_lead, setStatus_of_lead] = useState("")
+  // const [Activity_of_lead, setActivity_of_lead] = useState("")
+  
 
 
   const handleclick = (e) => {
     setShow1(!show1)
   }
-  // const handleclick1 = (e) => {
-  //   setShow2(!show2)
-  // }
+
   const handleclick2 = (e) => {
     setShow3(!show3)
   }
+
+
 
   return (
     <>
@@ -47,7 +53,7 @@ export default function Task({ item, status_of_lead, setStatus_of_lead, setActiv
                     </div>
                     <div className="detail_box_row2"  >
                      
-                      <select value={item.activitytypeid} onChange={(e) => setActivity_of_lead(e.target.value)}>
+                      <select value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)}>
                         <option value="">null</option>
                         <option value="1">Call</option>
                         <option value="2">Email</option>
@@ -89,7 +95,7 @@ export default function Task({ item, status_of_lead, setStatus_of_lead, setActiv
               show3 ? (
                 <>
                   <div className="pop2">
-                    <Pop2 comments={item.Comments} />
+                    <Pop2 Comments={item.Comments} />
                   </div>
                 </>
               ) : (
@@ -105,8 +111,8 @@ export default function Task({ item, status_of_lead, setStatus_of_lead, setActiv
               placeholder="status" value={status} onChange={(e) => { setStatus(e.target.value) }} />
             {status === ""} */}
             {/* <label className="text_to_changecolor">status:</label> */}
-            <select value={item.conversionid}
-              onChange={(e) => setStatus_of_lead(e.target.value)}>
+            <select value={status_of_lead}
+              onChange={(e) => setStatus_of_lead(e.target.value)} >
               <option value="">status</option>
               <option value="1">New</option>
               <option value="2">Working</option>

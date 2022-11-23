@@ -15,6 +15,8 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
     const [activity_of_lead, setActivity_of_lead] = useState("");
     // const [show, setShow] = useState("")
     const [show2, setShow2] = useState("")
+    const [show3, setShow3] = useState("")
+    const [show4, setShow4] = useState("")
     ////////////////////
     const handleTodo = (e, itm) => {
         let temp = [...todo]
@@ -105,10 +107,11 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
             if (target === "sales_SalesInner1") {
                 var temp1 = todo;
                 dragElement.item.progresstypeid = 1
+                dragElement.item.conversionid = status_of_lead
                 let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
                 let data = {
                     progressid: dragElement.item.progresstypeid,
-                    conversionid: dragElement.item.conversionid,
+                    conversionid: status_of_lead,
                     Taskid: dragElement.item.Taskid
                 }
                 let header = {}
@@ -124,10 +127,11 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
             } else if (target === "sales_SalesInner2") {
                 var temp2 = inprogress;
                 dragElement.item.progresstypeid = 2
+                dragElement.item.conversionid = status_of_lead
                 let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
                 let data = {
                     progressid: dragElement.item.progresstypeid,
-                    conversionid: dragElement.item.conversionid,
+                    conversionid: status_of_lead,
                     Taskid: dragElement.item.Taskid
                 }
                 let header = {}
@@ -147,10 +151,11 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
             if (target === "sales_SalesInner3") {
                 var temp3 = completed;
                 dragElement.item.progresstypeid = 3
+                dragElement.item.conversionid = status_of_lead
                 let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
                 let data = {
                     progressid: dragElement.item.progresstypeid,
-                    conversionid: dragElement.item.conversionid,
+                    conversionid: status_of_lead,
                     Taskid: dragElement.item.Taskid
                 }
                 let header = {}
@@ -180,6 +185,12 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
     const handleclick1 = (e) => {
         setShow2(!show2)
     }
+    const handleclick2 = (e) => {
+        setShow3(!show3)
+    }
+    const handleclick3 = (e) => {
+        setShow4(!show4)
+    }
 
 
 
@@ -202,6 +213,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                         <div className="sales_Inner_row2_row1">
                             < AiOutlineDown onClick={(e) => handleTodo(e, item)} />
                             <label>{item.txtTitle}</label>
+                            <div className="Deletepop">
                             < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
                             {
                                 show2 ? (
@@ -214,10 +226,11 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     <></>
                                 )
                             }
+                            </div>
                         </div>
                         {item.isclicked ? (<>
                             {/* <Task campaignName= {item.txtCampaignName} taskid = {item.Activityid} leadname={item.leadname} txtActivitytype={item.txtActivitytype}conversionid={item.conversionid}Progresstypeid={item.Progresstypeid}owner={item.owner}phone={item.phone}email={item.email}Address={item.Address}CreatedOn={item.CreatedOn}/> */}
-                            <Task item={item} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead} />
+                            <Task item={item} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead}/>
                             {/* <div className="Event_Task_Lead_top">
                                 <div className="Event_Task_Lead">
                                     <ul>
@@ -288,9 +301,9 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     < AiOutlineDown onClick={(e) => { handleInProgress(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { inprogressdropDown(inprogressArray, itm2) }} /> */}
                                     <label>{item.txtTitle}</label>
-                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
+                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick2} />
                                     {
-                                        show2 ? (
+                                        show3 ? (
                                             <>
                                                 <div className="pop">
                                                     <Pop />
@@ -367,9 +380,9 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     < AiOutlineDown onClick={(e) => { handleCompleted(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { completeddropDown(completedArray, itm3) }} /> */}
                                     <label>{item.txtTitle}</label>
-                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
+                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick3} />
                                     {
-                                        show2 ? (
+                                        show4 ? (
                                             <>
                                                 <div className="pop">
                                                     <Pop />
