@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import store from "../Store.js";
 
 export default function LoginPage() {
@@ -18,7 +19,10 @@ export default function LoginPage() {
   const rememberMe = useSelector((state)=>state.rememberMe);
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
+  // let userinfo=[username,userid,jobrole,password]
+  let userinfo=[jobrole]
   const Login = (e) => {
+
     console.log(rememberMe);
     seterror1("");
     if (username == "" || password == "") {
@@ -53,6 +57,9 @@ export default function LoginPage() {
             dispatch({ type: "setUsername1", payload: res.data.username });
             dispatch({ type: "setJobrole", payload: res.data.jobrole });
             console.log("token" + JSON.stringify(token+"testinggggggg============"+userid));
+
+
+            console.log(localStorage.setItem("userinfo",userinfo));
             // Setcookie for email
             console.log(store.getState().rememberMe)
             store.getState().rememberMe ? setCookie('username', username) : deleteCookie('username');
@@ -71,6 +78,29 @@ export default function LoginPage() {
         });
     }
   };
+  // useEffect(()=>{
+  //   let login = localStorage.getItem("userinfo");
+  //   if (jobrole==="Admin"){
+  //     nav('/admindash')
+  //   }
+  //   else if(jobrole==="Manager"){
+  //     nav('/managerdash')
+  //   }
+  //   else{
+  //     nav('/salesDashboard')
+  //   }
+  // })
+  useEffect(()=>{
+    let login=localStorage.getItem("userinfo")
+    if (login=="Admin"){
+      nav('/admindash')
+    }
+    else if(login=="Manager"){
+      nav('/managerdash')
+    }else if(login =="User"){
+      nav('/salesDashboard')
+    }
+  },[])
 
   function setCookie(cname, uname) {
     document.cookie = `${cname}=${uname}`;
