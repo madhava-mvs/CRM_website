@@ -12,7 +12,8 @@ export default function Tasklist_filterbar({
   options_status,
   array_campaign_filter,
   filterpopup_show,
-  setFilterpopup_show
+  setFilterpopup_show,
+  handleclick_clearfilter
 }) {
   const [dtcreatedon_filter, setDtcreatedon_filter] = useState([]);
   
@@ -33,6 +34,8 @@ export default function Tasklist_filterbar({
     console.log(status_searchvalue);
     // console.log(options)
   };
+
+  
 
   const handleclickapplyfilter = () => {
 
@@ -212,10 +215,10 @@ export default function Tasklist_filterbar({
           </div>
         </div>
         <div className="filter_inner2">
-          <div className="filter_inner2_1">
-            <AiFillDelete className="filter_inner2_deleteicon" />
+          {/* <div className="filter_inner2_1">
+            <AiFillDelete className="filter_inner2_deleteicon" onClick={handleclick_clearfilter} />
             <label>clear filter</label>
-          </div>
+          </div> */}
           <div className="filter_inner2_buttons">
             <button
               className="tasklist_applyfilter_button"

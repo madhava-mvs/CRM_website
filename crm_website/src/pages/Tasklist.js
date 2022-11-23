@@ -310,6 +310,11 @@ export default function Tasklist() {
     setFilterpopup_show(!filterpopup_show);
   };
 
+  const handleclick_clearfilter = (val) =>{
+    setFilterpopup_show(!filterpopup_show);
+    setFilterpopup_show(!filterpopup_show);
+  }
+
   const [search_value, setSearch_value] = useState("");
 
   const onChange = (event) => {
@@ -370,6 +375,7 @@ export default function Tasklist() {
             array_campaign_filter={array_campaign_filter}
             filterpopup_show={filterpopup_show}
             setFilterpopup_show={setFilterpopup_show}
+            handleclick_clearfilter={handleclick_clearfilter}
           />
         ) : (
           <></>
