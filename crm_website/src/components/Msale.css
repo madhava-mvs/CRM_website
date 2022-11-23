@@ -104,11 +104,13 @@
 }
 
 .sales_Inner_row2 label {
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 8px;
+    margin-left: 3px;
     font-family:Arial, Helvetica, sans-serif;
+    width: 91px;
 }
 
 .sales_Inner_row3 {
