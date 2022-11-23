@@ -18,7 +18,7 @@ export default function LeadListPage() {
   function AddLead() {
     navigate("/AddLead");
   }
-
+  const search_dropdownshow=true;
   const [array_lead_search, setArray_lead_search] = useState([]);
   const aftersearch_array = [];
   const titlebar_name = "Lead List";
@@ -269,7 +269,7 @@ export default function LeadListPage() {
                 onSearch={onSearch}
                 onSearch_updatevalue_from_dropdown={
                   onSearch_updatevalue_from_dropdown
-                }
+                } search_dropdownshow={search_dropdownshow}
               />
             </div>
             <div className="Mainlist">
