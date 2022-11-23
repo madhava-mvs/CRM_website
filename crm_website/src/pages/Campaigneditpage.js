@@ -65,6 +65,8 @@ export default function Campaigneditpage() {
     const [arrayData2, setArrayData2] = useState([]);
     const [arraylist, setarraylist] = useState([]);
     const [arrayData8, setArrayData8] = useState([]);
+    const [ArrayData8_duplicate, setArrayData8_duplicate] = useState([]);
+    const [ArrayData_duplicate,setArrayData_duplicate] = useState([]);
 
     // const [arraylist1, setarraylist1] = useState([]);
     const [show1, setShow1] = useState(false)
@@ -105,11 +107,28 @@ export default function Campaigneditpage() {
                     a.isclicked = false
                 }
                 setArrayData(res.data)
+                setArrayData_duplicate(res.data)
                 console.log("Array== " + JSON.stringify(arrayData))
             })
             .catch((err) => {
                 console.log("Error==>" + err);
             });
+
+            // let arraydata_change = []
+            // for (let i of ArrayData_duplicate) {
+            //     let c = 0
+            //     for (let j of arrayData1) {
+            //         if (i.txtFirstName === j.txtFirstName) {
+            //             c += 1
+            //         }
+            //     }
+            //     if (c === 0) {
+            //         arraydata_change.push(i)
+            //     }
+            // }
+            // console.log("array data change123")
+            // console.log(arraydata_change)
+            // setArrayData8(arraydata_change)
 
         // let arraydatalead = []
         // for (let i of arrayData) {
@@ -215,10 +234,8 @@ export default function Campaigneditpage() {
 
     };
 
-
-    const handleclick12 = (e) => {
-        setShowsale(!showsale)
-        // const url = "http://localhost:3000/dev/getsinglelead";
+    useEffect(()=>{
+                // const url = "http://localhost:3000/dev/getsinglelead";
         const url = "https://2jcasgj6sf.execute-api.us-east-1.amazonaws.com/dev/getsinglesales";
         const data = { CampaignId: Campaign_id, userid: userid };
         const headers = {};
@@ -229,12 +246,35 @@ export default function Campaigneditpage() {
                     a.isclicked = false
                 }
                 setArrayData8(res.data)
+                setArrayData8_duplicate(res.data)
+
                 console.log("Array of sales== " + JSON.stringify(arrayData8))
             })
             .catch((err) => {
                 console.log("Error==>" + err);
             });
+        
 
+    },[])
+
+
+    const handleclick12 = (e) => {
+        setShowsale(!showsale)
+        let arraydata8_change = []
+        for (let i of ArrayData8_duplicate) {
+            let c = 0
+            for (let j of arrayData22) {
+                if (i.txtFirstName === j.txtFirstName) {
+                    c += 1
+                }
+            }
+            if (c === 0) {
+                arraydata8_change.push(i)
+            }
+        }
+        console.log("array data change")
+        console.log(arraydata8_change)
+        setArrayData8(arraydata8_change)
     }
 
     useEffect(() => {
