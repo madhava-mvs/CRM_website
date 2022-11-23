@@ -45,7 +45,8 @@ export default function Tasklist() {
           setArray_mainlist_dplicate(res.data);
         } else if (jobrole == "Manager") {
           const url =
-            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
+          "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofmanager"
+            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
           // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
 
           const data = {
@@ -64,8 +65,10 @@ export default function Tasklist() {
             });
         } else if (jobrole == "User") {
           const url =
+          "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalestasklist9966"
+          // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson1"
             // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
-            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson"
+            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson"
           const data = {
             id: userid,
           };

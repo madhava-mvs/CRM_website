@@ -48,7 +48,7 @@ export default function Addcampaign() {
   
     useEffect(() => {
       const url_product =
-        "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/productapi";
+        "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/productapi1";
       const data_product = {};
       const header_product = {};
       axios
