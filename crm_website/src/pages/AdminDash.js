@@ -50,6 +50,7 @@ export default function AdminDash() {
     const [manager_filter, setManager_Filter] = useState("");
 
     const [campid, setCampid] = useState("");
+    const admincampaign = (true);
 
     //ProspectGrowth Axios
 
@@ -295,7 +296,7 @@ export default function AdminDash() {
                 </div>
                 <div className='Admin_page_contentpart_main'>
                     <div className='Admin_page_contentpart_main_row1'>
-                        <Bargraph bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} />
+                        <Bargraph bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} />
                         <div className="Admin_page_contentpart_main_horizontal">
                             <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} campaign_array={campaign_array} manager_array={manager_array} managerclick={managerclick} manager_filter={manager_filter} setManager_Array={setManager_Array} campaignclick={campaignclick} campid={campid} setCampid={setCampid} />
                         </div>
