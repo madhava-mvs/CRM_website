@@ -36,7 +36,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 // }
 
 
-export default function Bargraph({ bar, campaignstatus, bargraph_status, filtercount, count_value, campaignwiseprospect_popup_show }) {
+export default function Bargraph({ bar, campaignstatus, bargraph_status, filtercount, count_value, campaignwiseprospect_popup_show, admincampaign }) {
 
 
     return <>
@@ -77,20 +77,35 @@ export default function Bargraph({ bar, campaignstatus, bargraph_status, filterc
 
                 </div>
             </div>
-            <div className="bargraph_graph">
-                <ul>
-                    {bar.map((item) => {
-                        return (
-                            <li>
-                                <label className="bargraph_blue_value" > {item.count} </label>
-                                <div className="bargraph_bluegraph" style={{ height: `${item.count}vh` }}></div>
-                                <label className="bargraph_blue_name"> {item.txtCampaignName} </label>
-                            </li>
-                        )
-                    })
-                    }
-                </ul>
-            </div>
+            {admincampaign ?
+                (<div className="bargraph_graph">
+                    <ul>
+                        {bar.map((item) => {
+                            return (
+                                <li>
+                                    <label className="bargraph_blue_value" > {item.count} </label>
+                                    <div className="bargraph_bluegraph" style={{ height: `${item.count}vh` }}></div>
+                                    <label className="bargraph_blue_name"> {item.txtCampaignName} </label>
+                                </li>
+                            )
+                        })
+                        }
+                    </ul>
+                </div>) : (<div className="manager_bargraph_graph">
+                    <ul>
+                        {bar.map((item) => {
+                            return (
+                                <li>
+                                    <label className="manager_bargraph_blue_value" > {item.count} </label>
+                                    <div className="manager_bargraph_bluegraph" style={{ height: `${item.count}vh` }}></div>
+                                    <label className="manager_bargraph_blue_name"> {item.txtCampaignName} </label>
+                                </li>
+                            )
+                        })
+                        }
+                    </ul>
+                </div>)
+            }
         </div>
     </>
 }

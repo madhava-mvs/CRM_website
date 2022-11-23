@@ -43,6 +43,28 @@
     overflow-x: scroll;
 }
 
+.manager_bargraph_graph {
+    /* background-color: aqua; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* max-width: 100%; */
+    overflow-x: scroll;
+}
+
+.manager_bargraph_graph ul {
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: first baseline;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    margin-right: -650px;
+}
+
 
 .bargraph_threedot_icon {
     margin-top: 5px;
@@ -76,25 +98,45 @@
     min-height: 90px;
 }
 
-.bargraph_graph label {
+
+.manager_bargraph_graph li {
+    /* background-color: brown; */
+    margin-left: 10px;
+    margin-right: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    min-height: 90px;
+    position: relative;
+}
+
+
+.bargraph_graph label,
+.manager_bargraph_graph label {
     display: flex;
     flex-direction: row;
 }
 
-.bargraph_blue_value {
+.bargraph_blue_value,
+.manager_bargraph_blue_value {
     color: blue;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
 .bargraph_blue_name,
-.bargraph_title label {
+.bargraph_title label,
+.manager_bargraph_blue_name,
+.manager_bargraph_title label {
     color: #4D5E80;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bargraph_blue_name {
+.bargraph_blue_name,
+.manager_bargraph_blue_name {
     /* background-color: yellow; */
     min-height: 50px;
     width: 100px;
@@ -102,7 +144,8 @@
     align-items: center;
 }
 
-.bargraph_bluegraph {
+.bargraph_bluegraph,
+.manager_bargraph_bluegraph {
     background-color: blue;
     width: 25px;
     margin-top: 5px;
@@ -161,6 +204,28 @@
 .bargraph_graph::-webkit-scrollbar-thumb:hover {
     visibility: visible;
 }
+
+
+
+
+.manager_bargraph_graph::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 0.5em;
+    visibility: hidden;
+}
+
+.manager_bargraph_graph::-webkit-scrollbar-thumb {
+    background-color: #a3a3ac;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.manager_bargraph_graph::-webkit-scrollbar:hover,
+.manager_bargraph_graph::-webkit-scrollbar-thumb:hover {
+    visibility: visible;
+}
+
+
 
 .threedot_icon_div:hover .bargraph_campaignwiseprospect_popup {
     display: block;

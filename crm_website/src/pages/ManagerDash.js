@@ -33,6 +33,7 @@ export default function ManagerDash() {
 
 
     const leadsfunnel_popup_show = (false);
+    const admincampaign = (false);
     //ProspectGrowth Axios
 
     useEffect(() => {
@@ -114,7 +115,7 @@ export default function ManagerDash() {
                 </div>
                 <div className="ManagerDash_page_content_area">
                     <div className="ManagerDash_page_content_area_row1">
-                        <Bargraph bar={bar} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} />
+                        <Bargraph bar={bar} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} />
                         <div className="ManagerDash_page_content_area_horizontal">
                             <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show} leadsfunnel_popup_show={leadsfunnel_popup_show} />
                         </div>
