@@ -111,9 +111,12 @@ export default function Form({
                             }
                             className="form_rectangle">
                             {/* <option value="">--Select--</option> */}
-                            <option value="To Do">To Do</option>
+                            {/* <option value="To Do">To Do</option>
                             <option value="In Progress">In Progress</option>
-                            <option value="Finished">Finished</option>
+                            <option value="Finished">Finished</option> */}
+                            <option value="Active">Active</option>
+                            <option value="InActive">InActive</option>
+                            {/* <option value="Finished">Finished</option> */}
                         </select>
                         <br />
                         <span className="warning_error">{ediv_value10}</span>
