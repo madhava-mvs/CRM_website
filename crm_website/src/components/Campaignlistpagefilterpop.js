@@ -224,10 +224,10 @@ export default function Campaign_filterbar({
           </div>
         </div>
         <div className="filter_inner2">
-          <div className="filter_inner2_1">
+          {/* <div className="filter_inner2_1">
             <AiFillDelete className="filter_inner2_deleteicon" />
             <label>clear filter</label>
-          </div>
+          </div> */}
           <div className="filter_inner2_buttons">
             <button
               className="tasklist_applyfilter_button"
