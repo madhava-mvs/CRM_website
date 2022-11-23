@@ -25,6 +25,7 @@ export default function Tasklist() {
   const [array_tasklist_search, setArray_tasklist_search] = useState([]);
   const [campaign_name, setCampaign_name] = useState("");
   const [search_dropdownshow, setSearch_dropdownshow] = useState(false)
+  
   const aftersearch_array = [];
   const editshow = true;
   useEffect(() => {
@@ -98,7 +99,6 @@ export default function Tasklist() {
         headers: header_search_tasklist,
       })
       .then((res) => {
-        console.log("tasklist search")
         console.log(res.data);
         setArray_tasklist_search(res.data);
       })
@@ -152,10 +152,12 @@ export default function Tasklist() {
   };
 
   const [array_campaign, setArray_campaign] = useState([]);
-
+  const [array_campaignbox, setArray_campaignbox] = useState([]);
+  const [array_assignedbox, setArray_assignedbox] = useState([]);
+  const [array_assignedbox__duplicate, setArray_assignedbox_duplicate] = useState([]);
   const [array_user, setArray_user] = useState([]);
  
-  const [array_lead1, setArray_lead1] = useState([]);
+  const [array_lead_duplicate, setArray_lead_duplicate] = useState([]);
   const [array_lead, setArray_lead] = useState([]);
   function HandleClick() {
     // useEffect(() => {
@@ -170,25 +172,78 @@ export default function Tasklist() {
       .then((res) => {
         console.log(res.data);
         setArray_campaign(res.data);
+        setArray_assignedbox_duplicate(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
 
+
+
+
+
+
+
+
+      const url_campaignbox =
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignbox1";
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignbox1";
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignofthebox";
+    const data_campaignbox = {
+      id:userid
+    };
+    const header_campaignbox = {};
+    axios
+      .post(url_campaignbox, data_campaignbox, { headers: header_campaignbox })
+      .then((res) => {
+        console.log(res.data);
+        setArray_campaignbox(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+
+
+
+
+
+
+
+
+      const url_assignedbox =
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getassignedto";
+    const data_assignedbox = {
+     
+    };
+    const header_assignedbox = {};
+    axios
+      .post(url_assignedbox, data_assignedbox, { headers: header_assignedbox })
+      .then((res) => {
+        console.log(res.data);
+        setArray_assignedbox(res.data);
+        setArray_user(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
       
       const url_lead =
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getleadfetch"
-      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettinglead_bycampaignid";
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getleadfetch"
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettinglead_bycampaignid";
     const data_lead = {
-  id:11
+  // id:11
     };
     const header_lead = {};
     axios
       .post(url_lead, data_lead, { headers: header_lead })
       .then((res) => {
+        console.log("leadsbycampaignid")
+        console.log(res.data)
         setArray_lead(res.data);
-        console.log("setArray_lead"  + JSON.stringify(array_lead1));
+        setArray_lead_duplicate(res.data);
+        console.log("setArray_lead"  + JSON.stringify(array_lead));
        
       })
       .catch((err) => {
@@ -197,22 +252,22 @@ export default function Tasklist() {
     
     
 
-    const url_user =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
-    const data_user = {
-      id:userid
-    };
-    const header_user = {};
-    axios
-      .post(url_user, data_user, { headers: header_user })
-      .then((res) => {
-        console.log("user data array==>" + JSON.stringify(res.data));
-        console.log("nnnnnnnnnnnnnnnnnnnnnnnnnn"+campaign_name)
-        setArray_user(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // const url_user =
+    //   "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
+    // const data_user = {
+    //   id:userid
+    // };
+    // const header_user = {};
+    // axios
+    //   .post(url_user, data_user, { headers: header_user })
+    //   .then((res) => {
+    //     console.log("user data array==>" + JSON.stringify(res.data));
+    //     console.log("nnnnnnnnnnnnnnnnnnnnnnnnnn"+campaign_name)
+    //     setArray_user(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     setShow(!show);
   // }, []);
@@ -339,8 +394,16 @@ export default function Tasklist() {
                   show={show}
                   setShow={setShow}
                   array_campaign={array_campaign}
+                  array_campaignbox={array_campaignbox}
+                  array_assignedbox={array_assignedbox}
+                  array_assignedbox_duplicate={array_assignedbox__duplicate}
                   array_lead={array_lead}
                   array_user={array_user}
+                  setArray_user={setArray_user}
+                  array_lead_duplicate={array_lead_duplicate}
+                  setArray_lead={setArray_lead}
+
+
                 />
               </div>
             </div>
@@ -376,10 +439,11 @@ export default function Tasklist() {
   //     if (i.campaignid==11) {
   //     new_array.push(i);
   //   }
-  // }
+  // }  const [array_lead_duplicate, setArray_lead_duplicate] = useState([]);
+  // const [array_lead, setArray_lead] = useState([]);
   // setArray_lead(new_array);
 // function Addtask({ show, setShow, array_campaign, array_lead,setArray_lead, array_user,array_lead1}) {
-  function Addtask({ show, setShow, array_campaign, array_lead, array_user }) {
+  function Addtask({ show, setShow, array_campaign,array_campaignbox,array_assignedbox, array_lead, setArray_lead, array_user,array_lead_duplicate,array_assignedbox__duplicate, setArray_user }) {
   const [title, setTitle] = useState("");
   const [txtcomments, settxtcomments] = useState("");
   const [campaign_name, setCampaign_name] = useState("");
@@ -395,18 +459,86 @@ export default function Tasklist() {
   const [erroruser, setEuser] = useState("");
   const [erroractivity, setEactivity] = useState("");
  
-  const new_array = [];
+  const new_array_lead = [];
+  const new_array_mapid = [];
+  const new_array_assignedto = [];
   const userid = useSelector((state) => state.userid);
+  const [mapidset, setMapidset] = useState("");
+  // const [assigned, setAssigned] = useState("");
+  const [arraytemp, setArraytemp] = useState("");
+
+
+
+  const onchangecampaignid = (e) => {
+    console.log("after changing campaign id")
+    console.log(e.target.value)
+    setCampaign_name(e.target.value)
+    for(let i of array_lead_duplicate){
+      if(i.campaignid == e.target.value){
+        console.log(i)
+        new_array_lead.push(i)
+
+      
+      }
+    }
+    setArray_lead(new_array_lead)
+    setArraytemp(new_array_lead)
+
+    console.log("setting assignedto")
+    for(let i of array_assignedbox){
+      if(i.refcampaignid == e.target.value){
+        console.log(i)
+        new_array_assignedto.push(i)
+
+      
+      }
+    }
+    // setAssigned(new_array_assignedto)
+    // array_assignedbox__duplicate(new_array_assignedto)
+    setArray_user(new_array_assignedto)
+
+
+  }
+
+
+ 
 
 
 
 
-  
+  const onchangeleadid = (e) => {
+    console.log("after changing lead id")
+    console.log(e.target.value)
+    setLead_name(e.target.value)
+    for(let i of arraytemp){
+      if(i.id == e.target.value){
+        console.log("coresponding map id")
+        console.log(i)
+        console.log(i.leadmapid)
+        new_array_mapid.push(i.leadmapid)
+        // new_array_lead.push(i)
+      }
+ 
+    }
+    setMapidset(new_array_mapid)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   const Save_Task = async () => {
     console.log(
-      title+","+txtcomments+","+campaign_name + "," + lead_name + "," + user_name + "," + activity
+      title+","+txtcomments+","+campaign_name + "," + lead_name + "," + user_name + "," + activity+","+mapidset
     );
     if (title === "") {
       setEtitle("title is mandatory");
@@ -440,7 +572,8 @@ export default function Tasklist() {
       setEactivity("activity is mandatory");
     } else {
       const url =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertlead99"
+      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertinglead"
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertlead99"
         // "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
         // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
       const data = {
@@ -450,6 +583,7 @@ export default function Tasklist() {
         title: title,
         txtcomments: txtcomments,
         activity: Number(activity),
+        mapidset:Number(mapidset)
       };
       const header = {};
       await axios
@@ -469,90 +603,25 @@ export default function Tasklist() {
           console.log(err);
         });
     }
-   
+    setTitle("")
+    settxtcomments("")
+    setCampaign_name("")
+    setLead_name("")
+    setUser_name("")
+    setActivity("")
+    
+
   };
-    //   function fun(){
-    //     return new Promise((resolve)=>{
-    //     const url1 =
-    //   "https://xegps3cqo7.execute-api.us-east-1.amazonaws.com/dev/InsertTask";
-    // const data1 = {
-    //   title: title,
-    //   txtcomments: txtcomments,
-    //   activity: Number(activity),
-    //   mapid: Number(mapid),
-    // };
-    // const header1 = {};
-    // axios
-    //   .post(url1, data1, { headers: header1 })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    // },5000)
-
-    // }
-    // fun();
- 
-  // const loginClick = (e) => {
-  //     // alert("added")
-  //     if (title == "" || txtcomments == "" || campaign_name == "" || lead_name == "" || Status == "" || user_name == "") {
-  //         seterrorall(true)
-  //     }
-  //     else if (title != "" && txtcomments != "" && campaign_name != "" && lead_name != "" && Status != "" && user_name != "") {
-  //         seterrors("")
-  //         seterrorc("")
-  //         seterrord("")
-  //         seterrorstatus("")
-  //         seterrora("")
-  //         seterrorl("")
-  //         seterrort("")
-
-  //         // const url = "http://localhost:3000/dev/addtask";
-  //         const url = "https://mib9etxby0.execute-api.us-east-1.amazonaws.com/dev/addtask"
-  //         const data = {
-  //             title: title,
-  //             txtcomments: txtcomments,
-  //             campaign_name: campaign_name,
-  //             lead_name: lead_name,
-  //             Status: Status,
-  //             user_name: user_name
-  //         };
-  //         const header = {}
-  //         axios.post(url, data, { headers: header })
-  //             .then((res) => {
-  //                 console.log("Response==> " + JSON.stringify(res.data))
-  //                 let result = res.data + " "
-  //                 if (result.includes("Subject is empty"))
-  //                     seterrors("Subject is empty")
-
-  //                 if (result.includes("txtcomments is empty"))
-  //                     seterrorc("txtcomments is empty")
-
-  //                 if (result.includes("dtCreatedOn is empty"))
-  //                     seterrord("dtCreatedOn is empty")
-
-  //                 if (result.includes("Assignedto is empty"))
-  //                     seterrora("Assignedto is empty")
-
-  //                 if (result.includes("LeadEmail is empty"))
-  //                     seterrorl("LeadEmail is empty")
-
-  //                 if (result.includes("Status is empty"))
-  //                     seterrorstatus("Status is empty")
-
-  //                 if (result.includes("Task Inserted!"))
-  //                     seterrort("Task Inserted!")
-  //             })
-  //             .catch((err) => {
-  //                 console.log("error==> " + JSON.stringify(err))
-  //             })
-  //         //  }, []);
-  //     }
-  // }
+  
   const handleclick7 = (e) => {
     setShow(!show);
+    setTitle("")
+    settxtcomments("")
+    setCampaign_name("")
+    setLead_name("")
+    setUser_name("")
+    setActivity("")
+    seterrort("")
   };
   return show ? (
     
@@ -571,10 +640,10 @@ export default function Tasklist() {
                   </div>
                 </div>
                 <div className=" log">
-                  <label className="text_to_changecolor">Log a call</label>
+                  {/* <label className="text_to_changecolor">Log a call</label> */}
                 </div>
                 <div className="email">
-                  <label className="text_to_changecolor">Email</label>
+                  {/* <label className="text_to_changecolor">Email</label> */}
                 </div>
                 <div className="tasklist_r1_plus" onClick={Save_Task}>
                   <div>
@@ -602,7 +671,7 @@ export default function Tasklist() {
 
                   <div className="r3">
                     <div className="r3_in">
-                      <label className="text_to_changecolor">Title</label>
+                      <label className="text_to_changecolor">Title*</label>
                       <br />
                       <input
                         type="text"
@@ -639,16 +708,16 @@ export default function Tasklist() {
                     </div>
                     <div className="r3_in">
                       <label className="text_to_changecolor">
-                      {campaign_name}Campaign name:{" "}
+                     Campaign name*{" "}
                       </label>
                       <br />
                       <br />
                       <select
                         value={campaign_name}
-                        onChange={(e) => setCampaign_name(e.target.value)}
+                        onChange={(e) => onchangecampaignid(e)}
                       >
                         <option value="">--Select--</option>
-                        {array_campaign.map((itm, index) => {
+                        {array_campaignbox.map((itm, index) => {
                           return (
                             <>
                               <option value={itm.id}>
@@ -683,23 +752,28 @@ export default function Tasklist() {
 
                   <div className="r4">
                     <div className="r4_in">
-                      <label className="text_to_changecolor">Lead :</label>
+                      <label className="text_to_changecolor">Lead*</label>
                       <br />
                       <br />
                       <select
                         value={lead_name}
-                        onChange={(e) => setLead_name(e.target.value)}
+                        onChange={(e) => onchangeleadid(e)}
+                        // onChange={(e) => setLead_name(e.target.value)}
                       >
                         <option value="">--Select--</option>
 
 
                       
                         {array_lead.map((itm, index) => {
+                      
                           return (
                             <>
-                              <option value={itm.id}>{itm.txtFirstName}</option>
+                              <option value={itm.id}>{itm.firstname}</option>
+                     
                             </>
                           );
+                        
+                          
                         })}
                       </select>
 
@@ -718,7 +792,7 @@ export default function Tasklist() {
                       )}
                     </div>
                     <div className="r4_in">
-                      <label className="text_to_changecolor">Assigned to</label>
+                      <label className="text_to_changecolor">Assigned to*</label>
                       <br />
                       <br />
                       <select
@@ -729,7 +803,7 @@ export default function Tasklist() {
                         {array_user.map((itm, index) => {
                           return (
                             <>
-                              <option value={itm.id}>{itm.txtFirstName}</option>
+                              <option value={itm.refuserid}>{itm.txtFirstName}</option>
                             </>
                           );
                         })}
@@ -751,7 +825,7 @@ export default function Tasklist() {
                     </div>
 
                     <div className="r4_in">
-                      <label className="text_to_changecolor">Activity :</label>
+                      <label className="text_to_changecolor">Activity*</label>
                       <br />
                       <br />
 
