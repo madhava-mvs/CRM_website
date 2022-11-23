@@ -72,9 +72,9 @@ export default function Userprofile() {
             seterrorc("")
             seterrorpn("")
             // const url = "http://localhost:3000/dev/updateprofile";
-            const url = "https://04m1xo4qs3.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
+            const url = "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/updateprofile";
             const data = {
-                id: userid, Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
+                id:userid, Email: Email, FirstName: FirstName, LastName: LastName, Dob: Dob, Address: Address, Password: Password, ConfirmPassword: ConfirmPassword,
             };
             const header = {};
             axios.post(url, data, header,)
@@ -97,8 +97,7 @@ export default function Userprofile() {
                         seterrorpn("Password not match")
                     if (result.includes("Profile Updated!"))
                         seterroru("Profile Updated!")
-                    if (result.includes("already exist"))
-                        seterrore("Email already exist")
+                   
                     //// //localStorage.setItem("tokenvariable", res.data)
                     ///// const token = localStorage.getItem("tokenvariable");
                     /// //navigate("/home");
