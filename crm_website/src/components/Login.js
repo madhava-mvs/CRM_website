@@ -1,5 +1,3 @@
-
-
 import './login.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -52,9 +50,13 @@ export default function LOGIN({ Login, error1, error, username, password, setpas
     }, []);
 
     // on logout execute this line dispatch({ type: "setEmail", payload: '' });
+    const handlesubmit=(e)=>{
+        e.preventDefault()
+    }
 
     return <>
         <div className='login'>
+            <form onSubmit={handlesubmit}>
             <div className='login_outer_row1'>
                 <div className='login_inner_row1'><img src={login_logo} /><label>Logo</label></div>
                 <div className='login_inner_row2'>Welcome!</div>
@@ -77,6 +79,7 @@ export default function LOGIN({ Login, error1, error, username, password, setpas
             <div className='login_outer_row2'>
                 <label>New member? </label><span onClick={SignUp}> SignUp</span>
             </div>
+            </form>
         </div>
     </>
 }

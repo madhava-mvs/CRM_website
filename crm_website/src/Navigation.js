@@ -18,6 +18,7 @@ import Userprofile from "./pages/Userprofile";
 import Leadupdate from "./pages/Leadupdate";
 import Emailvalidation from "./components/Emailvalidation";
 import Resetpassword from "./components/Resetpassword";
+import Protected from "./components/Protected";
 // import AuthApi from "./AuthApi";
 // import { useState,useContext } from "react";
 
@@ -49,8 +50,8 @@ export default function Navigation() {
           <Route path="/otp" element={<Otp />}></Route>
           <Route path="/Leadlist" element={<LeadListPage />}></Route>
           <Route path="/Leadupdate" element={<Leadupdate />}></Route>
-          <Route path="/emailvalidation" element={<Emailvalidation/>}></Route>
-          <Route path="/resetpassword" element={<Resetpassword/>}></Route>
+          <Route path="/emailvalidation" element={<Emailvalidation />}></Route>
+          <Route path="/resetpassword" element={<Resetpassword />}></Route>
           <Route path="/Addlead" element={<AddLead />}></Route>
           <Route
             path="/Campaignlistpage"
@@ -66,11 +67,11 @@ export default function Navigation() {
           ></Route>
           <Route path="/Tasklist" element={<Tasklist />}></Route>
           <Route path='/ProspectListpage' element={<ProspectListpage />}></Route>
-          <Route path="/salesDashboard"  element={<SalesDashboard/> }></Route>
-          <Route path="/admindash" element={<AdminDash />}></Route>
-          <Route path="/managerdash" element={<ManagerDash />}></Route>
+          <Route path="/salesDashboard" element={<Protected Component={SalesDashboard} />}></Route>
+          <Route path="/admindash" element={<Protected Component={AdminDash} />}></Route>
+          <Route path="/managerdash" element={<Protected Component={ManagerDash} />}></Route>
           <Route path="/Userprofile" element={<Userprofile />}>
-                </Route>
+          </Route>
         </Routes>
       </BrowserRouter>
       {/* </AuthApi.Provider> */}
