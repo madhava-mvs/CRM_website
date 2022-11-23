@@ -64,7 +64,8 @@ export default function Tasklist() {
             });
         } else if (jobrole == "User") {
           const url =
-            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
+            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson"
           const data = {
             id: userid,
           };
