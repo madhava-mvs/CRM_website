@@ -9,7 +9,7 @@ export default function CheckList({ arraylist, handleclick2, setArrayData, handl
         <div className="checkList_inner1">
           <div className="checkList_inner11">
             <BiSearch className="checkList_searchIcon" />
-            <input type={"text"} placeholder="Search Lead" />
+            <input type={"text"} placeholder="Search" />
           </div>
           <div className="checkList_inner12">
             <label onClick={(e) => { handleclick2(e) }}>ADD</label>
