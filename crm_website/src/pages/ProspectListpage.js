@@ -45,7 +45,7 @@ export default function ProspectListpage() {
       }
     }
 
-    useEffect(() => {
+   
    
     const url = "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/deleteprospect"
     const data = { id: leadid };
@@ -53,13 +53,13 @@ export default function ProspectListpage() {
     axios.post(url, data, { headers: header })
       .then((res) => {
         console.log("Response ==> " + JSON.stringify(res.data))
-        window.location.reload();
+       window.location.reload();
 
       })
       .catch((err) => {
         console.log("Error ==> " + err)
       })
-    }, []);
+   
 
   }
 
