@@ -15,7 +15,7 @@ export default function CampaignListPage() {
   const updateid = useSelector((state) => state.update_campaign_id);
   const [filterpopup_show, setFilterpopup_show] = useState(false);
   const [array_mainlist_duplicate, setArray_mainlist_dplicate] = useState([]);
-
+  const search_dropdownshow=true;
   const editshow = (true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -220,8 +220,7 @@ export default function CampaignListPage() {
             <div className="Campaignlist_Filterbar">
               <Filterbar DeleteFunc={Deletecampaign} editshow={editshow} handleselectall={handleselectall} 
                          handleclickfilterbar_filter={handleclickfilterbar_filter}
-
-
+                         search_dropdownshow={search_dropdownshow}
                          tasklistsearchshow={tasklistsearchshow}
                          search_array={array_campaign_search}
                          setSearch_array={setArray_campaign_search}

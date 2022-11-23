@@ -105,7 +105,7 @@ export default function Filter({
     ) {
       for (let i of valuecampaignarray) {
         for (let j of array3) {
-          if (i === j.state.toString()) {
+          if (i === j.state) {
             console.log(j);
             filarray.push(j);
           }
@@ -120,7 +120,7 @@ export default function Filter({
       for (let i of valuestatusarray) {
         for (let j of array3) {
           console.log(j.CompanyName);
-          if (i === j.CompanyName.toString()) {
+          if (i === j.CompanyName) {
             console.log(j);
             filarray.push(j);
           }
@@ -139,7 +139,7 @@ export default function Filter({
             if (
               j.CreatedOn.toString().substring(0, 10) ===
                 dtcreatedon_filter.toString() &&
-              i === j.state.toString()
+              i === j.state
             ) {
               console.log(j);
               filarray.push(j);
@@ -159,7 +159,7 @@ export default function Filter({
             if (
               j.CreatedOn.toString().substring(0, 10) ===
                 dtcreatedon_filter.toString() &&
-              i === j.CompanyName.toString()
+              i === j.CompanyName
             ) {
               console.log(j);
               filarray.push(j);
@@ -177,7 +177,7 @@ export default function Filter({
       for (let i of valuecampaignarray) {
         for (let j of valuestatusarray) {
           for (let k of array3) {
-            if (i === k.state.toString() && j === k.CompanyName.toString()) {
+            if (i === k.state && j === k.CompanyName) {
               filarray.push(k);
             }
           }
@@ -193,8 +193,8 @@ export default function Filter({
               if (
                 k.CreatedOn.toString().substring(0, 10) ===
                   dtcreatedon_filter.toString() &&
-                i === k.state.toString() &&
-                j === k.CompanyName.toString()
+                i === k.state &&
+                j === k.CompanyName
               ) {
                 filarray.push(k);
               }
