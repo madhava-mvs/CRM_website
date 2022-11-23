@@ -1,6 +1,6 @@
 import "./Titlebar.css";
 // import axios from "axios";
-import { GiBeachBag } from "react-icons/gi";
+import { RiFileList3Fill } from "react-icons/ri";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 
@@ -212,7 +212,7 @@ export default function TitleBar({
       <div className="titlebar_top">
         <div className="titlebar_top_col1">
           <div className="titlebaddlead_ar_bagSquare">
-            <GiBeachBag className="titlebar_bagIcon" />
+            <RiFileList3Fill className="titlebar_bagIcon" />
           </div>
           <label>{titlebar_name}</label>
         </div>
