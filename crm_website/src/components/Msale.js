@@ -7,27 +7,36 @@ import { HiUser } from "react-icons/hi";
 import { useState } from "react";
 import Task from "./Task";
 import Pop from "./Pop";
+import axios from "axios";
 
 
 export default function SalesDash({ todo, inprogress, completed, setTodo, setInProgress, setCompleted, }) {
-
+    const [status_of_lead, setStatus_of_lead] = useState("");
+    const [activity_of_lead, setActivity_of_lead] = useState("");
     // const [show, setShow] = useState("")
     const [show2, setShow2] = useState("")
     ////////////////////
     const handleTodo = (e, itm) => {
         let temp = [...todo]
         for (const iterator of temp) {
-            if (iterator.Taskid === itm.Taskid ) {
+            if (iterator.Taskid === itm.Taskid) {
                 iterator.isclicked = !iterator.isclicked
             }
         }
         setTodo(temp)
     }
     const handleInProgress = (e, itm) => {
+        console.log(inprogress)
         let temp = [...inprogress]
         for (const iterator of temp) {
-            if (iterator.Taskid === itm.status && iterator.status === itm.status) {
-                iterator.isclicked = !iterator.isclicked
+            console.log(JSON.stringify(iterator))
+            if (iterator === "" || iterator === undefined) {
+                console.log("undefined inside console")
+            }
+            else {
+                if (iterator.Taskid === itm.Taskid) {
+                    iterator.isclicked = !iterator.isclicked
+                }
             }
         }
         setInProgress(temp)
@@ -35,7 +44,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
     const handleCompleted = (e, itm) => {
         let temp = [...completed]
         for (const iterator of temp) {
-            if (iterator.Taskid === itm.status && iterator.status === itm.status) {
+            if (iterator.Taskid === itm.Taskid) {
                 iterator.isclicked = !iterator.isclicked
             }
         }
@@ -66,6 +75,16 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
         e.preventDefault();
     };
     const handleDrop = (e) => {
+        console.log("activity, status")
+        if (activity_of_lead === "" || status_of_lead === "") {
+            if (activity_of_lead === "") {
+                setActivity_of_lead(dragElement.item.activitytypeid)
+            }
+            else {
+                setStatus_of_lead(dragElement.item.conversionid)
+            }
+        }
+        console.log(activity_of_lead, status_of_lead)
         console.log(e);
         e.preventDefault();
         var target = e.target.className;
@@ -85,16 +104,63 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
             }
             if (target === "sales_SalesInner1") {
                 var temp1 = todo;
+                dragElement.item.progresstypeid = 1
+                let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
+                let data = {
+                    progressid: dragElement.item.progresstypeid,
+                    conversionid: dragElement.item.conversionid,
+                    Taskid: dragElement.item.Taskid
+                }
+                let header = {}
+                axios.post(url, data, { headers: header })
+                    .then((res) => {
+                        console.log(res.data)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
                 temp1.push(dragElement.item);
                 setTodo(temp1);
             } else if (target === "sales_SalesInner2") {
                 var temp2 = inprogress;
+                dragElement.item.progresstypeid = 2
+                let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
+                let data = {
+                    progressid: dragElement.item.progresstypeid,
+                    conversionid: dragElement.item.conversionid,
+                    Taskid: dragElement.item.Taskid
+                }
+                let header = {}
+                axios.post(url, data, { headers: header })
+                    .then((res) => {
+                        console.log(res.data)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+
+
                 temp2.push(dragElement.item);
                 setInProgress(temp2);
 
             }
             if (target === "sales_SalesInner3") {
                 var temp3 = completed;
+                dragElement.item.progresstypeid = 3
+                let url = "https://fgflfwzdw6.execute-api.us-east-1.amazonaws.com/dev/salesdashconversiontypeupdate"
+                let data = {
+                    progressid: dragElement.item.progresstypeid,
+                    conversionid: dragElement.item.conversionid,
+                    Taskid: dragElement.item.Taskid
+                }
+                let header = {}
+                axios.post(url, data, { headers: header })
+                    .then((res) => {
+                        console.log(res.data)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
                 temp3.push(dragElement.item);
                 setCompleted(temp3);
             }
@@ -150,8 +216,8 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                             }
                         </div>
                         {item.isclicked ? (<>
-                        {/* <Task campaignName= {item.txtCampaignName} taskid = {item.Activityid} leadname={item.leadname} txtActivitytype={item.txtActivitytype}conversionid={item.conversionid}Progresstypeid={item.Progresstypeid}owner={item.owner}phone={item.phone}email={item.email}Address={item.Address}CreatedOn={item.CreatedOn}/> */}
-                            <Task item = {item} />
+                            {/* <Task campaignName= {item.txtCampaignName} taskid = {item.Activityid} leadname={item.leadname} txtActivitytype={item.txtActivitytype}conversionid={item.conversionid}Progresstypeid={item.Progresstypeid}owner={item.owner}phone={item.phone}email={item.email}Address={item.Address}CreatedOn={item.CreatedOn}/> */}
+                            <Task item={item} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead} />
                             {/* <div className="Event_Task_Lead_top">
                                 <div className="Event_Task_Lead">
                                     <ul>
@@ -197,7 +263,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                 onDrag={(e, i) => { handleDragging(e, i) }}>
                 <div className="sales_Inner2_row1">
                     <AiOutlineDown className="sales_dropdownicon" />
-                    <label>PROGRESS</label>
+                    <label>IN PROGRESS</label>
                 </div>
                 {
                     inprogress.map((item, index) => {
@@ -236,7 +302,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     }
                                 </div>
                                 {item.isclicked ? (<>
-                                  <Task/>
+                                    <Task item={item} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead} />
                                     {/* <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>
@@ -315,7 +381,7 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     }
                                 </div>
                                 {item.isclicked ? (<>
-                                <Task/>
+                                    <Task item={item} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead}/>
                                     {/* <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>

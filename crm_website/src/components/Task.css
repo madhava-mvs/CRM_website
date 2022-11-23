@@ -1,10 +1,10 @@
 .task_box_outer{
-    background-color: rgb(237, 230, 230);
+    background-color: white;
    
-  
-    box-shadow: 0px 0px 0px 2px lightgray;
+/*   
+    box-shadow: 0px 0px 0px 2px lightgray; */
     height: 9em;
-    width:17em ;
+    width:16em ;
 }
 .task_box_row1{
     display: flex;
@@ -14,9 +14,10 @@
 }
 
 .userid label{
-    color: gray;
+    color: black;
     width: 4px;
-    margin-top: 14px;
+    margin-top: 8px;
+    margin-left: 25px;
 }
 .Ldetails{
     margin-right: 2px;
@@ -35,7 +36,8 @@
   padding-bottom: 18px;
 }
 .contact{
-    font-size:larger;
+    font-size: x-large;
+    color: darkgray;
     margin-top: 3px;
 }
 .dots{
@@ -45,6 +47,7 @@
 
 
 .txtP input{
+    background-color: rgb(213, 231, 237);
     width: 17em;
     min-height: 3em;
     margin-left: 16px;
@@ -68,7 +71,7 @@
    
 }
 .convstatus select{
-    margin-left: 5px;
+    margin-left: -55px;
     padding: -7px;
     width: 111px;
     /* height: 2px; */

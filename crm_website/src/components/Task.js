@@ -7,9 +7,8 @@ import Pop from "./Pop.js";
 import Pop2 from './Pop2';
 
 import "./Task.css";
-export default function Task({ item, campaignName, taskid, leadname, txtActivitytype, conversionid, Progresstypeid, owner, phone, email, Address, CreatedOn }) {
-  const [status_of_lead, setStatus_of_lead] = useState("");
-  const [activity_of_lead, setActivity_of_lead] = useState("");
+export default function Task({ item, status_of_lead, setStatus_of_lead, setActivity_of_lead,activity_of_lead }) {
+
   const [show1, setShow1] = useState("")
   // const [show2, setShow2] = useState("")
   const [show3, setShow3] = useState("")
