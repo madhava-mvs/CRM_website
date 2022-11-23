@@ -16,8 +16,8 @@
     height: 97%;
     display: flex;
     flex-direction: column;
-    
-   
+
+
 }
 
 .sales_Inner1_row1,
@@ -25,7 +25,7 @@
 .sales_Inner3_row1 {
     /* background-color: green; */
     padding: 15px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .sales_dropdownicon {
@@ -36,7 +36,7 @@
     color: red;
     margin-left: 5px;
     font-weight: bold;
-   
+
 }
 
 .sales_Inner_row2 {
@@ -73,6 +73,9 @@
 
 .sales_threedotsicon {
     margin-left: 30px;
+
+
+
 }
 
 .sales_eventicon,
@@ -92,7 +95,7 @@
     border-radius: 2px;
     padding-top: 2px;
     padding-bottom: 2px;
-    
+
 }
 
 .sales_taskicon_outer {
@@ -109,7 +112,7 @@
     flex-direction: row;
     align-items: center;
     margin-left: 3px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     width: 91px;
 }
 
@@ -149,7 +152,14 @@
     font-weight: bold;
 }
 
-.Event_Task_Lead_top{
+.Event_Task_Lead_top {
     display: flex;
     flex-direction: row;
+}
+
+.Deletepop{
+    position: relative;
+}
+.Deletepop :hover .pop{
+    display: block;
 }
