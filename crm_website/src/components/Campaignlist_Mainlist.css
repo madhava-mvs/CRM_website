@@ -58,7 +58,8 @@ margin-left: -14px;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  height: 20%;
+  max-height: 500px;
+  overflow-y: scroll;
   box-shadow: 0px 0px 0px 1px #f3f3f4;
 }
 .Campaignlist_Mainlist_list {
@@ -169,7 +170,7 @@ color: white;
   margin-left:15px;
 }
 .Campaignlist_itmEmail{
-  width: 81px;
+  width: 82px;
   margin-left:15px;
 }
 
@@ -193,15 +194,16 @@ color: white;
 
 .Campaignlist_Header_Main3{
   width:10px;
+  margin-left: 160px
   
 }
 .Campaignlist_Header_Main4{
-  width:103px;
-  margin-left:139px;
+  width:104px;
+  margin-left:147px;
 }
 .Campaignlist_Header_Main5{
   width:75px;
-  margin-left:40px;
+  margin-left:59px;
 }
 .Campaignlist_Header_Main6{
   width:106px;
@@ -209,6 +211,17 @@ color: white;
 }
 .Campaignlist_Header_Main7{
   width: 34px;
-  margin-left: 55px;
+  margin-left: 78px;
 
+}
+.Campaignlist_Mainlist_Innerbox::-webkit-scrollbar {
+  background-color: #d7dce4;
+  border-radius: 10px;
+  height: 0.7em;
+  width: 0.5em;
+}
+
+.Campaignlist_Mainlist_Innerbox::-webkit-scrollbar-thumb {
+  background-color:#f3f3f4;
+  border-radius: 10px;
 }

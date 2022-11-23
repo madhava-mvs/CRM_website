@@ -16,7 +16,7 @@ export default function Campaignlist_Mainlist({array, setArray, Updatecampaign})
             <ul>
               
               <div className="Campaignlist_Header_Main1"><li>Campaign</li></div>
-              <div className="Campaignlist_Header_Main2"><li>Parent Campaign</li></div>
+              
               <div className="Campaignlist_Header_Main3"><li>Status</li></div>
               <div className="Campaignlist_Header_Main4"><li>StartDate </li></div>
               <div className="Campaignlist_Header_Main5"><li>End Date</li></div>
@@ -71,7 +71,7 @@ function ListRow({itm, array, setArray, Updatecampaign}) {
               <label for="checkbox"></label>
         <div className="Campaignlist_Mainlist_list_row"onClick={Updatecampaign(itm)}>
           <div className="Campaignlist_itmFirstName">{itm.CampaignName}</div>
-          <div className="Campaignlist_itmLastName">{itm.ParentCampaignName}</div>
+          {/* <div className="Campaignlist_itmLastName">{itm.ParentCampaignName}</div> */}
           <div className="Campaignlist_itmStatus">{itm.status}</div>
           <div className="Campaignlist_itmdate">{year}-{month}-{day}</div>
           <div className="Campaignlist_itmEmail">{year1}-{month1}-{day1}</div>
