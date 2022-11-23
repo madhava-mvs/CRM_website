@@ -58,10 +58,8 @@ export default function Filterbar({
                   {search_array
                     .filter((item) => {
                       const searchTerm = search_value.toLowerCase();
-                      let fullName
-                      if(item.label !== null){
-                      fullName = item.label.toLowerCase();
-                      }
+                      let fullName = item.label.toLowerCase();
+                      
                       return (
                         searchTerm &&
                         fullName.startsWith(searchTerm) &&
