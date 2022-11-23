@@ -69,6 +69,10 @@
     list-style-type: none;
 }
 
+.Topbar_col2 li {
+    cursor: pointer;
+}
+
 .Topbar_col3 {
     width: 241px;
     height: 38px;

@@ -18,7 +18,7 @@ export default function ManagerDash() {
     const [orangebar, setOrangebar] = useState([]);
     const [greenbar, setGreenbar] = useState([]);
     const [bluebar, setBluebar] = useState([]);
-    const show = (true);
+    const show = (false);
     const campaignwiseprospect_popup_show = (false)
 
     const [leads, setLeads] = useState([]);

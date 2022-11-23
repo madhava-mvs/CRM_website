@@ -56,7 +56,7 @@ export default function Campaigneditpage() {
     const div_head5 = "End Date";
     const div_head6 = "Owner";
     const Normallist_name = "Leads";
-    const Hello = "Sales";
+    const Hello = "SalesPerson";
 
     const [Error, setError] = useState("")
     const [arrayData, setArrayData] = useState([]);
