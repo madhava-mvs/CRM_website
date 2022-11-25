@@ -59,7 +59,7 @@ export default function AdminDash() {
         const data = {};
         const header = {};
 
-        const url1 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
+        const url1 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/prospectGrowth";
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
@@ -71,7 +71,7 @@ export default function AdminDash() {
 
         //LeadsFunnel Axios
 
-        const url2 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
+        const url2 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/leadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
                 console.log("LeadsFunnel Response ==>  Leads : " + (JSON.stringify(res.data[0].Leads)) + " Nurtring : " + (JSON.stringify(res.data[1].Leads)) + " Prospects : " + (JSON.stringify(res.data[2].Leads)))
@@ -88,7 +88,7 @@ export default function AdminDash() {
 
         //ProspectProgress Axios
 
-        const url3 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
+        const url3 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/prospectprogress";
         axios.post(url3, { headers: header })
             .then((res) => {
                 console.log("ProspectProgress Response ==>  Leads : " + JSON.stringify(res.data[0].Leads) + " Prospects : " + JSON.stringify(res.data[1].Leads))
@@ -101,7 +101,7 @@ export default function AdminDash() {
 
         //ManagerWiseProspectCount Axios
 
-        const url4 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
+        const url4 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerwiseProspectCount";
         axios.post(url4, data, { headers: header })
             .then((res) => {
                 console.log("ManagerWiseProspectCount Response ==> " + JSON.stringify(res.data))
@@ -113,7 +113,7 @@ export default function AdminDash() {
 
         //CampaignWiseProspectCount Axios
 
-        const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
+        const url5 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("CampaignWiseProspectCount Response ==> " + JSON.stringify(res.data))
@@ -126,7 +126,7 @@ export default function AdminDash() {
 
         //UserList Axios
 
-        const url6 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
+        const url6 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/getuserlist";
         axios.post(url6, data, { headers: header })
             .then((res) => {
                 setUser((res.data))
@@ -138,7 +138,7 @@ export default function AdminDash() {
 
         //AdminDashLeadsFunnelFilterGetCampaign Axios
 
-        const url_camp = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetCampaign";
+        const url_camp = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetCampaign";
         axios.post(url_camp, data, { headers: header })
             .then((res) => {
                 console.log("AdminDashLeadsFunnelFilterGetCampaign Response ==> " + JSON.stringify(res.data));
@@ -150,7 +150,7 @@ export default function AdminDash() {
 
         //AdminDashLeadsFunnelFilterGetManager Axios
 
-        const url_getmanager = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetManager";
+        const url_getmanager = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/AdminDashLeadsFunnelGetManager";
         axios.post(url_getmanager, data, { headers: header })
             .then((res) => {
                 console.log("AdminDashLeadsFunnelFilterGetManager Response ==> " + JSON.stringify(res.data));
@@ -163,7 +163,7 @@ export default function AdminDash() {
     }, [])
 
     const approval_Func = () => {
-        const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
+        const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/updateuserliststatus"
         const data = { approval_mail: approval_mail };
         const header = {}
         axios.post(url, data, { headers: header })
@@ -186,7 +186,7 @@ export default function AdminDash() {
             setBar(bar1)
         }
         else {
-            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountstatusfilter";
+            const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountstatusfilter";
             const data = { value: e.target.value };
             const header = {}
             axios.post(url, data, { headers: header })
@@ -208,7 +208,7 @@ export default function AdminDash() {
             setBar(bar1)
         }
         else {
-            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountcountfilter";
+            const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/campaignwiseprospectcountcountfilter";
             const data = { value: e.target.value };
             const header = {}
             axios.post(url, data, { headers: header })
@@ -233,7 +233,7 @@ export default function AdminDash() {
             setBluebar(bluebar1);
         }
         else {
-            const url_manager = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelManagerFilter";
+            const url_manager = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelManagerFilter";
             const data_manager = { userid: Number(e.target.value) };
             const header = {}
             axios.post(url_manager, data_manager, { headers: header })
@@ -260,7 +260,7 @@ export default function AdminDash() {
             setBluebar(bluebar1);
         }
         else {
-            const url = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelCampaignFilter";
+            const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/AdminDashleadsfunnelCampaignFilter";
             const data = { campaignid: e.target.value };
             const header = {}
             axios.post(url, data, { headers: header })
