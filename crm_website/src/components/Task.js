@@ -7,10 +7,11 @@ import Pop from "./Pop.js";
 import Pop2 from './Pop2';
 
 import "./Task.css";
-export default function Task({ item, status_of_lead, setStatus_of_lead, setActivity_of_lead,activity_of_lead }) {
+export default function Task({ item, status_of_lead, setStatus_of_lead, setActivity_of_lead,activity_of_lead, Status_of_lead_onchange,comments_value,setComments_value }) {
   useEffect(()=>{
     setStatus_of_lead(item.conversionid)
 setActivity_of_lead(item.activitytypeid)
+setComments_value(item.Comments)
   },[])
   const [show1, setShow1] = useState("")
   // const [show2, setShow2] = useState("")
@@ -94,8 +95,11 @@ setActivity_of_lead(item.activitytypeid)
             {
               show3 ? (
                 <>
-                  <div className="pop2">
+                  {/* <div className="pop2">
                     <Pop2 Comments={item.Comments} />
+                  </div> */}
+                  <div className="messagebox">
+                  <input type="text" placeholder="comments" value={comments_value} onClick={(e)=>setComments_value(e.target.value)} />
                   </div>
                 </>
               ) : (
@@ -111,8 +115,8 @@ setActivity_of_lead(item.activitytypeid)
               placeholder="status" value={status} onChange={(e) => { setStatus(e.target.value) }} />
             {status === ""} */}
             {/* <label className="text_to_changecolor">status:</label> */}
-            <select value={status_of_lead}
-              onChange={(e) => setStatus_of_lead(e.target.value)} >
+            <select value={item.conversionid}
+              onChange={(e) => Status_of_lead_onchange(e, item)} >
               <option value="">status</option>
               <option value="1">New</option>
               <option value="2">Working</option>
