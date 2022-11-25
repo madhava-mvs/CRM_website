@@ -3,8 +3,9 @@
   background-color: white;
   width: 100%;
   padding-left: 15px;
-  
+
 }
+
 .Campaignlist_Mainlist_row1 ul {
   width: 90%;
   display: flex;
@@ -14,8 +15,8 @@
   align-items: center;
   margin: 20px;
   padding-left: 40px;
-  color:rgba(125, 143, 177, 1);
-margin-left: -14px;
+  color: rgba(125, 143, 177, 1);
+  margin-left: -14px;
 
 }
 
@@ -29,16 +30,16 @@ margin-left: -14px;
   display: flex;
   flex-direction: row;
   font-size: smaller bold;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   align-items: center;
   margin: 15px;
   padding-right: 20px;
-  color:rgba(125, 143, 177, 1);
+  color: rgba(125, 143, 177, 1);
   margin-left: -2px;
 
 }
 
-.Campaignlist_Cb{
+.Campaignlist_Cb {
   min-width: 15px;
   max-width: 15px;
   display: flex;
@@ -52,8 +53,9 @@ margin-left: -14px;
   font-size: 1.2rem;
   border: 1px solid lightgray;
   margin-left: -35px;
-  
+
 }
+
 .Campaignlist_Mainlist_Innerbox {
   margin-top: 10px;
   margin-left: 10px;
@@ -62,6 +64,7 @@ margin-left: -14px;
   overflow-y: scroll;
   box-shadow: 0px 0px 0px 1px #f3f3f4;
 }
+
 .Campaignlist_Mainlist_list {
   margin-top: 20px;
   display: flex;
@@ -69,7 +72,8 @@ margin-left: -14px;
   padding: 10px;
   border-radius: 10px;
 }
-.Campaignlist_Mainlist_list_row_top{
+
+.Campaignlist_Mainlist_list_row_top {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,7 +84,8 @@ margin-left: -14px;
   padding-bottom: 15px;
   padding-left: 60px;
 }
-.Campaignlist_Mainlist_list_row_topSelected{
+
+.Campaignlist_Mainlist_list_row_topSelected {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -91,9 +96,12 @@ margin-left: -14px;
   padding-bottom: 15px;
   padding-left: 60px;
 }
-.Campaignlist_Mainlist_list_row_topSelected div,.Mainlist_list_row_topSelected div{
-color: white;
+
+.Campaignlist_Mainlist_list_row_topSelected div,
+.Mainlist_list_row_topSelected div {
+  color: white;
 }
+
 .Campaignlist_Mainlist_list_row {
   display: flex;
   flex-direction: row;
@@ -101,22 +109,23 @@ color: white;
   justify-content: space-between;
   width: 95%;
   padding-left: 20px;
-  color:rgba(142, 154, 177, 1);
-  font-family:Arial, Helvetica, sans-serif;
+  color: rgba(142, 154, 177, 1);
+  font-family: Arial, Helvetica, sans-serif;
 
 }
-.Campaignlist_Mainlist_list_row:hover{
+
+.Campaignlist_Mainlist_list_row:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 95%;
   padding-left: 20px;
-  color:white;
-  font-family:Arial, Helvetica, sans-serif;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.Campaignlist_Mainlist_list_row7_top{
+.Campaignlist_Mainlist_list_row7_top {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -127,6 +136,7 @@ color: white;
   padding-bottom: 15px;
   padding-left: 60px;
 }
+
 .Campaignlist_Mainlist_list_row7 {
   display: flex;
   flex-direction: row;
@@ -146,82 +156,103 @@ color: white;
   color: rgba(0, 0, 0, 0.5);
   border: 1px solid lightgray;
 }
+
 .Campaignlist_Cb checkbox label:checked {
   background-color: rgb(215, 105, 21);
 
 }
-.Campaignlist_Mainlist_list_row_top:hover{
-  background-color:#9155FD;
-}
-.Campaignlist_itmFirstName{
- width:121px;
- 
-}
-.Campaignlist_itmLastName{
-  width:80px;
-  margin-left:-2px;
-}
-.Campaignlist_itmStatus{
-  width:83px;
-  margin-left:14px;
-}
-.Campaignlist_itmdate{
-  width: 81px;
-  margin-left:15px;
-}
-.Campaignlist_itmEmail{
-  width: 82px;
-  margin-left:15px;
+
+.Campaignlist_Mainlist_list_row_top:hover {
+  background-color: #9155FD;
 }
 
-.Campaignlist_itmResponses{
-  width:30px;
-  margin-left:15px;
+.Campaignlist_itmFirstName {
+  width: 121px;
+
 }
-.Campaignlist_itmOwner{
+
+.Campaignlist_itmLastName {
+  width: 80px;
+  margin-left: -2px;
+}
+
+.Campaignlist_itmStatus {
+  width: 83px;
+  margin-left: 14px;
+}
+
+.Campaignlist_itmdate {
+  width: 81px;
+  margin-left: 15px;
+}
+
+.Campaignlist_itmEmail {
+  width: 82px;
+  margin-left: 15px;
+}
+
+.Campaignlist_itmResponses {
+  width: 30px;
+  margin-left: 15px;
+}
+
+.Campaignlist_itmOwner {
   margin: 2px;
-  width:30px;
-  
+  width: 30px;
+
 }
-.Campaignlist_Header_Main1{
-  width:60px;
-  margin-left:30px;
+
+.Campaignlist_Header_Main1 {
+  width: 60px;
+  margin-left: 30px;
 }
-.Campaignlist_Header_Main2{
+
+.Campaignlist_Header_Main2 {
   width: 139px;
   margin-left: 113px;
 }
 
-.Campaignlist_Header_Main3{
-  width:10px;
+.Campaignlist_Header_Main3 {
+  width: 10px;
   margin-left: 160px
-  
 }
-.Campaignlist_Header_Main4{
-  width:104px;
-  margin-left:147px;
+
+.Campaignlist_Header_Main4 {
+  width: 104px;
+  margin-left: 147px;
 }
-.Campaignlist_Header_Main5{
-  width:75px;
-  margin-left:59px;
+
+.Campaignlist_Header_Main5 {
+  width: 75px;
+  margin-left: 59px;
 }
-.Campaignlist_Header_Main6{
-  width:106px;
-  margin-left:2px;
+
+.Campaignlist_Header_Main6 {
+  width: 106px;
+  margin-left: 2px;
 }
-.Campaignlist_Header_Main7{
+
+.Campaignlist_Header_Main7 {
   width: 34px;
   margin-left: 78px;
 
 }
+
 .Campaignlist_Mainlist_Innerbox::-webkit-scrollbar {
   background-color: #d7dce4;
   border-radius: 10px;
   height: 0.7em;
   width: 0.5em;
+  visibility: hidden;
 }
 
 .Campaignlist_Mainlist_Innerbox::-webkit-scrollbar-thumb {
-  background-color:#f3f3f4;
+  background-color: #a3a3ac;
   border-radius: 10px;
+  visibility: hidden;
+}
+
+.Campaignlist_Mainlist_Innerbox::-webkit-scrollbar:hover,
+.Campaignlist_Mainlist_Innerbox::-webkit-scrollbar-thumb:hover {
+  visibility: visible;
 }
