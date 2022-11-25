@@ -86,7 +86,7 @@ export default function SalesDashboard() {
   const button_value ="Add Lead"
   const [middledivshow,setmiddledivshow] = useState(true);
   const sales_button_value="search"
-  const salesbuttonshow=true
+  //const salesbuttonshow=true
   // const [titlebar_value1,settitlebar_value1] = useState(true);
   // const [titlebar_value2,settitlebar_value2] = useState(true);
   // const [titlebar_value3,settitlebar_value3] = useState(true);
@@ -97,7 +97,7 @@ export default function SalesDashboard() {
   const [todo, setTodo]=useState([])
   const [inProgress, setInProgress]=useState([])
   const [completed, setCompleted]=useState([])
-  const [array, setArray]=useState([])
+  //const [array, setArray]=useState([])
   // const [show, setShow]=useState(false)
   ///
 
@@ -202,7 +202,7 @@ export default function SalesDashboard() {
         <div className='salesdash_content_right'>
             <div className='salesdash_content_right_inside'>
               <div className='salesdash_titlebar'>
-            <TitleBar titlebar_name={titlebar_name}savebuttonshow={savebuttonshow} button_value={button_value} middledivshow={middledivshow} titlebar_value1={ titlebar_value1} titlebar_value2={ titlebar_value2} titlebar_value3={ titlebar_value3} sales_button_value={sales_button_value} salesbuttonshow={salesbuttonshow}/></div>
+            <TitleBar titlebar_name={titlebar_name}savebuttonshow={savebuttonshow} button_value={button_value} middledivshow={middledivshow} titlebar_value1={ titlebar_value1} titlebar_value2={ titlebar_value2} titlebar_value3={ titlebar_value3} sales_button_value={sales_button_value} /></div>
             <SalesDash todo={todo} inprogress={inProgress} completed={completed} setTodo={setTodo} setInProgress={setInProgress} setCompleted={setCompleted} />
             </div>
         </div>

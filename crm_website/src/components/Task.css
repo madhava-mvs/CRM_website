@@ -163,3 +163,17 @@
 .owner{
     margin-left: -45px;
 }
+.messagebox input{
+    position: absolute;
+    background-color:rgb(234, 240, 242);
+    padding: 10px;
+    width: 100px;
+    height: 1px;
+    margin-top: 0px;
+    margin-right: 13px;
+    border: 1px lightcyan;
+    box-shadow: 0px 2px 0px 0px #dfdcdcc6;
+    border-radius: 5px;
+    outline: none;
+    padding-bottom: 18px;
+}
