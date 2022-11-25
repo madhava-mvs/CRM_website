@@ -19,30 +19,12 @@ import Leadupdate from "./pages/Leadupdate";
 import Emailvalidation from "./components/Emailvalidation";
 import Resetpassword from "./components/Resetpassword";
 import Protected from "./components/Protected";
-// import AuthApi from "./AuthApi";
-// import { useState,useContext } from "react";
+
 
 
 export default function Navigation() {
-  // const [auth,setAuth] =useState(false);
-  // const ProtectedRoute = ({auth,component:Component,...rest})=>{
-  //   return(
-  //   <Route
-  //     {...rest}
-  //     render ={()=>auth?
-  //       (
-  //       <Component/>
-  //   ):(
-  //     <redirect to="/"/>
-  //   )
-  //     }
-  //     />
-  //     )
-  // }
-  // const Auth=useContext(AuthApi)
   return (
     <div>
-      {/* <AuthApi.Provider values={{auth,setAuth}}> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
@@ -74,7 +56,6 @@ export default function Navigation() {
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* </AuthApi.Provider> */}
     </div>
   );
 }
