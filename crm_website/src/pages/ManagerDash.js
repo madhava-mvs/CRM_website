@@ -41,7 +41,7 @@ export default function ManagerDash() {
 
         const data = { userid: userid };
         const header = {};
-        const url1 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectGrowth";
+        const url1 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectGrowth";
         axios.post(url1, data, { headers: header })
             .then((res) => {
                 setPcount(JSON.stringify(res.data[0].count))
@@ -54,7 +54,7 @@ export default function ManagerDash() {
 
         //LeadsFunnel Axios
 
-        const url2 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashleadsfunnel";
+        const url2 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashleadsfunnel";
         axios.post(url2, data, { headers: header })
             .then((res) => {
                 console.log("ManagerDash Leads Funnel Response => " + (JSON.stringify(res.data[0].Leads)) + (JSON.stringify(res.data[1].Leads)) + (JSON.stringify(res.data[2].Leads)))
@@ -68,7 +68,7 @@ export default function ManagerDash() {
 
         //ProspectProgress Axios
 
-        const url3 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectprogress";
+        const url3 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashprospectprogress";
         axios.post(url3, data, { headers: header })
             .then((res) => {
                 console.log("ManagerDash Prospect Progress Response => " + JSON.stringify(res.data[0].Leads) + JSON.stringify(res.data[1].Leads))
@@ -81,7 +81,7 @@ export default function ManagerDash() {
 
         //SalesPersonWiseProspectCount Axios
 
-        const url4 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/SaleswisePropectcount";
+        const url4 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/SaleswisePropectcount";
         axios.post(url4, data, { headers: header })
             .then((res) => {
                 console.log("SalesPersonwisePropectcount Response => " + JSON.stringify(res.data))
@@ -93,7 +93,7 @@ export default function ManagerDash() {
 
         //CampaignWiseProspectCount Axios
 
-        const url5 = "https://026xhox7g0.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcount";
+        const url5 = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcount";
         axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("ManagerDash CampaignwiseProspectcount Response => " + JSON.stringify(res.data))
