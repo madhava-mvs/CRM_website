@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { AiFillDelete } from "react-icons/ai";
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 import "./tasklist_filterpopup.css";
@@ -30,8 +29,8 @@ export default function Campaign_filterbar({
   }, []);
 
   const options_status = [
-    { label: "Active", value: "1" },
-    { label: "InActive", value: "2" },
+    { label: "Active", value: "Active" },
+    { label: "InActive", value: "InActive" },
   ];
 
   const [campaign_searchvalue, setCampaign_searchvalue] = useState("");
@@ -95,8 +94,8 @@ export default function Campaign_filterbar({
     ) {
       for (let i of valuestatusarray) {
         for (let j of array_mainlist_duplicate) {
-          console.log(j.progresstypeid);
-          if (i === j.progresstypeid.toString()) {
+          console.log(j.status);
+          if (i === j.status.toString()) {
             console.log(j);
             filarray.push(j);
           }
@@ -135,7 +134,7 @@ export default function Campaign_filterbar({
             if (
               j.dtcreatedon.toString().substring(0, 10) ===
                 dtcreatedon_filter.toString() &&
-              i === j.progresstypeid.toString()
+              i === j.status.toString()
             ) {
               console.log(j);
               filarray.push(j);
@@ -155,7 +154,7 @@ export default function Campaign_filterbar({
           for (let k of array_mainlist_duplicate) {
             if (
               i === k.campaignid.toString() &&
-              j === k.progresstypeid.toString()
+              j === k.status.toString()
             ) {
               filarray.push(k);
             }
@@ -173,7 +172,7 @@ export default function Campaign_filterbar({
                 k.dtcreatedon.toString().substring(0, 10) ===
                   dtcreatedon_filter.toString() &&
                 i === k.campaignid.toString() &&
-                j === k.progresstypeid.toString()
+                j === k.status.toString()
               ) {
                 filarray.push(k);
               }
