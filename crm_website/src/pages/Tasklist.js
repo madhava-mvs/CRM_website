@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import { GiBeachBag } from "react-icons/gi";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import { json } from "react-router-dom";
 import Tasklist_filterbar from "../components/tasklist_filterpopup";
 import { AiFillCloseCircle } from "react-icons/ai";
 
@@ -24,8 +23,8 @@ export default function Tasklist() {
   const [array_campaign_filter, setArray_campaign_filter] = useState([]);
   const [array_tasklist_search, setArray_tasklist_search] = useState([]);
   const [campaign_name, setCampaign_name] = useState("");
-  const [search_dropdownshow, setSearch_dropdownshow] = useState(false)
-  
+  const [search_dropdownshow, setSearch_dropdownshow] = useState(false);
+
   const aftersearch_array = [];
   const editshow = true;
   useEffect(() => {
@@ -45,8 +44,8 @@ export default function Tasklist() {
           setArray_mainlist_dplicate(res.data);
         } else if (jobrole == "Manager") {
           const url =
-          "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofmanager"
-            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofmanager";
+          // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklistmanager";
           // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
 
           const data = {
@@ -65,10 +64,10 @@ export default function Tasklist() {
             });
         } else if (jobrole == "User") {
           const url =
-          "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalestasklist9966"
+            "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalestasklist9966";
           // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson1"
-            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
-            // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson"
+          // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettasklist2";
+          // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Taskofsalesperson"
           const data = {
             id: userid,
           };
@@ -103,7 +102,7 @@ export default function Tasklist() {
         headers: header_search_tasklist,
       })
       .then((res) => {
-        console.log("search list")
+        console.log("search list");
         console.log(res.data);
         setArray_tasklist_search(res.data);
       })
@@ -159,9 +158,10 @@ export default function Tasklist() {
   const [array_campaign, setArray_campaign] = useState([]);
   const [array_campaignbox, setArray_campaignbox] = useState([]);
   const [array_assignedbox, setArray_assignedbox] = useState([]);
-  const [array_assignedbox__duplicate, setArray_assignedbox_duplicate] = useState([]);
+  const [array_assignedbox__duplicate, setArray_assignedbox_duplicate] =
+    useState([]);
   const [array_user, setArray_user] = useState([]);
- 
+
   const [array_lead_duplicate, setArray_lead_duplicate] = useState([]);
   const [array_lead, setArray_lead] = useState([]);
   function HandleClick() {
@@ -169,7 +169,7 @@ export default function Tasklist() {
     const url_campaign =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignt";
     const data_campaign = {
-      id:userid
+      id: userid,
     };
     const header_campaign = {};
     axios
@@ -177,25 +177,18 @@ export default function Tasklist() {
       .then((res) => {
         console.log(res.data);
         setArray_campaign(res.data);
-        setArray_assignedbox_duplicate(res.data)
+        setArray_assignedbox_duplicate(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
-
-
-
-
-
-
-
-      const url_campaignbox =
+    const url_campaignbox =
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignbox1";
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignbox1";
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaignofthebox";
     const data_campaignbox = {
-      id:userid
+      id: userid,
     };
     const header_campaignbox = {};
     axios
@@ -208,54 +201,41 @@ export default function Tasklist() {
         console.log(err);
       });
 
-
-
-
-
-
-
-
-
-      const url_assignedbox =
+    const url_assignedbox =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getassignedto";
-    const data_assignedbox = {
-     
-    };
+    const data_assignedbox = {};
     const header_assignedbox = {};
     axios
       .post(url_assignedbox, data_assignedbox, { headers: header_assignedbox })
       .then((res) => {
         console.log(res.data);
         setArray_assignedbox(res.data);
-        setArray_user(res.data)
+        setArray_user(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-      
-      const url_lead =
+
+    const url_lead =
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getlead1";
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getleadfetch"
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/gettinglead_bycampaignid";
     const data_lead = {
-  // id:11
+      // id:11
     };
     const header_lead = {};
     axios
       .post(url_lead, data_lead, { headers: header_lead })
       .then((res) => {
-        console.log("leadsbycampaignid")
-        console.log(res.data)
+        console.log("leadsbycampaignid");
+        console.log(res.data);
         setArray_lead(res.data);
         setArray_lead_duplicate(res.data);
-        console.log("setArray_lead"  + JSON.stringify(array_lead));
-       
+        console.log("setArray_lead" + JSON.stringify(array_lead));
       })
       .catch((err) => {
         console.log(err);
       });
-    
-    
 
     // const url_user =
     //   "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getsalesexecutive";
@@ -275,7 +255,7 @@ export default function Tasklist() {
     //   });
 
     setShow(!show);
-  // }, []);
+    // }, []);
   }
 
   const titlebar_name = "Task list";
@@ -314,21 +294,21 @@ export default function Tasklist() {
     setFilterpopup_show(!filterpopup_show);
   };
 
-  const handleclick_clearfilter = (val) =>{
+  const handleclick_clearfilter = (val) => {
     setFilterpopup_show(!filterpopup_show);
     setFilterpopup_show(!filterpopup_show);
-  }
+  };
 
   const [search_value, setSearch_value] = useState("");
 
   const onChange = (event) => {
-    setSearch_dropdownshow(true)
+    setSearch_dropdownshow(true);
     setSearch_value(event.target.value);
   };
 
   const onSearch_updatevalue_from_dropdown = (searchTerm) => {
     setSearch_value(searchTerm);
-    setSearch_dropdownshow(false)
+    setSearch_dropdownshow(false);
   };
 
   const onSearch = (searchTerm) => {
@@ -346,24 +326,33 @@ export default function Tasklist() {
       searchTerm === "Completed"
     ) {
       for (let i of array_mainlist_duplicate) {
-        if (i.status === searchTerm) {
-          aftersearch_array.push(i);
-        }
-      }
-      setArray_mainlist(aftersearch_array);
-    } else {
-      for (let i of array_mainlist_duplicate) {
-        if (i.campaignname === searchTerm) {
-          aftersearch_array.push(i);
-        }
-      }
-      for (let i of array_mainlist_duplicate) {
-        if (i.owner === searchTerm) {
+        // if (i.status === searchTerm) {
+        //   aftersearch_array.push(i);
+        // }
+        // else
+        if (i.status.toLowerCase().startsWith(searchTerm.toLowerCase())) {
           aftersearch_array.push(i);
         }
       }
       setArray_mainlist(aftersearch_array);
     }
+    for (let i of array_mainlist_duplicate) {
+      if (i.campaignname.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+        aftersearch_array.push(i);
+      }
+      // if (i.campaignname === searchTerm) {
+      //   aftersearch_array.push(i);
+      // }
+    }
+    for (let i of array_mainlist_duplicate) {
+      if (i.owner.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+        aftersearch_array.push(i);
+      }
+      // if (i.owner === searchTerm) {
+      //   aftersearch_array.push(i);
+      // }
+    }
+    setArray_mainlist(aftersearch_array);
   };
 
   return (
@@ -413,8 +402,6 @@ export default function Tasklist() {
                   setArray_user={setArray_user}
                   array_lead_duplicate={array_lead_duplicate}
                   setArray_lead={setArray_lead}
-
-
                 />
               </div>
             </div>
@@ -423,7 +410,6 @@ export default function Tasklist() {
                 editshow={editshow}
                 handleselectall={handleClickselectall}
                 handleclickfilterbar_filter={handleclickfilterbar_filter}
-               
                 tasklistsearchshow={tasklistsearchshow}
                 search_array={array_tasklist_search}
                 setSearch_array={setArray_tasklist_search}
@@ -445,16 +431,28 @@ export default function Tasklist() {
     </>
   );
 }
-  // for (let i of array_lead1) {
-  //   // if (i.campaignid=={campaign_name}) {
-  //     if (i.campaignid==11) {
-  //     new_array.push(i);
-  //   }
-  // }  const [array_lead_duplicate, setArray_lead_duplicate] = useState([]);
-  // const [array_lead, setArray_lead] = useState([]);
-  // setArray_lead(new_array);
+// for (let i of array_lead1) {
+//   // if (i.campaignid=={campaign_name}) {
+//     if (i.campaignid==11) {
+//     new_array.push(i);
+//   }
+// }  const [array_lead_duplicate, setArray_lead_duplicate] = useState([]);
+// const [array_lead, setArray_lead] = useState([]);
+// setArray_lead(new_array);
 // function Addtask({ show, setShow, array_campaign, array_lead,setArray_lead, array_user,array_lead1}) {
-  function Addtask({ show, setShow, array_campaign,array_campaignbox,array_assignedbox, array_lead, setArray_lead, array_user,array_lead_duplicate,array_assignedbox__duplicate, setArray_user }) {
+function Addtask({
+  show,
+  setShow,
+  array_campaign,
+  array_campaignbox,
+  array_assignedbox,
+  array_lead,
+  setArray_lead,
+  array_user,
+  array_lead_duplicate,
+  array_assignedbox__duplicate,
+  setArray_user,
+}) {
   const [title, setTitle] = useState("");
   const [txtcomments, settxtcomments] = useState("");
   const [campaign_name, setCampaign_name] = useState("");
@@ -469,7 +467,7 @@ export default function Tasklist() {
   const [errorlead, setElead] = useState("");
   const [erroruser, setEuser] = useState("");
   const [erroractivity, setEactivity] = useState("");
- 
+
   const new_array_lead = [];
   const new_array_mapid = [];
   const new_array_assignedto = [];
@@ -478,78 +476,62 @@ export default function Tasklist() {
   // const [assigned, setAssigned] = useState("");
   const [arraytemp, setArraytemp] = useState("");
 
-
-
   const onchangecampaignid = (e) => {
-    console.log("after changing campaign id")
-    console.log(e.target.value)
-    setCampaign_name(e.target.value)
-    for(let i of array_lead_duplicate){
-      if(i.campaignid == e.target.value){
-        console.log(i)
-        new_array_lead.push(i)
-
-      
+    console.log("after changing campaign id");
+    console.log(e.target.value);
+    setCampaign_name(e.target.value);
+    for (let i of array_lead_duplicate) {
+      if (i.campaignid == e.target.value) {
+        console.log(i);
+        new_array_lead.push(i);
       }
     }
-    setArray_lead(new_array_lead)
-    setArraytemp(new_array_lead)
+    setArray_lead(new_array_lead);
+    setArraytemp(new_array_lead);
 
-    console.log("setting assignedto")
-    for(let i of array_assignedbox){
-      if(i.refcampaignid == e.target.value){
-        console.log(i)
-        new_array_assignedto.push(i)
-
-      
+    console.log("setting assignedto");
+    for (let i of array_assignedbox) {
+      if (i.refcampaignid == e.target.value) {
+        console.log(i);
+        new_array_assignedto.push(i);
       }
     }
     // setAssigned(new_array_assignedto)
     // array_assignedbox__duplicate(new_array_assignedto)
-    setArray_user(new_array_assignedto)
-
-
-  }
-
-
- 
-
-
-
+    setArray_user(new_array_assignedto);
+  };
 
   const onchangeleadid = (e) => {
-    console.log("after changing lead id")
-    console.log(e.target.value)
-    setLead_name(e.target.value)
-    for(let i of arraytemp){
-      if(i.id == e.target.value){
-        console.log("coresponding map id")
-        console.log(i)
-        console.log(i.leadmapid)
-        new_array_mapid.push(i.leadmapid)
+    console.log("after changing lead id");
+    console.log(e.target.value);
+    setLead_name(e.target.value);
+    for (let i of arraytemp) {
+      if (i.id == e.target.value) {
+        console.log("coresponding map id");
+        console.log(i);
+        console.log(i.leadmapid);
+        new_array_mapid.push(i.leadmapid);
         // new_array_lead.push(i)
       }
- 
     }
-    setMapidset(new_array_mapid)
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    setMapidset(new_array_mapid);
+  };
 
   const Save_Task = async () => {
     console.log(
-      title+","+txtcomments+","+campaign_name + "," + lead_name + "," + user_name + "," + activity+","+mapidset
+      title +
+        "," +
+        txtcomments +
+        "," +
+        campaign_name +
+        "," +
+        lead_name +
+        "," +
+        user_name +
+        "," +
+        activity +
+        "," +
+        mapidset
     );
     if (title === "") {
       setEtitle("title is mandatory");
@@ -583,10 +565,10 @@ export default function Tasklist() {
       setEactivity("activity is mandatory");
     } else {
       const url =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertinglead"
+        "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertinglead";
       // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/Insertlead99"
-        // "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
-        // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+      // "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
+      // "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/InsertTask1";
       const data = {
         userid: Number(user_name),
         campaignid: Number(campaign_name),
@@ -594,48 +576,43 @@ export default function Tasklist() {
         title: title,
         txtcomments: txtcomments,
         activity: Number(activity),
-        mapidset:Number(mapidset)
+        mapidset: Number(mapidset),
       };
       const header = {};
       await axios
         .post(url, data, { headers: header })
         .then((res) => {
           console.log(JSON.stringify(res.data));
-          if(res.data=="already exist in 2"){
-            seterrort("already exist")
-          }
-          else{
+          if (res.data == "already exist in 2") {
+            seterrort("already exist");
+          } else {
             setShow(!show);
             // window.location.reload();
           }
-         
         })
         .catch((err) => {
           console.log(err);
         });
     }
-    setTitle("")
-    settxtcomments("")
-    setCampaign_name("")
-    setLead_name("")
-    setUser_name("")
-    setActivity("")
-    
-
+    setTitle("");
+    settxtcomments("");
+    setCampaign_name("");
+    setLead_name("");
+    setUser_name("");
+    setActivity("");
   };
-  
+
   const handleclick7 = (e) => {
     setShow(!show);
-    setTitle("")
-    settxtcomments("")
-    setCampaign_name("")
-    setLead_name("")
-    setUser_name("")
-    setActivity("")
-    seterrort("")
+    setTitle("");
+    settxtcomments("");
+    setCampaign_name("");
+    setLead_name("");
+    setUser_name("");
+    setActivity("");
+    seterrort("");
   };
   return show ? (
-    
     <>
       <div className=" A1">
         <div className="AddtaskPage">
@@ -664,12 +641,15 @@ export default function Tasklist() {
                   <div className="tasklist_savetext_button">
                     <label>SAVE</label>
                   </div>
-                  <AiFillCloseCircle className="tasklist_cancel" onClick={(e) => { handleclick7(e) }} />
+                  <AiFillCloseCircle
+                    className="tasklist_cancel"
+                    onClick={(e) => {
+                      handleclick7(e);
+                    }}
+                  />
                 </div>
-              
-                
               </div>
-              
+
               <div className="whitebg">
                 <div className="rowitems">
                   <label className="errort">{errort}</label>
@@ -719,7 +699,7 @@ export default function Tasklist() {
                     </div>
                     <div className="r3_in">
                       <label className="text_to_changecolor">
-                     Campaign name*{" "}
+                        Campaign name*{" "}
                       </label>
                       <br />
                       <br />
@@ -773,18 +753,12 @@ export default function Tasklist() {
                       >
                         <option value="">--Select--</option>
 
-
-                      
                         {array_lead.map((itm, index) => {
-                      
                           return (
                             <>
                               <option value={itm.id}>{itm.firstname}</option>
-                     
                             </>
                           );
-                        
-                          
                         })}
                       </select>
 
@@ -803,7 +777,9 @@ export default function Tasklist() {
                       )}
                     </div>
                     <div className="r4_in">
-                      <label className="text_to_changecolor">Assigned to*</label>
+                      <label className="text_to_changecolor">
+                        Assigned to*
+                      </label>
                       <br />
                       <br />
                       <select
@@ -814,7 +790,9 @@ export default function Tasklist() {
                         {array_user.map((itm, index) => {
                           return (
                             <>
-                              <option value={itm.refuserid}>{itm.txtFirstName}</option>
+                              <option value={itm.refuserid}>
+                                {itm.txtFirstName}
+                              </option>
                             </>
                           );
                         })}
