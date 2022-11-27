@@ -125,7 +125,7 @@ export default function SignUpPage() {
         <>
         <Success setshow2={setshow2} />
         </> :
-         <>
+         <> 
         </>}
 
       <Signup

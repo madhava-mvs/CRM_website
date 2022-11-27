@@ -1,5 +1,6 @@
 import './Otp.css';
 import axios from 'axios';
+import { MdLaptopWindows } from 'react-icons/md';
 
 
 export default function Otp({ setshow1, setshow, setshow2,email,OTP,setotp }) {
@@ -36,7 +37,7 @@ export default function Otp({ setshow1, setshow, setshow2,email,OTP,setotp }) {
         })
     }
     const resend=(e)=>{
-        setotp("")
+        setotp("");
         // const url="http://localhost:3000/dev/resend"
         const url="https://biw855rg2h.execute-api.us-east-1.amazonaws.com/dev/resend"
         const data={OTP:OTP,email:email};
@@ -64,7 +65,7 @@ export default function Otp({ setshow1, setshow, setshow2,email,OTP,setotp }) {
                     <label>Verify OTP!</label>
                 </div>
                 <div className='otp_inner_row2'>
-                    <input type="text" placeholder="OTP" onChange={(e) => { setotp(e.target.value) }} />
+                    <input type="text" placeholder="OTP" onChange={(e) => { setotp(e.target.value) }}  value={OTP}/>
                     
                 </div>
                 <div className='otp_inner_row3'>

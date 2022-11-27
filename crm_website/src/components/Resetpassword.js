@@ -10,13 +10,20 @@ export default function Resetpassword() {
     const [Err1, setErr1] = useState("");
     const [Err2, setErr2] = useState("");
     const [Err3, setErr3] = useState("");
+    const [Errr,setErrr] = useState(false)
     const navigate=useNavigate()
     // const [email, setemail] = useState("")
     const resetpswd = (e) => {
-        setErr1("")
-        setErr2("")
-        setErr3("")
-        const url = "https://biw855rg2h.execute-api.us-east-1.amazonaws.com/dev/resetpassword"
+        
+        if (password==""||confirmpassword==""){
+            setErrr(true)
+        }else{
+            setErr1("");
+        setErr2("");
+        setErr3("");
+        }
+
+        const url = "https://biw855rg2h.execute-api.us-east-1.amazonaws.com/dev/resetpassword";
         // "http://localhost:3000/dev/resetpassword"
         const data = { password: password, confirmpassword: confirmpassword,email:email };
         const headers = {};
@@ -30,7 +37,7 @@ export default function Resetpassword() {
                     setErr1("Password is mandatory");
                 if (result.includes("repassword is mandatory"))
                     setErr2("Repassword is mandatory");
-                if (result.includes("repassword not match"))
+                if (result.includes("password not match"))
                     setErr3("Password not match");
                 if (result.includes("password reset")) 
                 navigate("/")
@@ -48,12 +55,22 @@ export default function Resetpassword() {
                 <div className="inner_resetpassword_row1"><label>Reset your Password</label></div>
                 <div className="inner_resetpassword_row2"><label>NEW PASSWORD </label></div>
                 <div className="inner_resetpassword_row3"><input type={"password"} placeholder={"NEW PASSWORD"} onChange={(e) => { setpassword(e.target.value) }} /></div>
-                <label className="resetpassword_err">{Err1}</label>
+                {/* <label className="resetpassword_err">{Err1}</label> */}
+                {Errr && password == "" ? (
+            <label className="resetpassword_err"> Password is mandatory</label>
+          ) : (
+            ""
+          )}
                 <div className="inner_resetpassword_row4"><label>CONFIRM NEW PASSWORD</label></div>
                 <div className="inner_resetpassword_row5"><input type={"password"} placeholder={"CONFIRM NEW PASSWORD"} 
                 onChange={(e) => { setconfirmpassword(e.target.value) }} /></div>
-                <label className="resetpassword_err">{Err2}</label>
-                <label className="resetpassword_err">{Err2}</label>
+                {Errr && confirmpassword == "" ? (
+            <label className="resetpassword_err"> Repassword is mandatory</label>
+          ) : (
+            ""
+          )}
+                {/* <label className="resetpassword_err">{Err2}</label> */}
+                <label className="resetpassword_err">{Err3}</label>
                 <div className="inner_resetpassword_row6"><button onClick={(e) => { resetpswd() }}>Change Password</button></div>
             </div>
         </div>
