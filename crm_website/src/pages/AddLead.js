@@ -231,9 +231,9 @@ export default function AddLead() {
         company: company,
         phone: phone,
         email: email,
-        // state: state,
-        // city: city,
-        // address: address,
+        state: state,
+        city: city,
+        address: address,
         createdBy: userid,
         campaignid: campaignid
       };
