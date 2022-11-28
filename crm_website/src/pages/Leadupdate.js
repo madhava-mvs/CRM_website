@@ -14,23 +14,6 @@ import Leadcampaignlist from "../components/Leadcampaignlist";
 
 export default function Leadupdate() {
   const update_lead_id = useSelector((state) => state.update_lead_id);
-
-  useEffect(() => {
-    const url_lead =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getuser";
-    const data_lead = {};
-    const header_lead = {};
-    axios
-      .post(url_lead, data_lead, { headers: header_lead })
-      .then((res) => {
-        console.log(res.data);
-        setArray_lead(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   // const update_lead_id = useSelector((state) => state.update_lead_id);
   const nav = useNavigate();
 
@@ -70,7 +53,7 @@ export default function Leadupdate() {
   const [middledivshow, setMiddledivshow] = useState(false);
   const [array_leadcampaignlist, setArray_leadcampaignlist] = useState([])
   const button_value = "Save lead";
-  const titlebar_name = "Lead List";
+  const titlebar_name = "Update Lead";
   const titlebar_value1 = "active";
   const titlebar_value2 = "draft";
   const titlebar_value3 = "all";
@@ -97,20 +80,6 @@ export default function Leadupdate() {
   // const div_head17 = "Lead Owner*";
 
   useEffect(() => {
-    const url_campaign =
-      "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/getcampaign";
-    const data_campaign = {};
-    const header_campaign = {};
-    axios
-      .post(url_campaign, data_campaign, { headers: header_campaign })
-      .then((res) => {
-        console.log(res.data);
-        setArray_campaign(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     const url =
       "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/GetSingleLead";
 
@@ -122,9 +91,9 @@ export default function Leadupdate() {
       .post(url, data, { headers: headers })
       .then((res) => {
         const adata = res.data;
-        var d = adata[0].dateAddedOn;
-        var newdate = new window.Date(d).toISOString().split(".")[0];
-        setSalutation(adata[0].Salutation);
+        // var d = adata[0].dateAddedOn;
+        // var newdate = new window.Date(d).toISOString().split(".")[0];
+        setSalutation(adata[0].suffix);
         setFirstname(adata[0].FirstName);
         setMiddlename(adata[0].Middlename);
         setLastname(adata[0].LastName);
@@ -136,9 +105,8 @@ export default function Leadupdate() {
         setCity(adata[0].city);
         setState(adata[0].state);
         setPincode(adata[0].pincode);
-        setLeadOwner(adata[0].Owner);
-        setDateAddedOn(newdate.substring(0, 10));
-        setActiveStatus(adata[0].activestatus);
+        // setLeadOwner(adata[0].Owner);
+        // setDateAddedOn(newdate.substring(0, 10));
 
 
         console.log("adata==>" + JSON.stringify(adata));
@@ -147,23 +115,7 @@ export default function Leadupdate() {
         console.log(err);
       });
 
-    const url_leadcampaign =
-      "https://8mc8vdruyi.execute-api.us-east-1.amazonaws.com/dev/Leadcampaignlist";
-    const data_leadcampaign = {
-      leadid: update_lead_id,
-    };
-    const header_leadcampaign = {};
-    axios
-      .post(url_leadcampaign, data_leadcampaign, {
-        headers: header_leadcampaign,
-      })
-      .then((res) => {
-        console.log("leadcampaignlist==>" + JSON.stringify(res.data));
-        setArray_leadcampaignlist(res.data)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+   
   }, []);
 
   // "Salutation":"Mr","FirstName":"Madhav","Middlename":"Sai","LastName":"Akash","CompanyName":"Bizcloud","Email":"Madhav@biz.com",
@@ -326,7 +278,7 @@ export default function Leadupdate() {
         // createdOn: dateAddedOn,
         // createdBy: Number(leadOwner),
         id: update_lead_id,
-        Salutation: salutation,
+        txtSuffix: salutation,
         firstname: firstname,
         Middlename: middlename,
         lastname: lastname,
