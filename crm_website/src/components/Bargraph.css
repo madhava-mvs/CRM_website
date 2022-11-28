@@ -246,3 +246,11 @@
     right: 820px;
     top: 180px;
 }
+
+
+@media only screen and (max-width:1050px) {
+    .threedot_icon_div:hover .manager_bargraph_campaignwiseprospect_popup {
+        right: 300px;
+        top: 180px;
+    }
+}

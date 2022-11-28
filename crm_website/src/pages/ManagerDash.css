@@ -64,6 +64,7 @@
     width: 400px;
     height: 450px;
 }
+
 @media only screen and (max-width:1050px) {
     .ManagerDash_page_content_area_row1 {
         display: flex;
@@ -72,6 +73,7 @@
 
     .ManagerDash_page_content_area_bargraph {
         margin-left: -155px;
+        margin-bottom: -12px;
     }
 
     .ManagerDash_page_content_area_row2_bars {
@@ -83,7 +85,8 @@
     }
 
     .ManagerDash_page_content_area_row2_summary {
-        margin-left: -160px;
-       
+        margin-left: -50px;
+        width: 27%;
+        margin-top: 20px;
     }
 }
