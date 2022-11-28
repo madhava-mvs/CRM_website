@@ -65,7 +65,7 @@ export default function AddLead() {
   const [middledivshow, setMiddledivshow] = useState(false);
   const [array_campaign, setArray_campaign] = useState([]);
   const button_value = "Save lead";
-  const titlebar_name = "Lead List";
+  const titlebar_name = "Create Lead";
   const titlebar_value1 = "active";
   const titlebar_value2 = "draft";
   const titlebar_value3 = "all";
