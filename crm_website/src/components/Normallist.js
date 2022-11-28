@@ -5,7 +5,7 @@ export default function Normallist({ arrayData1, setArrayData1, handleclick1, No
         <>
             <div className="Normallist">
                 <div className="Normallist_row1">
-                    <label className="Normallist_row1_label">{Normallist_name}</label>
+                    <div className="Normallist_row1_label"><label className="Normallist_row1_label">{Normallist_name}</label></div>
                     <div className="Normallist_row1_button">
                         <button onClick={(e) => { handleclick1(e) }} ><b>ADD</b></button>
                     </div>

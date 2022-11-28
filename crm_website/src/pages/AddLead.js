@@ -78,7 +78,7 @@ export default function AddLead() {
   const div_head3 = "MiddleName";
   const div_head4 = "LastName*";
   const div_head5 = "campaign*";
-  const div_head6 = "Company*";
+  const div_head6 = "Company";
   const div_head7 = "Email*";
   const div_head8 = "Phone*";
   const div_head9 = "Mobile";
@@ -178,15 +178,15 @@ export default function AddLead() {
       setEstate("*state is mandatory");
       
     
-  } else if (company === "") {
-      setEsuffix("");
-      setEfirstname("");
-      setElastname("");
-      setEcampaignid("")
-      setEcompany("*company is mandatory");
-      setEemail("*email is mandatory");
-      setEphone("*phone is mandatory");
-      setEstate("*state is mandatory");
+  // } else if (company === "") {
+  //     setEsuffix("");
+  //     setEfirstname("");
+  //     setElastname("");
+  //     setEcampaignid("")
+  //     setEcompany("*company is mandatory");
+  //     setEemail("*email is mandatory");
+  //     setEphone("*phone is mandatory");
+  //     setEstate("*state is mandatory");
      
       // localStorage.setItem('ecompanyvar', errorcompany)
     } else if (email === "") {
