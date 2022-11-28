@@ -191,3 +191,9 @@
     display: block;
     right: 500px;
 }
+
+@media only screen and (max-width:1050px) {
+    .Horizontalbar_main_row1_icon:hover .leadsfunnel_popup {
+        right: 80px;
+    }
+}

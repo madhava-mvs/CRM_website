@@ -121,7 +121,9 @@
     }
 
     .Admin_page_contentpart_main_row2_innerrow1 {
-        /* display: none; */
+       width: 30%;
+       margin-left: -5px;
+       margin-top: 2px;
     }
 
     .Admin_page_contentpart_main_row2_innerrow2 {
@@ -132,6 +134,5 @@
     }
     .Admin_page_contentpart_leftbar{
         height: 180vh;
-
     }
 }
