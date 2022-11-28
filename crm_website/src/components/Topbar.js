@@ -24,6 +24,7 @@ export default function Topbar() {
     setShow2(!show2);
   };
   const logOut = (e) => {
+    window.location.reload();
     localStorage.clear();
     nav('/')
     // dispatch({ type: "setEmail", payload: '' });
