@@ -16,12 +16,13 @@
 
 .Admin_page_contentpart_leftbar {
     background-color: #f3f3f4;
-    height: 119vh;
+    height: 130vh;
 }
 
 .Admin_page_contentpart_main {
     /* background-color: blue; */
-    width: 65%;
+    /* width: 65%; */
+    width: 950px;
     display: flex;
     flex-direction: column;
     margin-left: 80px;
@@ -47,7 +48,8 @@
 
 .Admin_page_contentpart_main_row2 {
     /* background-color: red; */
-    width: 100%;
+    /* width: 100%; */
+    width: 980px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -61,7 +63,7 @@
     align-items: center;
     padding-right: 50px;
     margin-right: 20px;
-    margin-left: -60px;
+    margin-left: -70px;
     margin-top: -10px;
 }
 
@@ -71,17 +73,18 @@
     padding-bottom: 0;
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 10px;
-    margin-right: 95px;
+    margin-top: 15px;
+    margin-right: 70px;
+    /* width: 100%; */
 }
 
-.Admin_page_contentpart_main_row2_innerrow2_summary{
+.Admin_page_contentpart_main_row2_innerrow2_summary {
     /* background-color: yellow; */
     margin-bottom: 50px;
     margin-top: -20px;
 }
 
-.Admin_page_contentpart_main_row2_innerrow2_progress{
+.Admin_page_contentpart_main_row2_innerrow2_progress {
     /* background-color: violet; */
     margin-top: 55px;
 }
@@ -91,4 +94,44 @@
     /* margin-top: 25px; */
     margin-left: -70px;
     margin-top: 67px;
+    padding: 15px;
+}
+
+
+@media only screen and (max-width:1400px) {
+    .Admin_page_contentpart_list {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width:1050px) {
+    .Admin_page_contentpart_main_row1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Admin_page_contentpart_main_bargraph {
+        width: 100%;
+    }
+
+    .Admin_page_contentpart_main_horizontal {
+        width: 100%;
+        margin-left: 44px;
+    }
+
+    .Admin_page_contentpart_main_row2_innerrow1 {
+        /* display: none; */
+    }
+
+    .Admin_page_contentpart_main_row2_innerrow2 {
+        display: flex;
+        flex-direction: column;
+        margin-right: 200px;
+        margin-top: -600px;
+    }
+    .Admin_page_contentpart_leftbar{
+        height: 180vh;
+
+    }
 }
