@@ -19,9 +19,99 @@ export default function CampaignListPage() {
   const editshow = (true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const jobrole = useSelector((state) => state.jobrole);
+  const userid = useSelector((state) => state.userid);
   const handleclick_Addcampaign = () => {
     navigate("/AddCampaign")
   }
+
+
+
+
+
+
+
+  useEffect(() => {
+    //const url = "http://localhost:3000/dev/taskfetch";
+    const url =
+"https://0gyn2icy6e.execute-api.us-east-1.amazonaws.com/dev/newallcamp_admin";
+    const data = {};
+    const header = {};
+    axios
+      .post(url, data, { headers: header })
+      .then((res) => {
+        if (jobrole == "Admin") {
+          console.log("Response of admin   ==>" + JSON.stringify(res.data));
+       for (const temp of res.data) {
+          temp.isclicked = false;
+        }
+        console.log(res.data);
+        setArray(res.data);
+        setArray_mainlist_dplicate(res.data);
+        } else if (jobrole == "Manager") {
+          const url =
+     "https://0gyn2icy6e.execute-api.us-east-1.amazonaws.com/dev/newallcamp_manager";
+
+          const data = {
+            id: userid,
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+              console.log("Response   ==>" + JSON.stringify(res.data));
+       for (const temp of res.data) {
+          temp.isclicked = false;
+        }
+        console.log(res.data);
+        setArray(res.data);
+        setArray_mainlist_dplicate(res.data);
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            });
+        } else if (jobrole == "User") {
+          const url =
+            "https://0gyn2icy6e.execute-api.us-east-1.amazonaws.com/dev/newallcamp_users";
+
+          const data = {
+            id: userid,
+          };
+          const header = {};
+          axios
+            .post(url, data, { headers: header })
+            .then((res) => {
+              console.log("Response   ==>" + JSON.stringify(res.data));
+                   for (const temp of res.data) {
+          temp.isclicked = false;
+        }
+        console.log(res.data);
+        setArray(res.data);
+        setArray_mainlist_dplicate(res.data);
+            })
+            .catch((err) => {
+              console.log("Error==>" + err);
+            });
+        }
+      })
+      .catch((err) => {
+        console.log("Error==>" + err);
+      });
+
+    }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75,29 +165,29 @@ export default function CampaignListPage() {
 
   // const url = "https://7z5c6akbv9.execute-api.us-east-1.amazonaws.com/verifyotp-dev-GetSingleLead";
   useEffect(() => {
-    const url =
-      // "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Campaignlist";
-      "https://wi1qfr9f9f.execute-api.us-east-1.amazonaws.com/dev/getcampaignr"
-    // const url = "http://localhost:3000/dev/GetSingleCampaign";
-    const data = {};
-    const Headers = {};
+    // const url =
+    //   // "https://8mtnecluj6.execute-api.us-east-1.amazonaws.com/dev/Campaignlist";
+    //   "https://wi1qfr9f9f.execute-api.us-east-1.amazonaws.com/dev/getcampaignr"
+    // // const url = "http://localhost:3000/dev/GetSingleCampaign";
+    // const data = {};
+    // const Headers = {};
 
-    axios
-      .post(url, data, { Headers: Headers })
-      .then((res) => {
-        console.log("Response==>" + JSON.stringify(res.data));
-        for (const temp of res.data) {
-          temp.isclicked = false;
-        }
-        console.log(res.data);
-        setArray(res.data);
-        setArray_mainlist_dplicate(res.data);
+    // axios
+    //   .post(url, data, { Headers: Headers })
+    //   .then((res) => {
+    //     console.log("Response==>" + JSON.stringify(res.data));
+    //     for (const temp of res.data) {
+    //       temp.isclicked = false;
+    //     }
+    //     console.log(res.data);
+    //     setArray(res.data);
+    //     setArray_mainlist_dplicate(res.data);
 
-      })
+    //   })
 
-      .catch((err) => {
-        console.log("Error==>" + err);
-      });
+    //   .catch((err) => {
+    //     console.log("Error==>" + err);
+    //   });
       
       const url_search_campaign =
       "https://2rqq5exibb.execute-api.us-east-1.amazonaws.com/dev/campaignsearch";
