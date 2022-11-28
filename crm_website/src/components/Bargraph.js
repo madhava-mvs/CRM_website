@@ -1,42 +1,8 @@
 import "./Bargraph.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
-// import { Scrollbars } from 'react-custom-scrollbars';
-
-// export default function Bargraph({ blueh, greenh, orangeh, bluec, greenc, orangec }) {
-
-//     return <>
-//         <div className="bargraph">
-//             <div className="bargraph_title">
-//                 <div >
-//                     <label >Campaign wise Prospect Count </label>
-//                     <BsThreeDotsVertical className="icon" />
-//                 </div>
-//             </div>
-//             <div className="bargraph_graph">
-//                 <ul>
-//                     <li>
-//                         <label className="bargraph_blue_value">{blueh}</label>
-//                         <div className="bargraph_bluegraph" style={{ height: `${blueh}vh` }}></div>
-//                         <label className="bargraph_blue_name">{bluec}</label>
-//                     </li>
-//                     <li>
-//                         <label className="bargraph_green_value">{greenh}</label>
-//                         <div className="bargraph_greengraph" style={{ height: `${greenh}vh` }} ></div>
-//                         <label className="bargraph_green_name">{greenc}</label>
-//                     </li>
-//                     <li>
-//                         <label className="bargraph_orange_value">{orangeh}</label>
-//                         <div className="bargraph_orangegraph" style={{ height: `${orangeh}%` }}></div>
-//                         <label className="bargraph_orange_name">{orangec}</label>
-//                     </li>
-//                 </ul>
-//             </div>
-//         </div>
-//     </>
-// }
 
 
-export default function Bargraph({ bar, campaignstatus, bargraph_status, filtercount, count_value, campaignwiseprospect_popup_show, admincampaign }) {
+export default function Bargraph({ bar, campaignstatus, bargraph_status, filtercount, count_value, campaignwiseprospect_popup_show, admincampaign, conversiontypefilter, conv_type, campaignwisetitle }) {
 
 
     return <>
@@ -45,7 +11,7 @@ export default function Bargraph({ bar, campaignstatus, bargraph_status, filterc
                 <div >
                     <div className="bargraph_title_row">
                         <div className="bargraph_title_row_title">
-                            <label >Campaign wise Prospect Count </label>
+                            <label >{campaignwisetitle}</label>
                         </div>
                         <div className="threedot_icon_div">
                             <BsThreeDotsVertical className="bargraph_threedot_icon" />
@@ -65,12 +31,21 @@ export default function Bargraph({ bar, campaignstatus, bargraph_status, filterc
                                             <option value="1" onClick={filtercount}>1</option>
                                             <option value="2" onClick={filtercount}>2</option>
                                             <option value="3" onClick={filtercount}>3</option>
-                                            <option value="4" onClick={filtercount}>4</option>
-                                            <option value="5" onClick={filtercount}>5</option>
+                                            {/* <option value="4" onClick={filtercount}>4</option> */}
+                                            {/* <option value="5" onClick={filtercount}>5</option> */}
                                             {/* <option value="">--6-</option> */}
                                         </select>
                                     </div>
-                                </div>) : (<></>)
+                                </div>) : (<div className="manager_bargraph_campaignwiseprospect_popup">
+                                    <div className="manager_bargraph_campaignwiseprospect_popup_content">
+                                        <label>Status</label>
+                                        <select className="campaign_rectangle_select" value={conv_type} onChange={(e) => conversiontypefilter(e)} >
+                                            <option value="empty">Select</option>
+                                            <option value="New" onClick={conversiontypefilter}>New</option>
+                                            <option value="Nurturing" onClick={conversiontypefilter}>Nurturing</option>
+                                        </select>
+                                    </div>
+                                </div>)
                             }
                         </div>
                     </div>

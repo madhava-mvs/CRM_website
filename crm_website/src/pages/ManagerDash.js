@@ -24,12 +24,16 @@ export default function ManagerDash() {
     const [leads, setLeads] = useState([]);
     const [pros, setPros] = useState([]);
 
+    const [campaignwisetitle, setCampaignwisetitle] = useState("");
     const [bar, setBar] = useState([]);
+    const [bar2, setBar2] = useState([]);
 
     const title = ("SalesPerson Wise Prospect Count");
     const summary_show = (false);
     const [array1, setArray1] = useState([]);
     const userid = useSelector((state) => state.userid);
+
+    const [conv_type, setConv_type] = useState("");
 
 
     const leadsfunnel_popup_show = (false);
@@ -97,12 +101,53 @@ export default function ManagerDash() {
         axios.post(url5, data, { headers: header })
             .then((res) => {
                 console.log("ManagerDash CampaignwiseProspectcount Response => " + JSON.stringify(res.data))
+                setCampaignwisetitle("Campaign wise Prospect Count");
                 setBar(res.data)
+                setBar2(res.data)
             })
             .catch((err) => {
                 console.log("ManagerDash CampaignwiseProspectcount Error => " + err)
             })
     }, [])
+
+    const conversiontypefilter = (e) => {
+        console.log("Bargraph default: " + e.target.value)
+        setConv_type(e.target.value)
+        console.log("bargraph filter:" + conv_type)
+        if (e.target.value === "empty") {
+            setCampaignwisetitle("Campaign wise Prospect Count");
+            setBar(bar2)
+        }
+        else if (e.target.value === "New") {
+            const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcountnew";
+            const data = { value: e.target.value, userid: userid };
+            const header = {}
+            axios.post(url, data, { headers: header })
+                .then((res) => {
+                    console.log("Response new val ==> " + JSON.stringify(res.data))
+                    setCampaignwisetitle("Campaign wise New Count");
+                    setBar(res.data)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+        else {
+            const url = "https://mkv78ikntk.execute-api.us-east-1.amazonaws.com/dev/ManagerDashcampaignwiseprospectcountnurturing";
+            const data = { value: e.target.value, userid: userid };
+            const header = {}
+            axios.post(url, data, { headers: header })
+                .then((res) => {
+                    console.log("Response new val ==> " + JSON.stringify(res.data))
+                    setCampaignwisetitle("Campaign wise Nurturing Count");
+                    setBar(res.data)
+                })
+                .catch((err) => {
+                    console.log("Error => " + err)
+                })
+        }
+    }
+
 
     return <>
         <div className="ManagerDash_page">
@@ -115,7 +160,9 @@ export default function ManagerDash() {
                 </div>
                 <div className="ManagerDash_page_content_area">
                     <div className="ManagerDash_page_content_area_row1">
-                        <Bargraph bar={bar} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} />
+                        <div className="ManagerDash_page_content_area_bargraph">
+                            <Bargraph campaignwisetitle={campaignwisetitle} bar={bar} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} conversiontypefilter={conversiontypefilter} conv_type={conv_type} setConv_type={setConv_type} />
+                        </div>
                         <div className="ManagerDash_page_content_area_horizontal">
                             <Horizontalbar orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} show2={show} leadsfunnel_popup_show={leadsfunnel_popup_show} />
                         </div>
