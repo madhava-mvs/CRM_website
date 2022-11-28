@@ -382,7 +382,7 @@ export default function Form({
           <div className="form_inner31">
             <label>{div_head5}</label>
             <br />
-            {div_head5 == "campaign*" ? (
+            {div_head5 == "campaign" ? (
           
           <>
             
@@ -403,11 +403,11 @@ export default function Form({
             })}
           </select>
           <br />
-          {div_value5 == "" ? (
+          {/* {div_value5 == "" ? (
             <span className="warning_error">{ediv_value11}</span>
           ) : (
             <></>
-          )}
+          )} */}
         </>
             ) : (
               <>
