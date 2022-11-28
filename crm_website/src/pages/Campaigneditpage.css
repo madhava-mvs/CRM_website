@@ -66,17 +66,19 @@ body {
 
 .Campaigneditpage_topbar2_right_2_left {
     padding-right: 10px;
-    margin-left: 20px;
+    margin-left: 46px;
+    width: 75vh;
+    margin-top: 20px;
     
 }
 
 .Campaigneditpage_topbar2_right_2_right {
-    width: 30%;
-    margin-left: 135px;
+    width: 28%;
+    margin-left: 169px;
     /* min-width: 20%; */
     justify-content: center;
     padding-bottom: 50px;
-    margin-top: 60px;
+    margin-top: -5px;
     /* height: 40vh; */
 }
 
@@ -84,9 +86,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 42%;
+    width: 75vh;
     padding-right: 10px;
-    margin-left: 20px;
+    margin-left: 46px;
 
     ;
 }

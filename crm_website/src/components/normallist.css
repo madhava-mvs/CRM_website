@@ -1,21 +1,22 @@
 .Normallist {
-    width: 103%;
+    width: 97%;
     /* max-width: 85vh;
     min-width: 85vh; */
-    height: 60vh;
+    height: 45vh;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 78px;
+    box-shadow: 0px 0px 0px 2px rgb(231, 229, 229);
     /* justify-content: center; */
     /* align-items: center; */
 }
 
 .Normallist_row1 {
-    height: 15vh;
+    height: 13vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -37,7 +38,7 @@
     background-color: blueviolet;
     justify-content: center;
     align-items: center;
-    margin-left: 65%;
+    margin-left: 60%;
     margin-top: 50px;
 
 }
@@ -69,7 +70,7 @@
 
 .Normallist_row1_label {
 
-    margin-left: 30px;
+    margin-left: 10px;
     padding-top: 65px;
     font-size: large;
     color: rgb(93, 92, 92);
@@ -116,6 +117,8 @@
 
 .maptable {
     min-height: 1px;
+    overflow-y: scroll;
+    height: 40%;
 }
 
 /* .Normallist_row1_button button :hover {
@@ -130,20 +133,20 @@
 }
 
 .label_lastname {
-    margin-left: -4px;
+    margin-left: -15px;
     margin-top: 25px;
 
 }
 
 .label_status {
-    width: 20px;
+    width: 25px;
     margin-left: -79px;
     margin-top: 25px;
 }
 
 .label_Year {
-    width: 176px;
-    margin-left: 0px;
+    width: 160px;
+    margin-left: 3px;
     margin-top: 25px;
 
 }
