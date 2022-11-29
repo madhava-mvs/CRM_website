@@ -223,19 +223,39 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                         <div className="sales_Inner_row2_row1">
                             < AiOutlineDown onClick={(e) => handleTodo(e, item)} />
                             <label>{item.txtTitle}</label>
+                            <div className="detail_box_row2"  >
+
+                                <input className="detail_box_row2" value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)} >
+
+                                </input>
+                                {/* <input value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)}>
+                        <option value="">null</option>
+                        <option value="1">Call</option>
+                        <option value="2">Email</option>
+                        <option value="3">SMS</option>
+
+
+                      </select> */}
+                            </div>
                             <div className="Deletepop">
-                                < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
-                                {
-                                    show2 ? (
-                                        <>
-                                            <div className="pop">
-                                                <Pop />
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <></>
-                                    )
-                                }
+
+                                <div className="dropdown">
+                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
+
+                                    <div
+                                        className="dropdown_content"
+                                    >
+                                        <div className="dropdown_content_inside">
+                                            <label
+                                                className="topbarlogout"
+
+                                            >
+                                                Delete
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         {item.isclicked ? (<>
@@ -311,21 +331,32 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     < AiOutlineDown onClick={(e) => { handleInProgress(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { inprogressdropDown(inprogressArray, itm2) }} /> */}
                                     <label>{item.txtTitle}</label>
-                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick2} />
-                                    {
-                                        show3 ? (
-                                            <>
-                                                <div className="pop">
-                                                    <Pop />
+                                    <input className="detail_box_row2" value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)} >
+
+                                    </input>
+                                    <div className="Deletepop">
+
+                                        <div className="dropdown">
+                                            < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
+
+                                            <div
+                                                className="dropdown_content"
+                                            >
+                                                <div className="dropdown_content_inside">
+                                                    <label
+                                                        className="topbarlogout"
+
+                                                    >
+                                                        Delete
+                                                    </label>
                                                 </div>
-                                            </>
-                                        ) : (
-                                            <></>
-                                        )
-                                    }
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 {item.isclicked ? (<>
-                                    <Task item={item} Status_of_lead_onchange={Status_of_lead_onchange} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead}  comments_value={comments_value} setComments_value={setComments_value} />
+                                    <Task item={item} Status_of_lead_onchange={Status_of_lead_onchange} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead} comments_value={comments_value} setComments_value={setComments_value} />
                                     {/* <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>
@@ -390,21 +421,32 @@ export default function SalesDash({ todo, inprogress, completed, setTodo, setInP
                                     < AiOutlineDown onClick={(e) => { handleCompleted(e, item) }} />
                                     {/* < AiOutlineDown onClick={(e) => { completeddropDown(completedArray, itm3) }} /> */}
                                     <label>{item.txtTitle}</label>
-                                    < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick3} />
-                                    {
-                                        show4 ? (
-                                            <>
-                                                <div className="pop">
-                                                    <Pop />
+                                    <input className="detail_box_row2" value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)} >
+
+                                    </input>
+                                    <div className="Deletepop">
+
+                                        <div className="dropdown">
+                                            < BsThreeDotsVertical className="sales_threedotsicon" onClick={handleclick1} />
+
+                                            <div
+                                                className="dropdown_content"
+                                            >
+                                                <div className="dropdown_content_inside">
+                                                    <label
+                                                        className="topbarlogout"
+
+                                                    >
+                                                        Delete
+                                                    </label>
                                                 </div>
-                                            </>
-                                        ) : (
-                                            <></>
-                                        )
-                                    }
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 {item.isclicked ? (<>
-                                    <Task item={item} Status_of_lead_onchange={Status_of_lead_onchange} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead}  comments_value={comments_value} setComments_value={setComments_value} />
+                                    <Task item={item} Status_of_lead_onchange={Status_of_lead_onchange} status_of_lead={status_of_lead} setStatus_of_lead={setStatus_of_lead} activity_of_lead={activity_of_lead} setActivity_of_lead={setActivity_of_lead} comments_value={comments_value} setComments_value={setComments_value} />
                                     {/* <div className="Event_Task_Lead_top">
                                         <div className="Event_Task_Lead">
                                             <ul>

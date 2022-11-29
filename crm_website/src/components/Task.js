@@ -10,7 +10,16 @@ import "./Task.css";
 export default function Task({ item, status_of_lead, setStatus_of_lead, setActivity_of_lead,activity_of_lead, Status_of_lead_onchange,comments_value,setComments_value }) {
   useEffect(()=>{
     setStatus_of_lead(item.conversionid)
-setActivity_of_lead(item.activitytypeid)
+    // setActivity_of_lead(item.activitytypeid)
+    if(item.activitytypeid ===1){
+setActivity_of_lead("Call")
+    }
+   else if (item.activitytypeid ===2){
+     setActivity_of_lead("Email")
+   }    else if (item.activitytypeid ===3){
+      setActivity_of_lead("SMS")
+    }
+
 setComments_value(item.Comments)
   },[])
   const [show1, setShow1] = useState("")
@@ -49,10 +58,13 @@ setComments_value(item.Comments)
                     <Pop1 leadname={leadname} txtActivitytype={txtActivitytype}conversionid={conversionid}Progresstypeid={Progresstypeid}owner={owner}phone={phone}email={email}Address={Address}CreatedOn={CreatedOn}/>
                   </div> */}
                   <div className="detail_box_outer">
+                  <div className="leadname">
+                        <label>Name</label></div>
                     <div className="detail_box_row1">
+                      
                       <label>{item.leadname}</label>
                     </div>
-                    <div className="detail_box_row2"  >
+                    {/* <div className="detail_box_row2"  >
                      
                       <select value={activity_of_lead} onChange={(e) => setActivity_of_lead(e.target.value)}>
                         <option value="">null</option>
@@ -62,16 +74,25 @@ setComments_value(item.Comments)
 
 
                       </select>
-                    </div>
+                    </div> */}
+                       <div className="leadname">
+                        <label>Phone</label></div>
                     <div className="detail_box_row3">
+                 
                       <label>{item.phone}</label>
                     </div>
+                    <div className="leadname">
+                        <label>Email</label></div>
                     <div className="detail_box_row4">
                       <label>{item.email}</label>
                     </div>
+                    <div className="leadname">
+                        <label>Address</label></div>
                     <div className="detail_box_row5">
                       <label>{item.Address}</label>
                     </div>
+                    <div className="leadname">
+                        <label>Created On</label></div>
                     <div className="detail_box_row6">
                       <label>{item.CreatedOn}</label>
                     </div>

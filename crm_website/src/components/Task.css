@@ -97,7 +97,7 @@
 
     position: absolute;
     background-color: rgb(237, 230, 230);
-    height: 32vh;
+    height: 40vh;
     min-height: 28vh;
     min-width: 10vw;
     display: flex;
@@ -113,7 +113,7 @@
     margin: 6px;
     padding-left: 15px;
     background-color: white;
-     width: 150px;
+     width: 200px;
     height: 30px;
     border: 1px lightcyan;
     box-shadow: 0px 2px 0px 0px #dfdcdcc6;
@@ -128,13 +128,15 @@
 .detail_box_row5 label ,
 .detail_box_row6 label{
     padding-bottom: -8px;
-    margin: 4px;
+    margin-left: 48px;
+    margin-right: 12px;
+    margin-top: 7px;
     justify-content: center;
     align-items: center;
     display: flex
 }
 
-.detail_box_row2{
+/* .detail_box_row2{
     margin-left: 5px; 
     background-color: white;
      width: 165px;
@@ -158,8 +160,11 @@
         color: #757575;
         padding-left: 50px;
         padding-top: 4px;
+} */
+.leadname label{
+    margin-bottom: -10px;
+    font-size: smaller;
 }
-
 .owner{
     margin-left: -45px;
 }
