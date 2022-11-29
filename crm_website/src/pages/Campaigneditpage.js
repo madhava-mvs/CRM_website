@@ -50,10 +50,10 @@ export default function Campaigneditpage() {
     const [leadsfunnel_popup_show, setleadsfunnel_popup_show] = useState(false)
 
     const div_head1 = "Name";
-    const div_head2 = "Parent Campaign";
+    const div_head2 = "ParentCampaign";
     const div_head3 = "Status";
-    const div_head4 = "Start Date";
-    const div_head5 = "End Date";
+    const div_head4 = "StartDate";
+    const div_head5 = "EndDate";
     const div_head6 = "Owner";
     const Normallist_name = "Leads";
     const Hello = "SalesPerson";

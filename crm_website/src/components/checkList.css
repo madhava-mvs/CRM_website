@@ -36,6 +36,9 @@
     font-family: Arial, Helvetica, sans-serif;
 
 }
+.checkList_inner12 :hover{
+    background-color: #7654b4;
+}
 .checkList_inner2{
     padding: 15px 42px;
     display: flex;
@@ -61,6 +64,12 @@
     font-family: Arial, Helvetica, sans-serif;
 
 }
+/* .checkList_inner12 label :hover{
+    background-color: #7654b4;
+}
+.checkList_inner12 :hover{
+    background-color: #7654b4;
+} */
 .checkList_outer_inner2::-webkit-scrollbar {
     background-color: #d7dce4;
     border-radius: 10px;

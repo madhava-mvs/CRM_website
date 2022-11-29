@@ -7,7 +7,7 @@ export default function Normallist({ arrayData1, setArrayData1, handleclick1, No
                 <div className="Normallist_row1">
                     <div className="Normallist_row1_label"><label className="Normallist_row1_label">{Normallist_name}</label></div>
                     <div className="Normallist_row1_button">
-                        <button onClick={(e) => { handleclick1(e) }} ><b>ADD</b></button>
+                        <label onClick={(e) => { handleclick1(e) }} ><b>ADD</b></label>
                     </div>
                 </div>
                 <div className="Normallist_row2"></div>
@@ -17,7 +17,7 @@ export default function Normallist({ arrayData1, setArrayData1, handleclick1, No
                     <label className="Normallist_row3_label3">Status</label>
                     <label className="Normallist_row3_label4">Last Updated On</label>
                 </div>
-                <div className="Normallist_row4"></div>
+                {/* <div className="Normallist_row4"></div> */}
                 <div className="maptable">
                     {arrayData1.map((item1, index) => {
                         return <Table item1={item1} arrayData1={arrayData1} setArrayData1={setArrayData1} date1show={date1show} date2show={date2show} />
