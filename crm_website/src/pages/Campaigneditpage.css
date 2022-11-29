@@ -69,7 +69,7 @@ body {
     margin-left: 46px;
     width: 75vh;
     margin-top: 20px;
-    
+
 }
 
 .Campaigneditpage_topbar2_right_2_right {
@@ -105,7 +105,7 @@ body {
 
 .Campaigneditpage_topbar2_right_1_11 {
     margin: 0px;
-    width: 75%;
+    width: 77%;
     /* margin-left: 50px; */
     height: 40px;
     margin-left: 100px;
@@ -153,13 +153,15 @@ body {
     margin-top: -1040px;
     margin-left: -150px;
 }
-.Campaigneditpage_Checklist_popup_sales{
+
+.Campaigneditpage_Checklist_popup_sales {
     box-shadow: 1px 1px 1px 2px #edebeb;
     position: absolute;
     margin-top: 10px;
     margin-left: 187px;
     border-radius: 20px;
 }
+
 /* .Campaigneditpage_Checklist_popup_blur1{
     display: flex;
     flex-direction: row;
@@ -176,12 +178,118 @@ body {
     padding-left: 100px;
     color: green;
 }
- .Campaigneditpage_Checklist_popup1{
-     border: 1px solid grey;
-     box-shadow: 1px 1px 1px 2px #edebeb;
-     position: absolute;
-     margin-top: -386px;
-     margin-left: 187px;
-     border-radius: 20px;
 
-} 
+.Campaigneditpage_Checklist_popup1 {
+    border: 1px solid grey;
+    box-shadow: 1px 1px 1px 2px #edebeb;
+    position: absolute;
+    margin-top: -386px;
+    margin-left: 187px;
+    border-radius: 20px;
+
+}
+/* 
+@media only screen and (max-width: 1500px) {
+    .body{
+        display: none;
+    }
+}
+
+; */
+
+@media only screen and (max-width: 1335px) {
+    .Campaigneditpage_topbar2_right_2{
+        display: flex;
+        flex-direction: column;
+        /* background-color: black */
+    }
+   
+    .Campaigneditpage_topbar2_left{
+        height: 208vh
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .Campaigneditpage_topbar2_right{
+        margin-left: -10px;
+    }
+    .Campaigneditpage_topbar2_right_1_11{
+        margin-left: 50px
+    }
+    .Campaigneditpage_topbar2_right_1_2{
+        margin-left: 50px
+    }
+    /* .Campaigneditpage_topbar2_right_3{
+        margin-left: 10px
+    } */
+    .Campaigneditpage_topbar2_right_2_left{
+        margin-left: -38px;
+    }
+    .Campaigneditpage_topbar2_right_2_right{
+        margin-left: 51px;
+
+    }
+    .Campaigneditpage_topbar2_right_3_left{
+        margin-left: -38px
+    }
+    
+}
+@media only screen and (max-width: 675px) {
+    .Campaigneditpage_topbar2_right{
+        margin-left: -10px;
+    }
+    .Campaigneditpage_topbar2_right_1_11{
+        margin-left: 0px
+    }
+    .Campaigneditpage_topbar2_right_1_2{
+        margin-left: 0px
+    }
+    /* .Campaigneditpage_topbar2_right_3{
+        margin-left: 10px
+    } */
+    .Campaigneditpage_topbar2_right_2_left{
+        margin-left: -86px;
+        width: 67vh;
+    }
+    .Campaigneditpage_topbar2_right_2_right{
+        margin-left: -6px;
+
+    }
+    .Campaigneditpage_topbar2_right_3_left{
+        margin-left: -86px;
+        width: 67vh;
+    }
+    .Campaigneditpage_topbar2_right_2{
+        margin-top: 10px;
+    }
+    
+}
+@media only screen and (max-width: 550px) {
+    /* .Campaigneditpage_topbar2_right{
+        margin-left: -10px;
+    }
+    .Campaigneditpage_topbar2_right_1_11{
+        margin-left: 0px
+    }
+    .Campaigneditpage_topbar2_right_1_2{
+        margin-left: 0px
+    }
+    /* .Campaigneditpage_topbar2_right_3{
+        margin-left: 10px
+    } */
+    /* .Campaigneditpage_topbar2_right_2_left{
+        margin-left: -86px;
+        width: 67vh;
+    }
+    .Campaigneditpage_topbar2_right_2_right{
+        margin-left: -6px;
+
+    }
+    .Campaigneditpage_topbar2_right_3_left{
+        margin-left: -86px;
+        width: 67vh;
+    }
+    .Campaigneditpage_topbar2_right_2{
+        margin-top: 10px;
+    } */ 
+    
+}
