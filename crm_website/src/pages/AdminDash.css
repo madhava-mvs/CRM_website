@@ -16,7 +16,12 @@
 
 .Admin_page_contentpart_leftbar {
     background-color: #f3f3f4;
-    height: 130vh;
+    height: 136vh;
+}
+
+.Admin_page_contentpart_main2 {
+    display: flex;
+    flex-direction: row;
 }
 
 .Admin_page_contentpart_main {
@@ -97,15 +102,25 @@
     padding: 15px;
 }
 
-
-@media only screen and (max-width:1400px) {
+@media only screen and (max-width:1380px) {
     .Admin_page_contentpart_list {
         display: none;
     }
-
 }
 
 @media only screen and (max-width:1050px) {
+
+    .Admin_page_contentpart_main2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Admin_page_contentpart_list {
+        display: block;
+        margin-left: 500px;
+        margin-top: -730px;
+    }
+
     .Admin_page_contentpart_main_row1 {
         display: flex;
         flex-direction: column;
@@ -113,26 +128,55 @@
 
     .Admin_page_contentpart_main_bargraph {
         width: 100%;
+        margin-left: -80px;
     }
 
     .Admin_page_contentpart_main_horizontal {
         width: 100%;
-        margin-left: 44px;
+        margin-left: -33px;
     }
 
     .Admin_page_contentpart_main_row2_innerrow1 {
-       width: 30%;
-       margin-left: -5px;
-       margin-top: 2px;
+        width: 30%;
+        margin-left: -85px;
+        /* margin-top: 72px; */
     }
 
     .Admin_page_contentpart_main_row2_innerrow2 {
         display: flex;
         flex-direction: column;
-        margin-right: 200px;
-        margin-top: -600px;
+        margin-right: 260px;
+        margin-top: -710px;
     }
-    .Admin_page_contentpart_leftbar{
-        height: 180vh;
+
+    .Admin_page_contentpart_main_row2_innerrow2_summary {
+        margin-bottom: -10px;
+    }
+
+
+    .Admin_page_contentpart_main_row2_innerrow2_summary {
+        margin-top: 30px;
+    }
+
+    .Admin_page_contentpart_leftbar {
+        height: 179vh;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .Admin_page_contentpart_main2 {
+        display: flex;
+        flex-direction: row;
+        height: 1300px;
+    }
+
+    .Admin_page_contentpart_list {
+        display: block;
+        margin-left: -950px;
+        margin-top: 1300px;
+    }
+
+    .Admin_page_contentpart_leftbar {
+        height: 279vh;
     }
 }
