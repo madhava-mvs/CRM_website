@@ -107,3 +107,37 @@
     color: rgb(113, 183, 183);
     font-weight: 100;
 }
+
+@media only screen and (max-width:1050px) {
+    .titlebar_top{
+        width: 700px;
+    }
+    .titlebar_top_col1{
+        width: 125px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .titlebar_top{
+        margin-left: 65px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .titlebar_top{
+        margin-left: 95px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .titlebar_top{
+        margin-left: 155px;
+        width: 300px;
+    }
+    .titlebar_top_col1{
+        width: 125px;
+    }
+}
+
