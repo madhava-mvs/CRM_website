@@ -295,32 +295,34 @@ export default function AdminDash() {
                 <div className='Admin_page_contentpart_leftbar'>
                     <LeftBar />
                 </div>
-                <div className='Admin_page_contentpart_main'>
-                    <div className='Admin_page_contentpart_main_row1'>
-                        <div className="Admin_page_contentpart_main_bargraph">
-                            <Bargraph campaignwisetitle={campaignwisetitle} bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} />
-                        </div>
-                        <div className="Admin_page_contentpart_main_horizontal">
-                            <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} campaign_array={campaign_array} manager_array={manager_array} managerclick={managerclick} manager_filter={manager_filter} setManager_Array={setManager_Array} campaignclick={campaignclick} campid={campid} setCampid={setCampid} />
-                        </div>
-                    </div>
-                    <div className='Admin_page_contentpart_main_row2'>
-                        <div className="Admin_page_contentpart_main_row2_innerrow1">
-                            <Summary array1={array1} title={title} summary_show={summary_show} />
-                            {/* <Summary title={title} user1={genman} user2={areaman} user3={assisman} user4={salesman} name1={Man1} name2={Man2} name3={Man3} name4={Man4} /> */}
-                        </div>
-                        <div className="Admin_page_contentpart_main_row2_innerrow2">
-                            <div className="Admin_page_contentpart_main_row2_innerrow2_summary">
-                                <SummaryCount pcount={pcount} />
+                <div className='Admin_page_contentpart_main2'>
+                    <div className='Admin_page_contentpart_main'>
+                        <div className='Admin_page_contentpart_main_row1'>
+                            <div className="Admin_page_contentpart_main_bargraph">
+                                <Bargraph campaignwisetitle={campaignwisetitle} bar={bar} campaignstatus={campaignstatus} bargraph_status={bargraph_status} setBargraph_status={setBargraph_status} filtercount={filtercount} count_value={count_value} setCountvalue={setCountvalue} campaignwiseprospect_popup_show={campaignwiseprospect_popup_show} admincampaign={admincampaign} />
                             </div>
-                            <div className="Admin_page_contentpart_main_row2_innerrow2_progress">
-                                <Progressbar leadsc={leads} prosc={pros} />
+                            <div className="Admin_page_contentpart_main_horizontal">
+                                <Horizontalbar show={show} orangebar={orangebar} greenbar={greenbar} bluebar={bluebar} leadsfunnel_popup_show={leadsfunnel_popup_show} campaign_array={campaign_array} manager_array={manager_array} managerclick={managerclick} manager_filter={manager_filter} setManager_Array={setManager_Array} campaignclick={campaignclick} campid={campid} setCampid={setCampid} />
                             </div>
                         </div>
+                        <div className='Admin_page_contentpart_main_row2'>
+                            <div className="Admin_page_contentpart_main_row2_innerrow1">
+                                <Summary array1={array1} title={title} summary_show={summary_show} />
+                                {/* <Summary title={title} user1={genman} user2={areaman} user3={assisman} user4={salesman} name1={Man1} name2={Man2} name3={Man3} name4={Man4} /> */}
+                            </div>
+                            <div className="Admin_page_contentpart_main_row2_innerrow2">
+                                <div className="Admin_page_contentpart_main_row2_innerrow2_summary">
+                                    <SummaryCount pcount={pcount} />
+                                </div>
+                                <div className="Admin_page_contentpart_main_row2_innerrow2_progress">
+                                    <Progressbar leadsc={leads} prosc={pros} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className='Admin_page_contentpart_list'>
-                    <List user={user} pending_show={pending_show} setPending_show={setPending_show} setApproval_mail={setApproval_mail} />
+                    <div className='Admin_page_contentpart_list'>
+                        <List user={user} pending_show={pending_show} setPending_show={setPending_show} setApproval_mail={setApproval_mail} />
+                    </div>
                 </div>
             </div>
         </div >
